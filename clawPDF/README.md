@@ -35,12 +35,12 @@ Yet another PDF Printer? Yes! This PDF Printer has the intention to be completel
 
 # Screenshot
 
-![clawpdf1](clawpdf/docs/images/clawpdf1.png?raw=true "clawpdf1")
-![clawpdf2](clawpdf/docs/images/clawpdf2.png?raw=true "clawpdf2")
-![clawpdf3](clawpdf/docs/images/clawpdf3.png?raw=true "clawpdf3")
-![clawpdf4](clawpdf/docs/images/clawpdf4.png?raw=true "clawpdf4")
-![clawpdf5](clawpdf/docs/images/clawpdf5.png?raw=true "clawpdf5")
-![clawpdf6](clawpdf/docs/images/clawpdf6.png?raw=true "clawpdf6")
+![clawpdf1](clawPDF/docs/images/clawpdf1.png?raw=true "clawpdf1")
+![clawpdf2](clawPDF/docs/images/clawpdf2.png?raw=true "clawpdf2")
+![clawpdf3](clawPDF/docs/images/clawpdf3.png?raw=true "clawpdf3")
+![clawpdf4](clawPDF/docs/images/clawpdf4.png?raw=true "clawpdf4")
+![clawpdf5](clawPDF/docs/images/clawpdf5.png?raw=true "clawpdf5")
+![clawpdf6](clawPDF/docs/images/clawpdf6.png?raw=true "clawpdf6")
 
 
 # Roadmap
