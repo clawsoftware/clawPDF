@@ -5,7 +5,9 @@ Yet another PDF Printer? Yes! This PDF Printer has the intention to be completel
 
 # Tested under
 
-Windows 10 x64
+- Windows 10 x64
+- Windows 8 x32/x64
+- Windows 7 x32/x64
 
 
 # Changelog
@@ -18,6 +20,7 @@ Windows 10 x64
 # Features
 
 - print to PDF, PDF/A, PDF/X, PNG, JPEG, TIF and text
+- 24 languages
 - many settings
 - easy to use
 - easy to deploy (MSI-Installer)
@@ -32,7 +35,12 @@ Windows 10 x64
 
 # Screenshot
 
-![1](docs/images/1.png?raw=true "1")
+![clawpdf1](docs/images/clawpdf1.png?raw=true "clawpdf1")
+![clawpdf2](docs/images/clawpdf2.png?raw=true "clawpdf2")
+![clawpdf3](docs/images/clawpdf3.png?raw=true "clawpdf3")
+![clawpdf4](docs/images/clawpdf4.png?raw=true "clawpdf4")
+![clawpdf5](docs/images/clawpdf5.png?raw=true "clawpdf5")
+![clawpdf6](docs/images/clawpdf6.png?raw=true "clawpdf6")
 
 
 # Roadmap
