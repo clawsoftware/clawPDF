@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="clawSoft.clawPDF.Views.UserControls.PrinterTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:userControls="clr-namespace:clawSoft.clawPDF.ViewModels.UserControls"
+             xmlns:wrapper="clr-namespace:clawSoft.clawPDF.Shared.ViewModels.Wrapper;assembly=clawPDF.Shared"
+             mc:Ignorable="d"
+             d:DesignHeight="400"
+             d:DesignWidth="500"
+             x:Name="This"
+             x:ClassModifier="internal">
+    <UserControl.DataContext>
+        <userControls:PrinterTabViewModel />
+    </UserControl.DataContext>
+    <StackPanel>
+        <HeaderedContentControl Name="ManagePrintersControl" Template="{StaticResource HeaderPanelTemplate}"
+                                Header="Manage Printers">
+            <StackPanel Margin="0 5 0 0">
+                <DataGrid
+                    Name="PrinterList"
+                    ItemsSource="{Binding PrinterMappings}"
+                    IsSynchronizedWithCurrentItem="True"
+                    Height="150"
+                    CanUserAddRows="False"
+                    CanUserDeleteRows="False"
+                    AutoGenerateColumns="False"
+                    AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="PrinterColumn" Header="Printer" Width="*" IsReadOnly="True"
+                                            Binding="{Binding PrinterName}" />
+                        <DataGridCheckBoxColumn x:Name="PrimaryColumn" Header="Primary"
+                                                Binding="{Binding IsPrimaryPrinter, Mode=OneWay}" />
+                        <wrapper:DataGridComboBoxColumnWithBindingHack x:Name="ProfileColumn" Header="Profile"
+                                                                       Width="*"
+                                                                       ItemsSource="{Binding RelativeSource={RelativeSource Findancestor, AncestorType={x:Type UserControl}}, Path=DataContext.PrinterMappingProfiles}"
+                                                                       DisplayMemberPath="Name"
+                                                                       SelectedItemBinding="{Binding Profile}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <UniformGrid Columns="3" MinHeight="40" Margin="0 5 0 0">
+                    <UniformGrid.Resources>
+                        <Style x:Key="UacStyle" TargetType="ContentControl">
+                            <Style.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Opacity" Value="0.4" />
+                                </Trigger>
+                            </Style.Triggers>
+                            <Setter Property="Width" Value="16" />
+                            <Setter Property="Margin" Value="5 0" />
+                        </Style>
+                        <Style x:Key="UacText" TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                            <Setter Property="MaxWidth" Value="100" />
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </UniformGrid.Resources>
+                    <Button Command="{Binding AddPrinterCommand}" Margin="0 0 5 0">
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl Visibility="{Binding ElementName=This,Path=RequiresUacVisibility}"
+                                            Style="{StaticResource UacStyle}" Focusable="False">
+                                <StaticResource ResourceKey="UacShield" />
+                            </ContentControl>
+                            <TextBlock VerticalAlignment="Center" Name="AddPrinterButton"
+                                       Style="{StaticResource UacText}">
+                                Add Printer
+                            </TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding DeletePrinterCommand}"
+                            CommandParameter="{Binding ElementName=PrinterList, Path=SelectedItem.PrinterName}"
+                            Margin="5 0 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl Visibility="{Binding ElementName=This,Path=RequiresUacVisibility}"
+                                            Style="{StaticResource UacStyle}" Focusable="False">
+                                <StaticResource ResourceKey="UacShield" />
+                            </ContentControl>
+                            <TextBlock VerticalAlignment="Center" Name="DeletePrinterButton"
+                                       Style="{StaticResource UacText}">
+                                Delete Printer
+                            </TextBlock>
+                        </StackPanel>
+                    </Button>
+                </UniformGrid>
+            </StackPanel>
+        </HeaderedContentControl>
+        <HeaderedContentControl Name="PrimaryPrinterControl" Margin="0 10 0 0"
+                                Template="{StaticResource HeaderPanelTemplate}" Header="Set Primary Printer">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ComboBox Margin="0 5" Name="PrimaryPrinterBox" SelectedValue="{Binding PrimaryPrinter, Mode=TwoWay}"
+                          ItemsSource="{Binding ClawPdfPrinters}"
+                          SelectionChanged="PrimaryPrinterBox_OnSelectionChanged" />
+            </Grid>
+
+        </HeaderedContentControl>
+    </StackPanel>
+</UserControl>

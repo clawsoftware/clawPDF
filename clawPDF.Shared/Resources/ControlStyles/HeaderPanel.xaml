@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTemplate x:Key="HeaderPanelTemplate" TargetType="HeaderedContentControl" x:Shared="False">
+        <Grid FocusManager.IsFocusScope="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" x:Name="Border" BorderThickness="0 0 0 1" BorderBrush="Black">
+                <ContentPresenter x:Name="BoldHeader" TextBlock.FontWeight="Bold" TextBlock.FontSize="18" Margin="2 1"
+                                  Content="{TemplateBinding HeaderedContentControl.Header}"
+                                  ContentTemplate="{TemplateBinding HeaderedContentControl.HeaderTemplate}"
+                                  ContentStringFormat="{TemplateBinding HeaderedContentControl.HeaderStringFormat}"
+                                  ContentSource="Header" />
+            </Border>
+            <ContentPresenter Grid.Row="1" Content="{TemplateBinding ContentControl.Content}"
+                              ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                              ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" />
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Border" Property="BorderBrush" Value="DarkGray" />
+                <Setter TargetName="BoldHeader" Property="TextBlock.Foreground" Value="DarkGray" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+</ResourceDictionary>

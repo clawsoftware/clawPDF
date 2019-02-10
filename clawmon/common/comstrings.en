@@ -1,0 +1,6 @@
+#ifndef _COMSTRINGS_EN
+#define _COMSTRINGS_EN
+
+#define szComments "Released under the terms of the GNU General Public License\0"
+
+#endif

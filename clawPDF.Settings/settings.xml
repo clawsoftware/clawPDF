@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+
+<datastorage>
+  <options>
+    <namespace>clawSoft.clawPDF.Core.Settings</namespace>
+    <generatorVersion>0.6.0.0</generatorVersion>
+  </options>
+  <classes>
+    <class name="clawPDFSettings" propertyName="clawPDFSettings" readonly="False" classtype="Class">
+      <comment>Container class for clawPDF settings and profiles</comment>
+      <class name="ApplicationProperties" propertyName="ApplicationProperties" readonly="False" classtype="Class">
+        <comment />
+        <value name="NextUpdate" type="value" datatype="DateTime" enumname="" defaultvalue="DateTime.Now">
+          <comment />
+        </value>
+        <value name="SettingsVersion" type="value" datatype="Int" enumname="" defaultvalue="5">
+          <comment>Version of the settings classes. This is used for internal purposes, i.e. to match properties when they were renamed</comment>
+        </value>
+      </class>
+      <class name="ApplicationSettings" propertyName="ApplicationSettings" readonly="False" classtype="Class">
+        <comment>clawPDF application settings</comment>
+        <classarray name="ApiAccess" propertyName="ApiAccess" readonly="False" classtype="Class">
+          <comment />
+          <value name="AccountName" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment />
+          </value>
+          <value name="ApiKey" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment />
+          </value>
+          <value name="ApiSecret" type="password" defaultvalue="">
+            <comment />
+          </value>
+          <value name="ProviderName" type="value" datatype="Enum" enumname="ApiProvider"
+                 defaultvalue="ApiProvider.AttachMe">
+            <comment />
+          </value>
+        </classarray>
+        <classarray name="PrinterMapping" propertyName="PrinterMappings" readonly="False" classtype="Class">
+          <comment />
+          <value name="PrinterName" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment />
+          </value>
+          <value name="ProfileGuid" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment />
+          </value>
+        </classarray>
+        <classarray name="TitleReplacement" propertyName="TitleReplacement" readonly="False" classtype="Class">
+          <comment>
+            TitleReplacements are used to automatically replace text in the print job name for the final document's title.
+            i.e. Word prints are named "Document.docx - Microsoft Word", where the replacement can remove the ".docx - Microsoft Word" part.
+          </comment>
+          <value name="Replace" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment />
+          </value>
+          <value name="ReplacementType" type="value" datatype="Enum" enumname="ReplacementType"
+                 defaultvalue="ReplacementType.Replace">
+            <comment />
+          </value>
+          <value name="Search" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment />
+          </value>
+        </classarray>
+        <value name="AskSwitchDefaultPrinter" type="value" datatype="Bool" enumname="" defaultvalue="true">
+          <comment />
+        </value>
+        <value name="Language" type="value" datatype="String" enumname="" defaultvalue="">
+          <comment />
+        </value>
+        <value name="LastUsedProfileGuid" type="value" datatype="String" enumname="" defaultvalue="DefaultGuid">
+          <comment />
+        </value>
+        <value name="LoggingLevel" type="value" datatype="Enum" enumname="LoggingLevel"
+               defaultvalue="LoggingLevel.Error">
+          <comment />
+        </value>
+        <value name="PrimaryPrinter" type="value" datatype="String" enumname="" defaultvalue="clawPDF">
+          <comment />
+        </value>
+        <value name="UpdateInterval" type="value" datatype="Enum" enumname="UpdateInterval"
+               defaultvalue="UpdateInterval.Weekly">
+          <comment />
+        </value>
+      </class>
+      <classarray name="ConversionProfile" propertyName="ConversionProfiles" readonly="False" classtype="Class">
+        <comment />
+        <class name="AttachmentPage" propertyName="AttachmentPage" readonly="False" classtype="Class">
+          <comment>Appends one or more pages at the end of the converted document</comment>
+          <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>Enables the AttachmentPage action</comment>
+          </value>
+          <value name="File" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>Filename of the PDF that will be appended</comment>
+          </value>
+        </class>
+        <class name="AutoSave" propertyName="AutoSave" readonly="False" classtype="Class">
+          <comment>AutoSave allows to create PDF files without user interaction</comment>
+          <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment />
+          </value>
+          <value name="EnsureUniqueFilenames" type="value" datatype="Bool" enumname="" defaultvalue="true">
+            <comment>Existing files will not be overwritten. Existing filenames automatically get an appendix.</comment>
+          </value>
+          <value name="TargetDirectory" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment />
+          </value>
+        </class>
+        <class name="BackgroundPage" propertyName="BackgroundPage" readonly="False" classtype="Class">
+          <comment>Adds a page background to the resulting document</comment>
+          <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>Enables the BackgroundPage action</comment>
+          </value>
+          <value name="File" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>Filename of the PDF that will be used as background</comment>
+          </value>
+          <value name="OnAttachment" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>If true, the background will be placed on the attachment as well</comment>
+          </value>
+          <value name="OnCover" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>If true, the background will be placed on the cover as well</comment>
+          </value>
+          <value name="Repetition" type="value" datatype="Enum" enumname="BackgroundRepetition"
+                 defaultvalue="BackgroundRepetition.RepeatLastPage">
+            <comment>Defines the way the background document is repeated. Valid values are: NoRepetition, RepeatAllPages, RepeatLastPage</comment>
+          </value>
+        </class>
+        <class name="CoverPage" propertyName="CoverPage" readonly="False" classtype="Class">
+          <comment>Inserts one or more pages at the beginning of the converted document</comment>
+          <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>Enables the CoverPage action</comment>
+          </value>
+          <value name="File" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>Filename of the PDF that will be inserted</comment>
+          </value>
+        </class>
+        <class name="EmailClient" propertyName="EmailClient" readonly="False" classtype="Class">
+          <comment>Opens the default E-mail client with the converted document as attachment</comment>
+          <value name="AddSignature" type="value" datatype="Bool" enumname="" defaultvalue="true">
+            <comment>Add the clawPDF signature to the mail</comment>
+          </value>
+          <value name="Content" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>Body text of the E-mail</comment>
+          </value>
+          <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>Enables the EmailClient action</comment>
+          </value>
+          <value name="Recipients" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>The list of receipients of the E-mail, i.e. info@someone.com; me@mywebsite.org</comment>
+          </value>
+          <value name="Subject" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>Subject line of the E-mail</comment>
+          </value>
+        </class>
+        <class name="EmailSmtp" propertyName="EmailSmtp" readonly="False" classtype="Class">
+          <comment>Sends a mail without user interaction through SMTP</comment>
+          <value name="AddSignature" type="value" datatype="Bool" enumname="" defaultvalue="true">
+            <comment>Add the clawPDF signature to the mail</comment>
+          </value>
+          <value name="Address" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>E-mail address that is displayed as sender</comment>
+          </value>
+          <value name="Content" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>Body text of the mail</comment>
+          </value>
+          <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>If true, this action will be executed</comment>
+          </value>
+          <value name="Password" type="password" defaultvalue="">
+            <comment>Password that is used to authenticate at the server</comment>
+          </value>
+          <value name="Port" type="value" datatype="Int" enumname="" defaultvalue="25">
+            <comment>SMTP server port</comment>
+          </value>
+          <value name="Recipients" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>The list of receipients of the E-mail, i.e. info@someone.com; me@mywebsite.org</comment>
+          </value>
+          <value name="SameTextAsClientMail" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>If true, the body of the EmailClient action will be used</comment>
+          </value>
+          <value name="Server" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>Hostname or IP address of the SMTP server</comment>
+          </value>
+          <value name="Ssl" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>If true, the connection will be encrypted with SSL (must be supported by the server)</comment>
+          </value>
+          <value name="Subject" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>Subject line of the E-mail</comment>
+          </value>
+          <value name="UserName" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>User name that is used to authenticate at the server</comment>
+          </value>
+        </class>
+        <class name="Ftp" propertyName="Ftp" readonly="False" classtype="Class">
+          <comment>Upload the converted documents with FTP</comment>
+          <value name="Directory" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>Target directory on the server</comment>
+          </value>
+          <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>If true, this action will be executed</comment>
+          </value>
+          <value name="EnsureUniqueFilenames" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>If true, files with the same name will not be overwritten on the server. A counter will be appended instead (i.e. document_2.pdf)</comment>
+          </value>
+          <value name="Password" type="password" defaultvalue="">
+            <comment>Password that is used to authenticate at the server</comment>
+          </value>
+          <value name="Server" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>Hostname or IP address of the FTP server</comment>
+          </value>
+          <value name="UserName" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>User name that is used to authenticate at the server</comment>
+          </value>
+        </class>
+        <class name="Ghostscript" propertyName="Ghostscript" readonly="False" classtype="Class">
+          <comment>Ghostscript settings</comment>
+          <value name="AdditionalGsParameters" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>These parameters will be provided to Ghostscript in addition to the clawPDF parameters</comment>
+          </value>
+        </class>
+        <class name="JpegSettings" propertyName="JpegSettings" readonly="False" classtype="Class">
+          <comment>Settings for the JPEG output format</comment>
+          <value name="Color" type="value" datatype="Enum" enumname="JpegColor" defaultvalue="JpegColor.Color24Bit">
+            <comment>Number of colors. Valid values are: Color24Bit, Gray8Bit</comment>
+          </value>
+          <value name="Dpi" type="value" datatype="Int" enumname="" defaultvalue="150">
+            <comment>Resolution of the JPEG files</comment>
+          </value>
+          <value name="Quality" type="value" datatype="Int" enumname="" defaultvalue="75">
+            <comment>Quality factor of the resulting JPEG (100 is best, 0 is worst)</comment>
+          </value>
+        </class>
+        <class name="PdfSettings" propertyName="PdfSettings" readonly="False" classtype="Class">
+          <comment>Settings for the PDF output format</comment>
+          <class name="CompressColorAndGray" propertyName="CompressColorAndGray" readonly="False" classtype="Class">
+            <comment>Compression settings for color and greyscale images</comment>
+            <value name="Compression" type="value" datatype="Enum" enumname="CompressionColorAndGray"
+                   defaultvalue="CompressionColorAndGray.Automatic">
+              <comment>Settings for the compression method. Valid values are: Automatic, JpegMaximum, JpegHigh, JpegMedium, JpegLow, JpegMinimum, JpegManual, Zip</comment>
+            </value>
+            <value name="Dpi" type="value" datatype="Int" enumname="" defaultvalue="300">
+              <comment>Images will be resampled to this maximum resolution of the images, if resampling is enabled</comment>
+            </value>
+            <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="true">
+              <comment>If true, color and grayscale images will be processed according to the algorithm. If false, they will remain uncompressed</comment>
+            </value>
+            <value name="JpegCompressionFactor" type="value" datatype="Double" enumname="" defaultvalue="0.66">
+              <comment>Define a custom compression factor (requires JpegManual as method)</comment>
+            </value>
+            <value name="Resampling" type="value" datatype="Bool" enumname="" defaultvalue="false">
+              <comment>If true, the images will be resampled to a maximum resolution</comment>
+            </value>
+          </class>
+          <class name="CompressMonochrome" propertyName="CompressMonochrome" readonly="False" classtype="Class">
+            <comment>Compression settings for monochrome images</comment>
+            <value name="Compression" type="value" datatype="Enum" enumname="CompressionMonochrome"
+                   defaultvalue="CompressionMonochrome.CcittFaxEncoding">
+              <comment>Settings for the compression method. Valid values are: CcittFaxEncoding, Zip, RunLengthEncoding</comment>
+            </value>
+            <value name="Dpi" type="value" datatype="Int" enumname="" defaultvalue="1200">
+              <comment>Images will be resampled to this maximum resolution of the images, if resampling is enabled</comment>
+            </value>
+            <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="true">
+              <comment>If true, monochrome images will be processed according to the algorithm. If false, they will remain uncompressed</comment>
+            </value>
+            <value name="Resampling" type="value" datatype="Bool" enumname="" defaultvalue="false">
+              <comment>If true, the images will be resampled to a maximum resolution</comment>
+            </value>
+          </class>
+          <class name="Security" propertyName="Security" readonly="False" classtype="Class">
+            <comment>PDF Security options</comment>
+            <value name="AllowPrinting" type="value" datatype="Bool" enumname="" defaultvalue="true">
+              <comment>Allow to user to print the document</comment>
+            </value>
+            <value name="AllowScreenReader" type="value" datatype="Bool" enumname="" defaultvalue="true">
+              <comment>Allow to user to use a screen reader</comment>
+            </value>
+            <value name="AllowToCopyContent" type="value" datatype="Bool" enumname="" defaultvalue="true">
+              <comment>Allow to user to copy content from the PDF</comment>
+            </value>
+            <value name="AllowToEditAssembly" type="value" datatype="Bool" enumname="" defaultvalue="true">
+              <comment>Allow to user to make changes to the assembly</comment>
+            </value>
+            <value name="AllowToEditComments" type="value" datatype="Bool" enumname="" defaultvalue="true">
+              <comment>Allow to user to edit comments</comment>
+            </value>
+            <value name="AllowToEditTheDocument" type="value" datatype="Bool" enumname="" defaultvalue="true">
+              <comment>Allow to user to edit the document</comment>
+            </value>
+            <value name="AllowToFillForms" type="value" datatype="Bool" enumname="" defaultvalue="true">
+              <comment>Allow to user to fill in forms</comment>
+            </value>
+            <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="false">
+              <comment>If true, the PDF file will be password protected</comment>
+            </value>
+            <value name="EncryptionLevel" type="value" datatype="Enum" enumname="EncryptionLevel"
+                   defaultvalue="EncryptionLevel.Rc128Bit">
+              <comment>Defines the encryption level. Valid values are: Rc40Bit, Rc128Bit, Aes128Bit</comment>
+            </value>
+            <value name="OwnerPassword" type="password" defaultvalue="">
+              <comment>Password that can be used to modify the document</comment>
+            </value>
+            <value name="RequireUserPassword" type="value" datatype="Bool" enumname="" defaultvalue="false">
+              <comment>If true, a password is required to open the document.</comment>
+            </value>
+            <value name="RestrictPrintingToLowQuality" type="value" datatype="Bool" enumname="" defaultvalue="true">
+              <comment>If true, only printing in low resolution will be supported</comment>
+            </value>
+            <value name="UserPassword" type="password" defaultvalue="">
+              <comment>Password that must be used to open the document (if set)</comment>
+            </value>
+          </class>
+          <class name="Signature" propertyName="Signature" readonly="False" classtype="Class">
+            <comment>Digitally sign the PDF document</comment>
+            <value name="AllowMultiSigning" type="value" datatype="Bool" enumname="" defaultvalue="false">
+              <comment>If true, the PDF file may be signed by additional persons</comment>
+            </value>
+            <value name="CertificateFile" type="value" datatype="String" enumname="" defaultvalue="">
+              <comment>Path to the certificate</comment>
+            </value>
+            <value name="DisplaySignatureInDocument" type="value" datatype="Bool" enumname="" defaultvalue="false">
+              <comment>If true, the signature will be displayed in the PDF file</comment>
+            </value>
+            <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="false">
+              <comment>If true, the signature will be displayed in the PDF document</comment>
+            </value>
+            <value name="LeftX" type="value" datatype="Int" enumname="" defaultvalue="100">
+              <comment>Signature location: Top left corner (X part)</comment>
+            </value>
+            <value name="LeftY" type="value" datatype="Int" enumname="" defaultvalue="100">
+              <comment>Signature location: Top left corner (Y part)</comment>
+            </value>
+            <value name="RightX" type="value" datatype="Int" enumname="" defaultvalue="200">
+              <comment>Signature location: Bottom right corner (X part)</comment>
+            </value>
+            <value name="RightY" type="value" datatype="Int" enumname="" defaultvalue="200">
+              <comment>Signature location: Bottom right corner (Y part)</comment>
+            </value>
+            <value name="SignContact" type="value" datatype="String" enumname="" defaultvalue="">
+              <comment>Contact name of the signature</comment>
+            </value>
+            <value name="SignLocation" type="value" datatype="String" enumname="" defaultvalue="">
+              <comment>Signature location</comment>
+            </value>
+            <value name="SignReason" type="value" datatype="String" enumname="" defaultvalue="">
+              <comment>Reason for the signature</comment>
+            </value>
+            <value name="SignatureCustomPage" type="value" datatype="Int" enumname="" defaultvalue="1">
+              <comment>If the signature page is set to custom, this property defines the page where the signature will be displayed</comment>
+            </value>
+            <value name="SignaturePage" type="value" datatype="Enum" enumname="SignaturePage"
+                   defaultvalue="SignaturePage.FirstPage">
+              <comment>Defines the page on which the signature will be displayed. Valid values are: FirstPage, LastPage, CustomPage</comment>
+            </value>
+            <value name="SignaturePassword" type="password" defaultvalue="">
+              <comment>Password for the certificate file</comment>
+            </value>
+            <value name="TimeServerIsSecured" type="value" datatype="Bool" enumname="" defaultvalue="false">
+              <comment>Set to true, if the time server needs authentication</comment>
+            </value>
+            <value name="TimeServerLoginName" type="value" datatype="String" enumname="" defaultvalue="">
+              <comment>Login name for the time server</comment>
+            </value>
+            <value name="TimeServerPassword" type="password" defaultvalue="">
+              <comment>Password for the time server</comment>
+            </value>
+            <value name="TimeServerUrl" type="value" datatype="String" enumname=""
+                   defaultvalue="http://timestamp.globalsign.com/scripts/timstamp.dll">
+              <comment>URL of a time server that provides a signed timestamp</comment>
+            </value>
+          </class>
+          <value name="ColorModel" type="value" datatype="Enum" enumname="ColorModel" defaultvalue="ColorModel.Rgb">
+            <comment>Color model of the PDF (does not apply to images). Valid values are: Rgb, Cmyk, Gray</comment>
+          </value>
+          <value name="DocumentView" type="value" datatype="Enum" enumname="DocumentView"
+                 defaultvalue="DocumentView.NoOutLineNoThumbnailImages">
+            <comment>Defines which controls will be opened in the reader. Valid values are: NoOutLineNoThumbnailImages,Outline, ThumbnailImages, FullScreen, ContentGroupPanel ,AttachmentsPanel</comment>
+          </value>
+          <value name="FastWebView" type="value" datatype="Bool" enumname="" defaultvalue="true">
+            <comment>If true, the PDF will be linearized, which allows the first pages to be displayed even if the rest of the document still is loading.</comment>
+          </value>
+          <value name="PageOrientation" type="value" datatype="Enum" enumname="PageOrientation"
+                 defaultvalue="PageOrientation.Automatic">
+            <comment>Define how pages are automatically rotated. Valid values are: Automatic, Portrait, Landscape</comment>
+          </value>
+          <value name="PageView" type="value" datatype="Enum" enumname="PageView" defaultvalue="PageView.OnePage">
+            <comment>Defines how the document will be opened in the reader. Valid values are: OnePage, OneColumn, TwoColumnsOddLeft, TwoColumnsOddRight, TwoPagesOddLeft, TwoPagesOddRight</comment>
+          </value>
+          <value name="ViewerStartsOnPage" type="value" datatype="Int" enumname="" defaultvalue="1">
+            <comment>Defines the page number the viewer will start on when opening the document</comment>
+          </value>
+        </class>
+        <class name="PngSettings" propertyName="PngSettings" readonly="False" classtype="Class">
+          <comment>Settings for the PNG output format</comment>
+          <value name="Color" type="value" datatype="Enum" enumname="PngColor" defaultvalue="PngColor.Color24Bit">
+            <comment>Number of colors. Valid values are: Color32BitTransp, Color24Bit, Color8Bit, Color4Bit, Gray8Bit, BlackWhite</comment>
+          </value>
+          <value name="Dpi" type="value" datatype="Int" enumname="" defaultvalue="150">
+            <comment>Resolution of the PNG files</comment>
+          </value>
+        </class>
+        <class name="Printing" propertyName="Printing" readonly="False" classtype="Class">
+          <comment>Print the document to a physical printer</comment>
+          <value name="Duplex" type="value" datatype="Enum" enumname="DuplexPrint" defaultvalue="DuplexPrint.Disable">
+            <comment>Defines the duplex printing mode. Valid values are: Disable, LongEdge, ShortEdge</comment>
+          </value>
+          <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>If enabled, the document will be printed to a physical printer</comment>
+          </value>
+          <value name="PrinterName" type="value" datatype="String" enumname="" defaultvalue="clawPDF">
+            <comment>Name of the printer that will be used, if SelectedPrinter is set.</comment>
+          </value>
+          <value name="SelectPrinter" type="value" datatype="Enum" enumname="SelectPrinter"
+                 defaultvalue="SelectPrinter.ShowDialog">
+            <comment>Method to select the printer. Valid values are: DefaultPrinter, ShowDialog, SelectedPrinter</comment>
+          </value>
+        </class>
+        <class name="Properties" propertyName="Properties" readonly="False" classtype="Class">
+          <comment>Properties of the profile</comment>
+          <value name="Deletable" type="value" datatype="Bool" enumname="" defaultvalue="true">
+            <comment>Can users delete this profile?</comment>
+          </value>
+          <value name="Editable" type="value" datatype="Bool" enumname="" defaultvalue="true">
+            <comment>Can users edit this profile?</comment>
+          </value>
+          <value name="Renamable" type="value" datatype="Bool" enumname="" defaultvalue="true">
+            <comment>Can users rename this profile?</comment>
+          </value>
+        </class>
+        <class name="SaveDialog" propertyName="SaveDialog" readonly="False" classtype="Class">
+          <comment>Settings to control the behaviour of the save dialog</comment>
+          <value name="Folder" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>Folder in which the save dialog will be opened (if SetDirectory is true)</comment>
+          </value>
+          <value name="SetDirectory" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>If true, the save dialog will open in the given folder instead of the last used folder.</comment>
+          </value>
+        </class>
+        <class name="Scripting" propertyName="Scripting" readonly="False" classtype="Class">
+          <comment>The scripting action allows to run a script after the conversion</comment>
+          <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>If true, the given script or application will be executed</comment>
+          </value>
+          <value name="ParameterString" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>Parameters that will be passed to the script in addition to the output files</comment>
+          </value>
+          <value name="ScriptFile" type="value" datatype="String" enumname="" defaultvalue="">
+            <comment>Path to the script or application</comment>
+          </value>
+          <value name="WaitForScript" type="value" datatype="Bool" enumname="" defaultvalue="true">
+            <comment>Wait until the script excution has ended</comment>
+          </value>
+        </class>
+        <class name="Stamping" propertyName="Stamping" readonly="False" classtype="Class">
+          <comment>Place a stamp text on all pages of the document</comment>
+          <value name="Color" type="value" datatype="Color" enumname="" defaultvalue="#CCCCCC">
+            <comment>Color of the text</comment>
+          </value>
+          <value name="Enabled" type="value" datatype="Bool" enumname="" defaultvalue="false">
+            <comment>If true, the document all pages will be stamped with a text</comment>
+          </value>
+          <value name="FontAsOutline" type="value" datatype="Bool" enumname="" defaultvalue="true">
+            <comment>If true, the text will be rendered as outline. If false, it will be filled.</comment>
+          </value>
+          <value name="FontName" type="value" datatype="String" enumname="" defaultvalue="Arial">
+            <comment>Name of the font. (this is only used as a hint, the PostScriptFontName contains the real name)</comment>
+          </value>
+          <value name="FontOutlineWidth" type="value" datatype="Int" enumname="" defaultvalue="2">
+            <comment>Width of the outline</comment>
+          </value>
+          <value name="FontSize" type="value" datatype="Float" enumname="" defaultvalue="48">
+            <comment>Size of the font</comment>
+          </value>
+          <value name="PostScriptFontName" type="value" datatype="String" enumname="" defaultvalue="Arial">
+            <comment>PostScript name of the stamp font.</comment>
+          </value>
+          <value name="StampText" type="value" datatype="String" enumname="" defaultvalue="Confidential">
+            <comment>Text that will be stamped</comment>
+          </value>
+        </class>
+        <class name="TiffSettings" propertyName="TiffSettings" readonly="False" classtype="Class">
+          <comment>Settings for the TIFF output format</comment>
+          <value name="Color" type="value" datatype="Enum" enumname="TiffColor" defaultvalue="TiffColor.Color24Bit">
+            <comment>Number of colors. Valid values are: Color24Bit, Color12Bit, BlackWhite</comment>
+          </value>
+          <value name="Dpi" type="value" datatype="Int" enumname="" defaultvalue="150">
+            <comment>Resolution of the TIFF files</comment>
+          </value>
+        </class>
+        <value name="AuthorTemplate" type="value" datatype="String" enumname="" defaultvalue="&lt;PrintJobAuthor&gt;">
+          <comment>Template for the Author field. This may contain tokens.</comment>
+        </value>
+        <value name="FileNameTemplate" type="value" datatype="String" enumname="" defaultvalue="&lt;Title&gt;">
+          <comment>Template of which the filename will be created. This may contain Tokens.</comment>
+        </value>
+        <value name="Guid" type="value" datatype="String" enumname="" defaultvalue="">
+          <comment>GUID of the profile</comment>
+        </value>
+        <value name="Name" type="value" datatype="String" enumname="" defaultvalue="NewProfile">
+          <comment>Name of the profile</comment>
+        </value>
+        <value name="OpenViewer" type="value" datatype="Bool" enumname="" defaultvalue="true">
+          <comment>Open the default viewer after converting the document</comment>
+        </value>
+        <value name="OutputFormat" type="value" datatype="Enum" enumname="OutputFormat" defaultvalue="OutputFormat.Pdf">
+          <comment>Default format for this print job. Valid values are: Pdf, PdfA1B, PdfA2B, PdfX, Jpeg, Png, Tif</comment>
+        </value>
+        <value name="ShowProgress" type="value" datatype="Bool" enumname="" defaultvalue="true">
+          <comment>If true, a progress window will be shown during conversion</comment>
+        </value>
+        <value name="SkipPrintDialog" type="value" datatype="Bool" enumname="" defaultvalue="false">
+          <comment>Allows to skip the print dialog (where metadata are set) and directly proceed to the save dialog</comment>
+        </value>
+        <value name="TitleTemplate" type="value" datatype="String" enumname="" defaultvalue="&lt;PrintJobName&gt;">
+          <comment>Template for the Title field. This may contain tokens.</comment>
+        </value>
+      </classarray>
+    </class>
+  </classes>
+</datastorage>

@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="clawSoft.clawPDF.Views.UserControls.AutosaveTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:userControls1="clr-namespace:clawSoft.clawPDF.Shared.ViewModels.UserControls;assembly=clawPDF.Shared"
+             xmlns:converter="clr-namespace:clawSoft.clawPDF.Shared.Converter;assembly=clawPDF.Shared"
+             xmlns:userControls="clr-namespace:clawSoft.clawPDF.Shared.Views.UserControls;assembly=clawPDF.Shared"
+             mc:Ignorable="d" x:ClassModifier="internal">
+    <UserControl.DataContext>
+        <userControls1:CurrentProfileViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <converter:TokenReplacerConverterForFolders x:Key="TokenReplacerConverterForFolders" />
+    </UserControl.Resources>
+    <HeaderedContentControl Name="AutomaticSavingControl" Template="{StaticResource HeaderPanelTemplate}"
+                            Header="Automatic Saving">
+        <StackPanel>
+            <CheckBox Margin="0 5 0 0" Name="AutomaticSavingCheckBox"
+                      IsChecked="{Binding CurrentProfile.AutoSave.Enabled, Mode=TwoWay}">
+                Enable automatic saving
+            </CheckBox>
+            <Grid IsEnabled="{Binding ElementName=AutomaticSavingCheckBox, Path=IsChecked}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" MaxWidth="200" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <CheckBox Name="EnsureUniqueFilenamesCheckBox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                          Margin="15,5,0,0"
+                          IsChecked="{Binding CurrentProfile.AutoSave.EnsureUniqueFilenames, Mode=TwoWay}"
+                          IsEnabled="{Binding ElementName=AutomaticSavingCheckBox, Path=IsChecked}">
+                    Ensure unique filenames (Do not overwrite existing files)
+                </CheckBox>
+                <Label Name="TargetFolderLabel" Grid.Row="3" Grid.Column="0">Target Folder:</Label>
+                <Label Name="TargetFolderTokenLabel" Grid.Row="3" Grid.Column="1">Add Token:</Label>
+                <DockPanel Grid.Row="4" Grid.Column="0">
+                    <Button Width="25" Padding="0" Margin="5,0,5,0" DockPanel.Dock="Right"
+                            Click="AutoSaveBrowseFolderButton_OnClick">
+                        ...
+                    </Button>
+                    <TextBox Name="TargetFolderTextBox" Text="{Binding CurrentProfile.AutoSave.TargetDirectory}" />
+                </DockPanel>
+                <ComboBox Grid.Row="4" Grid.Column="1" Name="TargetFolderTokensComboBox"
+                          SelectionChanged="TargetFolderTokensComboBox_OnSelectionChanged" />
+                <Label Name="TargetFolderPreviewLabel" Grid.Row="5" Grid.Column="0">Preview:</Label>
+                <TextBox Name="TargetFolderPreviewText" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                         IsReadOnly="True"
+                         Text="{Binding Text, ElementName=TargetFolderTextBox, Converter={StaticResource TokenReplacerConverterForFolders}}" />
+                <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
+                    <TextBlock TextWrapping="Wrap" Margin="0 10 0 0" Name="AutomaticSavingHintText">Edit profiles without print dialog by opening clawPDF in Windows Explorer</TextBlock>
+                </Label>
+            </Grid>
+        </StackPanel>
+    </HeaderedContentControl>
+</UserControl>

@@ -1,0 +1,73 @@
+/*
+clawmon - print to file with automatic filename assignment
+Copyright (C) 2019 // Andrew Hess // clawSoft
+
+MFILEMON - print to file with automatic filename assignment
+Copyright (C) 2007-2015 Monti Lorenzo
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
+#include <windows.h>
+#include "..\common\version.h"
+
+#if (!defined(CLAWMONLANG) || CLAWMONLANG == 0x0409)
+#include "..\common\comstrings.en"
+#endif
+
+/*
+*    VERSION INFORMATION
+*
+*/
+1       VERSIONINFO
+        FILEVERSION             nVersion
+        PRODUCTVERSION          nVersion
+        FILEFLAGSMASK           0x3fL
+#ifdef _DEBUG
+        FILEFLAGS               VS_FF_DEBUG
+#else
+        FILEFLAGS               0x0L
+#endif
+        FILEOS                  VOS__WINDOWS32
+        FILETYPE                VFT_DLL
+        FILESUBTYPE             0x0L
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+#if (!defined(CLAWMONLANG) || CLAWMONLANG == 0x0409)
+    BLOCK "04090000"
+#endif
+    BEGIN
+      VALUE "Comments", szComments
+      VALUE "CompanyName", "Andrew Hess // clawSoft\0"
+      VALUE "FileDescription", "Printer port monitor\0"
+      VALUE "FileVersion", szVersion
+      VALUE "InternalName", "clawmon\0"
+      VALUE "LegalCopyright", "Copyright © 2019 // Andrew Hess // clawSoft\0"
+      VALUE "LegalTrademarks", "\0"
+      VALUE "OriginalFilename", "clawmon.dll\0"
+      VALUE "PrivateBuild", "\0"
+      VALUE "ProductName", "clawmon\0"
+      VALUE "ProductVersion", szVersion
+      VALUE "SpecialBuild", "\0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+#if (!defined(CLAWMONLANG) || CLAWMONLANG == 0x0409)
+    VALUE "Translation", 0x409, 0x0L
+#endif
+  END
+END

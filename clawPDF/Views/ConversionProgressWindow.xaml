@@ -1,0 +1,17 @@
+﻿<Window x:Class="clawSoft.clawPDF.Views.ConversionProgressWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="clawPDF"
+        WindowStyle="None"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        WindowStartupLocation="CenterScreen" x:ClassModifier="internal">
+
+    <Grid Width="256" Height="256">
+        <ContentControl Grid.Row="0" Grid.Column="0" IsTabStop="False" Content="{DynamicResource Work}"
+                        Margin="10" />
+    </Grid>
+</Window>

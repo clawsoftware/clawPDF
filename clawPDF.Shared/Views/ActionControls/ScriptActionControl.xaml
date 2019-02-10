@@ -1,0 +1,58 @@
+﻿<actionControls:ActionControl x:Class="clawSoft.clawPDF.Shared.Views.ActionControls.ScriptActionControl"
+                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                              xmlns:actionControls="clr-namespace:clawSoft.clawPDF.Shared.Views.ActionControls"
+                              xmlns:userControls="clr-namespace:clawSoft.clawPDF.Shared.Views.UserControls"
+                              mc:Ignorable="d"
+                              d:DesignHeight="300"
+                              d:DesignWidth="300"
+                              x:Name="This">
+    <StackPanel>
+        <DockPanel LastChildFill="True">
+            <StackPanel DockPanel.Dock="Left">
+                <Label>
+                    <TextBlock Name="ScriptFileText">Script file:</TextBlock>
+                </Label>
+                <DockPanel>
+                    <Button DockPanel.Dock="Right" Click="BrowseScriptButton_OnClick" MinWidth="25" Margin="5 0 0 0">...</Button>
+                    <TextBox Name="ScriptFileTextBox" Text="{Binding CurrentProfile.Scripting.ScriptFile}"
+                             TextChanged="ScriptFileTextBox_OnTextChanged" />
+                </DockPanel>
+            </StackPanel>
+        </DockPanel>
+        <DockPanel Margin="15 5 0 0">
+            <Label>
+                <TextBlock Name="AddScriptTokenText">Add Token:</TextBlock>
+            </Label>
+            <ComboBox Margin="5 0 0 0" VerticalAlignment="Center" Name="AddScriptTokenComboBox"
+                      ItemsSource="{Binding ElementName=This,Path=Tokens}"
+                      SelectionChanged="AddScriptTokenComboBox_OnSelectionChanged" />
+        </DockPanel>
+        <StackPanel Margin="0 5 0 0">
+            <Label>
+                <TextBlock Name="AdditionalParametersText" TextWrapping="Wrap">Additional parameters:</TextBlock>
+            </Label>
+            <TextBox Name="AdditionalParametersTextBox" Text="{Binding CurrentProfile.Scripting.ParameterString}"
+                     TextChanged="ScriptFileTextBox_OnTextChanged" />
+        </StackPanel>
+        <DockPanel Margin="15 5 0 0">
+            <Label>
+                <TextBlock Name="AddParameterTokenText">Add Token:</TextBlock>
+            </Label>
+            <ComboBox Name="AddParameterTokenComboBox" VerticalAlignment="Center" Margin="5 0 0 0"
+                      ItemsSource="{Binding ElementName=This,Path=Tokens}"
+                      SelectionChanged="AddParameterTokenComboBox_OnSelectionChanged" />
+        </DockPanel>
+        <DockPanel LastChildFill="False">
+            <Label>
+                <TextBlock DockPanel.Dock="Left" Name="ScriptCallPreviewText" TextWrapping="Wrap">Sample script call:</TextBlock>
+            </Label>
+        </DockPanel>
+        <TextBox Name="ScriptCallPreviewTextBox" IsReadOnly="True" />
+        <CheckBox IsChecked="{Binding CurrentProfile.Scripting.WaitForScript}" Margin="0 10 0 0">
+            <TextBlock Name="WaitForScript" TextWrapping="Wrap">Wait until the script execution has ended</TextBlock>
+        </CheckBox>
+    </StackPanel>
+</actionControls:ActionControl>

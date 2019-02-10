@@ -1,0 +1,101 @@
+﻿<Window x:Class="clawSoft.clawPDF.Views.PrintJobWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:converter1="clr-namespace:clawSoft.clawPDF.Converter"
+        Title="clawPDF"
+        MinHeight="510"
+        SizeToContent="Height"
+        Width="465"
+        WindowStartupLocation="CenterScreen"
+        Loaded="OnLoaded"
+        AllowDrop="True"
+        DragEnter="OnDragEnter"
+        Drop="OnDrop"
+        ResizeMode="CanMinimize"
+        Icon="../clawPDF.ico"
+        Background="{x:Static SystemColors.ControlBrush}" x:ClassModifier="internal">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="Margin" Value="0 5 0 -3" />
+            </Style>
+            <converter1:ColorWithFactorConverter x:Key="ColorWithFactorConverter" />
+        </Grid.Resources>
+
+        <Viewbox Margin="-30 -20 -30 -20">
+            <ContentControl Content="" IsTabStop="False"
+                            Foreground="{Binding Path=Background, RelativeSource={RelativeSource Mode=FindAncestor,
+                                                         AncestorType=Window}, Converter={StaticResource ColorWithFactorConverter}, ConverterParameter=0.92}" />
+        </Viewbox>
+
+        <StackPanel Margin="20 0">
+            <ContentControl Content="" Width="150" HorizontalAlignment="Right"
+                            Margin="10 15 0 -15" IsTabStop="False" />
+            <Label Target="{Binding ElementName=TitleText}" Name="TitleLabel">_Title</Label>
+            <TextBox Name="TitleText" Text="{Binding Metadata.Title}" />
+            <Label Target="{Binding ElementName=ProfileCombo}" Name="ProfileLabel">_Profile</Label>
+            <ComboBox Name="ProfileCombo" ItemsSource="{Binding ProfilesView}" DisplayMemberPath="Name"
+                      IsSynchronizedWithCurrentItem="True" />
+            <Expander Name="MetadataExpander" Header="_Metadata" Margin="0 20 0 10" Height="175" IsExpanded="True">
+                <StackPanel>
+                    <Label Target="{Binding ElementName=SubjectText}" Name="SubjectLabel">_Subject</Label>
+                    <TextBox Name="SubjectText" Text="{Binding Metadata.Subject}" />
+                    <Label Target="{Binding ElementName=KeywordsText}" Name="KeywordsLabel">_Keywords</Label>
+                    <TextBox Name="KeywordsText" Text="{Binding Metadata.Keywords}" />
+                    <Label Target="{Binding ElementName=AuthorText}" Name="AuthorLabel">_Author</Label>
+                    <TextBox Name="AuthorText" Text="{Binding Metadata.Author}" />
+                </StackPanel>
+            </Expander>
+
+            <Grid Height="55">
+                <TextBlock TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="5 5"
+                           Text="{Binding PendingJobsText}" TextWrapping="Wrap" />
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Style="{StaticResource GrayRoundButtonStyle}" IsCancel="True">
+                    <Path Data="{StaticResource CloseX}" Width="20" Height="20" Stretch="Fill" Stroke="White"
+                          StrokeThickness="5" Margin="10" />
+                </Button>
+
+                <Button Style="{StaticResource GrayRoundButtonStyle}" Click="SettingsButton_OnClick">
+                    <Path Data="{StaticResource Settings}" Width="24" Height="24" Stretch="Uniform" Stroke="White"
+                          StrokeThickness="4" Margin="10" />
+                </Button>
+
+                <Button Style="{StaticResource GrayRoundButtonStyle}" Click="CommandButtons_OnClick"
+                        Command="{Binding ManagePrintJobsCommand}">
+                    <Viewbox Margin="8">
+                        <ContentControl Foreground="White" Content="{StaticResource MergeButton}" />
+                    </Viewbox>
+                </Button>
+
+                <Button Style="{StaticResource GrayRoundButtonStyle}" Command="{Binding EmailCommand}"
+                        Click="CommandButtons_OnClick">
+                    <Path Data="{StaticResource Share}" Width="20" Height="20" Stretch="Fill" Fill="White"
+                          StrokeThickness="5" Margin="12 10 8 10" />
+                </Button>
+                <Button Style="{StaticResource GrayRoundButtonStyle}" IsDefault="True" Command="{Binding SaveCommand}"
+                        Click="CommandButtons_OnClick">
+                    <Viewbox Margin="9">
+                        <ContentControl Foreground="White" Content="{StaticResource ImageSettings}" />
+                    </Viewbox>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Width" Value="86" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    </Style>
+                </StackPanel.Resources>
+                <Label Name="CancelLabel">Cancel</Label>
+                <Label Name="SettingsLabel">Settings</Label>
+                <Label Name="MergeJobsLabel">Merge</Label>
+                <Label Name="EmailLabel">E-Mail</Label>
+                <Label Name="SaveLabel">Save</Label>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

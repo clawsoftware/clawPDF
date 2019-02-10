@@ -1,0 +1,65 @@
+﻿<Window x:Class="clawSoft.clawPDF.Shared.Views.MessageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title=""
+        xmlns:viewModels="clr-namespace:clawSoft.clawPDF.Shared.ViewModels"
+        xmlns:converter="clr-namespace:clawSoft.clawPDF.Shared.Converter"
+        SizeToContent="WidthAndHeight"
+        MaxWidth="600"
+        Loaded="OnLoaded"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <viewModels:MessageWindowViewModel />
+    </Window.DataContext>
+    <Window.CommandBindings>
+        <CommandBinding Command="Copy" Executed="CommandBinding_CopyExecuted" />
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.Resources>
+            <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" FalseValue="Collapsed" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" FlowDirection="LeftToRight" Orientation="Horizontal" HorizontalAlignment="Left"
+                    VerticalAlignment="Top" Background="White" MinHeight="120">
+            <ContentControl Name="IconBox" VerticalAlignment="Center" Margin="20,20,0,20" Width="48" Height="48" />
+            <TextBlock Name="MessageText" Margin="10,20,20,20" VerticalAlignment="Center" TextWrapping="Wrap"
+                       MinWidth="100" MaxWidth="450">
+                Message
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" FlowDirection="RightToLeft" Orientation="Horizontal"
+                    Background="{x:Static SystemColors.ControlBrush}">
+            <Button
+                Name="RightButton"
+                Command="{Binding Path=ButtonRightCommand}"
+                Visibility="{Binding ButtonRightCommand.IsExecutable, Converter={StaticResource BoolToVisibilityConverter}}"
+                Margin="10,10,5,10"
+                Padding="10"
+                MinWidth="60">
+                Cancel
+            </Button>
+            <Button
+                Name="MiddleButton"
+                Command="{Binding Path=ButtonMiddleCommand}"
+                Visibility="{Binding ButtonMiddleCommand.IsExecutable, Converter={StaticResource BoolToVisibilityConverter}}"
+                Margin="5,10,5,10"
+                Padding="10"
+                MinWidth="60">
+                No
+            </Button>
+            <Button
+                Name="LeftButton"
+                Command="{Binding Path=ButtonLeftCommand}"
+                Visibility="{Binding ButtonLeftCommand.IsExecutable, Converter={StaticResource BoolToVisibilityConverter}}"
+                Margin="5,10,20,10"
+                Padding="10"
+                MinWidth="60">
+                Yes
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

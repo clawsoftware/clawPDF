@@ -1,0 +1,4 @@
+LIBRARY clawmon
+
+EXPORTS
+	InitializePrintMonitor2

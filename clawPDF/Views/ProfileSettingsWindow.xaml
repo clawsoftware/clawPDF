@@ -1,0 +1,155 @@
+﻿<Window x:Class="clawSoft.clawPDF.Views.ProfileSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:userControls="clr-namespace:clawSoft.clawPDF.Views.UserControls"
+        xmlns:userControls1="clr-namespace:clawSoft.clawPDF.Shared.Views.UserControls;assembly=clawPDF.Shared"
+        Title="clawPDF Settings"
+        WindowStartupLocation="CenterScreen"
+        Loaded="ProfileSettingsWindow_OnLoaded"
+        Closing="ProfileSettingsWindow_OnClosing"
+        MinHeight="611"
+        MinWidth="670"
+        Icon="../clawPDF.ico"
+        Name="This" Width="771" Height="611" x:ClassModifier="internal">
+    <Window.Resources>
+        <Style x:Key="DisabledGrey" TargetType="Shape">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Stroke" Value="LightGray" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Stroke" Value="Black" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type HeaderedContentControl}">
+            <Setter Property="KeyboardNavigation.IsTabStop" Value="False" />
+        </Style>
+        <Style TargetType="{x:Type ContentControl}">
+            <Setter Property="KeyboardNavigation.IsTabStop" Value="False" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="70" />
+        </Grid.RowDefinitions>
+
+        <DockPanel Background="{StaticResource TitleBarGrayBrush}" Height="64" VerticalAlignment="Top"
+                   LastChildFill="True">
+            <ContentControl Margin="10" Content="" Height="45" />
+            <TextBlock Name="TitleText" Text="Profile Settings" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       FontWeight="Bold" FontSize="24" Foreground="#FFFAFAFA" FontFamily="Calibri" />
+            <DockPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">
+                <TextBlock Name="ProfileLabel" VerticalAlignment="Center" Foreground="White" Margin="0,0,5,0">Profile:</TextBlock>
+                <ComboBox Name="ProfilesBox" Width="250" ItemsSource="{Binding ConversionProfilesView, Mode=TwoWay}"
+                          IsSynchronizedWithCurrentItem="True" DisplayMemberPath="Name" TabIndex="4" />
+                <StackPanel Orientation="Horizontal" Name="ProfileManagement" Style="{StaticResource GpoStyle}"
+                            IsEnabled="{Binding ProfileManagementIsEnabled}">
+                    <Button Name="RenameProfileButton" Command="{Binding RenameProfileCommand}" Margin="5,0,0,0"
+                            Padding="0" Height="25" Width="25" FontWeight="ExtraBold" FontFamily="ArialBlack"
+                            FontSize="15" TabIndex="5">
+                        <Button.Content>
+                            <Canvas>
+                                <Path Data="{StaticResource Edit}" StrokeThickness="2" Canvas.Left="-6.625"
+                                      Canvas.Top="-6.75" Style="{StaticResource DisabledGrey}" Height="15.25"
+                                      Stretch="Fill" Width="15.25" />
+                            </Canvas>
+                        </Button.Content>
+                    </Button>
+                    <Button Name="AddProfileButton" Command="{Binding AddProfileCommand}" Margin="5,0,0,0" Height="25"
+                            Width="25" TabIndex="6">
+                        <Button.Content>
+                            <Canvas>
+                                <Line X1="-5" Y1="0" X2="5" Y2="0" StrokeThickness="2"
+                                      Style="{StaticResource DisabledGrey}" />
+                                <Line X1="0" Y1="5" X2="0" Y2="-5" StrokeThickness="2"
+                                      Style="{StaticResource DisabledGrey}" />
+                            </Canvas>
+                        </Button.Content>
+                    </Button>
+                    <Button Name="DeleteProfileButton" Command="{Binding DeleteProfileCommand}" Height="25" Width="25"
+                            Margin="5,0,0,0" Padding="0" TabIndex="7">
+                        <Button.Content>
+                            <Canvas>
+                                <Line X1="-5" Y1="0" X2="5" Y2="0" StrokeThickness="2"
+                                      Style="{StaticResource DisabledGrey}" />
+                            </Canvas>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </DockPanel>
+        </DockPanel>
+
+        <TabControl Margin="10, 10, 10, 5" Padding="15 5" Grid.Row="1" TabStripPlacement="Left"
+                    Template="{StaticResource FancyTabControl}" Name="TabControl">
+            <TabControl.Resources>
+                <Style TargetType="userControls1:TabHeaderControl">
+                    <Setter Property="Width" Value="165" />
+                </Style>
+            </TabControl.Resources>
+            <TabItem Template="{StaticResource FancyTabItem}" Name="DocumentTab">
+                <TabItem.Header>
+                    <userControls1:TabHeaderControl x:Name="DocumentTabText" Text="Document">
+                        <ContentControl Margin="4 1 4 4" Content="{StaticResource DocumentSettings}" />
+                    </userControls1:TabHeaderControl>
+                </TabItem.Header>
+                <userControls1:DocumentTab x:Name="DocumentTabUserControl" />
+            </TabItem>
+            <TabItem Template="{StaticResource FancyTabItem}" Name="SaveTab">
+                <TabItem.Header>
+                    <userControls1:TabHeaderControl x:Name="SaveTabText" Text="Save">
+                        <ContentControl Margin="3" Foreground="White" Content="{StaticResource Save}" />
+                    </userControls1:TabHeaderControl>
+                </TabItem.Header>
+                <userControls:SaveTab x:Name="SaveTabUserControl" />
+            </TabItem>
+
+            <TabItem Template="{StaticResource FancyTabItem}" Name="AutoSaveTab">
+                <TabItem.Header>
+                    <userControls1:TabHeaderControl x:Name="AutoSaveTabText" Text="Autosave">
+                        <ContentControl Content="{StaticResource AutoSaveIcon}" Margin="2 -2 2 0" />
+                        <!--Margin="-1 -3 -1 0"-->
+                    </userControls1:TabHeaderControl>
+                </TabItem.Header>
+                <userControls:AutosaveTab x:Name="AutosaveTabUserControl" />
+            </TabItem>
+
+            <TabItem Template="{StaticResource FancyTabItem}" Name="ActionsTab">
+                <TabItem.Header>
+                    <userControls1:TabHeaderControl x:Name="ActionsTabText" Text="Actions">
+                        <ContentControl Foreground="White" Content="{StaticResource GeneralSettings}" />
+                    </userControls1:TabHeaderControl>
+                </TabItem.Header>
+                <userControls1:ActionsTab x:Name="ActionsTabUserControl" Margin="0,0,0,0" />
+            </TabItem>
+
+            <TabItem Template="{StaticResource FancyTabItem}" Name="ImageFormatsTab">
+                <TabItem.Header>
+                    <userControls1:TabHeaderControl x:Name="ImageFormatsTabText" Text="Image Formats">
+                        <ContentControl Margin="3" Foreground="White" Content="{StaticResource ImageSettings}" />
+                    </userControls1:TabHeaderControl>
+                </TabItem.Header>
+                <userControls1:ImageFormatsTab x:Name="ImageFormatsTabUserControl" />
+            </TabItem>
+
+            <TabItem Template="{StaticResource FancyTabItem}" Name="PdfTab">
+                <TabItem.Header>
+                    <userControls1:TabHeaderControl x:Name="PdfTabText" Text="PDF">
+                        <ContentControl Margin="4 1 4 4" Foreground="White" Content="{StaticResource PdfSettings}" />
+                    </userControls1:TabHeaderControl>
+                </TabItem.Header>
+                <userControls1:PdfTab x:Name="PdfTabUserControl" />
+            </TabItem>
+        </TabControl>
+        <DockPanel Grid.Row="2" LastChildFill="False" Margin="10">
+            <Button Name="CancelButton" IsCancel="True" DockPanel.Dock="Right" MinWidth="150" TabIndex="0">Cancel</Button>
+            <Button Name="SaveButton" Command="{Binding SaveButtonCommand}" DockPanel.Dock="Right" MinWidth="150"
+                    Margin="0,0,10,0" TabIndex="1">
+                Save
+            </Button>
+        </DockPanel>
+    </Grid>
+</Window>

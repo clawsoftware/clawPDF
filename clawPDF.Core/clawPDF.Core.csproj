@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{18354054-45F6-4F51-8730-D05643A400A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>clawSoft.clawPDF.Core</RootNamespace>
+    <AssemblyName>clawPDF.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\_Build\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\_Build\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\pdfforge.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataStorage">
+      <HintPath>..\lib\DataStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\ActionResult.cs" />
+    <Compile Include="Actions\EMailClientAction.cs" />
+    <Compile Include="Actions\FtpAction.cs" />
+    <Compile Include="Actions\ICheckable.cs" />
+    <Compile Include="Actions\SmtpMailAction.cs" />
+    <Compile Include="Actions\IAction.cs" />
+    <Compile Include="Actions\DefaultViewerAction.cs" />
+    <Compile Include="Actions\ScriptAction.cs" />
+    <Compile Include="Actions\EncryptAndSignPdfAction.cs" />
+    <Compile Include="CoreResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CoreResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Ghostscript\GhostScriptANY.cs" />
+    <Compile Include="Ghostscript\NativeMethods.cs" />
+    <Compile Include="Ghostscript\OutputDevices\TextDevice.cs" />
+    <Compile Include="Helper\EncodingHelper.cs" />
+    <Compile Include="Jobs\ITempPathProvider.cs" />
+    <Compile Include="Jobs\JobCleanUp.cs" />
+    <Compile Include="Jobs\JobFactory.cs" />
+    <Compile Include="Jobs\JobState.cs" />
+    <Compile Include="Jobs\JobType.cs" />
+    <Compile Include="Jobs\XpsJob.cs" />
+    <Compile Include="Jobs\TokenReplacerFactory.cs" />
+    <Compile Include="Helper\PathHelper.cs" />
+    <Compile Include="Ghostscript\Ghostscript.cs" />
+    <Compile Include="Ghostscript\GhostscriptDiscovery.cs" />
+    <Compile Include="Ghostscript\GhostscriptVersion.cs" />
+    <Compile Include="Ghostscript\OutputDevices\DeviceException.cs" />
+    <Compile Include="Ghostscript\OutputDevices\JpegDevice.cs" />
+    <Compile Include="Ghostscript\OutputDevices\OutputDevice.cs" />
+    <Compile Include="Ghostscript\OutputDevices\PdfDevice.cs" />
+    <Compile Include="Ghostscript\OutputDevices\PngDevice.cs" />
+    <Compile Include="Actions\PrintingAction.cs" />
+    <Compile Include="Ghostscript\OutputDevices\PrintingDevice.cs" />
+    <Compile Include="Ghostscript\OutputDevices\TiffDevice.cs" />
+    <Compile Include="Jobs\AbstractJob.cs" />
+    <Compile Include="Jobs\GhostscriptJob.cs" />
+    <Compile Include="Jobs\IJob.cs" />
+    <Compile Include="Jobs\IJobInfo.cs" />
+    <Compile Include="Jobs\JobError.cs" />
+    <Compile Include="Jobs\JobInfo.cs" />
+    <Compile Include="Jobs\JobTranslations.cs" />
+    <Compile Include="Jobs\Metadata.cs" />
+    <Compile Include="Jobs\SourceFileInfo.cs" />
+    <Compile Include="Jobs\TitleReplacer.cs" />
+    <Compile Include="OutputFormatHelper.cs" />
+    <Compile Include="Printer\PortType.cs" />
+    <Compile Include="Printer\PrinterPort.cs" />
+    <Compile Include="Printer\PrinterPortReader.cs" />
+    <Compile Include="Helper\ProfileChecker.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xps\OutputFileMover\SingleFileMover.cs" />
+    <Compile Include="Xps\XpsConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\clawPDF.Mail\clawPDF.Mail.csproj">
+      <Project>{884d14eb-6d78-41d8-b022-968209dd6ce4}</Project>
+      <Name>clawPDF.Mail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\clawPDF.Settings\clawPDF.Settings.csproj">
+      <Project>{94936199-c9c7-4a5f-a58e-6123158e84f3}</Project>
+      <Name>clawPDF.Settings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\clawPDF.Utilities\clawPDF.Utilities.csproj">
+      <Project>{EA29538B-89A5-4FB3-AE0F-5E2370E852F8}</Project>
+      <Name>clawPDF.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ftplib\ftplib.csproj">
+      <Project>{79b8051d-505d-49b4-82d8-9951f204ceb6}</Project>
+      <Name>ftplib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PDFProcessor\PDFProcessing.csproj">
+      <Project>{35cb4221-e0ff-46ab-b30c-a414095821ac}</Project>
+      <Name>PDFProcessing</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eciRGB_v2.icc" />
+    <None Include="Resources\ISOcoated_v2_300_eci.icc" />
+    <None Include="Resources\ISOcoated_v2_grey1c_bas.ICC" />
+    <None Include="Resources\WebCoatedFOGRA28.icc" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CoreResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>CoreResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NLog">
+      <Version>4.5.11</Version>
+    </PackageReference>
+    <PackageReference Include="SystemWrapper.Interfaces">
+      <Version>0.25.0.186</Version>
+    </PackageReference>
+    <PackageReference Include="SystemWrapper.Wrappers">
+      <Version>0.25.0.186</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1')" />
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v3.5' Or $(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1')" />
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="NLog">
+          <HintPath>..\..\packages\NLog\lib\net35\NLog.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0')" />
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1')" />
+    <When Condition="$(TargetFrameworkIdentifier) == 'Silverlight' And $(TargetFrameworkVersion) == 'v4.0'">
+      <ItemGroup>
+        <Reference Include="NLog">
+          <HintPath>..\..\packages\NLog\lib\sl4\NLog.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == 'Silverlight' And $(TargetFrameworkVersion) == 'v5.0'">
+      <ItemGroup>
+        <Reference Include="NLog">
+          <HintPath>..\..\packages\NLog\lib\sl5\NLog.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1')" />
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1')" />
+  </Choose>
+</Project>

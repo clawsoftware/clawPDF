@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="clawSoft.clawPDF.Shared.Views.UserControls.ImageFormatsTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:userControls1="clr-namespace:clawSoft.clawPDF.Shared.ViewModels.UserControls"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <userControls1:ImageFormatsTabViewModel />
+    </UserControl.DataContext>
+    <StackPanel>
+        <HeaderedContentControl Name="JpegControl" Template="{StaticResource HeaderPanelTemplate}"
+                                Header="JPEG-Settings">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Name="JpegColorsLabel" Grid.Row="0" Grid.Column="0" Margin="0 5 5 0">Colors:</Label>
+                <ComboBox Name="JpegColorsComboBox" Grid.Row="0" Grid.Column="1" Margin="0 5 0 0"
+                          VerticalAlignment="Center" SelectedValue="{Binding CurrentProfile.JpegSettings.Color}"
+                          SelectedValuePath="Value" DisplayMemberPath="Name" ItemsSource="{Binding JpegColorValues}" />
+                <Label Name="JpegResolutionLabel" Grid.Row="1" Grid.Column="0" Margin="0 5 5 0">Resolution (DPI):</Label>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5 0 0" HorizontalAlignment="Left" Width="50"
+                         TextAlignment="Right"
+                         Text="{Binding CurrentProfile.JpegSettings.Dpi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Label Name="JpegQualityLabel" Grid.Row="2" Grid.Column="0" Margin="0 5 5 0">Quality (%):</Label>
+                <TextBox Name="JpegQualityTextBox" Grid.Row="2" Grid.Column="1" Margin="0 5 0 0"
+                         HorizontalAlignment="Left" Width="50" TextAlignment="Right"
+                         Text="{Binding CurrentProfile.JpegSettings.Quality, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         LostFocus="UIElement_OnLostFocus" />
+            </Grid>
+        </HeaderedContentControl>
+
+        <HeaderedContentControl Name="PngControl" Margin="0 5 0 0" Template="{StaticResource HeaderPanelTemplate}"
+                                Header="PNG-Settings">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Name="PngColorsLabel" Grid.Row="0" Grid.Column="0" Margin="0 5 5 0">Colors:</Label>
+                <ComboBox Name="PngColorsComboBox" Grid.Row="0" Grid.Column="1" Margin="0 5 0 0"
+                          VerticalAlignment="Center" SelectedValue="{Binding CurrentProfile.PngSettings.Color}"
+                          SelectedValuePath="Value" DisplayMemberPath="Name" ItemsSource="{Binding PngColorValues}" />
+                <Label Name="PngResolutionLabel" Grid.Row="1" Grid.Column="0" Margin="0 5 5 0">Resolution (DPI):</Label>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5 0 0" HorizontalAlignment="Left" Width="50"
+                         TextAlignment="Right"
+                         Text="{Binding CurrentProfile.PngSettings.Dpi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </HeaderedContentControl>
+
+        <HeaderedContentControl Name="TiffControl" Margin="0 5 0 0" Template="{StaticResource HeaderPanelTemplate}"
+                                Header="TIFF-Settings">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Name="TiffColorsLabel" Grid.Row="0" Grid.Column="0" Margin="0 5 5 0">Colors:</Label>
+                <ComboBox Name="TiffColorsComboBox" Grid.Row="0" Grid.Column="1" Margin="0 5 0 0"
+                          VerticalAlignment="Center" SelectedValue="{Binding CurrentProfile.TiffSettings.Color}"
+                          SelectedValuePath="Value" DisplayMemberPath="Name" ItemsSource="{Binding TiffColorValues}" />
+                <Label Name="TiffResolutionLabel" Grid.Row="1" Grid.Column="0" Margin="0 5 5 0">Resolution (DPI):</Label>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5 0 0" Width="50" HorizontalAlignment="Left"
+                         TextAlignment="Right"
+                         Text="{Binding CurrentProfile.TiffSettings.Dpi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </HeaderedContentControl>
+    </StackPanel>
+</UserControl>

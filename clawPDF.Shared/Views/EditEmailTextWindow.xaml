@@ -1,0 +1,76 @@
+﻿<Window x:Class="clawSoft.clawPDF.Shared.Views.EditEmailTextWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:converter="clr-namespace:clawSoft.clawPDF.Shared.Converter"
+        xmlns:userControls="clr-namespace:clawSoft.clawPDF.Shared.Views.UserControls"
+        Title="Edit E-Mail Text"
+        MinHeight="400"
+        Height="481"
+        MinWidth="400"
+        Width="446"
+        Background="{x:Static SystemColors.ControlBrush}"
+        Name="This">
+
+    <Window.Resources>
+        <converter:TokenReplacerConverter x:Key="TokenReplacerConverter" />
+        <converter:TokenReplacerConverter x:Key="TokenReplacerConverterWithFooter" />
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <DockPanel>
+                <ComboBox Name="SubjectTokenComboBox" DockPanel.Dock="Right" VerticalAlignment="Center"
+                          SelectionChanged="SubjectTokenComboBox_OnSelectionChanged" MinWidth="150" />
+                <TextBlock Name="AddSubjectTokenText" DockPanel.Dock="Right" VerticalAlignment="Center" Margin="5 0">Add Token:</TextBlock>
+                <Label Name="SubjectLabel" Target="{Binding ElementName=SubjectText}">_Subject:</Label>
+            </DockPanel>
+            <TextBox Name="SubjectText" Margin="0,5,0,2" />
+            <DockPanel LastChildFill="False">
+                <Label DockPanel.Dock="Left">
+                    <TextBlock Name="SubjectPreviewTextBlock">Preview:</TextBlock>
+                </Label>
+            </DockPanel>
+            <TextBox IsReadOnly="True"
+                     Text="{Binding ElementName=SubjectText, Path=Text, Converter={StaticResource TokenReplacerConverter}, Mode=OneWay}" />
+            <DockPanel Margin="0 5 0 5">
+                <ComboBox Name="BodyTokenComboBox" DockPanel.Dock="Right" VerticalAlignment="Center"
+                          SelectionChanged="BodyTokenComboBox_OnSelectionChanged" MinWidth="150" />
+                <TextBlock Name="AddBodyTokenText" DockPanel.Dock="Right" VerticalAlignment="Center" Margin="5 0">Add Token:</TextBlock>
+                <Label Name="BodyTextLabel" Target="{Binding ElementName=BodyText}">_Text:</Label>
+            </DockPanel>
+        </StackPanel>
+        <TextBox Name="BodyText" Grid.Row="1" AcceptsReturn="True" Margin="0,0,0,2" />
+        <DockPanel Grid.Row="2" LastChildFill="False">
+            <Label DockPanel.Dock="Left">
+                <TextBlock Name="BodyPreviewTextBlock">Preview:</TextBlock>
+            </Label>
+        </DockPanel>
+        <TextBox Name="FinalBodyText" Grid.Row="3" IsReadOnly="True"
+                 Text="{Binding ElementName=BodyText, Path=Text, Converter={StaticResource TokenReplacerConverterWithFooter}, Mode=OneWay}" />
+
+        <DockPanel Grid.Row="4">
+            <DockPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Padding" Value="10" />
+                    <Setter Property="MinWidth" Value="100" />
+                    <Setter Property="Margin" Value="10 10 0 0" />
+                </Style>
+            </DockPanel.Resources>
+
+            <Button Name="CancelButton" DockPanel.Dock="Right" IsCancel="True">_Cancel</Button>
+            <Button Name="OkButton" DockPanel.Dock="Right" Click="OkButton_OnClick">_OK</Button>
+            <CheckBox Name="AttachSignature" DockPanel.Dock="Left" Margin="0 10"
+                      IsChecked="{Binding ElementName=This,Path=AddSignature}" Checked="AttachSignature_OnChecked"
+                      Unchecked="AttachSignature_OnChecked">
+                <TextBlock Name="AttachSignatureText" TextWrapping="Wrap">Attach clawSoft Signature</TextBlock>
+            </CheckBox>
+        </DockPanel>
+    </Grid>
+</Window>

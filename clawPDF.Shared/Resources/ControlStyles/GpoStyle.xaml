@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:clawSoft.clawPDF.Shared.Converter">
+    <Style x:Key="GpoStyle" TargetType="FrameworkElement" x:Shared="False">
+        <Style.Resources>
+            <converter:TranslatorConverter
+                x:Key="TranslatorConverter"
+                TranslationSection="Application"
+                TranslationKey="SetByAdministrator"
+                DefaultTranslation="Set by administrator" />
+        </Style.Resources>
+        <Setter Property="ToolTipService.ToolTip">
+            <Setter.Value>
+                <TextBlock Name="GpoTextBlock"
+                           Text="{Binding {x:Null}, Converter={StaticResource TranslatorConverter}}" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ToolTipService.InitialShowDelay" Value="10" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="True">
+                <Setter Property="ToolTipService.IsEnabled" Value="False" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="ToolTipService.IsEnabled" Value="True" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

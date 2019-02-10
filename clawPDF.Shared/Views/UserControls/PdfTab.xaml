@@ -1,0 +1,351 @@
+﻿<UserControl x:Class="clawSoft.clawPDF.Shared.Views.UserControls.PdfTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:enums="clr-namespace:clawSoft.clawPDF.Core.Settings.Enums;assembly=clawPDF.Settings"
+             xmlns:userControls="clr-namespace:clawSoft.clawPDF.Shared.ViewModels.UserControls"
+             xmlns:converter="clr-namespace:clawSoft.clawPDF.Shared.Converter"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <userControls:PdfTabViewModel />
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <system:Boolean x:Key="True">True</system:Boolean>
+        <system:Boolean x:Key="False">False</system:Boolean>
+        <converter:AreEqualConverter Reference="{x:Static enums:ColorModel.Cmyk}" EqualValue="{StaticResource True}"
+                                     NotEqualValue="{StaticResource False}" x:Key="ColorModelIsCmykConverter" />
+        <converter:AreEqualConverter Reference="{x:Static enums:CompressionColorAndGray.JpegManual}"
+                                     EqualValue="{StaticResource True}" NotEqualValue="{StaticResource False}"
+                                     x:Key="CompressionColorAndGrayIsJpegManualConverter" />
+        <converter:AreEqualConverter Reference="{x:Static enums:CompressionColorAndGray.Automatic}"
+                                     EqualValue="{StaticResource False}" NotEqualValue="{StaticResource True}"
+                                     x:Key="CompressionColorAndGrayIsNotAutomaticConverter" />
+        <converter:AreEqualConverter Reference="{x:Static enums:SignaturePage.CustomPage}"
+                                     EqualValue="{StaticResource True}" NotEqualValue="{StaticResource False}"
+                                     x:Key="SignaturePageIsCustomPageConverter" />
+        <converter:StringIsNullOrWhiteSpaceToBoolConverter x:Key="StringIsNullOrWhiteSpaceToBoolConverter" />
+    </UserControl.Resources>
+
+    <TabControl Name="PdfSettingsTabControl" x:FieldModifier="public">
+        <TabItem Name="PdfGeneralTab" Header="General" x:FieldModifier="public">
+            <StackPanel Margin="5">
+                <HeaderedContentControl Name="PdfVersionControl" Template="{StaticResource HeaderPanelTemplate}"
+                                        Header="PDF Version">
+                    <StackPanel HorizontalAlignment="Left" Margin="0,5,0,5">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Name="CurrentPdfVersionTextBlock" Margin="0 0 5 0">Current PDF version:</TextBlock>
+                            <TextBlock Name="PdfVersionTextBlock" FontWeight="Bold" Text="{Binding PdfVersion}" />
+                        </StackPanel>
+                        <TextBlock Name="PdfVersionNoteTextBlock" TextWrapping="Wrap">For best compatibility clawPDF uses the lowest version that is possible with the current settings.</TextBlock>
+                    </StackPanel>
+                </HeaderedContentControl>
+                <HeaderedContentControl Name="PageOrientationControl" HorizontalAlignment="Left"
+                                        Template="{StaticResource HeaderPanelTemplate}" Header="Page Orientation">
+                    <StackPanel HorizontalAlignment="Left" Margin="0,5,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox Name="PageOrientationComboBox" Width="200"
+                                      SelectedValue="{Binding CurrentProfile.PdfSettings.PageOrientation}"
+                                      SelectedValuePath="Value" DisplayMemberPath="Name"
+                                      ItemsSource="{Binding PageOrientationValues}" />
+                        </StackPanel>
+                    </StackPanel>
+                </HeaderedContentControl>
+                <HeaderedContentControl Name="ColorModelControl" Margin="0,10,0,0"
+                                        Template="{StaticResource HeaderPanelTemplate}" Header="Color Model">
+                    <StackPanel Margin="0 5 0 0" HorizontalAlignment="Left">
+                        <ComboBox Width="200" Name="ColorModelComboBox"
+                                  SelectedValue="{Binding CurrentProfile.PdfSettings.ColorModel}"
+                                  SelectedValuePath="Value" DisplayMemberPath="Name"
+                                  ItemsSource="{Binding ColorModelValues}" />
+                    </StackPanel>
+                </HeaderedContentControl>
+
+                <HeaderedContentControl Name="ViewerSettingsControl" Margin="0,10,0,0"
+                                        Template="{StaticResource HeaderPanelTemplate}" Header="Viewer Settings">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Label Name="PageViewLabel" Grid.Row="0">Page view:</Label>
+                        <ComboBox Name="PageViewComboBox" Grid.Row="1"
+                                  SelectedValue="{Binding CurrentProfile.PdfSettings.PageView}"
+                                  SelectedValuePath="Value" DisplayMemberPath="Name"
+                                  ItemsSource="{Binding PageViewValues}" />
+                        <Label Name="DocumentViewLabel" Grid.Row="2">Document view:</Label>
+                        <ComboBox Name="DocumentViewComboBox" Grid.Row="3"
+                                  SelectedValue="{Binding CurrentProfile.PdfSettings.DocumentView}"
+                                  SelectedValuePath="Value" DisplayMemberPath="Name"
+                                  ItemsSource="{Binding DocumentViewValues}" />
+                        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,10,0,0">
+                            <Label Name="ViewerStartsOnPageLabel">Viewer opens on page:</Label>
+                            <TextBox Text="{Binding CurrentProfile.PdfSettings.ViewerStartsOnPage, Mode=TwoWay}"
+                                     Margin="5,0,0,0" Width="35" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Grid>
+                </HeaderedContentControl>
+            </StackPanel>
+        </TabItem>
+        <TabItem Name="PdfCompressionTab" Header="Compression" x:FieldModifier="public">
+            <StackPanel Margin="5">
+                <HeaderedContentControl Name="CompressionColorAndGrayContentControl"
+                                        Template="{StaticResource HeaderPanelTemplate}"
+                                        Header="Color and Grayscale Images ">
+                    <StackPanel Margin="0,5,0,0">
+                        <CheckBox Name="CompressionColorAndGrayCheckBox"
+                                  IsChecked="{Binding CurrentProfile.PdfSettings.CompressColorAndGray.Enabled}">
+                            Enable Compression
+                        </CheckBox>
+                        <StackPanel IsEnabled="{Binding ElementName=CompressionColorAndGrayCheckBox, Path=IsChecked}"
+                                    Orientation="Horizontal">
+                            <StackPanel>
+                                <ComboBox Name="CompressionColorAndGrayComboBox" Margin="0,5,0,0"
+                                          HorizontalAlignment="Stretch"
+                                          SelectedValue="{Binding CurrentProfile.PdfSettings.CompressColorAndGray.Compression}"
+                                          DisplayMemberPath="Name" SelectedValuePath="Value"
+                                          ItemsSource="{Binding CompressionColorAndGrayValues}" />
+                                <StackPanel Orientation="Horizontal"
+                                            IsEnabled="{Binding SelectedItem.Value, ElementName=CompressionColorAndGrayComboBox, Converter={StaticResource CompressionColorAndGrayIsJpegManualConverter}}"
+                                            Margin="0,5,0,0">
+                                    <Label Name="CompressionColorAndGrayJpegFactorLabel">Factor:</Label>
+                                    <TextBox Name="JpegFactorTextBox"
+                                             Text="{Binding CurrentProfile.PdfSettings.CompressColorAndGray.JpegCompressionFactor}"
+                                             Width="40" Margin="5 0 0 0" VerticalAlignment="Center"
+                                             TextChanged="JpegFactorTextBox_OnTextChanged" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0"
+                                            IsEnabled="{Binding SelectedItem.Value, ElementName=CompressionColorAndGrayComboBox, Converter={StaticResource CompressionColorAndGrayIsNotAutomaticConverter}}">
+                                    <CheckBox Name="CompressionColorAndGrayResampleCheckBox" VerticalAlignment="Center"
+                                              IsChecked="{Binding CurrentProfile.PdfSettings.CompressColorAndGray.Resampling}"
+                                              Margin="0,0,5,0">
+                                        Resample Images to:
+                                    </CheckBox>
+                                    <TextBox Text="{Binding CurrentProfile.PdfSettings.CompressColorAndGray.Dpi}"
+                                             Width="40" Margin="0,0,5,0" VerticalAlignment="Center" />
+                                    <Label Name="CompressionColorAndGrayDpiLabel">DPI</Label>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </HeaderedContentControl>
+                <HeaderedContentControl Name="CompressionMonochromeControl"
+                                        Template="{StaticResource HeaderPanelTemplate}" Header="Monochrome Images ">
+                    <StackPanel Margin="0,5,0,0">
+                        <CheckBox Name="CompressionMonochromeCheckBox"
+                                  IsChecked="{Binding CurrentProfile.PdfSettings.CompressMonochrome.Enabled}">
+                            Enable Compression
+                        </CheckBox>
+                        <StackPanel IsEnabled="{Binding ElementName= CompressionMonochromeCheckBox, Path=IsChecked}"
+                                    Orientation="Horizontal" Margin="0,5,0,0">
+                            <StackPanel>
+                                <ComboBox Name="CompressionMonochromeComboBox"
+                                          SelectedValue="{Binding CurrentProfile.PdfSettings.CompressMonochrome.Compression}"
+                                          DisplayMemberPath="Name" SelectedValuePath="Value"
+                                          ItemsSource="{Binding CompressionMonochromeValues}" />
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                    <CheckBox Name="CompressionMonochromeResampleCheckBox" VerticalAlignment="Center"
+                                              Margin="0,0,5,0"
+                                              IsChecked="{Binding CurrentProfile.PdfSettings.CompressMonochrome.Resampling}">
+                                        Resample Images to:
+                                    </CheckBox>
+                                    <TextBox Width="40" VerticalAlignment="Center"
+                                             Text="{Binding CurrentProfile.PdfSettings.CompressMonochrome.Dpi}" />
+                                    <Label Name="CompressionMonochromeDpiLabel" Margin="5,0,0,0">DPI</Label>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </HeaderedContentControl>
+            </StackPanel>
+        </TabItem>
+        <TabItem Name="PdfSecurityTab" Header="Security" x:FieldModifier="public">
+            <StackPanel Margin="5">
+                <CheckBox Name="SecurityCheckBox" IsChecked="{Binding EncryptionEnabled, Mode=TwoWay}">Encrypt PDF files to protect its contents</CheckBox>
+                <StackPanel IsEnabled="{Binding ElementName=SecurityCheckBox, Path=IsChecked}" Margin="10">
+                    <CheckBox Name="UserPasswordCheckBox"
+                              IsChecked="{Binding CurrentProfile.PdfSettings.Security.RequireUserPassword, Mode=TwoWay}"
+                              Margin="0,0,0,10">
+                        Require a password to open the PDF file
+                    </CheckBox>
+                    <Button Name="SecurityPasswordsButton" Click="SecurityPasswordsButton_OnClick"
+                            HorizontalAlignment="Left" MaxWidth="231" Margin="0,0,0,10" Padding="10,0,10,0">
+                        Set Passwords
+                    </Button>
+
+                    <HeaderedContentControl Name="EncryptionLevelControl"
+                                            Template="{StaticResource HeaderPanelTemplate}" Header="Encryption Level">
+                        <StackPanel Margin="0,5,0,0">
+                            <RadioButton Name="LowEncryptionRadioButton" IsChecked="{Binding LowEncryptionEnabled}">Low Encryption (40 Bit)</RadioButton>
+                            <RadioButton Name="MediumEncryptionRadioButton"
+                                         IsChecked="{Binding MediumEncryptionEnabled}">
+                                Medium Encryption (128 Bit)
+                            </RadioButton>
+                            <RadioButton Name="HighEncryptionRadioButton" IsChecked="{Binding HighEncryptionEnabled}">High Encryption (128 Bit AES)</RadioButton>
+                        </StackPanel>
+                    </HeaderedContentControl>
+
+                    <HeaderedContentControl Name="PermissionsControl" Margin="0 10 0 0"
+                                            Template="{StaticResource HeaderPanelTemplate}" Header="Allow the user">
+                        <Grid Margin="0 5 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <CheckBox Name="CopyContentPermissionCheckBox" Grid.Row="0" Grid.Column="0"
+                                      IsChecked="{Binding CurrentProfile.PdfSettings.Security.AllowToCopyContent}">
+                                to copy content
+                            </CheckBox>
+                            <CheckBox Name="PrintDocumentPermissionCheckbox" Grid.Row="1" Grid.Column="0"
+                                      IsChecked="{Binding CurrentProfile.PdfSettings.Security.AllowPrinting}">
+                                to print the document
+                            </CheckBox>
+                            <CheckBox Name="LowQualityPrintPermissionCheckBox" Grid.Row="2" Grid.Column="0"
+                                      IsEnabled="{Binding ExtendedPermissonsEnabled}"
+                                      IsChecked="{Binding RestrictLowQualityPrintingEnabled}" Margin="15,0,0,0">
+                                restrict to low quality
+                            </CheckBox>
+                            <CheckBox Name="ScreenReaderPermissionCheckBox" Grid.Row="3" Grid.Column="0"
+                                      IsEnabled="{Binding ExtendedPermissonsEnabled}"
+                                      IsChecked="{Binding AllowScreenReadersEnabled}">
+                                to use a screen reader
+                            </CheckBox>
+                            <CheckBox Name="EditDocumentPermissionCheckBox" Grid.Row="0" Grid.Column="2"
+                                      IsChecked="{Binding CurrentProfile.PdfSettings.Security.AllowToEditTheDocument}">
+                                to edit the document
+                            </CheckBox>
+                            <CheckBox Name="EditCommentsPermissionCheckbox" Grid.Row="1" Grid.Column="2"
+                                      IsChecked="{Binding CurrentProfile.PdfSettings.Security.AllowToEditComments}">
+                                to edit comments
+                            </CheckBox>
+                            <CheckBox Name="FillFormsPermissionCheckBox" Grid.Row="2" Grid.Column="2"
+                                      IsEnabled="{Binding ExtendedPermissonsEnabled}"
+                                      IsChecked="{Binding AllowFillFormsEnabled}">
+                                to fill forms
+                            </CheckBox>
+                            <CheckBox Name="EditAssemblyPermissionCheckBox" Grid.Row="3" Grid.Column="2"
+                                      IsEnabled="{Binding ExtendedPermissonsEnabled}"
+                                      IsChecked="{Binding AllowEditingAssemblyEnabled}">
+                                to edit the assembly
+                            </CheckBox>
+                        </Grid>
+                    </HeaderedContentControl>
+                </StackPanel>
+            </StackPanel>
+        </TabItem>
+        <TabItem Name="PdfSignatureTab" Header="Signature" Height="23" VerticalAlignment="Top" x:FieldModifier="public">
+            <StackPanel Margin="5">
+                <CheckBox Name="SignatureCheckBox"
+                          IsChecked="{Binding CurrentProfile.PdfSettings.Signature.Enabled, Mode=TwoWay}">
+                    Sign PDF file with a digital signature
+                </CheckBox>
+                <StackPanel IsEnabled="{Binding ElementName=SignatureCheckBox, Path=IsChecked}">
+                    <Label Name="CertificateFileLabel">Certificate File:</Label>
+                    <DockPanel>
+                        <Button Name="SignaturePasswordButton" DockPanel.Dock="Right" Margin="5 0 0 0"
+                                Padding="10,0,10,0" Click="SignaturePasswordButton_OnClick"
+                                IsEnabled="{Binding Text, ElementName=CertificationFileTextBox, Converter={StaticResource StringIsNullOrWhiteSpaceToBoolConverter}}">
+                            Set Password
+                        </Button>
+                        <Button Name="CertificationFileButton" DockPanel.Dock="Right" Width="25" Margin="5 0 0 0"
+                                Padding="0" Click="CertificationFileButton_OnClick">
+                            ...
+                        </Button>
+                        <TextBox Name="CertificationFileTextBox" DockPanel.Dock="Left"
+                                 Text="{Binding CurrentProfile.PdfSettings.Signature.CertificateFile, Mode=TwoWay}" />
+                    </DockPanel>
+                    <UniformGrid Columns="3" Margin="0 5 0 0">
+                        <DockPanel>
+                            <Label DockPanel.Dock="Top" Name="SignatureReasonLabel">Reason:</Label>
+                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignReason}" />
+                        </DockPanel>
+                        <DockPanel Margin="10 0 0 0">
+                            <Label DockPanel.Dock="Top" Name="SignatureContactLabel">Contact:</Label>
+                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignContact}" />
+                        </DockPanel>
+                        <DockPanel Margin="10 0 0 0">
+                            <Label DockPanel.Dock="Top" Name="SignatureLocationLabel">Location:</Label>
+                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignLocation}" />
+                        </DockPanel>
+                    </UniformGrid>
+                    <CheckBox Name="AllowMultiSigningCheckBox" Margin="0,10,0,0"
+                              IsChecked="{Binding CurrentProfile.PdfSettings.Signature.AllowMultiSigning, Mode=TwoWay}">
+                        Allow multiple signatures
+                    </CheckBox>
+
+                    <Label Name="TimeServerUrlLabel" Margin="0 5 0 0">Time Server URL:</Label>
+                    <DockPanel>
+                        <Button Name="DefaultTimeServerButton" DockPanel.Dock="Right" Margin="5 0 0 0"
+                                Padding="10,0,10,0" Click="DefaultTimeServerButton_OnClick">
+                            Default Time Server
+                        </Button>
+                        <TextBox Name="TimeServerUrlTextBox" DockPanel.Dock="Left"
+                                 Text="{Binding CurrentProfile.PdfSettings.Signature.TimeServerUrl}" />
+                    </DockPanel>
+                    <StackPanel Orientation="Horizontal" Margin="15 8 0 0">
+                        <CheckBox Name="SecuredTimeserverCheckBox"
+                                  IsChecked="{Binding CurrentProfile.PdfSettings.Signature.TimeServerIsSecured}">
+                            Secured Time Server
+                        </CheckBox>
+                        <Button x:Name="TimeServerLoginButton" Margin="5 0 0 0"
+                                IsEnabled="{Binding IsChecked, ElementName=SecuredTimeserverCheckBox}"
+                                Click="TimeServerLoginButton_OnClick" Padding="10,0,10,0" Content="Set Login" />
+                    </StackPanel>
+                    <CheckBox Name="DisplaySignatureCheckBox" Margin="0 10 0 0"
+                              IsChecked="{Binding CurrentProfile.PdfSettings.Signature.DisplaySignatureInDocument}">
+                        Display signature in document
+                    </CheckBox>
+                    <StackPanel Margin="17,5,0,0"
+                                IsEnabled="{Binding ElementName=DisplaySignatureCheckBox, Path=IsChecked}">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Name="SignaturePageLabel">Page:</Label>
+                            <ComboBox Name="SignaturePageComboBox" Margin="5 0 0 0" VerticalAlignment="Center"
+                                      SelectedValue="{Binding CurrentProfile.PdfSettings.Signature.SignaturePage}"
+                                      DisplayMemberPath="Name" SelectedValuePath="Value"
+                                      ItemsSource="{Binding SignaturePageValues}" Width="179" />
+                            <TextBox Margin="5 0 0 0" Width="40" VerticalAlignment="Center"
+                                     Text="{Binding CurrentProfile.PdfSettings.Signature.SignatureCustomPage, Mode=TwoWay}"
+                                     IsEnabled="{Binding SelectedItem.Value, ElementName=SignaturePageComboBox, Converter={StaticResource SignaturePageIsCustomPageConverter}}" />
+                        </StackPanel>
+                        <Grid Margin="0 5 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Label Name="SignatureLeftXLabel" Grid.Row="0" Grid.Column="0">Left X:</Label>
+                            <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"
+                                     Text="{Binding CurrentProfile.PdfSettings.Signature.LeftX}" />
+                            <Label Name="SignatureRightXLabel" Grid.Row="0" Grid.Column="2" Margin="5 0 0 0">Right X:</Label>
+                            <TextBox Grid.Row="0" Grid.Column="3" VerticalAlignment="Center"
+                                     Text="{Binding CurrentProfile.PdfSettings.Signature.RightX}" />
+                            <Label Grid.Row="1" Grid.Column="0" Name="SignatureLeftYLabel" Margin="0 5 0 0">Left Y:</Label>
+                            <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5 0 0" VerticalAlignment="Center"
+                                     Text="{Binding CurrentProfile.PdfSettings.Signature.LeftY}" />
+                            <Label Name="SignatureRightYLabel" Grid.Row="1" Grid.Column="2" Margin="5 5 0 0">Right Y:</Label>
+                            <TextBox Grid.Row="1" Grid.Column="3" Margin="0 5 0 0" VerticalAlignment="Center"
+                                     Text="{Binding CurrentProfile.PdfSettings.Signature.RightY}" />
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+</UserControl>

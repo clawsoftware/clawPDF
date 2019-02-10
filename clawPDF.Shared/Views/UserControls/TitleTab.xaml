@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="clawSoft.clawPDF.Shared.Views.UserControls.TitleTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:userControls="clr-namespace:clawSoft.clawPDF.Shared.ViewModels.UserControls"
+             xmlns:validation="clr-namespace:clawSoft.clawPDF.Shared.ViewModels.Validation"
+             xmlns:converter="clr-namespace:clawSoft.clawPDF.Shared.Converter"
+             mc:Ignorable="d"
+             d:DesignHeight="400"
+             d:DesignWidth="500"
+             x:Name="This">
+    <UserControl.DataContext>
+        <userControls:TitleTabViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <converter:TranslatedEnumConverter x:Key="TranslatedEnumConverter" />
+    </UserControl.Resources>
+    <HeaderedContentControl Name="TitleReplacementControl" Margin="5" Template="{StaticResource HeaderPanelTemplate}"
+                            Header="Title Replacement">
+
+        <Grid Margin="0 5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" MaxWidth="500" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button Grid.Column="0" Grid.Row="2" Margin="0 5 5 2" Padding="5 1" Command="{Binding TitleAddCommand}"
+                    Content="+" Click="AddButton_OnClick" />
+            <Button Grid.Column="0" Grid.Row="3" Margin="0 0 5 5" Padding="5 1" Command="{Binding TitleDeleteCommand}"
+                    Content="-" />
+            <DataGrid Name="DataGrid"
+                      Grid.Column="1" Grid.Row="0" Grid.RowSpan="5"
+                      ItemsSource="{Binding TitleReplacements}"
+                      IsSynchronizedWithCurrentItem="True"
+                      AutoGenerateColumns="False"
+                      AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn"
+                      Height="250"
+                      CellEditEnding="DataGrid_OnCellEditEnding"
+                      CanUserAddRows="False"
+                      RowEditEnding="DataGrid_OnRowEditEnding">
+
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn x:Name="TypeColoumn" Header="Type">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Text="{Binding ReplacementType, Converter={StaticResource TranslatedEnumConverter}}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox
+                                    ItemsSource="{Binding ViewModel.ReplacementValues,
+                                        RelativeSource={RelativeSource FindAncestor, 
+                                        AncestorType={x:Type UserControl }}}"
+                                    SelectedValue="{Binding ReplacementType, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                    SelectedValuePath="Value"
+                                    DisplayMemberPath="Name" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn x:Name="SearchColumn" Header="Search text" Width="*">
+                        <DataGridTextColumn.Binding>
+                            <Binding Path="Search" NotifyOnValidationError="True" ValidatesOnExceptions="True"
+                                     UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <validation:NonEmptyStringValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn x:Name="ReplaceColumn" Header="Replace with" Width="*"
+                                        Binding="{Binding Replace}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <HeaderedContentControl Grid.Row="5" Grid.ColumnSpan="2" Name="TitleReplacementPreview" Margin="5"
+                                    Template="{StaticResource HeaderPanelTemplate}" Header="Preview">
+                <StackPanel>
+                    <TextBlock Margin="0 5 0 0" Name="SampleTitleText">Sample Title:</TextBlock>
+                    <TextBox TextChanged="TitleSample_OnTextChanged" Name="TitleSample">My Document - Editor</TextBox>
+                    <TextBlock Margin="0 5 0 0" Name="PreviewTitleText">Replaced Title:</TextBlock>
+                    <TextBox IsReadOnly="True" Name="TitlePreview" />
+                </StackPanel>
+            </HeaderedContentControl>
+        </Grid>
+    </HeaderedContentControl>
+</UserControl>

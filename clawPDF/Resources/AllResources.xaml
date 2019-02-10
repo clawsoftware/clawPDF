@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/clawPDF.Shared;component/Resources/Colors.xaml" />
+        <ResourceDictionary Source="/clawPDF.Shared;component/Resources/Logos.xaml" />
+        <ResourceDictionary Source="/clawPDF.Shared;component/Resources/Buttons.xaml" />
+        <ResourceDictionary Source="/clawPDF.Shared;component/Resources/Icons.xaml" />
+        <ResourceDictionary Source="/clawPDF.Shared;component/Resources/Controls.xaml" />
+        <ResourceDictionary Source="/clawPDF.Shared;component/Resources/ControlStyles/DataGrid.xaml" />
+        <ResourceDictionary Source="/clawPDF.Shared;component/Resources/ControlStyles/FancyTabs.xaml" />
+        <ResourceDictionary Source="/clawPDF.Shared;component/Resources/ControlStyles/HeaderPanel.xaml" />
+        <ResourceDictionary Source="/clawPDF.Shared;component/Resources/ControlStyles/ListView.xaml" />
+        <ResourceDictionary Source="/clawPDF.Shared;component/Resources/ControlStyles/GpoStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="PostScriptStamp" xml:space="preserve">
+    <value>%!PS
+/stampstring ([STAMPSTRING]) def
+/fontname /[FONTNAME] def
+/fontsize [FONTSIZE] def
+/fontcolor {[FONTCOLOR]} def
+/ISOLatin1Encoding [
+    /.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+    /.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+    /.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+    /.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+    /space/exclam/quotedbl/numbersign/dollar/percent/ampersand/quoteright
+    /parenleft/parenright/asterisk/plus/comma/minus/period/slash
+    /zero/one/two/three/four/five/six/seven/eight/nine/colon/semicolon
+    /less/equal/greater/question/at/A/B/C/D/E/F/G/H/I/J/K/L/M/N
+    /O/P/Q/R/S/T/U/V/W/X/Y/Z/bracketleft/backslash/bracketright
+    /asciicircum/underscore/quoteleft/a/b/c/d/e/f/g/h/i/j/k/l/m
+    /n/o/p/q/r/s/t/u/v/w/x/y/z/braceleft/bar/braceright/asciitilde
+    /.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+    /.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+    /.notdef/dotlessi/grave/acute/circumflex/tilde/macron/breve
+    /dotaccent/dieresis/.notdef/ring/cedilla/.notdef/hungarumlaut
+    /ogonek/caron/space/exclamdown/cent/sterling/currency/yen/brokenbar
+    /section/dieresis/copyright/ordfeminine/guillemotleft/logicalnot
+    /hyphen/registered/macron/degree/plusminus/twosuperior/threesuperior
+    /acute/mu/paragraph/periodcentered/cedilla/onesuperior/ordmasculine
+    /guillemotright/onequarter/onehalf/threequarters/questiondown
+    /Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/AE/Ccedilla
+    /Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+    /Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+    /multiply/Oslash/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute
+    /Thorn/germandbls/agrave/aacute/acircumflex/atilde/adieresis
+    /aring/ae/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+    /iacute/icircumflex/idieresis/eth/ntilde/ograve/oacute/ocircumflex
+    /otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex/udieresis
+    /yacute/thorn/ydieresis
+] def
+/ISOEncode {
+    dup length dict begin
+    {1 index /FID ne {def} {pop pop} ifelse} forall
+    /Encoding ISOLatin1Encoding def
+    currentdict
+    end
+    /Temporary exch definefont
+} bind def
+
+/showpage_org /showpage load def
+/showpage
+{  
+    gsave
+	initgraphics
+	clippath pathbbox
+	/ury exch def /urx exch def
+	/lly exch def /llx exch def
+	/h ury lly sub def
+	/w urx llx sub def
+    currentscreen exch pop h w atan dup
+    rotate 45 sub exch setscreen
+    /len h dup mul w dup mul add sqrt def
+    /x 0 def
+    /y fontsize 0.7 mul -2 div def
+    newpath
+    fontname findfont fontsize scalefont ISOEncode setfont
+	[STAMPOUTLINEFONTTHICKNESS] setlinewidth
+    len stampstring stringwidth pop sub 2 div
+    fontcolor setrgbcolor 
+    /x exch def
+    x y moveto stampstring
+    [USEOUTLINEFONT]
+    grestore  
+    showpage_org
+} def</value>
+  </data>
+  <data name="PdfaDefinition" xml:space="preserve">
+    <value>%!
+% This is a sample prefix file for creating a PDF/A document.
+% Feel free to modify entries marked with "Customize".
+
+% This assumes an ICC profile to reside in the file (ISO Coated sb.icc),
+% unless the user modifies the corresponding line below.
+
+% Define entries in the document Info dictionary :
+
+/ICCProfile [ICC_PROFILE]
+def
+
+[ /Title (Title)                  % Customize.
+  /DOCINFO pdfmark
+
+% Define an ICC profile :
+
+[/_objdef {icc_PDFA} /type /stream /OBJ pdfmark
+[{icc_PDFA} &lt;&lt;/N systemdict /ProcessColorModel get /DeviceGray eq {1} {4} ifelse &gt;&gt; /PUT pdfmark
+[{icc_PDFA} ICCProfile (r) file /PUT pdfmark
+
+% Define the output intent dictionary :
+
+[/_objdef {OutputIntent_PDFA} /type /dict /OBJ pdfmark
+[{OutputIntent_PDFA} &lt;&lt;
+  /Type /OutputIntent             % Must be so (the standard requires).
+  /S /GTS_PDFA1                   % Must be so (the standard requires).
+  /DestOutputProfile {icc_PDFA}            % Must be so (see above).
+  /OutputConditionIdentifier (CGATS TR001)      % Customize
+&gt;&gt; /PUT pdfmark
+[{Catalog} &lt;&lt;/OutputIntents [ {OutputIntent_PDFA} ]&gt;&gt; /PUT pdfmark</value>
+  </data>
+  <data name="PdfxDefinition" xml:space="preserve">
+    <value>%!
+% This is a sample prefix file for creating a PDF/X-3 document.
+% Feel free to modify entries marked with "Customize".
+
+% This assumes an ICC profile to reside in the file (ISO Coated sb.icc),
+% unless the user modifies the corresponding line below.
+
+systemdict /ProcessColorModel known {
+  systemdict /ProcessColorModel get dup /DeviceGray ne exch /DeviceCMYK ne and
+} {
+  true
+} ifelse
+{ (ERROR: ProcessColorModel must be /DeviceGray or DeviceCMYK.)=
+  /ProcessColorModel cvx /rangecheck signalerror
+} if
+
+% Define entries to the document Info dictionary :
+
+%/ICCProfile (ISO Coated sb.icc) def  % Customize or remove.
+
+[ /GTS_PDFXVersion (PDF/X-3:2002) % Must be so (the standard requires).
+  /Title (Title)                  % Customize.
+  /Trapped /False                 % Must be so (Ghostscript doesn't provide other).
+  /DOCINFO pdfmark
+
+% Define an ICC profile :
+
+currentdict /ICCProfile known {
+  [/_objdef {icc_PDFX} /type /stream /OBJ pdfmark
+  [{icc_PDFX} &lt;&lt;/N systemdict /ProcessColorModel get /DeviceGray eq {1} {4} ifelse &gt;&gt; /PUT pdfmark
+  [{icc_PDFX} ICCProfile (r) file /PUT pdfmark
+} if
+
+% Define the output intent dictionary :
+
+[/_objdef {OutputIntent_PDFX} /type /dict /OBJ pdfmark
+[{OutputIntent_PDFX} &lt;&lt;
+  /Type /OutputIntent              % Must be so (the standard requires).
+  /S /GTS_PDFX                     % Must be so (the standard requires).
+  /OutputCondition (Commercial and specialty printing) % Customize
+  /Info (none)                     % Customize
+  /OutputConditionIdentifier (CGATS TR001)      % Customize
+  /RegistryName (http://www.color.org)   % Must be so (the standard requires).
+  currentdict /ICCProfile known {
+    /DestOutputProfile {icc_PDFX}  % Must be so (see above).
+  } if
+&gt;&gt; /PUT pdfmark
+[{Catalog} &lt;&lt;/OutputIntents [ {OutputIntent_PDFX} ]&gt;&gt; /PUT pdfmark</value>
+  </data>
+  <data name="ISOcoated_v2_300_eci" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ISOcoated_v2_300_eci.icc;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="eciRGB_v2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\ecirgb_v2.icc;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ISOcoated_v2_grey1c_bas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ISOcoated_v2_grey1c_bas.ICC;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="WebCoatedFOGRA28" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\WebCoatedFOGRA28.icc;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

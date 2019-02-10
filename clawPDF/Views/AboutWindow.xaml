@@ -1,0 +1,76 @@
+﻿<Window x:Class="clawSoft.clawPDF.Views.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About clawPDF" Height="352.614" Width="650"
+        WindowStartupLocation="CenterScreen"
+        Loaded="OnLoaded"
+        Icon="../clawPDF.ico"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        ResizeMode="CanMinimize" x:ClassModifier="internal">
+    <Grid Background="{x:Static SystemColors.ControlBrush}">
+        <Grid.Resources>
+            <Style x:Key="NoChromeButton" TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Cursor" Value="{x:Static Cursors.Hand}" />
+                <Setter Property="Foreground" Value="#06c" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Padding" Value="1" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid x:Name="Chrome" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  Margin="{TemplateBinding Padding}" RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Foreground" Value="#ADADAD" />
+                                    <Setter Property="Opacity" TargetName="Chrome" Value="0.5" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="260*" />
+            <RowDefinition Height="63*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <ContentControl Grid.Row="0" Grid.Column="0" IsTabStop="False" Content="{StaticResource Alpaca}"
+                        Margin="10,10,10.4,11" />
+
+        <DockPanel Grid.Row="0" Grid.Column="1" Margin="9.6,10,10.2,11">
+            <TextBlock DockPanel.Dock="Top" FontSize="22" FontWeight="Bold" Foreground="#555">clawPDF</TextBlock>
+            <TextBlock DockPanel.Dock="Top" FontSize="12" FontWeight="Bold" Foreground="#888" Padding="0 0"
+                       Name="VersionText">
+                v1.0.0
+            </TextBlock>
+            <StackPanel DockPanel.Dock="Top" Name="CustomizationPanel" Visibility="Visible" VerticalAlignment="Center">
+                <Image Name="CustomImage" MaxWidth="400" MaxHeight="90" />
+            </StackPanel>
+            <RichTextBox Width="407" Margin="0,5.4,0,10.2" HorizontalAlignment="Center" Name="rt_license">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text=""/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+
+        </DockPanel>
+
+        <Button Style="{StaticResource NoChromeButton}" Grid.Row="0" Grid.Column="1" IsTabStop="False"
+                Content="" Height="44" HorizontalAlignment="Right" VerticalAlignment="Top"
+                Margin="0,10,10.2,0" Click="CompanyButton_OnClick" Width="1" />
+        <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap" x:Name="LicenseInfo" Margin="9.6,0,10.2,10.2" Grid.Column="1" Grid.Row="1" Height="48"><Run Text="clawPDF is free software consisting of multiple components with individual licenses. Please read the license section in the manual for further information on these licenses."/></TextBlock>
+    </Grid>
+</Window>

@@ -1,0 +1,25 @@
+#ifndef _STRINGS_EN
+#define _STRINGS_EN
+
+#define szCaption1 "port configuration"
+#define szPortName "Port name"
+#define szOutputPath "Output path"
+#define szFilePattern "Filename pattern"
+#define szOverwrite "Overwrite existing files"
+#define szUserCommand "User command (%f = filename, %p = path)"
+#define szCmdPath "Execute from"
+#define szPipeData "Use pipe to send data to user command"
+#define szWaitProcess "Wait process termination for"
+#define szLogLevel "Log level"
+#define szCancel "Cancel"
+#define szCaption2 "new port name"
+#define szCopy1 "Copyright © 2019 // Andrew Hess // clawSoft"
+#define szCopy2 "Released under the terms of the GNU General Public License."
+#define szCopy3 "See LICENSE for details."
+#define szRunAsPUser "Start process as printing user"
+#define szRunAs "Run as user"
+#define szDomain "Domain"
+#define szPassword "Password"
+#define szHideProcess "Hide process"
+
+#endif

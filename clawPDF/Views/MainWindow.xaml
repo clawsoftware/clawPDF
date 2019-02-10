@@ -1,0 +1,54 @@
+﻿<Window x:Class="clawSoft.clawPDF.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="clawPDF" Height="344" Width="513"
+        Background="{x:Static SystemColors.ControlBrush}"
+        Loaded="MainWindow_OnLoaded"
+        AllowDrop="True"
+        DragEnter="MainWindow_OnDragEnter"
+        Drop="MainWindow_OnDrop"
+        ResizeMode="CanMinimize"
+        Icon="../clawPDF.ico"
+        WindowStartupLocation="CenterScreen" x:ClassModifier="internal">
+    <Grid>
+        <Grid.Resources>
+            <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="Height" Value="50" />
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="Padding" Value="20 0" />
+                <Setter Property="MinWidth" Value="150" />
+                <Setter Property="MaxWidth" Value="200" />
+            </Style>
+        </Grid.Resources>
+        <DockPanel Background="{StaticResource TitleBarGrayBrush}" Height="64" VerticalAlignment="Top"
+                   LastChildFill="True">
+            <ContentControl Margin="10" Content="" Height="45" IsTabStop="False" />
+            <TextBlock Name="ApplicationNameText" Text="clawPDF" HorizontalAlignment="Left"
+                       VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Foreground="#FFFAFAFA"
+                       FontFamily="Calibri"
+                       x:FieldModifier="private" />
+        </DockPanel>
+        <StackPanel Height="140" Margin="30 20">
+            <TextBlock Name="IntroductionText" TextWrapping="Wrap" Margin="0 0 0 10">
+                clawPDF allows to create PDF files from any application that is able to print.
+                Creating a PDF file is easy:
+            </TextBlock>
+            <TextBlock Name="IntroductionStep1Text" Margin="20 3">1. Set up your profiles and settings here.</TextBlock>
+            <TextBlock Name="IntroductionStep2Text" Margin="20 3">2. Print any document to the printer "clawPDF".</TextBlock>
+            <TextBlock Name="IntroductionStep3Text" Margin="20 3">3. Save your PDF or send it as mail.</TextBlock>
+            <TextBlock Name="IntroductionGetHelpText" Margin="0 10 0 0">To get help, hit F1 or the question mark.</TextBlock>
+        </StackPanel>
+        <DockPanel VerticalAlignment="Bottom">
+            <Button DockPanel.Dock="Left" Name="HelpButton" Background="Transparent" Height="50" Width="50" Margin="30 10"
+                    Cursor="{x:Static Cursors.Hand}" Template="{StaticResource RoundButtonStyle}" Foreground="Gray"
+                    FontWeight="Bold" FontFamily="Calibri" FontSize="50" Click="HelpButton_Click" Content="{StaticResource Info}" />
+            <Button DockPanel.Dock="Right" Name="ProfileSettingsButton" Content="Profile Settings"
+                    Style="{StaticResource ButtonStyle}" Click="ProfileSettingsButton_OnClick" />
+            <StackPanel Name="ApplicationSettingsPanel" Style="{StaticResource GpoStyle}">
+                <Button DockPanel.Dock="Right" Name="AppSettingsButton" Content="Application Settings"
+                        Style="{StaticResource ButtonStyle}" Click="AppSettingsButton_OnClick" />
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>

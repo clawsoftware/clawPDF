@@ -1,0 +1,94 @@
+﻿<Window x:Class="clawSoft.clawPDF.Views.ApplicationSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:userControls="clr-namespace:clawSoft.clawPDF.Views.UserControls"
+        xmlns:userControls1="clr-namespace:clawSoft.clawPDF.Shared.Views.UserControls;assembly=clawPDF.Shared"
+        Title="clawPDF Settings"
+        MinHeight="591"
+        MinWidth="670"
+        Width="771"
+        Height="610"
+        WindowStartupLocation="CenterScreen"
+        Loaded="ApplicationSettingsWindow_OnLoaded"
+        Closed="ApplicationSettingsWindow_OnClosed" x:ClassModifier="internal"
+        Icon="../clawPDF.ico"
+        xmlns:viewModels="clr-namespace:clawSoft.clawPDF.ViewModels">
+    <Window.DataContext>
+        <viewModels:ApplicationSettingsViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="{x:Type HeaderedContentControl}">
+            <Setter Property="KeyboardNavigation.IsTabStop" Value="False" />
+        </Style>
+        <Style TargetType="{x:Type ContentControl}">
+            <Setter Property="KeyboardNavigation.IsTabStop" Value="False" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="70" />
+        </Grid.RowDefinitions>
+
+        <DockPanel Background="{StaticResource TitleBarGrayBrush}" Height="64" VerticalAlignment="Top"
+                   LastChildFill="True">
+            <ContentControl Margin="10" Content="" Height="45" />
+            <TextBlock Name="TitleText" Text="Application Settings" HorizontalAlignment="Left"
+                       VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Foreground="#FFFAFAFA"
+                       FontFamily="Calibri" />
+        </DockPanel>
+
+        <TabControl Margin="10" Padding="15 5" Grid.Row="1" TabStripPlacement="Left"
+                    Template="{StaticResource FancyTabControl}" Name="TabControl">
+            <TabControl.Resources>
+                <Style TargetType="userControls1:TabHeaderControl">
+                    <Setter Property="Width" Value="165" />
+                </Style>
+            </TabControl.Resources>
+            <TabItem Template="{StaticResource FancyTabItem}" Name="GeneralTab">
+                <TabItem.Header>
+                    <userControls1:TabHeaderControl x:Name="GeneralTabText" Text="General">
+                        <ContentControl Content="{StaticResource GeneralSettings}" />
+                    </userControls1:TabHeaderControl>
+                </TabItem.Header>
+                <userControls:GeneralTab x:Name="GeneralTabUserControl" />
+            </TabItem>
+
+            <TabItem Template="{StaticResource FancyTabItem}" Name="PrinterTab"
+                     IsEnabled="{Binding PrinterTabIsEnabled}" Style="{StaticResource GpoStyle}">
+                <TabItem.Header>
+                    <userControls1:TabHeaderControl x:Name="PrintersTabText" Text="Printers">
+                        <ContentControl Content="{StaticResource PrinterSettings}" />
+                    </userControls1:TabHeaderControl>
+                </TabItem.Header>
+                <userControls:PrinterTab x:Name="PrinterTabUserControl" />
+            </TabItem>
+            <TabItem Template="{StaticResource FancyTabItem}" Name="TitleTab" IsEnabled="{Binding TitleTabIsEnabled}"
+                     Style="{StaticResource GpoStyle}">
+                <TabItem.Header>
+                    <userControls1:TabHeaderControl x:Name="TitleTabText" Text="Title">
+                        <ContentControl Margin="2" Content="{StaticResource TitleSettings}" />
+                    </userControls1:TabHeaderControl>
+                </TabItem.Header>
+                <userControls1:TitleTab x:Name="TitleTabUserControl" />
+            </TabItem>
+            <TabItem Template="{StaticResource FancyTabItem}" Name="DebugTab" IsEnabled="{Binding DebugTabIsEnabled}"
+                     Style="{StaticResource GpoStyle}">
+                <TabItem.Header>
+                    <userControls1:TabHeaderControl x:Name="DebugTabText" Text="Debug">
+                        <ContentControl Content="{StaticResource DebugSettings}" />
+                    </userControls1:TabHeaderControl>
+                </TabItem.Header>
+                <userControls:DebugTab x:Name="DebugTabUserControl" />
+            </TabItem>
+        </TabControl>
+        <DockPanel Grid.Row="2" LastChildFill="False">
+            <Button Name="CancelButton" DockPanel.Dock="Right" MinWidth="150" Margin="10" IsCancel="True" TabIndex="0">Cancel</Button>
+            <Button Name="SaveButton" DockPanel.Dock="Right" MinWidth="150" Margin="10" Click="SaveButton_Click"
+                    TabIndex="1">
+                Save
+            </Button>
+        </DockPanel>
+    </Grid>
+</Window>

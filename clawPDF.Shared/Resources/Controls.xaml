@@ -1,0 +1,38 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTemplate TargetType="{x:Type Label}" x:Key="LabelFlush"
+                     xmlns:s="clr-namespace:System;assembly=mscorlib">
+        <Border BorderThickness="{TemplateBinding Border.BorderThickness}" Padding="0,5,0,5"
+                BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}"
+                SnapsToDevicePixels="True">
+            <ContentPresenter RecognizesAccessKey="True" Content="{TemplateBinding ContentControl.Content}"
+                              ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                              ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
+                              HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+                              SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="UIElement.IsEnabled">
+                <Setter Property="TextElement.Foreground">
+                    <Setter.Value>
+                        <DynamicResource ResourceKey="{x:Static SystemColors.GrayTextBrushKey}" />
+                    </Setter.Value>
+                </Setter>
+                <Trigger.Value>
+                    <s:Boolean>False</s:Boolean>
+                </Trigger.Value>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style TargetType="TextBox" x:Key="GreyOutReadOnlyTextBox">
+        <Style.Triggers>
+            <Trigger Property="IsReadOnly" Value="True">
+                <Setter Property="Background" Value="{x:Static SystemColors.ControlBrush}" />
+                <Setter Property="Foreground" Value="{x:Static SystemColors.GrayTextBrush}" />
+                <Setter Property="SelectionBrush" Value="{x:Static SystemColors.ControlDarkDarkBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

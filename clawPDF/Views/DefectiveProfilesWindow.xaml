@@ -1,0 +1,53 @@
+﻿<Window x:Class="clawSoft.clawPDF.Views.DefectiveProfilesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Defective Profiles"
+        Background="{x:Static SystemColors.ControlBrush}"
+        Width="400"
+        MinHeight="250"
+        MinWidth="400"
+        SizeToContent="Height" x:ClassModifier="internal">
+    <Window.CommandBindings>
+        <CommandBinding Command="Copy" Executed="CommandBinding_CopyExecuted" />
+    </Window.CommandBindings>
+    <Grid Margin="10">
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="MinWidth" Value="80" />
+                <Setter Property="Margin" Value="5 0" />
+                <Setter Property="Height" Value="30" />
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock TextWrapping="Wrap" Name="DefectiveProfilesText" Text="Defective Profile(s):" />
+        <ListView Grid.Row="1" Name="ProfileList">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Profile" DisplayMemberBinding="{Binding Error}" />
+                </GridView>
+            </ListView.View>
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock FontWeight="Bold" FontSize="14" Text="{Binding Name}" />
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
+        </ListView>
+
+        <TextBlock Name="DefectiveProfileWarning" Margin="0 5" Grid.Row="2" TextWrapping="Wrap"
+                   Text="Do you want to return and edit the settings or ignore the errors and save anyway?" />
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right">
+            <Button Name="IgnoreButton" Click="IgnoreButton_OnClick">_Ignore</Button>
+            <Button Name="EditButton" IsDefault="True" IsCancel="True">_Edit</Button>
+        </StackPanel>
+    </Grid>
+</Window>

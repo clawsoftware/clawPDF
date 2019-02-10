@@ -1,0 +1,10 @@
+pdfforge Freeware License
+Version 1.1
+
+This software is available as freeware.
+
+This package is provided “as is” and without any express or implied warranties, including, without limitation, the implied warranties of MERCHANTIBILITY and FITNESS FOR A PARTICULAR PURPOSE.
+The Software may be used in and distributed for personal and commercial use (like in companies). Linking the software with free programs is allowed and the software may be distributed with them, even if the programs are used in a commercial environment.
+Using the software in commercial applications, whether used directly or linked into the application, requires separate licensing. This also applies if this application or library is included in another application with commercial intent and to commercial wrappers, like advertisement setups.
+The software may be distributed in unmodified form. You may charge a small amount of money for the CD, bandwidth and similar costs. Selling the software is prohibited without written permission of the copyright holder.
+The name of the copyright holder may not be used to support or advertise software that was derived from the original without written permission as successor.

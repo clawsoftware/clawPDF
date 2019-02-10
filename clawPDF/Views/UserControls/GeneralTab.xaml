@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="clawSoft.clawPDF.Views.UserControls.GeneralTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:clawSoft.clawPDF.ViewModels.UserControls"
+             xmlns:helper="clr-namespace:clawSoft.clawPDF.Shared.Helper;assembly=clawPDF.Shared"
+             mc:Ignorable="d"
+             x:Name="This"
+             x:ClassModifier="internal">
+    <UserControl.DataContext>
+        <viewModels:GeneralTabViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
+    <StackPanel>
+        <HeaderedContentControl Name="LanguageControl" Template="{StaticResource HeaderPanelTemplate}"
+                                Header="Language">
+            <StackPanel HorizontalAlignment="Left" MinWidth="250" Style="{StaticResource GpoStyle}"
+                        IsEnabled="{Binding LanguageIsEnabled}">
+                <Label>
+                    <TextBlock Name="SelectLanguageLabel" TextWrapping="Wrap">Please select the application language:</TextBlock>
+                </Label>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox Name="LanguageBox" Width="200" DisplayMemberPath="CommonName"
+                              SelectedValuePath="CommonName" SelectedValue="{Binding CurrentLanguage}"
+                              ItemsSource="{Binding Languages}" />
+                    <Button Name="LanguagePreviewButton" Margin="10 0 0 0" MinWidth="80" Padding="3 0 3 0"
+                            Click="LanguagePreviewButton_Click">
+                        Preview
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </HeaderedContentControl>
+
+        <HeaderedContentControl Name="DefaultPrinterControl" Margin="0 10 0 0"
+                                Template="{StaticResource HeaderPanelTemplate}" Header="Default Printer">
+            <StackPanel>
+                <Label>
+                    <TextBlock Name="ChangeDefaultPrinterLabel" TextWrapping="Wrap">Allow clawPDF to temporarily change the default printer</TextBlock>
+                </Label>
+                <ComboBox Name="ChangeDefaultPrinterComboBox" Width="200" HorizontalAlignment="Left"
+                          SelectedValue="{Binding ApplicationSettings.AskSwitchDefaultPrinter}"
+                          SelectedValuePath="Value" DisplayMemberPath="Name"
+                          ItemsSource="{Binding AskSwitchPrinterValues}" />
+            </StackPanel>
+        </HeaderedContentControl>
+    </StackPanel>
+</UserControl>

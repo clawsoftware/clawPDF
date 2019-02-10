@@ -1,0 +1,80 @@
+﻿<actionControls:ActionControl x:Class="clawSoft.clawPDF.Shared.Views.ActionControls.EmailSmtpActionControl"
+                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                              xmlns:system="clr-namespace:System;assembly=mscorlib"
+                              xmlns:actionControls="clr-namespace:clawSoft.clawPDF.Shared.Views.ActionControls"
+                              xmlns:converter="clr-namespace:clawSoft.clawPDF.Shared.Converter"
+                              mc:Ignorable="d"
+                              d:DesignHeight="371" d:DesignWidth="300"
+                              x:Name="This">
+    <actionControls:ActionControl.Resources>
+        <system:Boolean x:Key="FalseValue">False</system:Boolean>
+        <system:Boolean x:Key="TrueValue">True</system:Boolean>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converter:AreEqualConverter Reference="{StaticResource TrueValue}" EqualValue="{StaticResource FalseValue}"
+                                     NotEqualValue="{StaticResource TrueValue}" x:Key="AreEqualConverter" />
+    </actionControls:ActionControl.Resources>
+    <StackPanel Margin="0,0,0,-28">
+        <Label>
+            <TextBlock Name="EmailAddressText">E-Mail Address:</TextBlock>
+        </Label>
+        <TextBox Text="{Binding CurrentProfile.EmailSmtp.Address}" />
+        <Label>
+            <TextBlock Name="UsernameText">Username:</TextBlock>
+        </Label>
+        <TextBox Text="{Binding CurrentProfile.EmailSmtp.UserName}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Label>
+                <TextBlock Grid.Row="0" Grid.Column="0" Name="ServerText">SMTP Server:</TextBlock>
+            </Label>
+            <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding CurrentProfile.EmailSmtp.Server}" />
+            <Label Grid.Row="0" Grid.Column="1">
+                <TextBlock Name="PortText">Port:</TextBlock>
+            </Label>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="5 0" MinWidth="30"
+                     Text="{Binding CurrentProfile.EmailSmtp.Port}" />
+            <CheckBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"
+                      IsChecked="{Binding CurrentProfile.EmailSmtp.Ssl}">
+                <TextBlock Name="SslText">SSL</TextBlock>
+            </CheckBox>
+        </Grid>
+
+        <Button Padding="5" Margin="0 10 0 0" Click="SetPasswordButton_OnClick">
+            <TextBlock Name="SetPasswordText">Set Password</TextBlock>
+        </Button>
+        <Label Margin="0 5 0 0">
+            <TextBlock Name="RecipientsText">Recipients:</TextBlock>
+        </Label>
+        <TextBox Name="RecipientsTextBox" Text="{Binding CurrentProfile.EmailSmtp.Recipients}" />
+        <Label>
+            <TextBlock Name="MultipleRecipientsHintText" Margin="0 -3 0 0" TextWrapping="Wrap">Multiple recipients are separated by commas</TextBlock>
+        </Label>
+        <Button
+            IsEnabled="{Binding ElementName=UseSameMailCheckBox,Path=IsChecked,Converter={StaticResource AreEqualConverter}}"
+            Margin="0 5 0 0" Padding="5" Click="EditMailTextButton_OnClick">
+            <TextBlock Name="EditMailButtonText">Edit E-Mail Text</TextBlock>
+        </Button>
+
+        <CheckBox Name="UseSameMailCheckBox" Margin="0 5"
+                  IsChecked="{Binding CurrentProfile.EmailSmtp.SameTextAsClientMail}"
+                  Visibility="{Binding ElementName=This, Path=DisplayMailClientTextCheckbox, Converter={StaticResource BoolToVisibilityConverter}}">
+            <TextBlock Name="UseSameMailText" TextWrapping="Wrap">Use same text as in mail client action</TextBlock>
+        </CheckBox>
+
+        <Button Padding="5" Margin="0 10 0 0" Click="SendTestMailButton_OnClick">
+            <TextBlock Name="SendTestMailButtonText">Send test mail</TextBlock>
+        </Button>
+    </StackPanel>
+</actionControls:ActionControl>
