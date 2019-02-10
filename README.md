@@ -5,8 +5,7 @@ Virtual PDF printer for 32/64Bit Windows 7 / 8 / 10 / 2008 / R2 / 2016 / 2019  (
 
 # Download
 
-https://github.com/clawsoftware/clawPDF/releases/download/0.8.0/clawPDF_v0.8.0_setup.msi
-
+https://github.com/clawsoftware/clawPDF/releases/download/0.8.01/clawPDF_0.8.01_setup.msi
 
 # Tested under
 
