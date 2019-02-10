@@ -2,6 +2,10 @@
 
 Yet another PDF Printer? Yes! This PDF Printer has the intention to be completely open source.
 
+# Download
+
+https://github.com/clawsoftware/clawPDF/releases/download/0.8.0/clawPDF_v0.8.0_setup.msi
+
 
 # Tested under
 
