@@ -5,7 +5,9 @@ Yet another PDF Printer? Yes! This PDF Printer has the intention to be completel
 
 # Tested under
 
-Windows 10 x64
+- Windows 10 x64
+- Windows 8 x32/x64
+- Windows 7 x32/x64
 
 
 # Changelog
@@ -18,6 +20,7 @@ Windows 10 x64
 # Features
 
 - print to PDF, PDF/A, PDF/X, PNG, JPEG, TIF and text
+- 24 languages
 - many settings
 - easy to use
 - easy to deploy (MSI-Installer)
@@ -32,7 +35,12 @@ Windows 10 x64
 
 # Screenshot
 
-![1](docs/images/1.png?raw=true "1")
+![clawpdf1](clawPDF/docs/images/clawpdf1.png?raw=true "clawpdf1")
+![clawpdf2](clawPDF/docs/images/clawpdf2.png?raw=true "clawpdf2")
+![clawpdf3](clawPDF/docs/images/clawpdf3.png?raw=true "clawpdf3")
+![clawpdf4](clawPDF/docs/images/clawpdf4.png?raw=true "clawpdf4")
+![clawpdf5](clawPDF/docs/images/clawpdf5.png?raw=true "clawpdf5")
+![clawpdf6](clawPDF/docs/images/clawpdf6.png?raw=true "clawpdf6")
 
 
 # Roadmap
@@ -61,6 +69,7 @@ Windows 10 x64
 - Postscript Printer Drivers: Microsoft Postscript Printer Driver V3 (https://docs.microsoft.com/en-us/windows-hardware/drivers/print/microsoft-postscript-printer-driver), copyright (c) Microsoft Corporation. All rights reserved.
 - Postscript and PDF interpreter/renderer: Ghostscript 9.26 (https://www.ghostscript.com/download/gsdnld.html), licensed under AGPL v3 license.
 - SystemWrapper 0.25.0.186 (https://github.com/jozefizso/SystemWrapper), licensed under Microsoft Public license.
+- ftplib 1.0.1.1 (https://archive.codeplex.com/?p=ftplib), licensed under MIT license.
 - DataStorage.dll, licensed under pdfforge Freeware License.
 - DynamicTranslator.dll, licensed under pdfforge Freeware License.
 - TrueTypeFontInfo.dll, licensed under pdfforge Freeware License.
