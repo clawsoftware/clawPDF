@@ -5,6 +5,7 @@ Yet another PDF Printer? Yes! This PDF Printer has the intention to be completel
 
 # Tested under
 
+- Windows Server 2016 RDS/Terminalserver
 - Windows 10 x64
 - Windows 8 x32/x64
 - Windows 7 x32/x64
