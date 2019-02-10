@@ -967,7 +967,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             try
             {
                 portConfiguration = Registry.LocalMachine.CreateSubKey("SYSTEM\\CurrentControlSet\\Control\\Print\\Monitors\\" + PORTMONITOR);
-                portConfiguration.SetValue("LogLevel", 3, RegistryValueKind.DWord);
+                portConfiguration.SetValue("LogLevel", 0, RegistryValueKind.DWord);
                 portConfiguration = Registry.LocalMachine.CreateSubKey("SYSTEM\\CurrentControlSet\\Control\\Print\\Monitors\\" + PORTMONITOR + "\\" + PORTMONITOR + ":");
                 portConfiguration.SetValue("Domain", ".", RegistryValueKind.String);
                 portConfiguration.SetValue("ExecPath", Path.GetDirectoryName(Application.ExecutablePath), RegistryValueKind.String);

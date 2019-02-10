@@ -571,14 +571,14 @@ DWORD CPort::CreateOutputFile()
 		SetHomeDirectory(utoken);
 
 		/*check if parent directory exists*/
-		GetFileParent(m_szFileName, m_szParent, LENGTHOF(m_szParent));
+		//GetFileParent(m_szFileName, m_szParent, LENGTHOF(m_szParent));
 
-		if ((dwRet = RecursiveCreateFolder(m_szParent)) != ERROR_SUCCESS)
-		{
-			g_pLog->Log(LOGLEVEL_ERRORS, this, L"CPort::CreateOutputFile: can't create output directory (%i)", dwRet);
-			dwRet = ERROR_DIRECTORY;
-			goto cleanup;
-		}
+		//if ((dwRet = RecursiveCreateFolder(m_szParent)) != ERROR_SUCCESS)
+		//{
+		//	g_pLog->Log(LOGLEVEL_ERRORS, this, L"CPort::CreateOutputFile: can't create output directory (%i)", dwRet);
+		//	dwRet = ERROR_DIRECTORY;
+		//	goto cleanup;
+		//}
 
 		//is this file name usable?
 		if (!m_bOverwrite && FilePatternExists(szSearchPath))
