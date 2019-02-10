@@ -13,6 +13,10 @@ Yet another PDF Printer? Yes! This PDF Printer has the intention to be completel
 
 # Changelog
 
+## v0.8.01 (2019.02.10)
+
+- performance boost for RDS environments
+
 ## v0.8.0 (2019.02.10)
 
 - initial version
