@@ -12,15 +12,15 @@ namespace clawSoft.clawPDF.Core.Helper
             int bufferSize
         );
 
-        public static string GetShortPathName(string path)
-        {
-            var buffer = new StringBuilder(256);
-            var result = GetShortPathName(path, buffer, buffer.Capacity);
+        //public static string GetShortPathName(string path)
+        //{
+        //    var buffer = new StringBuilder(256);
+        //    var result = GetShortPathName(path, buffer, buffer.Capacity);
 
-            if (result == 0)
-                return path;
+        //    if (result == 0)
+        //        return path;
 
-            return buffer.ToString();
-        }
+        //    return buffer.ToString();
+        //}
     }
 }

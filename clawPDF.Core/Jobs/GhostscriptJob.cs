@@ -70,7 +70,7 @@ namespace clawSoft.clawPDF.Core.Jobs
             DirectoryWrap.CreateDirectory(JobTempOutputFolder);
 
             // Shorten the temp folder for GS compatibility
-            JobTempFolder = PathHelper.GetShortPathName(JobTempFolder);
+            JobTempFolder = JobTempFolder;
         }
 
         private string GhostscriptOutput => _ghostscriptOutput.ToString();

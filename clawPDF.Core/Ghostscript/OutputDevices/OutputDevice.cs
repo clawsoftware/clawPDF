@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Resources;
 using System.Text;
+using System.Threading;
 using SystemInterface.IO;
 using SystemWrapper.IO;
 using clawSoft.clawPDF.Core.Helper;
@@ -115,15 +117,17 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
             }
 
             if (Job.Profile.CoverPage.Enabled)
-                parameters.Add(PathHelper.GetShortPathName(Job.Profile.CoverPage.File));
+                parameters.Add(Job.Profile.CoverPage.File);
 
-            foreach (var sfi in Job.JobInfo.SourceFiles) parameters.Add(PathHelper.GetShortPathName(sfi.Filename));
+            foreach (var sfi in Job.JobInfo.SourceFiles) parameters.Add(sfi.Filename);
 
             if (Job.Profile.AttachmentPage.Enabled)
-                parameters.Add(PathHelper.GetShortPathName(Job.Profile.AttachmentPage.File));
+                parameters.Add(Job.Profile.AttachmentPage.File);
 
-            // Compose name of the pdfmark file based on the location and name of the inf file
+            //Compose name of the pdfmark file based on the location and name of the inf file
             var pdfMarkFileName = PathSafe.Combine(Job.JobTempFolder, "metadata.mtd");
+            Directory.CreateDirectory(Job.JobTempFolder);
+            Directory.CreateDirectory(Job.JobTempFolder + @"\tempoutput");
             CreatePdfMarksFile(pdfMarkFileName);
 
             // Add pdfmark file as input file to set metadata
@@ -134,8 +138,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 
         protected virtual void AddOutputfileParameter(IList<string> parameters)
         {
-            parameters.Add("-sOutputFile=" + PathSafe.Combine(PathHelper.GetShortPathName(Job.JobTempOutputFolder),
-                               ComposeOutputFilename()));
+            parameters.Add("-sOutputFile=" + PathSafe.Combine(Job.JobTempOutputFolder, ComposeOutputFilename()));
         }
 
         /// <summary>

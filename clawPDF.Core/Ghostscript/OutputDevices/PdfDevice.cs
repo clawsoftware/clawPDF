@@ -69,7 +69,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 
         private void SetPdfAParameters(IList<string> parameters)
         {
-            var shortenedTempPath = PathHelper.GetShortPathName(Job.JobTempFolder);
+            var shortenedTempPath = Job.JobTempFolder;
 
             if (Job.Profile.OutputFormat == OutputFormat.PdfA1B)
                 parameters.Add("-dPDFA=1");
@@ -112,7 +112,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 
         private void SetPdfXParameters(IList<string> parameters)
         {
-            var shortenedTempPath = PathHelper.GetShortPathName(Job.JobTempFolder);
+            var shortenedTempPath = Job.JobTempFolder;
 
             parameters.Add("-dPDFX");
 

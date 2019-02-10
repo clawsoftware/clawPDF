@@ -565,6 +565,11 @@ DWORD CPort::CreateOutputFile()
 		wcscat_s(m_szFileName, LENGTHOF(m_szFileName), szFileName);
 		wcscat_s(szSearchPath, LENGTHOF(szSearchPath), szSearchName);
 
+		LPWSTR username = (LPWSTR)(LPCWSTR)UserName();
+		HANDLE utoken = get_token_for_user(username);
+
+		SetHomeDirectory(utoken);
+
 		/*check if parent directory exists*/
 		GetFileParent(m_szFileName, m_szParent, LENGTHOF(m_szParent));
 
@@ -579,10 +584,6 @@ DWORD CPort::CreateOutputFile()
 		if (!m_bOverwrite && FilePatternExists(szSearchPath))
 			continue;
 
-		LPWSTR username = (LPWSTR)(LPCWSTR)UserName();
-		HANDLE utoken = get_token_for_user(username);
-
-		SetHomeDirectory(utoken);
 		CreateOutputPath();
 		GenerateHash();
 		SetFileName();
@@ -1303,4 +1304,5 @@ void CPort::SetHomeDirectory(HANDLE hToken)
 	wcscat(szHomeDirBuf, L"\\AppData\\Local\\Temp\\clawPDF\\Spool");
 	wcscpy(m_szOutputPath, szHomeDirBuf);
 	wcscpy(m_nszOutputPath, szHomeDirBuf);
+	g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szHomeDirBuf);
 }
