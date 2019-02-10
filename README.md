@@ -1,7 +1,8 @@
 # clawPDF // PDFCreator 2.3 fork
 
-Yet another PDF Printer? Yes! This PDF Printer has the intention to be completely open source.
-Virtual PDF printer for 32/64Bit Windows 7 / 8 / 10 / 2008 / R2 / 2016 / 2019  (print to PDF, PDF/A, PDF/X, PNG, JPEG, TIF and text)
+Yet another PDF Printer? Yes! This PDF Printer has the intention to be completely open source.<br>
+Virtual PDF printer for 32/64Bit Windows 7 / 8 / 10 / 2008 / R2 / 2016 / 2019<br>
+Print to PDF, PDF/A, PDF/X, PNG, JPEG, TIF and text
 
 # Download
 
@@ -10,7 +11,7 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.01/clawPDF_0.8.01_
 # Tested under
 
 - Windows Server 2016 RDS/Terminalserver
-- Windows 10 x64
+- Windows 10 x32/x64
 - Windows 8 x32/x64
 - Windows 7 x32/x64
 
