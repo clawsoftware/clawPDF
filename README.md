@@ -18,6 +18,10 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.0/clawPDF_v0.8.0_s
 
 # Changelog
 
+## v0.8.01 (2019.02.10)
+
+- performance boost for RDS environments
+
 ## v0.8.0 (2019.02.10)
 
 - initial version
