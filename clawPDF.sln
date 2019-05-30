@@ -27,6 +27,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clawmonui", "clawmon\monito
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "clawPDF_setup", "clawPDF_setup\clawPDF_setup.vdproj", "{51C49DE3-1FA6-4C2E-8409-CB6D9FC79B76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF.Bridge", "clawPDF.Bridge\clawPDF.Bridge.csproj", "{004B582A-0CDC-4E19-9DB2-AF83506A4460}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -152,8 +154,8 @@ Global
 		{BAF9FBEC-17EC-4130-ACF4-DCC99F0A0B75}.Debug|Win32.Build.0 = Debug|Win32
 		{BAF9FBEC-17EC-4130-ACF4-DCC99F0A0B75}.Debug|x64.ActiveCfg = Debug|x64
 		{BAF9FBEC-17EC-4130-ACF4-DCC99F0A0B75}.Debug|x64.Build.0 = Debug|x64
-		{BAF9FBEC-17EC-4130-ACF4-DCC99F0A0B75}.Release|Any CPU.ActiveCfg = Release|x64
-		{BAF9FBEC-17EC-4130-ACF4-DCC99F0A0B75}.Release|Any CPU.Build.0 = Release|x64
+		{BAF9FBEC-17EC-4130-ACF4-DCC99F0A0B75}.Release|Any CPU.ActiveCfg = Release|Win32
+		{BAF9FBEC-17EC-4130-ACF4-DCC99F0A0B75}.Release|Any CPU.Build.0 = Release|Win32
 		{BAF9FBEC-17EC-4130-ACF4-DCC99F0A0B75}.Release|Win32.ActiveCfg = Release|Win32
 		{BAF9FBEC-17EC-4130-ACF4-DCC99F0A0B75}.Release|Win32.Build.0 = Release|Win32
 		{BAF9FBEC-17EC-4130-ACF4-DCC99F0A0B75}.Release|x64.ActiveCfg = Release|x64
@@ -164,8 +166,8 @@ Global
 		{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC}.Debug|Win32.Build.0 = Debug|Win32
 		{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC}.Debug|x64.ActiveCfg = Debug|x64
 		{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC}.Debug|x64.Build.0 = Debug|x64
-		{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC}.Release|Any CPU.ActiveCfg = Release|x64
-		{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC}.Release|Any CPU.Build.0 = Release|x64
+		{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC}.Release|Any CPU.ActiveCfg = Release|Win32
+		{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC}.Release|Any CPU.Build.0 = Release|Win32
 		{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC}.Release|Win32.ActiveCfg = Release|Win32
 		{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC}.Release|Win32.Build.0 = Release|Win32
 		{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC}.Release|x64.ActiveCfg = Release|x64
@@ -176,6 +178,18 @@ Global
 		{51C49DE3-1FA6-4C2E-8409-CB6D9FC79B76}.Release|Any CPU.ActiveCfg = Release
 		{51C49DE3-1FA6-4C2E-8409-CB6D9FC79B76}.Release|Win32.ActiveCfg = Release
 		{51C49DE3-1FA6-4C2E-8409-CB6D9FC79B76}.Release|x64.ActiveCfg = Release
+		{004B582A-0CDC-4E19-9DB2-AF83506A4460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{004B582A-0CDC-4E19-9DB2-AF83506A4460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{004B582A-0CDC-4E19-9DB2-AF83506A4460}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{004B582A-0CDC-4E19-9DB2-AF83506A4460}.Debug|Win32.Build.0 = Debug|Any CPU
+		{004B582A-0CDC-4E19-9DB2-AF83506A4460}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{004B582A-0CDC-4E19-9DB2-AF83506A4460}.Debug|x64.Build.0 = Debug|Any CPU
+		{004B582A-0CDC-4E19-9DB2-AF83506A4460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{004B582A-0CDC-4E19-9DB2-AF83506A4460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{004B582A-0CDC-4E19-9DB2-AF83506A4460}.Release|Win32.ActiveCfg = Release|Any CPU
+		{004B582A-0CDC-4E19-9DB2-AF83506A4460}.Release|Win32.Build.0 = Release|Any CPU
+		{004B582A-0CDC-4E19-9DB2-AF83506A4460}.Release|x64.ActiveCfg = Release|Any CPU
+		{004B582A-0CDC-4E19-9DB2-AF83506A4460}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -648,13 +648,13 @@ DWORD CPort::CreateOutputFile()
 
 			//create child process - give up in case of failure since we need to write to process
 			BOOL bRes;
-			if (m_hToken && !m_bRunAsPUser)
-				bRes = CreateProcessAsUser(m_hToken, NULL, m_pUserCommand->Value(), NULL, NULL,
-					TRUE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
-			else if (m_bRunAsPUser)
-				bRes = CreateProcessAsUser(utoken, NULL, m_pUserCommand->Value(), NULL, NULL,
-					TRUE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
-			else
+			//if (m_hToken && !m_bRunAsPUser)
+			//	bRes = CreateProcessAsUser(m_hToken, NULL, m_pUserCommand->Value(), NULL, NULL,
+			//		TRUE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
+			//else if (m_bRunAsPUser)
+			//	bRes = CreateProcessAsUser(utoken, NULL, m_pUserCommand->Value(), NULL, NULL,
+			//		TRUE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
+			//else
 				bRes = CreateProcessW(NULL, m_pUserCommand->Value(), NULL, NULL,
 					TRUE, 0, NULL, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
 
@@ -872,14 +872,14 @@ BOOL CPort::EndJob()
 		wchar_t* UserCommand = wcscat(t2UserCommand, L"\"");
 
 		//we're not going to give up in case of failure
-		if (m_hToken && !m_bRunAsPUser)
-			CreateProcessAsUser(m_hToken, NULL, m_pUserCommand->Value(), NULL, NULL,
-				FALSE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
-		else if (m_bRunAsPUser)
-			CreateProcessAsUser(utoken, NULL, UserCommand, NULL, NULL,
-				TRUE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
-		else
-			CreateProcessW(NULL, m_pUserCommand->Value(), NULL, NULL,
+		//if (m_hToken && !m_bRunAsPUser)
+		//	CreateProcessAsUser(m_hToken, NULL, m_pUserCommand->Value(), NULL, NULL,
+		//		FALSE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
+		//else if (m_bRunAsPUser)
+		//	CreateProcessAsUser(utoken, NULL, UserCommand, NULL, NULL,
+		//		TRUE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
+		//else
+			CreateProcessW(NULL, UserCommand, NULL, NULL,
 				FALSE, 0, NULL, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
 	}
 

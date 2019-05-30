@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -210,6 +211,17 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                     String fileSourcePath = Path.Combine(monitorFilePath, MONITORDLL);
                     String fileDestinationPath = Path.Combine(Environment.SystemDirectory, MONITORDLL);
 
+                    ProcessStartInfo processStartInfo = new ProcessStartInfo();
+                    processStartInfo.FileName = "net.exe";
+                    processStartInfo.Arguments = "stop spooler";
+                    processStartInfo.RedirectStandardOutput = true;
+                    processStartInfo.RedirectStandardError = true;
+                    processStartInfo.UseShellExecute = false;
+                    processStartInfo.CreateNoWindow = true;
+                    processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+                    Process.Start(processStartInfo).WaitForExit(1000 * 60 * 5);
+
                     try
                     {
                         File.Copy(Path.Combine(monitorFilePath, MONITORUIDLL), Path.Combine(Environment.SystemDirectory, MONITORUIDLL), true);
@@ -227,6 +239,10 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                         // File in use, log -
                         // this is OK because it means the file is already there
                     }
+
+                    processStartInfo.Arguments = "start spooler";
+                    Process.Start(processStartInfo).WaitForExit(1000 * 60 * 5);
+
                     MONITOR_INFO_2 newMonitor = new MONITOR_INFO_2();
                     newMonitor.pName = PORTMONITOR;
                     newMonitor.pEnvironment = ENVIRONMENT;
@@ -982,7 +998,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                 portConfiguration.SetValue("WaitTermination", 0, RegistryValueKind.DWord);
                 portConfiguration.SetValue("WaitTimeout", 0, RegistryValueKind.DWord);
                 portConfiguration.SetValue("Description", "clawPDF", RegistryValueKind.String);
-                portConfiguration.SetValue("UserCommand", Path.GetDirectoryName(Application.ExecutablePath) + @"\clawPDF.exe", RegistryValueKind.String);
+                portConfiguration.SetValue("UserCommand", Path.GetDirectoryName(Application.ExecutablePath) + @"\clawPDF.Bridge.exe", RegistryValueKind.String);
                 portConfiguration.SetValue("Printer", PRINTERNAME, RegistryValueKind.String);
                 registryChangesMade = true;
             }

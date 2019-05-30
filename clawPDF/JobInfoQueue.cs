@@ -187,7 +187,7 @@ namespace clawSoft.clawPDF
             sb.AppendLine("[0]");
             sb.AppendLine("SessionId=" + Process.GetCurrentProcess().SessionId);
             sb.AppendLine("WinStation=Console");
-            sb.AppendLine("UserName=" + Environment.UserName);
+            sb.AppendLine("Username=" + Environment.UserName);
             sb.AppendLine("ClientComputer=" + Environment.MachineName);
             sb.AppendLine("SpoolFileName=testpage.ps");
             sb.AppendLine("PrinterName=clawPDF");

@@ -171,6 +171,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_4E05DB632D024749BCF6ECFC7F09AB29"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_517A6CEEB665F474FE7D7E7137D33E54"
         "OwnerKey" = "8:_8900B5D47C3CFC4D24524753AABD5DA5"
         "MsmSig" = "8:_UNDEFINED"
@@ -700,6 +706,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4E05DB632D024749BCF6ECFC7F09AB29"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7F78C114226A455AA68D0A82851D76E8"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -918,11 +930,11 @@
             "Object" = "8:_7F78C114226A455AA68D0A82851D76E8"
             "FileType" = "3:2"
             "InstallAction" = "3:1"
-            "Arguments" = "8:"
+            "Arguments" = "8:/Driver=Remove"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
             "Identifier" = "8:_AE9DE45B_B3A6_4FDE_A590_6C00DCB0598B"
-            "InstallerClass" = "11:TRUE"
+            "InstallerClass" = "11:FALSE"
             "CustomActionData" = "8:"
             }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_F92215986FAC49DF8068CB8807CE3ACA"
@@ -1424,6 +1436,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4E05DB632D024749BCF6ECFC7F09AB29"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:clawPDF.Bridge, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_4E05DB632D024749BCF6ECFC7F09AB29"
+                    {
+                    "Name" = "8:clawPDF.Bridge.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\_Build\\Release\\clawPDF.Bridge.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6D653F6EE3324579B145A191268F8DEA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_517A6CEEB665F474FE7D7E7137D33E54"
@@ -2764,19 +2807,19 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:clawPDF"
-        "ProductCode" = "8:{0D128F1C-1869-4FC9-86DD-39E2A83D7DB2}"
-        "PackageCode" = "8:{484D3358-5F3B-4202-A1F7-DBF338AB20C1}"
+        "ProductCode" = "8:{89B50D69-92F0-4E9A-9EE1-684391D6A417}"
+        "PackageCode" = "8:{D5917813-1722-4524-BA7F-80CF86B993B3}"
         "UpgradeCode" = "8:{89201BDE-3821-4AC1-A058-67957B4FE188}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:0.8.01"
+        "ProductVersion" = "8:0.8.3"
         "Manufacturer" = "8:Andrew Hess // clawSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:clawPDF 0.8.01"
+        "Title" = "8:clawPDF 0.8.3"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Andrew Hess // clawSoft"
         "Keywords" = "8:"

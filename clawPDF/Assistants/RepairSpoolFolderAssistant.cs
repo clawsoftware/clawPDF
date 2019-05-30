@@ -20,7 +20,7 @@ namespace clawSoft.clawPDF.Assistants
             var tempFolder = Path.GetFullPath(Path.Combine(JobInfoQueue.Instance.SpoolFolder, ".."));
             var username = Environment.UserName;
 
-            Logger.Debug("UserName is {0}", username);
+            Logger.Debug("Username is {0}", username);
 
             var title = TranslationHelper.Instance.TranslatorInstance.GetTranslation("Application",
                 "SpoolFolderAccessDenied", "Access Denied");
