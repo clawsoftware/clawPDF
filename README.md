@@ -6,7 +6,7 @@ Print to PDF, PDF/A, PDF/X, PNG, JPEG, TIF and text
 
 # Download
 
-https://github.com/clawsoftware/clawPDF/releases/download/0.8.01/clawPDF_0.8.01_setup.msi
+https://github.com/clawsoftware/clawPDF/releases/download/0.8.3/clawPDF_0.8.3_setup.msi
 
 # Tested under
 
@@ -18,9 +18,16 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.01/clawPDF_0.8.01_
 
 # Changelog
 
+## v0.8.3 (2019.05.31)
+
+- [bugfix]  starts under System-Account
+- [cleanup] migrated code from c++ to c#
+- [update]  ghostscript 9.27
+- [bugfix]  author metadata
+
 ## v0.8.01 (2019.02.10)
 
-- performance boost for RDS environments
+- [bugfix] performance boost for RDS environments
 
 ## v0.8.0 (2019.02.10)
 

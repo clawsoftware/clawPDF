@@ -13,6 +13,13 @@ Yet another PDF Printer? Yes! This PDF Printer has the intention to be completel
 
 # Changelog
 
+## v0.8.3 (2019.05.31)
+
+- [bugfix]  starts under System-Account
+- [cleanup] migrated code from c++ to c#
+- [update]  ghostscript 9.27
+- [bugfix]  author metadata
+
 ## v0.8.01 (2019.02.10)
 
 - performance boost for RDS environments
