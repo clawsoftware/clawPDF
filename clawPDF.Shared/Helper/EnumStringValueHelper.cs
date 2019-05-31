@@ -9,7 +9,7 @@ namespace clawSoft.clawPDF.Shared.Helper
             var fi = value.GetType().GetField(value.ToString());
 
             var attributes =
-                (StringValueAttribute[]) fi.GetCustomAttributes(typeof(StringValueAttribute), false);
+                (StringValueAttribute[])fi.GetCustomAttributes(typeof(StringValueAttribute), false);
 
             if (attributes != null && attributes.Length > 0)
                 return attributes[0].Value;

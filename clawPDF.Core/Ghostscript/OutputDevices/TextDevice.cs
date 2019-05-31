@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using SystemInterface.IO;
 using clawSoft.clawPDF.Core.Jobs;
 using clawSoft.clawPDF.Utilities;
+using SystemInterface.IO;
 
 namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 {
@@ -27,7 +27,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 
         private void AddPs2AsciiParameters(IList<string> parameters)
         {
-            //Solution with ps2ascii file, has problems with Office Open XML formats 
+            //Solution with ps2ascii file, has problems with Office Open XML formats
 
             parameters.Add("-dNODISPLAY");
             parameters.Add("-dDELAYBIND");
@@ -41,7 +41,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
         {
             // Solution with gs Textdevice
             //
-            // There are 4 values for dTextFormat 
+            // There are 4 values for dTextFormat
             // 0 and 1 output XML-escaped Unicode along with information regarding the format of the text...
             // 2/3 outputs Unicode(UCS2)/UTF-8 text which approximates the layout of the original document.
             //

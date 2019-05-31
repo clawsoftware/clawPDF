@@ -1,7 +1,5 @@
 ﻿using System;
-using System.IO;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 namespace clawSoft.clawPDF.Core.Ghostscript
 {
@@ -9,6 +7,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript
     {
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern bool SetDllDirectory(string lpPathName);
+
         /*
         This code was adapted from Matthew Ephraim's Ghostscript.Net project -
         external dll definitions moved into NativeMethods to
@@ -42,6 +41,6 @@ namespace clawSoft.clawPDF.Core.Ghostscript
         [DllImport("gsdll64.dll", EntryPoint = "gsapi_delete_instance")]
         internal static extern void DeleteAPIInstance64(IntPtr instance);
 
-        #endregion
+        #endregion Hooks into Ghostscript DLL
     }
 }

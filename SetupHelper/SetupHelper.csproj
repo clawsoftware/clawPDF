@@ -95,6 +95,7 @@
     <Compile Include="Driver\Actions.cs" />
     <Compile Include="Driver\PrinterHandler.cs" />
     <Compile Include="Driver\NativeMethods.cs" />
+    <Compile Include="Helper\Spooler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

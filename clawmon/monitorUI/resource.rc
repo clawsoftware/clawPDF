@@ -61,12 +61,12 @@ STYLE WS_POPUP | WS_SYSMENU | WS_CAPTION | DS_MODALFRAME | DS_CENTER
 
 	AUTOCHECKBOX szRunAsPUser, ID_RUNASPUSER, 213, 16, 180, 8, WS_DISABLED | BS_AUTOCHECKBOX | WS_TABSTOP
 
-    LTEXT szRunAs, ID_TEXT, 213, 30, 100, 8
-    EDITTEXT ID_EDTUSER, 213, 39, 147, 14, WS_DISABLED | ES_AUTOHSCROLL
-    LTEXT szDomain, ID_TEXT, 213, 57, 100, 8
-    EDITTEXT ID_EDTDOMAIN, 213, 66, 147, 14, WS_DISABLED | ES_AUTOHSCROLL
-    LTEXT szPassword, ID_TEXT, 213, 84, 100, 8
-    EDITTEXT ID_EDTPASSWORD, 213, 93, 147, 14, WS_DISABLED | ES_PASSWORD | ES_AUTOHSCROLL
+	LTEXT szRunAs, ID_TEXT, 213, 30, 100, 8
+	EDITTEXT ID_EDTUSER, 213, 39, 147, 14, WS_DISABLED | ES_AUTOHSCROLL
+	LTEXT szDomain, ID_TEXT, 213, 57, 100, 8
+	EDITTEXT ID_EDTDOMAIN, 213, 66, 147, 14, WS_DISABLED | ES_AUTOHSCROLL
+	LTEXT szPassword, ID_TEXT, 213, 84, 100, 8
+	EDITTEXT ID_EDTPASSWORD, 213, 93, 147, 14, WS_DISABLED | ES_PASSWORD | ES_AUTOHSCROLL
 	LTEXT szLogLevel, ID_TEXT, 213, 120, 40, 8
 	COMBOBOX ID_CBLOGLEVEL, 258, 117, 88, 50, CBS_DROPDOWNLIST | WS_TABSTOP
 	DEFPUSHBUTTON "Ok", IDOK, 213, 162, 60, 17, WS_DISABLED
@@ -77,10 +77,8 @@ STYLE WS_POPUP | WS_SYSMENU | WS_CAPTION | DS_MODALFRAME | DS_CENTER
 	LTEXT szCopy3, ID_TEXT, 3, 223, 200, 8
 }
 
-
-
 IDD_ADDPORTUI DIALOGEX 0, 0, 220, 108
-FONT 8, "Tahoma" 
+FONT 8, "Tahoma"
 CAPTION szCaption2
 STYLE WS_POPUP | WS_SYSMENU | WS_CAPTION | DS_MODALFRAME | DS_CENTER
 {
@@ -93,48 +91,47 @@ STYLE WS_POPUP | WS_SYSMENU | WS_CAPTION | DS_MODALFRAME | DS_CENTER
 	LTEXT szCopy3, ID_TEXT, 10, 90, 200, 8
 }
 
-
 /*
 *    VERSION INFORMATION
 *
 */
 1       VERSIONINFO
-        FILEVERSION             nVersion
-        PRODUCTVERSION          nVersion
-        FILEFLAGSMASK           0x3fL
+FILEVERSION             nVersion
+PRODUCTVERSION          nVersion
+FILEFLAGSMASK           0x3fL
 #ifdef _DEBUG
-        FILEFLAGS               VS_FF_DEBUG
+FILEFLAGS               VS_FF_DEBUG
 #else
-        FILEFLAGS               0x0L
+FILEFLAGS               0x0L
 #endif
-        FILEOS                  VOS__WINDOWS32
-        FILETYPE                VFT_DLL
-        FILESUBTYPE             0x0L
+FILEOS                  VOS__WINDOWS32
+FILETYPE                VFT_DLL
+FILESUBTYPE             0x0L
 BEGIN
-  BLOCK "StringFileInfo"
-  BEGIN
+BLOCK "StringFileInfo"
+BEGIN
 #if (!defined(CLAWMONLANG) || CLAWMONLANG == 0x0409)
-    BLOCK "04090000"
+BLOCK "04090000"
 #endif
-    BEGIN
-      VALUE "Comments", szComments
-      VALUE "CompanyName", "Andrew Hess // clawSoft\0"
-      VALUE "FileDescription", "Printer port monitor UI\0"
-      VALUE "FileVersion", szVersion
-      VALUE "InternalName", "clawmonui\0"
-      VALUE "LegalCopyright", "Copyright © 2019 // Andrew Hess // clawSoft\0"
-      VALUE "LegalTrademarks", "\0"
-      VALUE "OriginalFilename", "clawmonui.dll\0"
-      VALUE "PrivateBuild", "\0"
-      VALUE "ProductName", "clawmon\0"
-      VALUE "ProductVersion", szVersion
-      VALUE "SpecialBuild", "\0"
-    END
-  END
-  BLOCK "VarFileInfo"
-  BEGIN
+BEGIN
+VALUE "Comments", szComments
+VALUE "CompanyName", "Andrew Hess // clawSoft\0"
+VALUE "FileDescription", "Printer port monitor UI\0"
+VALUE "FileVersion", szVersion
+VALUE "InternalName", "clawmonui\0"
+VALUE "LegalCopyright", "Copyright © 2019 // Andrew Hess // clawSoft\0"
+VALUE "LegalTrademarks", "\0"
+VALUE "OriginalFilename", "clawmonui.dll\0"
+VALUE "PrivateBuild", "\0"
+VALUE "ProductName", "clawmon\0"
+VALUE "ProductVersion", szVersion
+VALUE "SpecialBuild", "\0"
+END
+END
+BLOCK "VarFileInfo"
+BEGIN
 #if (!defined(CLAWMONLANG) || CLAWMONLANG == 0x0409)
-    VALUE "Translation", 0x409, 0x0L
+VALUE "Translation", 0x409, 0x0L
 #endif
-  END
+END
 END

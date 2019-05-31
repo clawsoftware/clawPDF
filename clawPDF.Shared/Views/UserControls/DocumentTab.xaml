@@ -52,7 +52,6 @@
                 <TextBox Name="AuthorPreviewText" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
                          Text="{Binding Text, ElementName=AuthorTemplateTextBox, Converter={StaticResource TokenReplacerConverter}, Mode=TwoWay}"
                          IsReadOnly="True" />
-
             </Grid>
         </HeaderedContentControl>
 

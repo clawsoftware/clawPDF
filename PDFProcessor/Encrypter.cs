@@ -44,14 +44,16 @@ namespace clawSoft.clawPDF.PDFProcessing
                 case EncryptionLevel.Rc40Bit:
                     stamper.SetEncryption(userPassword, ownerPassword, encryption, PdfWriter.STRENGTH40BITS);
                     break;
+
                 case EncryptionLevel.Rc128Bit:
                     stamper.SetEncryption(userPassword, ownerPassword, encryption, PdfWriter.STRENGTH128BITS);
                     break;
+
                 case EncryptionLevel.Aes128Bit:
                     stamper.SetEncryption(userPassword, ownerPassword, encryption, PdfWriter.ENCRYPTION_AES_128);
                     break;
-                //default:
-                //    break;
+                    //default:
+                    //    break;
             }
         }
 

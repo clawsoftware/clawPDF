@@ -6,8 +6,11 @@ namespace clawSoft.clawPDF.Shared.Helper
     public interface IVersionHelper
     {
         Version ApplicationVersion { get; }
+
         string FormatWithTwoDigits();
+
         string FormatWithThreeDigits();
+
         string FormatWithBuildNumber();
     }
 

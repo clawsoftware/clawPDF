@@ -25,7 +25,6 @@
                     CommandParameter="{Binding ElementName=JobList, Path=SelectedItems}" />
         <KeyBinding Key="Delete" Command="{Binding DeleteJobCommand}"
                     CommandParameter="{Binding SelectedItems, ElementName=JobList}" />
-
     </Window.InputBindings>
     <Grid>
         <DockPanel Background="{StaticResource TitleBarGrayBrush}" Height="64" VerticalAlignment="Top"

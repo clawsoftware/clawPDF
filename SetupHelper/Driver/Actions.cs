@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using clawSoft.clawPDF.SetupHelper.Helper;
 
 namespace clawSoft.clawPDF.SetupHelper.Driver
 {
-    class Actions
+    internal class Actions
     {
         public static bool CheckIfPrinterNotInstalled()
         {
@@ -29,7 +30,11 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             try
             {
                 if (installer.AddCustomclawPDFPrinter(name))
+                {
                     resultCode = true;
+                    Spooler.stop();
+                    Spooler.start();
+                }
                 else
                     resultCode = false;
             }

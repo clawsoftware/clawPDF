@@ -94,7 +94,6 @@ namespace clawSoft.clawPDF.Shared.Assistants
             return result == ShellExecuteResult.Success;
         }
 
-
         /// <summary>
         ///     Call the SetupHelper.exe to add, rename or delete printers
         /// </summary>

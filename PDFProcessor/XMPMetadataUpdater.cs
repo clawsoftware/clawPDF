@@ -60,7 +60,7 @@ namespace clawSoft.clawPDF.PDFProcessing
                      0)
                 pdfaConformance = "<pdfaid:conformance>B</pdfaid:conformance>\n";
 
-            var documentIDs = (PdfArray) reader.Trailer.Get(PdfName.ID);
+            var documentIDs = (PdfArray)reader.Trailer.Get(PdfName.ID);
 
             var sDocumentId = GetHexString(GetRandomString(16));
             if (documentIDs != null)
@@ -199,7 +199,7 @@ namespace clawSoft.clawPDF.PDFProcessing
             var rnd = new Random();
             var sb = new StringBuilder();
             for (var i = 0; i < length; i++)
-                sb.Append(Convert.ToChar((byte) rnd.Next(254)).ToString(CultureInfo.InvariantCulture));
+                sb.Append(Convert.ToChar((byte)rnd.Next(254)).ToString(CultureInfo.InvariantCulture));
             return sb.ToString();
         }
 

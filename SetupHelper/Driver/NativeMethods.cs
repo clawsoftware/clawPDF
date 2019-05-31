@@ -4,7 +4,6 @@ using System.Text;
 
 namespace clawSoft.clawPDF.SetupHelper.Driver
 {
-
     #region Native Method Structures
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
@@ -12,8 +11,10 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
     {
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pName;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pEnvironment;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pDLLName;
     }
@@ -25,19 +26,23 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
         public UInt32 dwHighDateTime;
     }
 
-
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct DRIVER_INFO_2
     {
         public uint cVersion;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pName;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pEnvironment;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pDriverPath;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pDataFile;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pConfigFile;
     }
@@ -46,37 +51,51 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
     public struct DRIVER_INFO_6
     {
         public UInt32 cVersion;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pName;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pEnvironment;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pDriverPath;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pDataFile;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pConfigFile;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pHelpFile;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pDependentFiles;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pMonitorName;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pDefaultDataType;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pszzPreviousNames;
+
         public FILETIME ftDriverDate;
         public UInt64 dwlDriverVersion;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pszMfgName;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pszOEMUrl;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pszHardwareID;
+
         [MarshalAs(UnmanagedType.LPTStr)]
         public string pszProvider;
-
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -112,7 +131,8 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
         public uint cJobs;
         public uint AveragePPM;
     }
-    #endregion
+
+    #endregion Native Method Structures
 
     internal static class NativeMethods
     {
@@ -127,8 +147,6 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
         [DllImport("winspool.drv", SetLastError = true, CharSet = CharSet.Auto)]
         internal static extern Int32 DeleteMonitor(String pName, String pEnvironment, String pMonitorName);
 
-
-
         [DllImport("winspool.drv", EntryPoint = "XcvDataW", SetLastError = true)]
         internal static extern bool XcvData(IntPtr hXcv,
                                         [MarshalAs(UnmanagedType.LPWStr)] string pszDataName,
@@ -138,8 +156,6 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                                         uint cbOutputData,
                                         out uint pcbOutputNeeded,
                                         out uint pwdStatus);
- 
-
 
         [DllImport("winspool.drv", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
         internal static extern int AddPrinter(string pName, uint Level, [In] ref PRINTER_INFO_2 pPrinter);
@@ -150,7 +166,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                                                PRINTER_DEFAULTS pDefault);
 
         [DllImport("winspool.drv", SetLastError = true)]
-        internal static extern int ClosePrinter(IntPtr hPrinter);    
+        internal static extern int ClosePrinter(IntPtr hPrinter);
 
         [DllImport("winspool.drv", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
         internal static extern bool DeletePrinter(IntPtr hPrinter);
@@ -159,14 +175,13 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool DeletePrinterConnection(String pName);
 
-        [DllImport("winspool.drv", EntryPoint="AddPrinterDriver", CharSet = CharSet.Auto, SetLastError = true)]
+        [DllImport("winspool.drv", EntryPoint = "AddPrinterDriver", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern bool AddPrinterDriver(String pName,
                                                    int Level,
                                                    ref DRIVER_INFO_6 pDriverInfo);
 
         [DllImport("winspool.drv", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern bool EnumPrinterDrivers(String pName, String pEnvironment, uint level, IntPtr pDriverInfo, uint cdBuf, ref uint pcbNeeded, ref uint pcReturned);
-
 
         [DllImport("winspool.drv")]
         internal static extern bool GetPrinterDriverDirectory(StringBuilder pName,
@@ -183,7 +198,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                                                         uint dwDeleteFlag,
                                                         uint dwVersionFlag);
 
-        #endregion
+        #endregion winspool
 
         #region Kernel32
 
@@ -193,6 +208,6 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern bool Wow64RevertWow64FsRedirection(IntPtr ptr);
 
-        #endregion
+        #endregion Kernel32
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using SystemInterface.IO;
-using SystemWrapper.IO;
 using clawSoft.clawPDF.Utilities.IO;
 using NLog;
+using SystemInterface.IO;
+using SystemWrapper.IO;
 
 namespace clawSoft.clawPDF.Core.Xps.OutputFileMover
 {

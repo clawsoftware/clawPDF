@@ -96,7 +96,7 @@ namespace clawSoft.clawPDF.Utilities
                 var myKey = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(
                     @"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
                 if (myKey != null)
-                    windowsVersion = (string) myKey.GetValue("ProductName") + " (" + windowsVersion + ")";
+                    windowsVersion = (string)myKey.GetValue("ProductName") + " (" + windowsVersion + ")";
             }
             catch
             {

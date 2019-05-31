@@ -3,8 +3,8 @@ using System.Collections;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
-using SystemInterface.Microsoft.Win32;
 using NLog;
+using SystemInterface.Microsoft.Win32;
 
 namespace clawSoft.clawPDF.Mail
 {
@@ -74,7 +74,6 @@ namespace clawSoft.clawPDF.Mail
         public bool IsClientInstalled => IsMapiClientInstalled;
     }
 
-
     #region Public MapiMailMessage Class
 
     /// <summary>
@@ -123,6 +122,7 @@ namespace clawSoft.clawPDF.Mail
             // ReSharper disable UnusedField.Compiler
             // ReSharper disable NotAccessedField.Local
             public int reserved = 0;
+
             public int flags = 0;
             public int position;
             public string path;
@@ -130,6 +130,7 @@ namespace clawSoft.clawPDF.Mail
 
             // ReSharper disable once UnusedMember.Local
             public IntPtr type = IntPtr.Zero;
+
             // ReSharper restore NotAccessedField.Local
             // ReSharper restore UnusedField.Compiler
         }
@@ -148,7 +149,7 @@ namespace clawSoft.clawPDF.Mail
             // ReSharper disable once InconsistentNaming
             public const int MAPI_LOGON_UI = 0x1;
 
-            #endregion //Constants
+            #endregion Constants
 
             #region Constructors
 
@@ -160,7 +161,7 @@ namespace clawSoft.clawPDF.Mail
                 // Intenationally blank
             }
 
-            #endregion //Constructors
+            #endregion Constructors
 
             #region APIs
 
@@ -202,7 +203,7 @@ namespace clawSoft.clawPDF.Mail
                 public int Reserved = 0;
             }
 
-            #endregion //Structs
+            #endregion Structs
         }
 
         #endregion Private MAPIHelperInterop Class
@@ -289,7 +290,7 @@ namespace clawSoft.clawPDF.Mail
             _ShowMail(null);
         }
 
-        #endregion //Public Methods
+        #endregion Public Methods
 
         #region Private Methods
 
@@ -354,11 +355,11 @@ namespace clawSoft.clawPDF.Mail
                 var fsize = Marshal.SizeOf(fileDescType);
 
                 // Get the ptr to the files
-                var runptr = (int) message.Files;
+                var runptr = (int)message.Files;
                 // Release each file
                 for (var i = 0; i < message.FileCount; i++)
                 {
-                    Marshal.DestroyStructure((IntPtr) runptr, fileDescType);
+                    Marshal.DestroyStructure((IntPtr)runptr, fileDescType);
                     runptr += fsize;
                 }
 
@@ -384,13 +385,13 @@ namespace clawSoft.clawPDF.Mail
 
             var mfd = new MapiFileDescriptor();
             mfd.position = -1;
-            var runptr = (int) ptra;
+            var runptr = (int)ptra;
             for (var i = 0; i < Files.Count; i++)
             {
                 var path = Files[i] as string;
                 mfd.name = Path.GetFileName(path);
                 mfd.path = path;
-                Marshal.StructureToPtr(mfd, (IntPtr) runptr, false);
+                Marshal.StructureToPtr(mfd, (IntPtr)runptr, false);
                 runptr += asize;
             }
 
@@ -405,7 +406,6 @@ namespace clawSoft.clawPDF.Mail
         {
             _ShowMail(null);
         }
-
 
         /// <summary>
         ///     Logs any Mapi errors.
@@ -448,81 +448,107 @@ namespace clawSoft.clawPDF.Mail
                 case MAPI_USER_ABORT:
                     error = "User Aborted.";
                     break;
+
                 case MAPI_E_FAILURE:
                     error = "MAPI Failure.";
                     break;
+
                 case MAPI_E_LOGIN_FAILURE:
                     error = "Login Failure.";
                     break;
+
                 case MAPI_E_DISK_FULL:
                     error = "MAPI Disk full.";
                     break;
+
                 case MAPI_E_INSUFFICIENT_MEMORY:
                     error = "MAPI Insufficient memory.";
                     break;
+
                 case MAPI_E_BLK_TOO_SMALL:
                     error = "MAPI Block too small.";
                     break;
+
                 case MAPI_E_TOO_MANY_SESSIONS:
                     error = "MAPI Too many sessions.";
                     break;
+
                 case MAPI_E_TOO_MANY_FILES:
                     error = "MAPI too many files.";
                     break;
+
                 case MAPI_E_TOO_MANY_RECIPIENTS:
                     error = "MAPI too many recipients.";
                     break;
+
                 case MAPI_E_ATTACHMENT_NOT_FOUND:
                     error = "MAPI Attachment not found.";
                     break;
+
                 case MAPI_E_ATTACHMENT_OPEN_FAILURE:
                     error = "MAPI Attachment open failure.";
                     break;
+
                 case MAPI_E_ATTACHMENT_WRITE_FAILURE:
                     error = "MAPI Attachment Write Failure.";
                     break;
+
                 case MAPI_E_UNKNOWN_RECIPIENT:
                     error = "MAPI Unknown recipient.";
                     break;
+
                 case MAPI_E_BAD_RECIPTYPE:
                     error = "MAPI Bad recipient type.";
                     break;
+
                 case MAPI_E_NO_MESSAGES:
                     error = "MAPI No messages.";
                     break;
+
                 case MAPI_E_INVALID_MESSAGE:
                     error = "MAPI Invalid message.";
                     break;
+
                 case MAPI_E_TEXT_TOO_LARGE:
                     error = "MAPI Text too large.";
                     break;
+
                 case MAPI_E_INVALID_SESSION:
                     error = "MAPI Invalid session.";
                     break;
+
                 case MAPI_E_TYPE_NOT_SUPPORTED:
                     error = "MAPI Type not supported.";
                     break;
+
                 case MAPI_E_AMBIGUOUS_RECIPIENT:
                     error = "MAPI Ambiguous recipient.";
                     break;
+
                 case MAPI_E_MESSAGE_IN_USE:
                     error = "MAPI Message in use.";
                     break;
+
                 case MAPI_E_NETWORK_FAILURE:
                     error = "MAPI Network failure.";
                     break;
+
                 case MAPI_E_INVALID_EDITFIELDS:
                     error = "MAPI Invalid edit fields.";
                     break;
+
                 case MAPI_E_INVALID_RECIPS:
                     error = "MAPI Invalid Recipients.";
                     break;
+
                 case MAPI_E_NOT_SUPPORTED:
                     error = "MAPI Not supported.";
                     break;
+
                 case MAPI_E_NO_LIBRARY:
                     error = "MAPI No Library.";
                     break;
+
                 case MAPI_E_INVALID_PARAMETER:
                     error = "MAPI Invalid parameter.";
                     break;
@@ -534,7 +560,7 @@ namespace clawSoft.clawPDF.Mail
             return error;
         }
 
-        #endregion //Private Methods
+        #endregion Private Methods
     }
 
     #endregion Public MapiMailMessage Class
@@ -566,12 +592,12 @@ namespace clawSoft.clawPDF.Mail
                 interop.Address = Address;
             }
 
-            interop.RecipientClass = (int) RecipientType;
+            interop.RecipientClass = (int)RecipientType;
 
             return interop;
         }
 
-        #endregion //Internal Methods
+        #endregion Internal Methods
 
         #region Public Properties
 
@@ -590,7 +616,7 @@ namespace clawSoft.clawPDF.Mail
         /// </summary>
         public MapiMailMessage.RecipientType RecipientType = MapiMailMessage.RecipientType.To;
 
-        #endregion //Public Properties
+        #endregion Public Properties
 
         #region Constructors
 
@@ -630,10 +656,10 @@ namespace clawSoft.clawPDF.Mail
             RecipientType = recipientType;
         }
 
-        #endregion //Constructors
+        #endregion Constructors
     }
 
-    #endregion //Public Recipient Class
+    #endregion Public Recipient Class
 
     #region Public RecipientCollection Class
 
@@ -645,7 +671,7 @@ namespace clawSoft.clawPDF.Mail
         /// <summary>
         ///     Returns the recipient stored in this collection at the specified index.
         /// </summary>
-        public Recipient this[int index] => (Recipient) List[index];
+        public Recipient this[int index] => (Recipient)List[index];
 
         /// <summary>
         ///     Adds the specified recipient to this collection.
@@ -724,24 +750,24 @@ namespace clawSoft.clawPDF.Mail
                 Handle = Marshal.AllocHGlobal(_count * size);
 
                 // place all interop recipients into the memory just allocated
-                var ptr = (int) Handle;
+                var ptr = (int)Handle;
                 foreach (Recipient native in outer)
                 {
                     var interop = native.GetInteropRepresentation();
 
                     // stick it in the memory block
-                    Marshal.StructureToPtr(interop, (IntPtr) ptr, false);
+                    Marshal.StructureToPtr(interop, (IntPtr)ptr, false);
                     ptr += size;
                 }
             }
 
-            #endregion //Costructors
+            #endregion Constructors
 
             #region Public Properties
 
             public IntPtr Handle { get; private set; }
 
-            #endregion //Public Properties
+            #endregion Public Properties
 
             #region Public Methods
 
@@ -756,10 +782,10 @@ namespace clawSoft.clawPDF.Mail
                     var size = Marshal.SizeOf(type);
 
                     // destroy all the structures in the memory area
-                    var ptr = (int) Handle;
+                    var ptr = (int)Handle;
                     for (var i = 0; i < _count; i++)
                     {
-                        Marshal.DestroyStructure((IntPtr) ptr, type);
+                        Marshal.DestroyStructure((IntPtr)ptr, type);
                         ptr += size;
                     }
 
@@ -771,9 +797,9 @@ namespace clawSoft.clawPDF.Mail
                 }
             }
 
-            #endregion //Public Methods
+            #endregion Public Methods
         }
     }
 
-    #endregion //Public RecipientCollection Class
+    #endregion Public RecipientCollection Class
 }

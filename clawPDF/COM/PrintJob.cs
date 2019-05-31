@@ -23,7 +23,6 @@ namespace clawSoft.clawPDF.COM
         void JobFinished();
     }
 
-
     [ComVisible(true)]
     [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
     [Guid("01E51AAE-D371-469A-A556-FC491A81778D")]
@@ -32,15 +31,21 @@ namespace clawSoft.clawPDF.COM
         bool IsFinished { get; }
         bool IsSuccessful { get; }
         string ConversionState { get; }
+
         void SetProfileByGuid(string profileGuid);
+
         OutputFiles GetOutputFiles { get; }
+
         void ConvertTo(string fullFileName);
+
         void ConvertToAsync(string fullFileName);
+
         void SetProfileSetting(string name, string value);
+
         PrintJobInfo PrintJobInfo { get; }
+
         string GetProfileSetting(string propertyName);
     }
-
 
     [ComVisible(true)]
     [ComSourceInterfaces(typeof(IJobFinishedEvent))]
@@ -58,7 +63,6 @@ namespace clawSoft.clawPDF.COM
 
         private Metadata _metadata;
         private ConversionWorkflow _workflow;
-
 
         /// <summary>
         ///     Creates a new ComJob from a job out of the
@@ -87,7 +91,6 @@ namespace clawSoft.clawPDF.COM
         ///     Returns true, if the job finished successfully
         /// </summary>
         public bool IsSuccessful { get; private set; }
-
 
         /// <summary>
         ///     Returns a string which describes the current conversion step. This is "Pending" if it has not been started and
@@ -183,8 +186,8 @@ namespace clawSoft.clawPDF.COM
             throw new COMException("Invalid property name.");
         }
 
-
         public event EventHandler<EventArgs> OnJobFinished; //Intern event: Not visible to COM clients
+
         public event JobFinishedDelegate JobFinished; //Extern event: For COM clients only
 
         /// <summary>

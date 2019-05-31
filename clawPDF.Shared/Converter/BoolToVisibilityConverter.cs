@@ -23,7 +23,7 @@ namespace clawSoft.clawPDF.Shared.Converter
         {
             if (!(value is bool))
                 return null;
-            return (bool) value ? TrueValue : FalseValue;
+            return (bool)value ? TrueValue : FalseValue;
         }
 
         public object ConvertBack(object value, Type targetType,

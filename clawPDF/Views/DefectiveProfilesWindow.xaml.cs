@@ -32,15 +32,15 @@ namespace clawSoft.clawPDF.Views
                     "DefectiveProfilesWindow", "DefectiveProfile", "Defective profile:");
 
             foreach (var profileNameActionResult in actionResultDict)
-            foreach (var error in profileNameActionResult.Value)
-            {
-                var errorText = ErrorCodeInterpreter.GetErrorText(error, false);
-                errors.Add(new ProfileError(profileNameActionResult.Key, errorText));
-            }
+                foreach (var error in profileNameActionResult.Value)
+                {
+                    var errorText = ErrorCodeInterpreter.GetErrorText(error, false);
+                    errors.Add(new ProfileError(profileNameActionResult.Key, errorText));
+                }
 
             ProfileList.ItemsSource = errors;
 
-            var view = (CollectionView) CollectionViewSource.GetDefaultView(ProfileList.ItemsSource);
+            var view = (CollectionView)CollectionViewSource.GetDefaultView(ProfileList.ItemsSource);
             var groupDescription = new PropertyGroupDescription("Profile");
             view.GroupDescriptions.Add(groupDescription);
         }
@@ -64,7 +64,6 @@ namespace clawSoft.clawPDF.Views
                 errorList = ProfileList.SelectedItems;
             else
                 errorList = ProfileList.Items;
-
 
             var text = new StringBuilder();
             var previousProfile = "";

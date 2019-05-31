@@ -99,7 +99,7 @@ namespace clawSoft.clawPDF.ViewModels
 
             foreach (var job in jobs.ToArray())
             {
-                var jobInfo = (IJobInfo) job;
+                var jobInfo = (IJobInfo)job;
                 var position = JobInfos.CurrentPosition;
                 _jobInfos.Remove(jobInfo);
                 _jobInfoQueue.Remove(jobInfo, true);
@@ -127,11 +127,11 @@ namespace clawSoft.clawPDF.ViewModels
                 return;
 
             var jobs = jobObjects.ToList();
-            var first = (IJobInfo) jobs.First();
+            var first = (IJobInfo)jobs.First();
 
             foreach (var jobObject in jobs.Skip(1))
             {
-                var job = (IJobInfo) jobObject;
+                var job = (IJobInfo)jobObject;
                 if (job.JobType != first.JobType)
                     continue;
                 first.Merge(job);
@@ -170,7 +170,7 @@ namespace clawSoft.clawPDF.ViewModels
             if (jobs == null)
                 return;
 
-            var job = (IJobInfo) jobs.First();
+            var job = (IJobInfo)jobs.First();
 
             MoveJob(job, -1);
             RaiseRefreshView();
@@ -186,7 +186,7 @@ namespace clawSoft.clawPDF.ViewModels
             if (jobList.Count != 1)
                 return false;
 
-            return _jobInfos.IndexOf((IJobInfo) jobList.First()) > 0;
+            return _jobInfos.IndexOf((IJobInfo)jobList.First()) > 0;
         }
 
         private void ExecuteMoveDown(object o)
@@ -199,7 +199,7 @@ namespace clawSoft.clawPDF.ViewModels
             if (jobs == null)
                 return;
 
-            var job = (IJobInfo) jobs.First();
+            var job = (IJobInfo)jobs.First();
 
             MoveJob(job, +1);
             RaiseRefreshView();
@@ -215,7 +215,7 @@ namespace clawSoft.clawPDF.ViewModels
             if (jobList.Count != 1)
                 return false;
 
-            return _jobInfos.IndexOf((IJobInfo) jobList.First()) < _jobInfos.Count - 1;
+            return _jobInfos.IndexOf((IJobInfo)jobList.First()) < _jobInfos.Count - 1;
         }
 
         private void MoveJob(IJobInfo jobInfo, int positionDifference)

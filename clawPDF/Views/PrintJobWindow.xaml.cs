@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Helper;
 using clawSoft.clawPDF.Shared.Helper;
@@ -19,7 +18,7 @@ namespace clawSoft.clawPDF.Views
 
         private void SettingsButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var vm = (PrintJobViewModel) DataContext;
+            var vm = (PrintJobViewModel)DataContext;
 
             TopMostHelper.UndoTopMostWindow(this);
             _settings.ApplicationSettings.LastUsedProfileGuid = vm.SelectedProfile.Guid;

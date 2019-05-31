@@ -113,7 +113,7 @@ namespace clawSoft.clawPDF.Workflow
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "TextFile", "Text file") +
                     @" (*.txt)|*.txt;";
 
-                saveFileDialog.FilterIndex = (int) Job.Profile.OutputFormat + 1;
+                saveFileDialog.FilterIndex = (int)Job.Profile.OutputFormat + 1;
                 saveFileDialog.OverwritePrompt = true;
 
                 if (Job.Profile.SaveDialog.SetDirectory)
@@ -160,7 +160,7 @@ namespace clawSoft.clawPDF.Workflow
                 return false;
             }
 
-            Job.Profile.OutputFormat = (OutputFormat) saveFileDialog.FilterIndex - 1;
+            Job.Profile.OutputFormat = (OutputFormat)saveFileDialog.FilterIndex - 1;
 
             try
             {
@@ -328,6 +328,7 @@ namespace clawSoft.clawPDF.Workflow
                     errorText = _translator.GetTranslation("InteractiveWorkflow", "GhostscriptError",
                         "Internal Ghostscript error");
                     break;
+
                 default:
                     errorText = _translator.GetTranslation("InteractiveWorkflow", "UnknownError",
                         "Unkown internal error");
@@ -406,32 +407,39 @@ namespace clawSoft.clawPDF.Workflow
                     saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "PdfFile", "PDF file") +
                                             @" (*.pdf)|*.pdf";
                     break;
+
                 case OutputFormat.PdfA1B:
                     saveFileDialog.Filter =
                         _translator.GetTranslation("InteractiveWorkflow", "PdfA1bFile", "PDF/A-1b file") +
                         @" (*.pdf)|*.pdf";
                     break;
+
                 case OutputFormat.PdfA2B:
                     saveFileDialog.Filter =
                         _translator.GetTranslation("InteractiveWorkflow", "PdfA2bFile", "PDF/A-2b file") +
                         @" (*.pdf)|*.pdf";
                     break;
+
                 case OutputFormat.PdfX:
                     saveFileDialog.Filter =
                         _translator.GetTranslation("InteractiveWorkflow", "PdfXFile", "PDF/X file") + @" (*.pdf)|*.pdf";
                     break;
+
                 case OutputFormat.Jpeg:
                     saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "JpegFile", "JPEG file") +
                                             @" (*.jpg)|*.jpg;*.jpeg;";
                     break;
+
                 case OutputFormat.Png:
                     saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "PngFile", "PNG file") +
                                             @" (*.png)|*.png;";
                     break;
+
                 case OutputFormat.Tif:
                     saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "TiffFile", "TIFF file") +
                                             @" (*.tif)|*.tif;*.tiff";
                     break;
+
                 case OutputFormat.Txt:
                     saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "TextFile", "Text file") +
                                             @" (*.txt)|*.txt;";

@@ -24,11 +24,11 @@ namespace clawSoft.clawPDF.Shared.Converter
         private Color ConvertWpfColor(object value)
         {
             if (value is Color)
-                return (Color) value;
+                return (Color)value;
 
             if (value is System.Drawing.Color)
             {
-                var color = (System.Drawing.Color) value;
+                var color = (System.Drawing.Color)value;
                 return Color.FromArgb(color.A, color.R, color.G, color.B);
             }
 

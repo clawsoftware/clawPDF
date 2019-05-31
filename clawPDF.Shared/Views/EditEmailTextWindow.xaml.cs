@@ -64,12 +64,12 @@ namespace clawSoft.clawPDF.Shared.Views
 
         private void SubjectTokenComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            InsertToken(SubjectText, (ComboBox) sender);
+            InsertToken(SubjectText, (ComboBox)sender);
         }
 
         private void BodyTokenComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            InsertToken(BodyText, (ComboBox) sender);
+            InsertToken(BodyText, (ComboBox)sender);
         }
 
         private void InsertToken(TextBox txt, ComboBox cmb)

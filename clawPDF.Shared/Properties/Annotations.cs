@@ -127,7 +127,7 @@ namespace clawSoft.clawPDF.Shared.Properties
     ///   public event PropertyChangedEventHandler PropertyChanged;
     ///   [NotifyPropertyChangedInvocator]
     ///   protected virtual void NotifyChanged(string propertyName) { ... }
-    /// 
+    ///
     ///   private string _name;
     ///   public string Name {
     ///     get { return _name; }
@@ -209,7 +209,7 @@ namespace clawSoft.clawPDF.Shared.Properties
     ///             <code>
     /// // A method that returns null if the parameter is null, and not null if the parameter is not null
     /// [ContractAnnotation("null => null; notnull => notnull")]
-    /// public object Transform(object data) 
+    /// public object Transform(object data)
     /// </code>
     ///         </item>
     ///         <item>

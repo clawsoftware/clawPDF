@@ -11,6 +11,7 @@ namespace clawSoft.clawPDF.COM
     public interface IPrinters
     {
         int Count { get; }
+
         string GetPrinterByIndex(int index);
     }
 
@@ -38,7 +39,7 @@ namespace clawSoft.clawPDF.COM
         /// <returns>Name of the printer</returns>
         public string GetPrinterByIndex(int index)
         {
-            var printerList = (IList<string>) _printerHelper.GetclawPDFPrinters();
+            var printerList = (IList<string>)_printerHelper.GetclawPDFPrinters();
 
             if (index >= printerList.Count)
                 throw new ArgumentException("Index must not be greater than the actual number of printers available");

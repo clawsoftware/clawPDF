@@ -18,7 +18,6 @@ namespace clawSoft.clawPDF.Utilities.IO
         private readonly IFile _fileWrap;
         private readonly IPathSafe _pathSafe = new PathWrapSafe();
 
-
         // this is the counting number that is appended to the filename
         // starting with 2 to name the first duplicate somename_2
         private int _appendix = 2;

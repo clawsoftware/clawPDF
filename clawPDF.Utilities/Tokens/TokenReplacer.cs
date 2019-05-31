@@ -19,7 +19,7 @@ namespace clawSoft.clawPDF.Utilities.Tokens
         private const char TokenCloseChar = '>';
         private const string TokenSplitString = ":";
 
-        #endregion
+        #endregion Constants
 
         #region Methods
 
@@ -48,8 +48,8 @@ namespace clawSoft.clawPDF.Utilities.Tokens
         /// </example>
         public string ReplaceTokens(string InputString)
         {
-            int beginOfToken, endOfToken, lastIndexOfToken; //Memorize Indexes 
-            var begin = false; //Flag for the beginning of a Token 
+            int beginOfToken, endOfToken, lastIndexOfToken; //Memorize Indexes
+            var begin = false; //Flag for the beginning of a Token
 
             beginOfToken = InputString.IndexOf(TokenOpenChar);
             lastIndexOfToken = InputString.LastIndexOf(TokenCloseChar);
@@ -76,7 +76,7 @@ namespace clawSoft.clawPDF.Utilities.Tokens
                     beginOfToken = i;
                     begin = true;
                 }
-                else if (InputString[i] == TokenOpenChar) //(&& Begin) //second TokenOpenChar without previous closing 
+                else if (InputString[i] == TokenOpenChar) //(&& Begin) //second TokenOpenChar without previous closing
                 {
                     outputString.Append(InputString.Substring(beginOfToken, i - beginOfToken));
                     //add substring from the last BeginOfToken to the new TokenOpenChar
@@ -94,7 +94,7 @@ namespace clawSoft.clawPDF.Utilities.Tokens
                         &&
                         _tokenDict.ContainsKey(
                             ExtractedTokenString.Substring(1, ExtractedTokenString.IndexOf(':') - 1).ToUpper()))
-                        //Token contains a format and TokenName (without <>) is Key in the TokenDict
+                    //Token contains a format and TokenName (without <>) is Key in the TokenDict
                     {
                         var token =
                             _tokenDict[
@@ -120,7 +120,7 @@ namespace clawSoft.clawPDF.Utilities.Tokens
                     else if (
                             _tokenDict.ContainsKey(
                                 InputString.Substring(beginOfToken + 1, i - beginOfToken - 1).ToUpper()))
-                        //Tokenname (without <>) is Key in the TokenDict
+                    //Tokenname (without <>) is Key in the TokenDict
                     {
                         outputString.Append(
                             _tokenDict[InputString.Substring(beginOfToken + 1, i - beginOfToken - 1).ToUpper()]
@@ -135,7 +135,7 @@ namespace clawSoft.clawPDF.Utilities.Tokens
                 else if (InputString[i] == TokenCloseChar) //&& !Begin //closing of Token without opening
                 {
                     outputString.Append(InputString.Substring(endOfToken + 1, i - endOfToken));
-                    //add part from the last regular closing to the actual irregular closing 
+                    //add part from the last regular closing to the actual irregular closing
                     endOfToken = i;
                 }
 
@@ -228,6 +228,6 @@ namespace clawSoft.clawPDF.Utilities.Tokens
             AddToken(new ListToken(name, value));
         }
 
-        #endregion
+        #endregion Methods
     }
 }

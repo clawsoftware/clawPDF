@@ -6,16 +6,14 @@ using System.IO;
 using System.Linq;
 using System.Resources;
 using System.Text;
-using System.Threading;
-using SystemInterface.IO;
-using SystemWrapper.IO;
-using clawSoft.clawPDF.Core.Helper;
 using clawSoft.clawPDF.Core.Jobs;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.Utilities;
 using clawSoft.clawPDF.Utilities.IO;
 using NLog;
+using SystemInterface.IO;
+using SystemWrapper.IO;
 
 namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 {
@@ -244,21 +242,27 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                     case '\\':
                         sb.Append("\\\\");
                         break;
+
                     case '{':
                         sb.Append("\\{");
                         break;
+
                     case '}':
                         sb.Append("\\}");
                         break;
+
                     case '[':
                         sb.Append("\\[");
                         break;
+
                     case ']':
                         sb.Append("\\]");
                         break;
+
                     case '(':
                         sb.Append("\\(");
                         break;
+
                     case ')':
                         sb.Append("\\)");
                         break;
@@ -301,18 +305,23 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                 case PageView.OneColumn:
                     metadataContent.Append("/OneColumn");
                     break;
+
                 case PageView.TwoColumnsOddLeft:
                     metadataContent.Append("/TwoColumnLeft");
                     break;
+
                 case PageView.TwoColumnsOddRight:
                     metadataContent.Append("/TwoColumnRight");
                     break;
+
                 case PageView.TwoPagesOddLeft:
                     metadataContent.Append("/TwoPageLeft");
                     break;
+
                 case PageView.TwoPagesOddRight:
                     metadataContent.Append("/TwoPageRight");
                     break;
+
                 case PageView.OnePage:
                     metadataContent.Append("/SinglePage");
                     break;
@@ -324,18 +333,23 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                 case DocumentView.AttachmentsPanel:
                     metadataContent.Append("/UseAttachments");
                     break;
+
                 case DocumentView.ContentGroupPanel:
                     metadataContent.Append("/UseOC");
                     break;
+
                 case DocumentView.FullScreen:
                     metadataContent.Append("/FullScreen");
                     break;
+
                 case DocumentView.Outline:
                     metadataContent.Append("/UseOutlines");
                     break;
+
                 case DocumentView.ThumbnailImages:
                     metadataContent.Append("/UseThumbs");
                     break;
+
                 default:
                     metadataContent.Append("/UseNone");
                     break;
@@ -358,27 +372,26 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
             switch (format)
             {
                 case OutputFormat.Jpeg:
-                    validExtensions = new[] {".jpg", ".jpeg"};
+                    validExtensions = new[] { ".jpg", ".jpeg" };
                     break;
 
                 case OutputFormat.Tif:
-                    validExtensions = new[] {".tif", ".tiff"};
+                    validExtensions = new[] { ".tif", ".tiff" };
                     break;
 
                 case OutputFormat.Pdf:
                 case OutputFormat.PdfA1B:
                 case OutputFormat.PdfA2B:
                 case OutputFormat.PdfX:
-                    validExtensions = new[] {".pdf"};
+                    validExtensions = new[] { ".pdf" };
                     break;
 
                 case OutputFormat.Txt:
-                    validExtensions = new[] {".txt"};
+                    validExtensions = new[] { ".txt" };
                     break;
 
-
                 default:
-                    validExtensions = new[] {"." + format.ToString().ToLowerInvariant()};
+                    validExtensions = new[] { "." + format.ToString().ToLowerInvariant() };
                     break;
             }
 

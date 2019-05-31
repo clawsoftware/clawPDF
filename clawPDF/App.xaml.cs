@@ -170,7 +170,7 @@ namespace clawSoft.clawPDF
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            var ex = (Exception) e.ExceptionObject;
+            var ex = (Exception)e.ExceptionObject;
             Logger.Fatal(ex, "Uncaught exception, IsTerminating: {0}", e.IsTerminating);
         }
 

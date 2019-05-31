@@ -1,7 +1,7 @@
 ﻿using System.Security;
+using clawSoft.clawPDF.Utilities.Registry;
 using SystemInterface.Microsoft.Win32;
 using SystemWrapper.Microsoft.Win32;
-using clawSoft.clawPDF.Utilities.Registry;
 
 namespace clawSoft.clawPDF.Helper
 {
@@ -57,7 +57,6 @@ namespace clawSoft.clawPDF.Helper
         {
             if (!MoveRequired())
                 return false;
-
 
             return _registryUtility.RenameSubKey(_registryWrap.CurrentUser, OldRegistryPath, NewRegistryPath);
         }

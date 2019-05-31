@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using SystemInterface.IO;
-using SystemWrapper.IO;
 using clawSoft.clawPDF.Utilities;
 using NLog;
+using SystemInterface.IO;
+using SystemWrapper.IO;
 
 namespace clawSoft.clawPDF.Core.Jobs
 {

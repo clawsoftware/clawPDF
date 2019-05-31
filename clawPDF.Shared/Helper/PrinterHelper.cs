@@ -40,7 +40,7 @@ namespace clawSoft.clawPDF.Shared.Helper
             var lastWin32Error = Marshal.GetLastWin32Error();
             if (lastWin32Error == ERROR_INSUFFICIENT_BUFFER)
             {
-                var pAddr = Marshal.AllocHGlobal((int) cbNeeded);
+                var pAddr = Marshal.AllocHGlobal((int)cbNeeded);
                 if (EnumPrinters(flags, null, 2, pAddr, cbNeeded, ref cbNeeded, ref cReturned))
                 {
                     var printerInfo2 = new PRINTER_INFO_2[cReturned];
@@ -49,7 +49,7 @@ namespace clawSoft.clawPDF.Shared.Helper
                     var increment = Marshal.SizeOf(type);
                     for (var i = 0; i < cReturned; i++)
                     {
-                        printerInfo2[i] = (PRINTER_INFO_2) Marshal.PtrToStructure(offset, type);
+                        printerInfo2[i] = (PRINTER_INFO_2)Marshal.PtrToStructure(offset, type);
                         offset += increment;
                     }
 
@@ -165,9 +165,9 @@ namespace clawSoft.clawPDF.Shared.Helper
             uint cbBuf, ref uint pcbNeeded, ref uint pcReturned);
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-// ReSharper disable once InconsistentNaming
-// ReSharper disable FieldCanBeMadeReadOnly.Local
-// ReSharper disable MemberCanBePrivate.Local
+        // ReSharper disable once InconsistentNaming
+        // ReSharper disable FieldCanBeMadeReadOnly.Local
+        // ReSharper disable MemberCanBePrivate.Local
         private struct PRINTER_INFO_2
         {
             [MarshalAs(UnmanagedType.LPTStr)] public string pServerName;
@@ -192,15 +192,17 @@ namespace clawSoft.clawPDF.Shared.Helper
             public uint cJobs;
             public uint AveragePPM;
         }
-// ReSharper restore FieldCanBeMadeReadOnly.Local
-// ReSharper restore MemberCanBePrivate.Local
+
+        // ReSharper restore FieldCanBeMadeReadOnly.Local
+        // ReSharper restore MemberCanBePrivate.Local
 
         [Flags]
         private enum PrinterEnumFlags
         {
-// ReSharper disable UnusedMember.Local
-// ReSharper disable InconsistentNaming
+            // ReSharper disable UnusedMember.Local
+            // ReSharper disable InconsistentNaming
             PRINTER_ENUM_DEFAULT = 0x00000001,
+
             PRINTER_ENUM_LOCAL = 0x00000002,
             PRINTER_ENUM_CONNECTIONS = 0x00000004,
             PRINTER_ENUM_FAVORITE = 0x00000004,
@@ -221,10 +223,10 @@ namespace clawSoft.clawPDF.Shared.Helper
             PRINTER_ENUM_ICON8 = 0x00800000,
 
             PRINTER_ENUM_HIDE = 0x01000000
-// ReSharper restore UnusedMember.Local
-// ReSharper restore InconsistentNaming
+            // ReSharper restore UnusedMember.Local
+            // ReSharper restore InconsistentNaming
         }
 
-        #endregion
+        #endregion Windows Spooler
     }
 }

@@ -15,8 +15,11 @@ namespace clawSoft.clawPDF.COM
     {
         Printers GetclawPdfPrinters { get; }
         bool IsInstanceRunning { get; }
+
         void PrintFile(string path);
+
         void AddFileToQueue(string path);
+
         void PrintFileSwitchingPrinters(string path, bool allowDefaultPrinterSwitch);
     }
 
@@ -30,7 +33,6 @@ namespace clawSoft.clawPDF.COM
         ///     Returns a new PrinterDevices object
         /// </summary>
         public Printers GetclawPdfPrinters => new Printers();
-
 
         /// <summary>
         ///     Checks if clawPDF is running
@@ -77,7 +79,7 @@ namespace clawSoft.clawPDF.COM
 
             var fileExtension = Path.GetExtension(path) ?? string.Empty;
             var queueInstance = JobInfoQueue.Instance;
-            var legalFileTypes = new List<string> {".ps", ".pdf"};
+            var legalFileTypes = new List<string> { ".ps", ".pdf" };
 
             if (!legalFileTypes.Contains(fileExtension.ToLower()))
                 throw new COMException("Only .ps and .pdf files can be directly added to the queue.");

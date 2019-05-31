@@ -32,12 +32,14 @@ namespace clawSoft.clawPDF.Shared.ViewModels
                     Response = MessageWindowResponse.OK;
                     RaiseCloseView(true);
                     break;
+
                 case MessageWindowButtons.OKCancel:
                 case MessageWindowButtons.RetryCancel:
                 case MessageWindowButtons.MoreInfoCancel:
                     Response = MessageWindowResponse.Cancel;
                     RaiseCloseView(false);
                     break;
+
                 case MessageWindowButtons.YesLaterNo:
                 case MessageWindowButtons.YesNo:
                     Response = MessageWindowResponse.No;
@@ -76,12 +78,15 @@ namespace clawSoft.clawPDF.Shared.ViewModels
                 case MessageWindowButtons.MoreInfoCancel:
                     Response = MessageWindowResponse.MoreInfo;
                     break;
+
                 case MessageWindowButtons.OKCancel:
                     Response = MessageWindowResponse.OK;
                     break;
+
                 case MessageWindowButtons.RetryCancel:
                     Response = MessageWindowResponse.Retry;
                     break;
+
                 case MessageWindowButtons.YesNo:
                 case MessageWindowButtons.YesLaterNo:
                     Response = MessageWindowResponse.Yes;

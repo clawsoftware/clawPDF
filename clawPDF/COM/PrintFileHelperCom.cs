@@ -27,7 +27,7 @@ namespace clawSoft.clawPDF.COM
         protected override bool QuerySwitchDefaultPrinter()
         {
             //Depending on what the COM user chose to do, we set the
-            //default printer or not 
+            //default printer or not
             return AllowDefaultPrinterSwitch;
         }
     }

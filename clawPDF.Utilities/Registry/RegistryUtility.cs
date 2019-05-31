@@ -59,9 +59,9 @@ namespace clawSoft.clawPDF.Utilities.Registry
                 destinationKey.SetValue(valueName, objValue, valKind);
             }
 
-            //For Each subKey 
-            //Create a new subKey in destinationKey 
-            //Call myself 
+            //For Each subKey
+            //Create a new subKey in destinationKey
+            //Call myself
             foreach (var sourceSubKeyName in sourceKey.GetSubKeyNames())
             {
                 var sourceSubKey = sourceKey.OpenSubKey(sourceSubKeyName);

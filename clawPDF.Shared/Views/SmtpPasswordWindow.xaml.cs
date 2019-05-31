@@ -24,22 +24,25 @@ namespace clawSoft.clawPDF.Shared.Views
                 case SmtpPasswordMiddleButton.Remove:
                     SkipButton.Visibility = Visibility.Collapsed;
                     break;
+
                 case SmtpPasswordMiddleButton.Skip:
                     RemoveButton.Visibility = Visibility.Collapsed;
                     PasswordHintText.Visibility = Visibility.Collapsed;
                     break;
+
                 case SmtpPasswordMiddleButton.None:
                     RemoveButton.Visibility = Visibility.Collapsed;
                     SkipButton.Visibility = Visibility.Collapsed;
                     PasswordHintText.Visibility = Visibility.Collapsed;
                     Grid.SetColumn(OkButton, 1);
                     break;
+
                 default:
                     SkipButton.Visibility = Visibility.Collapsed;
                     break;
             }
 
-            SmtpPasswordViewModel.CloseViewAction = delegate(bool? result) { DialogResult = result; };
+            SmtpPasswordViewModel.CloseViewAction = delegate (bool? result) { DialogResult = result; };
         }
 
         public SmtpPasswordWindow(SmtpPasswordMiddleButton middleButton, string emailAddress, string recipients)
@@ -50,7 +53,7 @@ namespace clawSoft.clawPDF.Shared.Views
             RecipientsLabel.Content = recipients;
         }
 
-        public SmtpPasswordViewModel SmtpPasswordViewModel => (SmtpPasswordViewModel) DataContext;
+        public SmtpPasswordViewModel SmtpPasswordViewModel => (SmtpPasswordViewModel)DataContext;
 
         public string SmtpPassword
         {

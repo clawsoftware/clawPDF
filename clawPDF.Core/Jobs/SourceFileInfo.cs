@@ -83,7 +83,7 @@ namespace clawSoft.clawPDF.Core.Jobs
 
             sfi.DocumentTitle = data.GetValue(section + "DocumentTitle");
             sfi.WinStation = data.GetValue(section + "WinStation");
-            sfi.Author = data.GetValue(section + "UserName");
+            sfi.Author = data.GetValue(section + "Username");
             sfi.ClientComputer = data.GetValue(section + "ClientComputer");
             sfi.Filename = data.GetValue(section + "SpoolFileName");
 
@@ -151,7 +151,7 @@ namespace clawSoft.clawPDF.Core.Jobs
         {
             data.SetValue(section + "DocumentTitle", DocumentTitle);
             data.SetValue(section + "WinStation", WinStation);
-            data.SetValue(section + "UserName", Author);
+            data.SetValue(section + "Username", Author);
             data.SetValue(section + "ClientComputer", ClientComputer);
             data.SetValue(section + "SpoolFileName", Filename);
             data.SetValue(section + "PrinterName", PrinterName);

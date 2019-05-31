@@ -95,7 +95,6 @@
                           ItemsSource="{Binding ClawPdfPrinters}"
                           SelectionChanged="PrimaryPrinterBox_OnSelectionChanged" />
             </Grid>
-
         </HeaderedContentControl>
     </StackPanel>
 </UserControl>

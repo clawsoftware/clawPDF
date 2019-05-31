@@ -31,7 +31,7 @@ namespace clawSoft.clawPDF.ftplib.FtpLib
             {
                 var stringBuilder = new StringBuilder(255);
                 intPtr = LoadLibrary("wininet.dll");
-                if (FormatMessage(4608u, intPtr, errorCode, 0u, stringBuilder, (uint) (stringBuilder.Capacity + 1),
+                if (FormatMessage(4608u, intPtr, errorCode, 0u, stringBuilder, (uint)(stringBuilder.Capacity + 1),
                         IntPtr.Zero) != 0) return stringBuilder.ToString();
                 return string.Empty;
             }

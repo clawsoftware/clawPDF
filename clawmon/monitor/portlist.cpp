@@ -102,12 +102,12 @@ DWORD CPortList::GetPortSize(LPCWSTR szPortName, DWORD dwLevel)
 	{
 	case 1:
 		cb = sizeof(PORT_INFO_1W) +
-			 sizeof(WCHAR) * ((DWORD)wcslen(szPortName) + 1);
+			sizeof(WCHAR) * ((DWORD)wcslen(szPortName) + 1);
 		break;
 	case 2:
 		cb = sizeof(PORT_INFO_2W) +
-			 sizeof(WCHAR) * (
-				(DWORD)wcslen(szPortName) + 1 +
+			sizeof(WCHAR) * (
+			(DWORD)wcslen(szPortName) + 1 +
 				(DWORD)wcslen(m_szMonitorName) + 1 +
 				(DWORD)wcslen(m_szPortDesc) + 1);
 		break;
@@ -126,41 +126,41 @@ LPBYTE CPortList::CopyPortToBuffer(CPort* pPort, DWORD dwLevel, LPBYTE pStart, L
 	switch (dwLevel)
 	{
 	case 1:
-		{
-			PORT_INFO_1W* pPortInfo = (PORT_INFO_1W*)pStart;
-			len = wcslen(pPort->PortName()) + 1;
-			pEnd -= len * sizeof(WCHAR);
-			wcscpy_s((LPWSTR)pEnd, len, pPort->PortName());
-			pPortInfo->pName = (LPWSTR)pEnd;
-			break;
-		}
+	{
+		PORT_INFO_1W* pPortInfo = (PORT_INFO_1W*)pStart;
+		len = wcslen(pPort->PortName()) + 1;
+		pEnd -= len * sizeof(WCHAR);
+		wcscpy_s((LPWSTR)pEnd, len, pPort->PortName());
+		pPortInfo->pName = (LPWSTR)pEnd;
+		break;
+	}
 	case 2:
-		{
-			PORT_INFO_2W* pPortInfo = (PORT_INFO_2W*)pStart;
-			len = wcslen(m_szMonitorName) + 1;
-			pEnd -= len * sizeof(WCHAR);
-			wcscpy_s((LPWSTR)pEnd, len, m_szMonitorName);
-			pPortInfo->pMonitorName = (LPWSTR)pEnd;
+	{
+		PORT_INFO_2W* pPortInfo = (PORT_INFO_2W*)pStart;
+		len = wcslen(m_szMonitorName) + 1;
+		pEnd -= len * sizeof(WCHAR);
+		wcscpy_s((LPWSTR)pEnd, len, m_szMonitorName);
+		pPortInfo->pMonitorName = (LPWSTR)pEnd;
 
-			len = wcslen(m_szPortDesc) + 1;
-			pEnd -= len * sizeof(WCHAR);
-			wcscpy_s((LPWSTR)pEnd, len, m_szPortDesc);
-			pPortInfo->pDescription = (LPWSTR)pEnd;
+		len = wcslen(m_szPortDesc) + 1;
+		pEnd -= len * sizeof(WCHAR);
+		wcscpy_s((LPWSTR)pEnd, len, m_szPortDesc);
+		pPortInfo->pDescription = (LPWSTR)pEnd;
 
-			len = wcslen(pPort->PortName()) + 1;
-			pEnd -= len * sizeof(WCHAR);
-			wcscpy_s((LPWSTR)pEnd, len, pPort->PortName());
-			pPortInfo->pPortName = (LPWSTR)pEnd;
+		len = wcslen(pPort->PortName()) + 1;
+		pEnd -= len * sizeof(WCHAR);
+		wcscpy_s((LPWSTR)pEnd, len, pPort->PortName());
+		pPortInfo->pPortName = (LPWSTR)pEnd;
 
-			pPortInfo->fPortType = 0;
-			pPortInfo->Reserved = 0;
-			break;
-		}
+		pPortInfo->fPortType = 0;
+		pPortInfo->Reserved = 0;
+		break;
+	}
 	default:
 		break;
 	}
 
-    return pEnd;
+	return pEnd;
 }
 
 //-------------------------------------------------------------------------------------
@@ -204,10 +204,10 @@ BOOL CPortList::EnumMultiFilePorts(HANDLE hMonitor, LPCWSTR pName, DWORD Level, 
 			pPorts += sizeof(PORT_INFO_2W);
 			break;
 		default:
-			{
-				SetLastError(ERROR_INVALID_LEVEL);
-				return FALSE;
-			}
+		{
+			SetLastError(ERROR_INVALID_LEVEL);
+			return FALSE;
+		}
 		}
 		(*pcReturned)++;
 
@@ -626,4 +626,3 @@ void CPortList::SaveToRegistry()
 		g_pLog->Log(LOGLEVEL_ALL, L"back to unprivileged user");
 	}
 }
-

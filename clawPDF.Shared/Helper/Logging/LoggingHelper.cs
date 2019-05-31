@@ -75,7 +75,7 @@ namespace clawSoft.clawPDF.Shared.Helper.Logging
 
         private static LogLevel GetLogLevel(LoggingLevel loggingLevel)
         {
-            return LogLevel.FromOrdinal((int) loggingLevel);
+            return LogLevel.FromOrdinal((int)loggingLevel);
         }
     }
 }

@@ -23,24 +23,24 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #define __SEC_API_H
 
 #ifdef __GNUC__
-  #ifndef MINGW_HAS_SECURE_API
-	#include <wchar.h>
-	#include <stdarg.h>
+#ifndef MINGW_HAS_SECURE_API
+#include <wchar.h>
+#include <stdarg.h>
 
-	#ifdef __cplusplus
-	extern "C" {
-	#endif
-    int __cdecl swprintf_s(wchar_t *_Dst,size_t _SizeInWords,const wchar_t *_Format,...);
-	#ifdef __cplusplus
-	}
-	#endif
-	
-    #define wcscpy_s(dst,dstlen,src) wcscpy(dst,src)
-	
-	#define wcscat_s(dst,dstlen,src) wcscat(dst,src)
-	
-	#define vswprintf_s(dst,dstlen,format,args) vswprintf(dst,format,args)
-  #endif
+#ifdef __cplusplus
+extern "C" {
+#endif
+	int __cdecl swprintf_s(wchar_t *_Dst, size_t _SizeInWords, const wchar_t *_Format, ...);
+#ifdef __cplusplus
+}
+#endif
+
+#define wcscpy_s(dst,dstlen,src) wcscpy(dst,src)
+
+#define wcscat_s(dst,dstlen,src) wcscat(dst,src)
+
+#define vswprintf_s(dst,dstlen,format,args) vswprintf(dst,format,args)
+#endif
 #endif
 
 #endif

@@ -8,49 +8,50 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 using System.Windows.Forms;
+using clawSoft.clawPDF.SetupHelper.Helper;
 using Microsoft.Win32;
 
 namespace clawSoft.clawPDF.SetupHelper.Driver
 {
- 
     public class clawPDFInstaller
     {
         #region Printer Driver Win32 API Constants
 
-        const uint DRIVER_KERNELMODE = 0x00000001;
-        const uint DRIVER_USERMODE =  0x00000002;
-        
-        const uint APD_STRICT_UPGRADE =  0x00000001;
-        const uint APD_STRICT_DOWNGRADE = 0x00000002;
-        const uint APD_COPY_ALL_FILES = 0x00000004;
-        const uint APD_COPY_NEW_FILES = 0x00000008;
-        const uint APD_COPY_FROM_DIRECTORY = 0x00000010;
-        
-        const uint DPD_DELETE_UNUSED_FILES = 0x00000001;
-        const uint DPD_DELETE_SPECIFIC_VERSION = 0x00000002;
-        const uint DPD_DELETE_ALL_FILES = 0x00000004;
+        private const uint DRIVER_KERNELMODE = 0x00000001;
+        private const uint DRIVER_USERMODE = 0x00000002;
 
-        const int WIN32_FILE_ALREADY_EXISTS = 183; // Returned by XcvData "AddPort" if the port already exists
-        #endregion
+        private const uint APD_STRICT_UPGRADE = 0x00000001;
+        private const uint APD_STRICT_DOWNGRADE = 0x00000002;
+        private const uint APD_COPY_ALL_FILES = 0x00000004;
+        private const uint APD_COPY_NEW_FILES = 0x00000008;
+        private const uint APD_COPY_FROM_DIRECTORY = 0x00000010;
 
-        const string ENVIRONMENT = null;
-        const string PRINTERNAME = "clawPDF";
-        const string DRIVERNAME = "clawPDF Virtual Printer";
-        const string HARDWAREID = "clawPDF_Driver";
-        const string PORTMONITOR = "CLAWMON";
-        const string MONITORDLL = "clawmon.dll";
-        const string MONITORUIDLL = "clawmonui.dll";
-        const string PORTNAME = "CLAWMON:";
-        const string PRINTPROCESOR = "winprint";
+        private const uint DPD_DELETE_UNUSED_FILES = 0x00000001;
+        private const uint DPD_DELETE_SPECIFIC_VERSION = 0x00000002;
+        private const uint DPD_DELETE_ALL_FILES = 0x00000004;
 
-        const string DRIVERMANUFACTURER = "Andrew Hess // clawSoft";
-        
-        const string DRIVERFILE = "PSCRIPT5.DLL";
-        const string DRIVERUIFILE = "PS5UI.DLL";
-        const string DRIVERHELPFILE = "PSCRIPT.HLP";
-        const string DRIVERDATAFILE = "SCPDFPRN.PPD";
-        
-        enum DriverFileIndex
+        private const int WIN32_FILE_ALREADY_EXISTS = 183; // Returned by XcvData "AddPort" if the port already exists
+
+        #endregion Printer Driver Win32 API Constants
+
+        private const string ENVIRONMENT = null;
+        private const string PRINTERNAME = "clawPDF";
+        private const string DRIVERNAME = "clawPDF Virtual Printer";
+        private const string HARDWAREID = "clawPDF_Driver";
+        private const string PORTMONITOR = "CLAWMON";
+        private const string MONITORDLL = "clawmon.dll";
+        private const string MONITORUIDLL = "clawmonui.dll";
+        private const string PORTNAME = "CLAWMON:";
+        private const string PRINTPROCESOR = "winprint";
+
+        private const string DRIVERMANUFACTURER = "Andrew Hess // clawSoft";
+
+        private const string DRIVERFILE = "PSCRIPT5.DLL";
+        private const string DRIVERUIFILE = "PS5UI.DLL";
+        private const string DRIVERHELPFILE = "PSCRIPT.HLP";
+        private const string DRIVERDATAFILE = "SCPDFPRN.PPD";
+
+        private enum DriverFileIndex
         {
             Min = 0,
             DriverFile = Min,
@@ -60,43 +61,43 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             Max = DataFile
         };
 
-        readonly String[] printerDriverFiles = new String[] { DRIVERFILE, DRIVERUIFILE, DRIVERHELPFILE, DRIVERDATAFILE };
-        readonly String[] printerDriverDependentFiles = new String[] { "PSCRIPT.NTF" };
+        private readonly String[] printerDriverFiles = new String[] { DRIVERFILE, DRIVERUIFILE, DRIVERHELPFILE, DRIVERDATAFILE };
+        private readonly String[] printerDriverDependentFiles = new String[] { "PSCRIPT.NTF" };
 
         #region Error messages for Trace/Debug
 
-        const string FILENOTDELETED_INUSE = "{0} is being used by another process. File was not deleted.";
-        const string FILENOTDELETED_UNAUTHORIZED = "{0} is read-only, or its file permissions do not allow for deletion.";
+        private const string FILENOTDELETED_INUSE = "{0} is being used by another process. File was not deleted.";
+        private const string FILENOTDELETED_UNAUTHORIZED = "{0} is read-only, or its file permissions do not allow for deletion.";
 
-        const string FILENOTCOPIED_PRINTERDRIVER = "Printer driver file was not copied. Exception message: {0}";
-        const string FILENOTCOPIED_ALREADYEXISTS = "Destination file {0} was not copied/created - it already exists.";
+        private const string FILENOTCOPIED_PRINTERDRIVER = "Printer driver file was not copied. Exception message: {0}";
+        private const string FILENOTCOPIED_ALREADYEXISTS = "Destination file {0} was not copied/created - it already exists.";
 
-        const string WIN32ERROR = "Win32 error code {0}.";
+        private const string WIN32ERROR = "Win32 error code {0}.";
 
-        const string NATIVE_COULDNOTENABLE64REDIRECTION = "Could not enable 64-bit file system redirection.";
-        const string NATIVE_COULDNOTREVERT64REDIRECTION = "Could not revert 64-bit file system redirection.";
+        private const string NATIVE_COULDNOTENABLE64REDIRECTION = "Could not enable 64-bit file system redirection.";
+        private const string NATIVE_COULDNOTREVERT64REDIRECTION = "Could not revert 64-bit file system redirection.";
 
-        const string INSTALL_ROLLBACK_FAILURE_AT_FUNCTION = "Partial uninstallation failure. Function {0} returned false.";
+        private const string INSTALL_ROLLBACK_FAILURE_AT_FUNCTION = "Partial uninstallation failure. Function {0} returned false.";
 
-        const string REGISTRYCONFIG_NOT_ADDED = "Could not add port configuration to registry. Exception message: {0}";
-        const string REGISTRYCONFIG_NOT_DELETED = "Could not delete port configuration from registry. Exception message: {0}";
+        private const string REGISTRYCONFIG_NOT_ADDED = "Could not add port configuration to registry. Exception message: {0}";
+        private const string REGISTRYCONFIG_NOT_DELETED = "Could not delete port configuration from registry. Exception message: {0}";
 
-        const String INFO_INSTALLPORTMONITOR_FAILED = "Port monitor installation failed.";
-        const String INFO_INSTALLCOPYDRIVER_FAILED = "Could not copy printer driver files.";
-        const String INFO_INSTALLPORT_FAILED = "Could not add redirected port.";
-        const String INFO_INSTALLPRINTERDRIVER_FAILED = "Printer driver installation failed.";
-        const String INFO_INSTALLPRINTER_FAILED = "Could not add printer.";
-        const String INFO_INSTALLCONFIGPORT_FAILED = "Port configuration failed.";
+        private const String INFO_INSTALLPORTMONITOR_FAILED = "Port monitor installation failed.";
+        private const String INFO_INSTALLCOPYDRIVER_FAILED = "Could not copy printer driver files.";
+        private const String INFO_INSTALLPORT_FAILED = "Could not add redirected port.";
+        private const String INFO_INSTALLPRINTERDRIVER_FAILED = "Printer driver installation failed.";
+        private const String INFO_INSTALLPRINTER_FAILED = "Could not add printer.";
+        private const String INFO_INSTALLCONFIGPORT_FAILED = "Port configuration failed.";
 
-        #endregion
+        #endregion Error messages for Trace/Debug
 
-        
         #region Constructors
 
         public clawPDFInstaller()
         {
         }
-        #endregion
+
+        #endregion Constructors
 
         #region Port operations
 
@@ -137,7 +138,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="portName"></param>
         /// <param name="xcvDataOperation"></param>
@@ -146,7 +147,6 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
         /// so I can't provide a link or credit.</remarks>
         private int DoXcvDataPortOperation(string portName, string portMonitor, string xcvDataOperation)
         {
-
             int win32ErrorCode;
 
             PRINTER_DEFAULTS def = new PRINTER_DEFAULTS();
@@ -183,10 +183,9 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                 win32ErrorCode = Marshal.GetLastWin32Error();
             }
             return win32ErrorCode;
-
         }
 
-        #endregion
+        #endregion Port operations
 
         #region Port Monitor
 
@@ -208,23 +207,16 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                 {
                     // Copy the monitor DLL to
                     // the system directory
-                    String fileSourcePath = Path.Combine(monitorFilePath, MONITORDLL);
-                    String fileDestinationPath = Path.Combine(Environment.SystemDirectory, MONITORDLL);
+                    String monitorfileSourcePath = Path.Combine(monitorFilePath, MONITORDLL);
+                    String monitorfileDestinationPath = Path.Combine(Environment.SystemDirectory, MONITORDLL);
+                    String monitoruifileSourcePath = Path.Combine(monitorFilePath, MONITORUIDLL);
+                    String monitoruifileDestinationPath = Path.Combine(Environment.SystemDirectory, MONITORUIDLL);
 
-                    ProcessStartInfo processStartInfo = new ProcessStartInfo();
-                    processStartInfo.FileName = "net.exe";
-                    processStartInfo.Arguments = "stop spooler";
-                    processStartInfo.RedirectStandardOutput = true;
-                    processStartInfo.RedirectStandardError = true;
-                    processStartInfo.UseShellExecute = false;
-                    processStartInfo.CreateNoWindow = true;
-                    processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-
-                    Process.Start(processStartInfo).WaitForExit(1000 * 60 * 5);
+                    Spooler.stop();
 
                     try
                     {
-                        File.Copy(Path.Combine(monitorFilePath, MONITORUIDLL), Path.Combine(Environment.SystemDirectory, MONITORUIDLL), true);
+                        File.Copy(monitoruifileSourcePath, monitoruifileDestinationPath, true);
                     }
                     catch
                     {
@@ -232,7 +224,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
 
                     try
                     {
-                        File.Copy(fileSourcePath, fileDestinationPath, true);
+                        File.Copy(monitorfileSourcePath, monitorfileDestinationPath, true);
                     }
                     catch (IOException)
                     {
@@ -240,8 +232,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                         // this is OK because it means the file is already there
                     }
 
-                    processStartInfo.Arguments = "start spooler";
-                    Process.Start(processStartInfo).WaitForExit(1000 * 60 * 5);
+                    Spooler.start();
 
                     MONITOR_INFO_2 newMonitor = new MONITOR_INFO_2();
                     newMonitor.pName = PORTMONITOR;
@@ -260,17 +251,14 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                     Console.WriteLine(String.Format("Port monitor {0} already installed.", PORTMONITOR));
                     monitorAdded = true;
                 }
-
             }
             finally
             {
                 if (oldRedirectValue != IntPtr.Zero) RevertWow64Redirection(oldRedirectValue);
             }
 
-
             return monitorAdded;
         }
-
 
         /// <summary>
         /// Disables WOW64 system directory file redirection
@@ -334,6 +322,17 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
 
         private bool DeletePortMonitorDll(String monitorDll, string monitoruiDLL)
         {
+            ProcessStartInfo processStartInfo = new ProcessStartInfo();
+            processStartInfo.FileName = "net.exe";
+            processStartInfo.Arguments = "stop spooler";
+            processStartInfo.RedirectStandardOutput = true;
+            processStartInfo.RedirectStandardError = true;
+            processStartInfo.UseShellExecute = false;
+            processStartInfo.CreateNoWindow = true;
+            processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+            Process.Start(processStartInfo).WaitForExit(1000 * 60);
+
             bool monitorDllRemoved = false;
 
             String monitorDllFullPathname = String.Empty;
@@ -343,7 +342,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                 oldRedirectValue = DisableWow64Redirection();
 
                 monitorDllFullPathname = Path.Combine(Environment.SystemDirectory, monitorDll);
-                
+
                 File.Delete(monitorDllFullPathname);
                 monitorDllRemoved = true;
                 File.Delete(Path.Combine(Environment.SystemDirectory, monitoruiDLL));
@@ -359,7 +358,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             catch (IOException)
             {
                 // File still in use
-                Console.WriteLine(String.Format(FILENOTDELETED_INUSE, monitorDllFullPathname));  
+                Console.WriteLine(String.Format(FILENOTDELETED_INUSE, monitorDllFullPathname));
             }
             catch (UnauthorizedAccessException)
             {
@@ -381,8 +380,12 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                 }
             }
 
-            return monitorDllRemoved;
+            processStartInfo.Arguments = "start spooler";
+            processStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
+            Process.Start(processStartInfo).WaitForExit(1000 * 60);
+
+            return monitorDllRemoved;
         }
 
         private bool AddPortMonitor(MONITOR_INFO_2 newMonitor)
@@ -420,7 +423,6 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             return monitorExists;
         }
 
-
         public List<MONITOR_INFO_2> EnumerateMonitors()
         {
             List<MONITOR_INFO_2> portMonitors = new List<MONITOR_INFO_2>();
@@ -441,14 +443,12 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                         currentMonitor = IntPtr.Add(currentMonitor, Marshal.SizeOf(typeof(MONITOR_INFO_2)));
                     }
                     Marshal.FreeHGlobal(pMonitors);
-
                 }
                 else
                 {
                     // Failed to retrieve enumerated monitors
                     throw new Win32Exception(Marshal.GetLastWin32Error(), "Could not enumerate port monitors.");
                 }
-
             }
             else
             {
@@ -458,7 +458,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             return portMonitors;
         }
 
-        #endregion
+        #endregion Port Monitor
 
         #region Printer Install
 
@@ -476,8 +476,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             return driverDirectory.ToString();
         }
 
-
-        delegate bool undoInstall();
+        private delegate bool undoInstall();
 
         /// <summary>
         /// Installs the port monitor, port,
@@ -490,9 +489,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
         public bool InstallclawPDFPrinter(String driverSourceDirectory,
                                             String outputHandlerCommand)
         {
-
             bool printerInstalled = false;
-
 
             Stack<undoInstall> undoInstallActions = new Stack<undoInstall>();
 
@@ -572,9 +569,8 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             return printerInstalled;
         }
 
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public bool UninstallclawPDFPrinter()
@@ -651,7 +647,6 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                 Console.WriteLine(String.Format(FILENOTCOPIED_PRINTERDRIVER, notSupportedEx.Message));
             }
 
-
             return filesCopied;
         }
 
@@ -673,13 +668,13 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             return allFilesDeleted;
         }
 
-
 #if DEBUG
         public bool IsPrinterDriverInstalled_Test(String driverName)
         {
             return IsPrinterDriverInstalled(driverName);
         }
 #endif
+
         private bool IsPrinterDriverInstalled(String driverName)
         {
             bool driverInstalled = false;
@@ -771,7 +766,6 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                 printerDriverInfo.pszHardwareID = HARDWAREID;
                 printerDriverInfo.pszProvider = DRIVERMANUFACTURER;
 
-
                 clawPDFPrinterDriverInstalled = InstallPrinterDriver(ref printerDriverInfo);
             }
             else
@@ -795,9 +789,8 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             return printerDriverInstalled;
         }
 
-
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public bool RemoveclawPDFPrinterDriver()
@@ -810,7 +803,6 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             }
             return driverRemoved;
         }
-
 
         private bool AddclawPDFPrinter()
         {
@@ -834,7 +826,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             }
             else
             {
-                Console.WriteLine("Could not add clawPDF virtual printer. " + 
+                Console.WriteLine("Could not add clawPDF virtual printer. " +
                                           String.Format(WIN32ERROR, Marshal.GetLastWin32Error().ToString()));
             }
             return printerAdded;
@@ -887,7 +879,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                 }
                 else
                 {
-                    Console.WriteLine("Could not delete clawPDF virtual printer. "  +
+                    Console.WriteLine("Could not delete clawPDF virtual printer. " +
                                               String.Format(WIN32ERROR, Marshal.GetLastWin32Error().ToString()));
                 }
             }
@@ -946,17 +938,13 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             {
                 int errorCode = Marshal.GetLastWin32Error();
                 if (errorCode == 0x5) clawPDFInstalled = true; // Printer is installed, but user
-                                                                 // has no privileges to use it
+                                                               // has no privileges to use it
             }
 
             return clawPDFInstalled;
         }
 
-        #endregion
-
-
-
-
+        #endregion Printer Install
 
         #region Configuration and Registry changes
 
@@ -970,10 +958,8 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
         private bool ConfigureclawPDFPort()
         {
             return ConfigureclawPDFPort(String.Empty);
-
         }
 
-        
         private bool ConfigureclawPDFPort(String commandValue)
         {
             bool registryChangesMade = false;
@@ -1002,7 +988,6 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                 portConfiguration.SetValue("Printer", PRINTERNAME, RegistryValueKind.String);
                 registryChangesMade = true;
             }
-
             catch (UnauthorizedAccessException unauthorizedEx)
             {
                 Console.WriteLine(String.Format(REGISTRYCONFIG_NOT_ADDED, unauthorizedEx.Message));
@@ -1031,10 +1016,8 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             }
 
             return registryEntriesRemoved;
-
         }
 
-        #endregion
-
+        #endregion Configuration and Registry changes
     }
 }

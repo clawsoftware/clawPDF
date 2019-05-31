@@ -10,7 +10,6 @@ using pdfforge.DataStorage;
 // END_CUSTOM_SECTION:INCLUDES
 // Custom Code ends here. Do not edit below
 
-
 // ! This file is generated automatically.
 // ! Do not edit it outside the sections for custom code.
 // ! These changes will be deleted during the next generation run
@@ -42,7 +41,6 @@ namespace clawSoft.clawPDF.Core.Settings
 
         public UpdateInterval UpdateInterval { get; set; }
 
-
         private void Init()
         {
             ApiAccess = new List<ApiAccess>();
@@ -72,7 +70,6 @@ namespace clawSoft.clawPDF.Core.Settings
             {
             }
 
-
             try
             {
                 var numClasses = int.Parse(data.GetValue(@"" + path + @"PrinterMappings\numClasses"));
@@ -86,7 +83,6 @@ namespace clawSoft.clawPDF.Core.Settings
             catch
             {
             }
-
 
             try
             {
@@ -132,7 +128,7 @@ namespace clawSoft.clawPDF.Core.Settings
             try
             {
                 LoggingLevel =
-                    (LoggingLevel) Enum.Parse(typeof(LoggingLevel), data.GetValue(@"" + path + @"LoggingLevel"));
+                    (LoggingLevel)Enum.Parse(typeof(LoggingLevel), data.GetValue(@"" + path + @"LoggingLevel"));
             }
             catch
             {
@@ -150,7 +146,7 @@ namespace clawSoft.clawPDF.Core.Settings
 
             try
             {
-                UpdateInterval = (UpdateInterval) Enum.Parse(typeof(UpdateInterval),
+                UpdateInterval = (UpdateInterval)Enum.Parse(typeof(UpdateInterval),
                     data.GetValue(@"" + path + @"UpdateInterval"));
             }
             catch
@@ -169,7 +165,6 @@ namespace clawSoft.clawPDF.Core.Settings
 
             data.SetValue(@"" + path + @"ApiAccess\numClasses", ApiAccess.Count.ToString());
 
-
             for (var i = 0; i < PrinterMappings.Count; i++)
             {
                 var tmp = PrinterMappings[i];
@@ -177,7 +172,6 @@ namespace clawSoft.clawPDF.Core.Settings
             }
 
             data.SetValue(@"" + path + @"PrinterMappings\numClasses", PrinterMappings.Count.ToString());
-
 
             for (var i = 0; i < TitleReplacement.Count; i++)
             {
@@ -199,14 +193,11 @@ namespace clawSoft.clawPDF.Core.Settings
         {
             var copy = new ApplicationSettings();
 
-
             copy.ApiAccess = new List<ApiAccess>();
             for (var i = 0; i < ApiAccess.Count; i++) copy.ApiAccess.Add(ApiAccess[i].Copy());
 
-
             copy.PrinterMappings = new List<PrinterMapping>();
             for (var i = 0; i < PrinterMappings.Count; i++) copy.PrinterMappings.Add(PrinterMappings[i].Copy());
-
 
             copy.TitleReplacement = new List<TitleReplacement>();
             for (var i = 0; i < TitleReplacement.Count; i++) copy.TitleReplacement.Add(TitleReplacement[i].Copy());
@@ -226,18 +217,15 @@ namespace clawSoft.clawPDF.Core.Settings
             if (!(o is ApplicationSettings)) return false;
             var v = o as ApplicationSettings;
 
-
             if (ApiAccess.Count != v.ApiAccess.Count) return false;
             for (var i = 0; i < ApiAccess.Count; i++)
                 if (!ApiAccess[i].Equals(v.ApiAccess[i]))
                     return false;
 
-
             if (PrinterMappings.Count != v.PrinterMappings.Count) return false;
             for (var i = 0; i < PrinterMappings.Count; i++)
                 if (!PrinterMappings[i].Equals(v.PrinterMappings[i]))
                     return false;
-
 
             if (TitleReplacement.Count != v.TitleReplacement.Count) return false;
             for (var i = 0; i < TitleReplacement.Count; i++)
@@ -258,12 +246,9 @@ namespace clawSoft.clawPDF.Core.Settings
         {
             var sb = new StringBuilder();
 
-
             for (var i = 0; i < ApiAccess.Count; i++) sb.AppendLine(ApiAccess.ToString());
 
-
             for (var i = 0; i < PrinterMappings.Count; i++) sb.AppendLine(PrinterMappings.ToString());
-
 
             for (var i = 0; i < TitleReplacement.Count; i++) sb.AppendLine(TitleReplacement.ToString());
 
@@ -283,8 +268,8 @@ namespace clawSoft.clawPDF.Core.Settings
             return base.GetHashCode();
         }
 
-// Custom Code starts here
-// START_CUSTOM_SECTION:GENERAL
+        // Custom Code starts here
+        // START_CUSTOM_SECTION:GENERAL
         public ApiAccess GetApiAccess(string AccountName, ApiProvider ApiProvider)
         {
             foreach (var apiAccess in ApiAccess)
@@ -312,7 +297,7 @@ namespace clawSoft.clawPDF.Core.Settings
             return null;
         }
 
-// END_CUSTOM_SECTION:GENERAL
-// Custom Code ends here. Do not edit below
+        // END_CUSTOM_SECTION:GENERAL
+        // Custom Code ends here. Do not edit below
     }
 }

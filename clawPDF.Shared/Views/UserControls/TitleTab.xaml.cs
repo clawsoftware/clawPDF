@@ -25,7 +25,7 @@ namespace clawSoft.clawPDF.Shared.Views.UserControls
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
         }
 
-        public TitleTabViewModel ViewModel => (TitleTabViewModel) DataContext;
+        public TitleTabViewModel ViewModel => (TitleTabViewModel)DataContext;
 
         private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -68,7 +68,7 @@ namespace clawSoft.clawPDF.Shared.Views.UserControls
                 // Setting Data to Grid Cell
                 if (cell.Content is TextBox)
                 {
-                    var textBox = (TextBox) cell.Content;
+                    var textBox = (TextBox)cell.Content;
                     textBox.Text = ComposeDefaultText();
                     textBox.SelectAll();
                 }
@@ -84,12 +84,12 @@ namespace clawSoft.clawPDF.Shared.Views.UserControls
                 var presenter = GetVisualChild<DataGridCellsPresenter>(rowContainer);
 
                 // try to get the cell but it may possibly be virtualized
-                var cell = (DataGridCell) presenter.ItemContainerGenerator.ContainerFromIndex(column);
+                var cell = (DataGridCell)presenter.ItemContainerGenerator.ContainerFromIndex(column);
                 if (cell == null)
                 {
                     // now try to bring into view and retreive the cell
                     dataGrid.ScrollIntoView(rowContainer, dataGrid.Columns[column]);
-                    cell = (DataGridCell) presenter.ItemContainerGenerator.ContainerFromIndex(column);
+                    cell = (DataGridCell)presenter.ItemContainerGenerator.ContainerFromIndex(column);
                 }
 
                 return cell;
@@ -100,12 +100,12 @@ namespace clawSoft.clawPDF.Shared.Views.UserControls
 
         private DataGridRow GetRow(DataGrid dataGrid, int index)
         {
-            var row = (DataGridRow) dataGrid.ItemContainerGenerator.ContainerFromIndex(index);
+            var row = (DataGridRow)dataGrid.ItemContainerGenerator.ContainerFromIndex(index);
             if (row == null)
             {
                 // may be virtualized, bring into view and try again
                 dataGrid.ScrollIntoView(dataGrid.Items[index]);
-                row = (DataGridRow) dataGrid.ItemContainerGenerator.ContainerFromIndex(index);
+                row = (DataGridRow)dataGrid.ItemContainerGenerator.ContainerFromIndex(index);
             }
 
             return row;
@@ -117,7 +117,7 @@ namespace clawSoft.clawPDF.Shared.Views.UserControls
             var numVisuals = VisualTreeHelper.GetChildrenCount(parent);
             for (var i = 0; i < numVisuals; i++)
             {
-                var v = (Visual) VisualTreeHelper.GetChild(parent, i);
+                var v = (Visual)VisualTreeHelper.GetChild(parent, i);
                 child = v as T;
                 if (child == null) child = GetVisualChild<T>(v);
                 if (child != null) break;
@@ -130,7 +130,7 @@ namespace clawSoft.clawPDF.Shared.Views.UserControls
         {
             try
             {
-                if (_editingNewRow && ((TextBox) e.EditingElement).Text == ComposeDefaultText())
+                if (_editingNewRow && ((TextBox)e.EditingElement).Text == ComposeDefaultText())
                 {
                     var titleReplacement = ViewModel.TitleReplacements.First(x => x.Search == ComposeDefaultText());
                     ViewModel.TitleReplacements.Remove(titleReplacement);

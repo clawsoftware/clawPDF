@@ -15,7 +15,7 @@ namespace clawSoft.clawPDF.Shared.Views.UserControls
 
         public string Text
         {
-            get => (string) GetValue(TextProperty);
+            get => (string)GetValue(TextProperty);
             set => SetValue(TextProperty, value);
         }
     }

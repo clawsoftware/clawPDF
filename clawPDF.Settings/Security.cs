@@ -9,7 +9,6 @@ using pdfforge.DataStorage;
 // END_CUSTOM_SECTION:INCLUDES
 // Custom Code ends here. Do not edit below
 
-
 // ! This file is generated automatically.
 // ! Do not edit it outside the sections for custom code.
 // ! These changes will be deleted during the next generation run
@@ -123,7 +122,6 @@ namespace clawSoft.clawPDF.Core.Settings
             set => _userPassword = Data.Encrypt(value);
         }
 
-
         private void Init()
         {
             AllowPrinting = true;
@@ -217,7 +215,7 @@ namespace clawSoft.clawPDF.Core.Settings
 
             try
             {
-                EncryptionLevel = (EncryptionLevel) Enum.Parse(typeof(EncryptionLevel),
+                EncryptionLevel = (EncryptionLevel)Enum.Parse(typeof(EncryptionLevel),
                     data.GetValue(@"" + path + @"EncryptionLevel"));
             }
             catch
@@ -334,9 +332,9 @@ namespace clawSoft.clawPDF.Core.Settings
             return base.GetHashCode();
         }
 
-// Custom Code starts here
-// START_CUSTOM_SECTION:GENERAL
-// END_CUSTOM_SECTION:GENERAL
-// Custom Code ends here. Do not edit below
+        // Custom Code starts here
+        // START_CUSTOM_SECTION:GENERAL
+        // END_CUSTOM_SECTION:GENERAL
+        // Custom Code ends here. Do not edit below
     }
 }

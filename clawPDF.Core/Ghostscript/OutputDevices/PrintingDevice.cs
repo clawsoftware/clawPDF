@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SystemInterface.IO;
 using clawSoft.clawPDF.Core.Jobs;
 using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.Utilities;
+using SystemInterface.IO;
 
 namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 {
@@ -84,9 +84,11 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                 case DuplexPrint.LongEdge: //Book
                     if (_printer.CanDuplex) parameters.Add("<< /Duplex true /Tumble false >> setpagedevice ");
                     break;
+
                 case DuplexPrint.ShortEdge: //Calendar
                     if (_printer.CanDuplex) parameters.Add("<< /Duplex true /Tumble true >> setpagedevice ");
                     break;
+
                 case DuplexPrint.Disable:
                 default:
                     //Nothing

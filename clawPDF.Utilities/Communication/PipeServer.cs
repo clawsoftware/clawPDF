@@ -46,7 +46,6 @@ namespace clawSoft.clawPDF.Utilities.Communication
         /// </summary>
         private Mutex Mutex { get; set; }
 
-
         /// <summary>
         ///     The OnNewMessage event is raised when a new message arrives
         /// </summary>
@@ -254,7 +253,6 @@ namespace clawSoft.clawPDF.Utilities.Communication
                     }
                 }
             }
-
             catch (ThreadAbortException)
             {
                 Stop();
@@ -284,7 +282,6 @@ namespace clawSoft.clawPDF.Utilities.Communication
             _preparingShutdown = true;
         }
     }
-
 
     /// <summary>
     ///     The MessageEventArgs class contains the message data

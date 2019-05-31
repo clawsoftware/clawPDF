@@ -14,7 +14,7 @@ namespace clawSoft.clawPDF.Shared.Views.UserControls
             if (TranslationHelper.Instance.IsInitialized) TranslationHelper.Instance.TranslatorInstance.Translate(this);
         }
 
-        public ImageFormatsTabViewModel ViewModel => (ImageFormatsTabViewModel) DataContext;
+        public ImageFormatsTabViewModel ViewModel => (ImageFormatsTabViewModel)DataContext;
 
         private void UIElement_OnLostFocus(object sender, RoutedEventArgs e)
         {

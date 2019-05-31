@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using SystemInterface.IO;
 using clawSoft.clawPDF.Core.Jobs;
 using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.Utilities;
+using SystemInterface.IO;
 
 namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 {
@@ -26,20 +26,25 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                 case TiffColor.BlackWhiteG4Fax:
                     parameters.Add("-sDEVICE=tiffg4");
                     break;
+
                 case TiffColor.BlackWhiteG3Fax:
                     parameters.Add("-sDEVICE=tiffg3");
                     break;
+
                 case TiffColor.BlackWhiteLzw:
                     parameters.Add("-sDEVICE=tifflzw");
                     break;
+
                 case TiffColor.Gray8Bit:
                     parameters.Add("-sDEVICE=tiffgray");
                     parameters.Add("-sCompression=lzw");
                     break;
+
                 case TiffColor.Color12Bit:
                     parameters.Add("-sDEVICE=tiff12nc");
                     parameters.Add("-sCompression=lzw");
                     break;
+
                 case TiffColor.Color24Bit:
                     parameters.Add("-sDEVICE=tiff24nc");
                     parameters.Add("-sCompression=lzw");

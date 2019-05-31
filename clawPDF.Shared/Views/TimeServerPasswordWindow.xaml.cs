@@ -14,10 +14,10 @@ namespace clawSoft.clawPDF.Shared.Views
 
             InitializeComponent();
 
-            TimeServerPasswordViewModel.CloseViewAction = delegate(bool? result) { DialogResult = result; };
+            TimeServerPasswordViewModel.CloseViewAction = delegate (bool? result) { DialogResult = result; };
         }
 
-        public TimeServerPasswordViewModel TimeServerPasswordViewModel => (TimeServerPasswordViewModel) DataContext;
+        public TimeServerPasswordViewModel TimeServerPasswordViewModel => (TimeServerPasswordViewModel)DataContext;
 
         public string TimeServerLoginName
         {

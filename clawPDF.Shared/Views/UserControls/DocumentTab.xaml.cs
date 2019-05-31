@@ -36,7 +36,7 @@ namespace clawSoft.clawPDF.Shared.Views.UserControls
         private TokenReplacerConverter TokenReplacerConverter =>
             FindResource("TokenReplacerConverter") as TokenReplacerConverter;
 
-        public CurrentProfileViewModel ViewModel => (CurrentProfileViewModel) DataContext;
+        public CurrentProfileViewModel ViewModel => (CurrentProfileViewModel)DataContext;
 
         private void AuthorTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
@@ -50,12 +50,12 @@ namespace clawSoft.clawPDF.Shared.Views.UserControls
 
         private void AuthorTokensComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            InsertToken(AuthorTextBox, (ComboBox) sender);
+            InsertToken(AuthorTextBox, (ComboBox)sender);
         }
 
         private void TitleTokensComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            InsertToken(TitleTextBox, (ComboBox) sender);
+            InsertToken(TitleTextBox, (ComboBox)sender);
         }
 
         private void InsertToken(TextBox textBox, ComboBox comboBox)

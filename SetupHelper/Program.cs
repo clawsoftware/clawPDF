@@ -26,9 +26,11 @@ namespace clawSoft.clawPDF.SetupHelper
                         case "Add":
                             Actions.InstallclawPDFPrinter();
                             break;
+
                         case "Remove":
                             Actions.UninstallclawPDFPrinter();
                             break;
+
                         default:
                             showUsage = true;
                             break;
@@ -52,9 +54,11 @@ namespace clawSoft.clawPDF.SetupHelper
                         case "Add":
                             Actions.AddPrinter(name);
                             break;
+
                         case "Remove":
                             Actions.RemovePrinter(name);
                             break;
+
                         default:
                             showUsage = true;
                             break;
@@ -77,9 +81,11 @@ namespace clawSoft.clawPDF.SetupHelper
                         case "Add":
                             MaybeInvokeWow6432(AddExplorerIntegration);
                             break;
+
                         case "Remove":
                             MaybeInvokeWow6432(RemoveExplorerIntegration);
                             break;
+
                         default:
                             showUsage = true;
                             break;
@@ -102,9 +108,11 @@ namespace clawSoft.clawPDF.SetupHelper
                         case "Register":
                             MaybeInvokeWow6432(RegisterComInterface);
                             break;
+
                         case "Unregister":
                             MaybeInvokeWow6432(UnregisterComInterface);
                             break;
+
                         default:
                             showUsage = true;
                             break;
@@ -185,7 +193,6 @@ namespace clawSoft.clawPDF.SetupHelper
             var result = shellExecuteHelper.RunAsAdmin(regAsmPath, paramString);
             Console.WriteLine(result.ToString());
         }
-
 
         private static string GetRegAsmPath(bool wow6432)
         {

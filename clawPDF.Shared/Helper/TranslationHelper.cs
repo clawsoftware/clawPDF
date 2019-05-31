@@ -35,7 +35,6 @@ namespace clawSoft.clawPDF.Shared.Helper
             }
         }
 
-
         /// <summary>
         ///     Path to where the translation files are located. The default takes into account, that there might be different
         ///     folders to look at, i.e. when run from Visual Studio
@@ -157,7 +156,7 @@ namespace clawSoft.clawPDF.Shared.Helper
                 }
                 catch (ArgumentException)
                 {
-                    //do nothing, profile must not be renamed 
+                    //do nothing, profile must not be renamed
                 }
         }
     }

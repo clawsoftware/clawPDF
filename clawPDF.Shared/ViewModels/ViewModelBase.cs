@@ -11,7 +11,7 @@ namespace clawSoft.clawPDF.Shared.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        #endregion
+        #endregion INotifyPropertyChanged Members
 
         public void RaiseCloseView(bool? result)
         {

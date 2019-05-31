@@ -17,7 +17,7 @@ namespace clawSoft.clawPDF.Shared.Views.UserControls
             if (TranslationHelper.IsInitialized) TranslationHelper.TranslatorInstance.Translate(this);
         }
 
-        public PdfTabViewModel ViewModel => (PdfTabViewModel) DataContext;
+        public PdfTabViewModel ViewModel => (PdfTabViewModel)DataContext;
 
         private void CertificationFileButton_OnClick(object sender, RoutedEventArgs e)
         {

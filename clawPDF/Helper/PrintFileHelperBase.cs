@@ -39,7 +39,7 @@ namespace clawSoft.clawPDF.Helper
         /// <returns>true, if all files are printable</returns>
         public bool AddFile(string file)
         {
-            return AddFiles(new[] {file});
+            return AddFiles(new[] { file });
         }
 
         /// <summary>
@@ -115,7 +115,9 @@ namespace clawSoft.clawPDF.Helper
         }
 
         protected abstract void DirectoriesNotSupportedHint();
+
         protected abstract void UnprintableFilesHint(IList<PrintCommand> unprintable);
+
         protected abstract bool QuerySwitchDefaultPrinter();
     }
 }

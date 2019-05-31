@@ -18,7 +18,7 @@ namespace clawSoft.clawPDF.Views
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             TranslationHelper.Instance.TranslatorInstance.Translate(this);
-            var view = (GridView) JobList.View;
+            var view = (GridView)JobList.View;
             view.Columns[0].Header =
                 TranslationHelper.Instance.TranslatorInstance.GetTranslation("ManagePrintJobsWindow", "TitleColoumn",
                     "Title");
@@ -42,14 +42,14 @@ namespace clawSoft.clawPDF.Views
 
         private void JobList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var vm = (ManagePrintJobsViewModel) DataContext;
+            var vm = (ManagePrintJobsViewModel)DataContext;
             vm.DeleteJobCommand.RaiseCanExecuteChanged();
             vm.MergeJobsCommand.RaiseCanExecuteChanged();
         }
 
         private void OnActivated(object sender, EventArgs e)
         {
-            ((ManagePrintJobsViewModel) DataContext).RaiseRefreshView();
+            ((ManagePrintJobsViewModel)DataContext).RaiseRefreshView();
         }
 
         private void ManagePrintJobsWindow_OnKeyDown(object sender, KeyEventArgs e)

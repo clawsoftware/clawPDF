@@ -20,7 +20,9 @@ namespace clawSoft.clawPDF.Core.Jobs
         }
 
 #pragma warning disable CS0067
+
         public override event EventHandler<QueryPasswordEventArgs> OnRetypeSmtpPassword;
+
 #pragma warning restore CS0067
 
         protected override JobState RunJobWork()
@@ -33,7 +35,6 @@ namespace clawSoft.clawPDF.Core.Jobs
             var converter = new XpsConverter(JobInfo);
             var path = Path.Combine(JobTempOutputFolder, JobTempFileName + Path.GetExtension(OutputFilenameTemplate));
             converter.Convert(path);
-
 
             //PDFProcessor.process
 
@@ -56,7 +57,7 @@ namespace clawSoft.clawPDF.Core.Jobs
 
         private void SetUpActions()
         {
-            // TODO 
+            // TODO
         }
 
         private void SetThreadName()

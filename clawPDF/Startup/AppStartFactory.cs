@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using SystemInterface.IO;
-using SystemWrapper.IO;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Helper;
 using clawSoft.clawPDF.Utilities;
 using NLog;
+using SystemInterface.IO;
+using SystemWrapper.IO;
 
 namespace clawSoft.clawPDF.Startup
 {
@@ -61,7 +61,7 @@ namespace clawSoft.clawPDF.Startup
             if (!commandLineParser.HasArgument("InitializeSettings"))
                 return false;
 
-            var excludingArguments = new[] {"ManagePrintJobs", "InfoDataFile", "PsFile", "PdfFile"};
+            var excludingArguments = new[] { "ManagePrintJobs", "InfoDataFile", "PsFile", "PdfFile" };
 
             return excludingArguments.All(argument => !commandLineParser.HasArgument(argument));
         }

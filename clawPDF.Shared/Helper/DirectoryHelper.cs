@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NLog;
 using SystemInterface.IO;
 using SystemWrapper.IO;
-using NLog;
 
 namespace clawSoft.clawPDF.Shared.Helper
 {
@@ -54,7 +54,7 @@ namespace clawSoft.clawPDF.Shared.Helper
         public bool CreateDirectory()
         {
             var directoryTree = GetDirectoryTree();
-            directoryTree = directoryTree.OrderBy(x => x).ToList(); //start with smallest 
+            directoryTree = directoryTree.OrderBy(x => x).ToList(); //start with smallest
 
             foreach (var directory in directoryTree)
                 if (!_directoryWrap.Exists(directory))

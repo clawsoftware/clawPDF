@@ -1,11 +1,11 @@
 ﻿using System.Linq;
+using clawSoft.clawPDF.Utilities;
+using clawSoft.clawPDF.Utilities.IO;
+using clawSoft.clawPDF.Utilities.Tokens;
 using SystemInterface;
 using SystemInterface.IO;
 using SystemWrapper;
 using SystemWrapper.IO;
-using clawSoft.clawPDF.Utilities;
-using clawSoft.clawPDF.Utilities.IO;
-using clawSoft.clawPDF.Utilities.Tokens;
 
 namespace clawSoft.clawPDF.Core.Jobs
 {
@@ -38,7 +38,7 @@ namespace clawSoft.clawPDF.Core.Jobs
             AddSourceFileTokens(jobInfo.SourceFiles[0]);
             AddTokensForDocumentTitle(jobInfo.SourceFiles[0], jobInfo.Metadata);
 
-            // Author and title token have to be created last, 
+            // Author and title token have to be created last,
             // as they can contain other tokens that might need replacing
             AddAuthorAndTitleTokens(jobInfo.Metadata);
 

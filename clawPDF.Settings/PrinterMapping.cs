@@ -6,7 +6,6 @@ using pdfforge.DataStorage;
 // END_CUSTOM_SECTION:INCLUDES
 // Custom Code ends here. Do not edit below
 
-
 // ! This file is generated automatically.
 // ! Do not edit it outside the sections for custom code.
 // ! These changes will be deleted during the next generation run
@@ -20,8 +19,8 @@ namespace clawSoft.clawPDF.Core.Settings
             Init();
         }
 
-// Custom Code starts here
-// START_CUSTOM_SECTION:GENERAL
+        // Custom Code starts here
+        // START_CUSTOM_SECTION:GENERAL
         public PrinterMapping(string printerName, string profileGuid)
         {
             PrinterName = printerName;
@@ -31,7 +30,6 @@ namespace clawSoft.clawPDF.Core.Settings
         public string PrinterName { get; set; }
 
         public string ProfileGuid { get; set; }
-
 
         private void Init()
         {
@@ -59,7 +57,6 @@ namespace clawSoft.clawPDF.Core.Settings
                 ProfileGuid = "";
             }
         }
-
 
         public void StoreValues(Data data, string path)
         {
@@ -104,7 +101,7 @@ namespace clawSoft.clawPDF.Core.Settings
             return base.GetHashCode();
         }
 
-// END_CUSTOM_SECTION:GENERAL
-// Custom Code ends here. Do not edit below
+        // END_CUSTOM_SECTION:GENERAL
+        // Custom Code ends here. Do not edit below
     }
 }

@@ -23,7 +23,7 @@ namespace clawSoft.clawPDF.Shared.Views
             SetButtons(buttons);
             SetIcon(icon);
             _messageWindowVM = new MessageWindowViewModel(buttons);
-            _messageWindowVM.CloseViewAction = delegate(bool? result) { DialogResult = result; };
+            _messageWindowVM.CloseViewAction = delegate (bool? result) { DialogResult = result; };
             DataContext = _messageWindowVM;
         }
 
@@ -59,11 +59,13 @@ namespace clawSoft.clawPDF.Shared.Views
                     RightButton.Content = translator.GetTranslation("MessageWindow", "Cancel", "Cancel");
                     RightButton.Tag = MessageWindowResponse.Cancel;
                     break;
+
                 case MessageWindowButtons.OK:
                     RightButton.Visibility = Visibility.Visible;
                     RightButton.Content = translator.GetTranslation("MessageWindow", "Ok", "OK");
                     RightButton.IsDefault = true;
                     break;
+
                 case MessageWindowButtons.OKCancel:
                     LeftButton.Visibility = Visibility.Visible;
                     LeftButton.Content = translator.GetTranslation("MessageWindow", "Ok", "OK");
@@ -75,6 +77,7 @@ namespace clawSoft.clawPDF.Shared.Views
                     RightButton.Content = translator.GetTranslation("MessageWindow", "Cancel", "Cancel");
                     RightButton.Tag = MessageWindowResponse.Cancel;
                     break;
+
                 case MessageWindowButtons.RetryCancel:
                     LeftButton.Visibility = Visibility.Visible;
                     LeftButton.Content = translator.GetTranslation("MessageWindow", "Retry", "Retry");
@@ -86,6 +89,7 @@ namespace clawSoft.clawPDF.Shared.Views
                     RightButton.Content = translator.GetTranslation("MessageWindow", "Cancel", "Cancel");
                     RightButton.Tag = MessageWindowResponse.Cancel;
                     break;
+
                 case MessageWindowButtons.YesLaterNo:
                     LeftButton.Visibility = Visibility.Visible;
                     LeftButton.Content = translator.GetTranslation("MessageWindow", "Yes", "Yes");
@@ -97,6 +101,7 @@ namespace clawSoft.clawPDF.Shared.Views
                     RightButton.Visibility = Visibility.Visible;
                     RightButton.Content = translator.GetTranslation("MessageWindow", "Skip", "Skip version");
                     break;
+
                 case MessageWindowButtons.YesNo:
                     LeftButton.Visibility = Visibility.Visible;
                     LeftButton.Content = translator.GetTranslation("MessageWindow", "Yes", "Yes");
@@ -124,26 +129,31 @@ namespace clawSoft.clawPDF.Shared.Views
                     SystemSounds.Hand.Play();
                     IconBox.Content = img;
                     break;
+
                 case MessageWindowIcon.Exclamation:
                     img.Source = ConvertBitmap(SystemIcons.Exclamation.ToBitmap());
                     SystemSounds.Exclamation.Play();
                     IconBox.Content = img;
                     break;
+
                 case MessageWindowIcon.Info:
                     img.Source = ConvertBitmap(SystemIcons.Information.ToBitmap());
                     IconBox.Content = img;
                     SystemSounds.Asterisk.Play();
                     break;
+
                 case MessageWindowIcon.Question:
                     img.Source = ConvertBitmap(SystemIcons.Question.ToBitmap());
                     IconBox.Content = img;
                     SystemSounds.Question.Play();
                     break;
+
                 case MessageWindowIcon.Warning:
                     img.Source = ConvertBitmap(SystemIcons.Warning.ToBitmap());
                     IconBox.Content = img;
                     SystemSounds.Exclamation.Play();
                     break;
+
                 case MessageWindowIcon.None:
                     IconBox.Visibility = Visibility.Collapsed;
                     break;

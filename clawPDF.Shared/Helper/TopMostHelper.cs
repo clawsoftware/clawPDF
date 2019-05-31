@@ -97,7 +97,7 @@ namespace clawSoft.clawPDF.Shared.Helper
             return result;
         }
 
-        #endregion
+        #endregion Forms definitions
 
         #region WPF definitions
 
@@ -169,6 +169,6 @@ namespace clawSoft.clawPDF.Shared.Helper
             }
         }
 
-        #endregion
+        #endregion WPF definitions
     }
 }

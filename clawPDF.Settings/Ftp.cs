@@ -6,7 +6,6 @@ using pdfforge.DataStorage;
 // END_CUSTOM_SECTION:INCLUDES
 // Custom Code ends here. Do not edit below
 
-
 // ! This file is generated automatically.
 // ! Do not edit it outside the sections for custom code.
 // ! These changes will be deleted during the next generation run
@@ -69,7 +68,6 @@ namespace clawSoft.clawPDF.Core.Settings
         ///     User name that is used to authenticate at the server
         /// </summary>
         public string UserName { get; set; }
-
 
         private void Init()
         {
@@ -189,9 +187,9 @@ namespace clawSoft.clawPDF.Core.Settings
             return base.GetHashCode();
         }
 
-// Custom Code starts here
-// START_CUSTOM_SECTION:GENERAL
-// END_CUSTOM_SECTION:GENERAL
-// Custom Code ends here. Do not edit below
+        // Custom Code starts here
+        // START_CUSTOM_SECTION:GENERAL
+        // END_CUSTOM_SECTION:GENERAL
+        // Custom Code ends here. Do not edit below
     }
 }

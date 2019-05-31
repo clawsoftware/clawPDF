@@ -379,6 +379,6 @@ namespace clawSoft.clawPDF.Utilities
             MAX
         }
 
-        #endregion
+        #endregion Shell Lightweight API
     }
 }

@@ -89,11 +89,11 @@ namespace clawSoft.clawPDF.Helper
         private static void CheckTitleReplacement()
         {
             //Remove empty search strings
-            ((List<TitleReplacement>) _settings.ApplicationSettings.TitleReplacement).RemoveAll(x =>
-                string.IsNullOrEmpty(x.Search));
+            ((List<TitleReplacement>)_settings.ApplicationSettings.TitleReplacement).RemoveAll(x =>
+               string.IsNullOrEmpty(x.Search));
             //Sort reverse alphabetical
-            ((List<TitleReplacement>) _settings.ApplicationSettings.TitleReplacement).Sort((a, b) =>
-                string.Compare(b.Search, a.Search, StringComparison.InvariantCultureIgnoreCase));
+            ((List<TitleReplacement>)_settings.ApplicationSettings.TitleReplacement).Sort((a, b) =>
+               string.Compare(b.Search, a.Search, StringComparison.InvariantCultureIgnoreCase));
         }
 
         private static void CheckPrinterMappings()
@@ -105,7 +105,7 @@ namespace clawSoft.clawPDF.Helper
             if (!printers.Any())
                 return;
 
-            //Assign DefaultProfile for all installed printers without mapped profile. 
+            //Assign DefaultProfile for all installed printers without mapped profile.
             foreach (var printer in printers)
                 if (Settings.ApplicationSettings.PrinterMappings.All(o => o.PrinterName != printer))
                     Settings.ApplicationSettings.PrinterMappings.Add(new PrinterMapping(printer,
@@ -334,7 +334,7 @@ namespace clawSoft.clawPDF.Helper
             SetDefaultProperties(tiffProfile, true);
             settings.ConversionProfiles.Add(tiffProfile);
 
-            #endregion
+            #endregion add default profiles
 
             var startReplacements = new[]
             {
@@ -439,7 +439,7 @@ namespace clawSoft.clawPDF.Helper
         {
             string language = null;
 
-            //look for language in intended registry location 
+            //look for language in intended registry location
             const string key = @"HKEY_CURRENT_USER\" + SETTINGS_REG_PATH + @"\ApplicationSettings";
             var o = Registry.GetValue(key, "Language", null);
             if (o != null)
@@ -447,7 +447,7 @@ namespace clawSoft.clawPDF.Helper
                 language = o.ToString();
             }
             else
-                //Get inno setup language
+            //Get inno setup language
             {
                 var regKeys = new List<string>
                 {
@@ -471,7 +471,6 @@ namespace clawSoft.clawPDF.Helper
 
             return null;
         }
-
 
         public static ConversionProfile GetDefaultProfile()
         {
@@ -567,11 +566,12 @@ namespace clawSoft.clawPDF.Helper
 
         public static UpdateInterval GetUpdateInterval(string uI)
         {
-            return (UpdateInterval) Enum.Parse(typeof(UpdateInterval), uI, true);
+            return (UpdateInterval)Enum.Parse(typeof(UpdateInterval), uI, true);
         }
 
         // ReSharper disable InconsistentNaming
         private const string APP_GUID = "{0001B4FD-9EA3-4D90-A79E-FD14BA3AB01D}";
+
         public const string clawPDF_REG_PATH = @"Software\clawSoft\clawPDF";
         private const string SETTINGS_REG_PATH = clawPDF_REG_PATH + @"\Settings";
         public const string LAST_USED_PROFILE_GUID = "";

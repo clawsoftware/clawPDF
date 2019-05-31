@@ -13,7 +13,7 @@ namespace clawSoft.clawPDF.Converter
         {
             try
             {
-                var color = (Color) ColorConverter.ConvertFromString(value.ToString());
+                var color = (Color)ColorConverter.ConvertFromString(value.ToString());
                 var factor = XmlConvert.ToDouble(parameter.ToString());
                 var changedColor = new Color();
                 changedColor.R = MultiplyByte(color.R, factor);
@@ -41,7 +41,7 @@ namespace clawSoft.clawPDF.Converter
                 result = 255;
             else if (result < 0)
                 result = 0;
-            return (byte) result;
+            return (byte)result;
         }
     }
 }

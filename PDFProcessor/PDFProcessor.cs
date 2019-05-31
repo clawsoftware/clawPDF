@@ -83,7 +83,6 @@ namespace clawSoft.clawPDF.PDFProcessing
             return pdfVersion;
         }
 
-
         /// <summary>
         ///     Moves original file to preprocess file, which is the original file with an appended "_PrePdfProcessor.pdf".
         /// </summary>
@@ -94,7 +93,7 @@ namespace clawSoft.clawPDF.PDFProcessing
             string preProcessFile;
             try
             {
-                //create copy of original file 
+                //create copy of original file
                 preProcessFile = Path.ChangeExtension(pdfFile, "_PrePdfProcessor.pdf").Replace("._", "_");
 
                 File.Move(pdfFile, preProcessFile);

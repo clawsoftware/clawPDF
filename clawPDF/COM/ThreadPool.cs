@@ -68,7 +68,6 @@ namespace clawSoft.clawPDF.COM
             _conversionThread.Start();
         }
 
-
         /// <summary>
         ///     Restarts the thread if other threads are available in the queue
         /// </summary>

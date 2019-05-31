@@ -43,7 +43,7 @@ namespace clawSoft.clawPDF.Utilities
                 }
                 else
                 {
-                    var argPair = s.Split(new[] {'='}, 2);
+                    var argPair = s.Split(new[] { '=' }, 2);
                     arguments.Add(argPair[0].ToLowerInvariant(), argPair[1]);
                 }
             }

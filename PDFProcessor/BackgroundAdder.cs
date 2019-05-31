@@ -96,11 +96,10 @@ namespace clawSoft.clawPDF.PDFProcessing
                 var documentPage = stamper.GetUnderContent(i);
                 var documentPageSize = stamper.Reader.GetPageSize(i);
 
-
                 if (stamper.Reader.GetPageRotation(i) == 90 || stamper.Reader.GetPageRotation(i) == 270)
                 {
                     //Turn with document page...
-                    //* 
+                    //*
                     backgroundPageRotation += 90;
                     backgroundPageRotation = backgroundPageRotation % 360;
                     //*/
@@ -177,12 +176,12 @@ namespace clawSoft.clawPDF.PDFProcessing
                     break;
             }
         }
+
         // -- clockwise --              cos  sin  -sin  cos  dx  dy
         //background.AddTemplate(page,  1f,   0,    0,  1f,  0,  0 ); //0°
         //background.AddTemplate(page,  0,  -1f,   1f,   0,  0,  0 ); //90°
         //background.AddTemplate(page, -1f,   0,    0, -1f,  0,  0 ); //180°
         //background.AddTemplate(page,  0,   1f,  -1f,   0,  0,  0 ); //270°
-
 
         /// <summary>
         ///     Determine the number of pages at the beginning of the document, that do not get a background,
@@ -224,7 +223,6 @@ namespace clawSoft.clawPDF.PDFProcessing
             return nAttachment;
         }
 
-
         /// <summary>
         ///     Determine the background page for the current document page.
         /// </summary>
@@ -246,11 +244,13 @@ namespace clawSoft.clawPDF.PDFProcessing
             {
                 case BackgroundRepetition.RepeatAllPages:
                     return (currentDocumentPage - startOffset - 1) % numberOfBackgroundpages + 1;
+
                 case BackgroundRepetition.RepeatLastPage:
                     if (currentDocumentPage - startOffset < numberOfBackgroundpages)
                         return currentDocumentPage - startOffset;
                     //else if (currentDocumentPage - startOffset >= numberOfBackgroundpages)
                     return numberOfBackgroundpages;
+
                 case BackgroundRepetition.NoRepetition:
                     if (currentDocumentPage - startOffset <= numberOfBackgroundpages)
                         return currentDocumentPage - startOffset;

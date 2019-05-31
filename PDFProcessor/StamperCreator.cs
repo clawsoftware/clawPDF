@@ -52,7 +52,6 @@ namespace clawSoft.clawPDF.PDFProcessing
             var fileStream = new FileStream(destinationFilename, FileMode.Create, FileAccess.Write);
             PdfStamper stamper = null;
 
-
             var pdfVersion = PdfWriter.VERSION_1_4;
             if (PDFProcessor.DeterminePdfVersion(profile).Equals("1.6"))
                 pdfVersion = PdfWriter.VERSION_1_6;

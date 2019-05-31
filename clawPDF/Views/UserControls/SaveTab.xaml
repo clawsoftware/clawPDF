@@ -105,6 +105,5 @@
                 </Grid>
             </StackPanel>
         </HeaderedContentControl>
-
     </StackPanel>
 </UserControl>

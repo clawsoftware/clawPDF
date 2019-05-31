@@ -18,18 +18,26 @@ namespace clawSoft.clawPDF.COM
     public interface IQueue
     {
         void Initialize();
+
         bool WaitForJob(int timeOut);
+
         bool WaitForJobs(int jobCount, int timeOut);
+
         int Count { get; }
         PrintJob NextJob { get; }
+
         PrintJob GetJobByIndex(int jobIndex);
+
         void MergeJobs(PrintJob job1, PrintJob job2);
+
         void MergeAllJobs();
+
         void Clear();
+
         void DeleteJob(int index);
+
         void ReleaseCom();
     }
-
 
     [ComVisible(true)]
     [ClassInterface(ClassInterfaceType.None)]

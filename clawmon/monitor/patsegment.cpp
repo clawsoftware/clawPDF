@@ -102,14 +102,14 @@ LPCWSTR CDatePartSegment::Value()
 
 /* CStaticSegment */
 CStaticSegment::CStaticSegment(LPCWSTR szString)
-: CPatternSegment()
+	: CPatternSegment()
 {
 	wcscpy_s(m_szBuffer, LENGTHOF(m_szBuffer), szString);
 }
 
 /* CAutoIncrementSegment */
 CAutoIncrementSegment::CAutoIncrementSegment(int nWidth, UINT nStart)
-: CPatternSegment(nWidth)
+	: CPatternSegment(nWidth)
 {
 	if (m_nWidth == 0)
 		m_nWidth = 4;
@@ -136,8 +136,8 @@ BOOL CAutoIncrementSegment::NextValue()
 	int index = (m_nWidth < -9 || m_nWidth > 9)
 		? 8
 		: (m_nWidth < 0)
-			? 1 - m_nWidth
-			: m_nWidth - 1;
+		? 1 - m_nWidth
+		: m_nWidth - 1;
 	if (m_nNumber == max[index])
 	{
 		m_nNumber = m_nStart;
@@ -247,7 +247,7 @@ LPCWSTR CPathSegment::Value()
 
 /* CSearchSegment */
 CSearchSegment::CSearchSegment(LPCWSTR szString, LPCWSTR szSearch)
-: CStaticSegment(szString)
+	: CStaticSegment(szString)
 {
 	wcscpy_s(m_szSearchBuffer, LENGTHOF(m_szSearchBuffer), szSearch);
 }

@@ -38,7 +38,7 @@ namespace clawSoft.clawPDF.Views
             }
 
             //Translation of profiles are stored in their name property and could have been changed in the AppSettingsWindow
-            //To include the current language it must be translated here 
+            //To include the current language it must be translated here
             TranslationHelper.Instance.TranslateProfileList(SettingsHelper.Settings.ConversionProfiles);
 
             LoggingHelper.ChangeLogLevel(settings.ApplicationSettings.LoggingLevel);
@@ -60,7 +60,6 @@ namespace clawSoft.clawPDF.Views
             if (welcomeSettingsHelper.IsFirstRun())
                 welcomeSettingsHelper.SetCurrentApplicationVersionAsWelcomeVersionInRegistry();
         }
-
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)
         {

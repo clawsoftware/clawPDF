@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using SystemWrapper;
 using clawSoft.clawPDF.Utilities.Tokens;
+using SystemWrapper;
 
 namespace clawSoft.clawPDF.Shared.Helper
 {

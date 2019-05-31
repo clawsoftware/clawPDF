@@ -68,6 +68,7 @@ namespace clawSoft.clawPDF.Shared.Helper
 
             //public uint dwOSVersionInfoSize;
             public uint dwMajorVersion;
+
             public uint dwMinorVersion;
             public uint dwBuildNumber;
             public uint dwPlatformId;

@@ -9,6 +9,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript
         ///     GS can only support a single instance, so we need to bottleneck any multi-threaded systems.
         /// </summary>
         private static readonly object resourceLock = new object();
+
         /*
         This code was adapted from Matthew Ephraim's Ghostscript.Net project
         external dll definitions moved into NativeMethods to
@@ -63,15 +64,14 @@ namespace clawSoft.clawPDF.Core.Ghostscript
         {
             if (Environment.Is64BitOperatingSystem)
             {
-            NativeMethods.ExitAPI64(gsInstancePtr);
-            NativeMethods.DeleteAPIInstance64(gsInstancePtr);
+                NativeMethods.ExitAPI64(gsInstancePtr);
+                NativeMethods.DeleteAPIInstance64(gsInstancePtr);
             }
             else
             {
                 NativeMethods.ExitAPI32(gsInstancePtr);
                 NativeMethods.DeleteAPIInstance32(gsInstancePtr);
             }
-
         }
     }
 }

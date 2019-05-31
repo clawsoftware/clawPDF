@@ -158,10 +158,15 @@ namespace clawSoft.clawPDF.Core.Jobs
         void CollectTemporaryOutputFiles();
 
         event EventHandler<ActionAddedEventArgs> OnActionAdded;
+
         event JobEvent.EvaluateActionResult OnEvaluateActionResult;
+
         event EventHandler<QueryPasswordEventArgs> OnRetypeSmtpPassword;
+
         event EventHandler<QueryFilenameEventArgs> OnRetypeOutputFilename;
+
         event EventHandler<JobCompletedEventArgs> OnJobCompleted;
+
         event EventHandler<JobProgressChangedEventArgs> OnJobProgressChanged;
     }
 

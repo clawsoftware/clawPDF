@@ -78,7 +78,7 @@ namespace clawSoft.clawPDF.Utilities.Communication
 
             using (var mutex = new Mutex(false, MutexName, out createdNew, securitySettings))
             {
-                var handles = new WaitHandle[] {_exitApplication, mutex};
+                var handles = new WaitHandle[] { _exitApplication, mutex };
 
                 //_logger.Debug("Waiting for the Mutex");
                 // Wait for the the "Exit Application" event or the Mutex to be assigned.

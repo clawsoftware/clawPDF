@@ -14,7 +14,7 @@ namespace clawSoft.clawPDF.Shared.Converter
         {
             if (!(value is string))
                 return null;
-            if (TokenHelper.ContainsInsecureTokens((string) value))
+            if (TokenHelper.ContainsInsecureTokens((string)value))
                 return Visibility.Visible;
             return Visibility.Hidden;
         }

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using SystemInterface.IO;
-using SystemWrapper.IO;
 using clawSoft.clawPDF.Core.Actions;
 using clawSoft.clawPDF.Core.Ghostscript.OutputDevices;
 using clawSoft.clawPDF.Core.Settings;
@@ -13,6 +11,8 @@ using clawSoft.clawPDF.Utilities;
 using clawSoft.clawPDF.Utilities.IO;
 using clawSoft.clawPDF.Utilities.Tokens;
 using NLog;
+using SystemInterface.IO;
+using SystemWrapper.IO;
 
 namespace clawSoft.clawPDF.Core.Jobs
 {
@@ -260,18 +260,23 @@ namespace clawSoft.clawPDF.Core.Jobs
                 case OutputFormat.PdfX:
                     outputFilename += ".pdf";
                     break;
+
                 case OutputFormat.Jpeg:
                     outputFilename += ".jpg";
                     break;
+
                 case OutputFormat.Png:
                     outputFilename += ".png";
                     break;
+
                 case OutputFormat.Tif:
                     outputFilename += ".tif";
                     break;
+
                 case OutputFormat.Txt:
                     outputFilename += ".txt";
                     break;
+
                 default:
                     Logger.Warn("Can't find a supported Output format! File format is defaulted to .pdf");
                     outputFilename += ".pdf";
@@ -381,9 +386,13 @@ namespace clawSoft.clawPDF.Core.Jobs
         }
 
         public event JobEvent.EvaluateActionResult OnEvaluateActionResult;
+
         public event EventHandler<QueryFilenameEventArgs> OnRetypeOutputFilename;
+
         public abstract event EventHandler<QueryPasswordEventArgs> OnRetypeSmtpPassword;
+
         public event EventHandler<JobCompletedEventArgs> OnJobCompleted;
+
         public event EventHandler<JobProgressChangedEventArgs> OnJobProgressChanged;
 
         /// <summary>
@@ -615,7 +624,7 @@ namespace clawSoft.clawPDF.Core.Jobs
                 int numValue;
                 if (int.TryParse(num, out numValue))
                 {
-                    var numDigits = (int) Math.Floor(Math.Log10(TempOutputFiles.Count) + 1);
+                    var numDigits = (int)Math.Floor(Math.Log10(TempOutputFiles.Count) + 1);
                     num = numValue.ToString("D" + numDigits);
                 }
             }

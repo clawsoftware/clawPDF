@@ -30,11 +30,11 @@ namespace clawSoft.clawPDF.Views.UserControls
         public static IEnumerable<EnumValue<OutputFormat>> DefaultFileFormatValues =>
             TranslationHelper.TranslatorInstance.GetEnumTranslation<OutputFormat>();
 
-        public CurrentProfileViewModel ViewModel => (CurrentProfileViewModel) DataContext;
+        public CurrentProfileViewModel ViewModel => (CurrentProfileViewModel)DataContext;
 
         private void FilenameTokensComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            InsertToken(FilenameTemplateTextBox, (ComboBox) sender);
+            InsertToken(FilenameTemplateTextBox, (ComboBox)sender);
         }
 
         private void InsertToken(TextBox textBox, ComboBox comboBox)
@@ -46,7 +46,7 @@ namespace clawSoft.clawPDF.Views.UserControls
 
         private void SaveDialogFolderTokensComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            InsertToken(SaveDialogFolderTextBox, (ComboBox) sender);
+            InsertToken(SaveDialogFolderTextBox, (ComboBox)sender);
         }
 
         private void SaveDialogDirectoryBrowseFolderButton_OnClick(object sender, RoutedEventArgs e)

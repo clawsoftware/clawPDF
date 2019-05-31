@@ -87,7 +87,7 @@ namespace clawSoft.clawPDF.ViewModels
             }
         }
 
-        public ConversionProfile SelectedProfile => (ConversionProfile) ProfilesView.CurrentItem;
+        public ConversionProfile SelectedProfile => (ConversionProfile)ProfilesView.CurrentItem;
 
         public IList<ConversionProfile> Profiles
         {

@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows;
-using System.Windows.Controls;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Helper;
 using clawSoft.clawPDF.Shared.Helper;
@@ -29,7 +28,7 @@ namespace clawSoft.clawPDF.Views.UserControls
 
         public Action<clawPDFSettings> UpdateSettings { get; set; }
 
-        public DebugTabViewModel ViewModel => (DebugTabViewModel) DataContext;
+        public DebugTabViewModel ViewModel => (DebugTabViewModel)DataContext;
 
         private void ShowLogButton_OnClick(object sender, RoutedEventArgs e)
         {

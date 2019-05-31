@@ -21,6 +21,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript
         }
 
         public GhostscriptVersion GhostscriptVersion { get; }
+
         public event EventHandler<OutputEventArgs> Output;
 
         private bool Run(IList<string> parameters, string tempOutputFolder)
@@ -53,7 +54,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript
         /// <param name="tempOutputFolder">Full path to the folder, where temporary files can be stored</param>
         public bool Run(OutputDevice output, string tempOutputFolder)
         {
-            var parameters = (List<string>) output.GetGhostScriptParameters(GhostscriptVersion);
+            var parameters = (List<string>)output.GetGhostScriptParameters(GhostscriptVersion);
             var success = Run(parameters.ToArray(), tempOutputFolder);
 
             var outputFolder = Path.GetDirectoryName(output.Job.OutputFilenameTemplate);

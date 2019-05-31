@@ -148,15 +148,16 @@ namespace clawSoft.clawPDF.Helper
             {
                 case "Low40Bit":
                     return "Rc40Bit";
+
                 case "Medium128Bit":
                     return "Rc128Bit";
+
                 case "High128BitAes":
                     return "Aes128Bit";
             }
 
             return "Rc128Bit";
         }
-
 
         private void MoveSettingInAllProfiles(string oldPath, string newPath)
         {

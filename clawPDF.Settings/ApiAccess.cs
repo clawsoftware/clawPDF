@@ -9,7 +9,6 @@ using pdfforge.DataStorage;
 // END_CUSTOM_SECTION:INCLUDES
 // Custom Code ends here. Do not edit below
 
-
 // ! This file is generated automatically.
 // ! Do not edit it outside the sections for custom code.
 // ! These changes will be deleted during the next generation run
@@ -25,8 +24,8 @@ namespace clawSoft.clawPDF.Core.Settings
             Init();
         }
 
-// Custom Code starts here
-// START_CUSTOM_SECTION:GENERAL
+        // Custom Code starts here
+        // START_CUSTOM_SECTION:GENERAL
         public ApiAccess(ApiProvider apiProvider)
         {
             Init();
@@ -54,7 +53,6 @@ namespace clawSoft.clawPDF.Core.Settings
         }
 
         public ApiProvider ProviderName { get; set; }
-
 
         private void Init()
         {
@@ -88,14 +86,13 @@ namespace clawSoft.clawPDF.Core.Settings
             try
             {
                 ProviderName =
-                    (ApiProvider) Enum.Parse(typeof(ApiProvider), data.GetValue(@"" + path + @"ProviderName"));
+                    (ApiProvider)Enum.Parse(typeof(ApiProvider), data.GetValue(@"" + path + @"ProviderName"));
             }
             catch
             {
                 ProviderName = ApiProvider.AttachMe;
             }
         }
-
 
         public void StoreValues(Data data, string path)
         {
@@ -148,7 +145,7 @@ namespace clawSoft.clawPDF.Core.Settings
             return base.GetHashCode();
         }
 
-// END_CUSTOM_SECTION:GENERAL
-// Custom Code ends here. Do not edit below
+        // END_CUSTOM_SECTION:GENERAL
+        // Custom Code ends here. Do not edit below
     }
 }

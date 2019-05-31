@@ -66,7 +66,7 @@ namespace clawSoft.clawPDF.Helper
         /// <returns>Scaled value for x</returns>
         public static int ScaleX(int x)
         {
-            return (int) Math.Round(x * ScaleFactorX);
+            return (int)Math.Round(x * ScaleFactorX);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace clawSoft.clawPDF.Helper
         /// <returns>Scaled value for y</returns>
         public static int ScaleY(int y)
         {
-            return (int) Math.Round(y * ScaleFactorY);
+            return (int)Math.Round(y * ScaleFactorY);
         }
 
         /// <summary>

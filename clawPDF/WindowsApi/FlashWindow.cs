@@ -51,7 +51,6 @@ namespace clawSoft.clawPDF.WindowsApi
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool FlashWindowEx(ref FLASHWINFO pwfi);
 
-
         private static FLASHWINFO Create_FLASHWINFO(IntPtr handle, uint flags, uint count, uint timeout)
         {
             var fi = new FLASHWINFO();
@@ -82,7 +81,7 @@ namespace clawSoft.clawPDF.WindowsApi
         /// <returns></returns>
         public static bool Flash(Window window, uint count)
         {
-            var source = (HwndSource) PresentationSource.FromVisual(window);
+            var source = (HwndSource)PresentationSource.FromVisual(window);
             if (source == null)
                 return false;
 

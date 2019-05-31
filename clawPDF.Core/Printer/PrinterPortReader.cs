@@ -1,7 +1,7 @@
 ﻿using System;
+using clawSoft.clawPDF.Utilities.IO;
 using SystemInterface.Microsoft.Win32;
 using SystemWrapper.Microsoft.Win32;
-using clawSoft.clawPDF.Utilities.IO;
 
 namespace clawSoft.clawPDF.Core.Printer
 {
@@ -50,7 +50,7 @@ namespace clawSoft.clawPDF.Core.Printer
 
                 printerPort.TempFolderName = key.GetValue("Printer", DefaultTempFolderName).ToString();
 
-                var serverValue = (int?) key.GetValue("Server");
+                var serverValue = (int?)key.GetValue("Server");
 
                 if (serverValue == 1)
                     printerPort.IsServerPort = true;
@@ -58,7 +58,7 @@ namespace clawSoft.clawPDF.Core.Printer
                 if (string.IsNullOrWhiteSpace(printerPort.TempFolderName))
                     printerPort.TempFolderName = DefaultTempFolderName;
 
-                var jobCounter = (int) key.GetValue("JobCounter", 0);
+                var jobCounter = (int)key.GetValue("JobCounter", 0);
                 printerPort.JobCounter = jobCounter;
             }
             catch (NullReferenceException)

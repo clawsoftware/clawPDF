@@ -50,7 +50,7 @@ namespace clawSoft.clawPDF.Shared.Views.ActionControls
             {
                 if (DataContext == null)
                     return null;
-                return ((ActionsTabViewModel) DataContext).CurrentProfile.EmailSmtp;
+                return ((ActionsTabViewModel)DataContext).CurrentProfile.EmailSmtp;
             }
         }
 
@@ -60,9 +60,9 @@ namespace clawSoft.clawPDF.Shared.Views.ActionControls
             {
                 if (DataContext == null)
                     return null;
-                return ((ActionsTabViewModel) DataContext).CurrentProfile.EmailSmtp.Password;
+                return ((ActionsTabViewModel)DataContext).CurrentProfile.EmailSmtp.Password;
             }
-            set => ((ActionsTabViewModel) DataContext).CurrentProfile.EmailSmtp.Password = value;
+            set => ((ActionsTabViewModel)DataContext).CurrentProfile.EmailSmtp.Password = value;
         }
 
         private void EditMailTextButton_OnClick(object sender, RoutedEventArgs e)
@@ -95,7 +95,7 @@ namespace clawSoft.clawPDF.Shared.Views.ActionControls
         {
             var smtpMailAction = new SmtpMailAction(MailSignatureHelper.ComposeMailSignature(CurrentProfile.EmailSmtp));
 
-            var currentProfile = ((ActionsTabViewModel) DataContext).CurrentProfile.Copy();
+            var currentProfile = ((ActionsTabViewModel)DataContext).CurrentProfile.Copy();
 
             #region check profile
 
@@ -109,7 +109,7 @@ namespace clawSoft.clawPDF.Shared.Views.ActionControls
                 return;
             }
 
-            #endregion
+            #endregion check profile
 
             #region create job
 
@@ -141,7 +141,7 @@ namespace clawSoft.clawPDF.Shared.Views.ActionControls
 
             job.Profile = currentProfile;
 
-            #endregion
+            #endregion create job
 
             #region add password
 
@@ -162,7 +162,7 @@ namespace clawSoft.clawPDF.Shared.Views.ActionControls
                 job.Passwords.SmtpPassword = Password;
             }
 
-            #endregion
+            #endregion add password
 
             #region add testfile
 
@@ -170,7 +170,7 @@ namespace clawSoft.clawPDF.Shared.Views.ActionControls
             File.WriteAllText(testFile, @"clawPDF", Encoding.GetEncoding("Unicode"));
             job.OutputFiles.Add(testFile);
 
-            #endregion
+            #endregion add testfile
 
             LogManager.GetCurrentClassLogger().Info("Send test mail over smtp.");
             result = smtpMailAction.ProcessJob(job);

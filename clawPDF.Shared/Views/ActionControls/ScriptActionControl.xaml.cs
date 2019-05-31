@@ -42,7 +42,6 @@ namespace clawSoft.clawPDF.Shared.Views.ActionControls
             set => CurrentProfile.Scripting.Enabled = value;
         }
 
-
         private void BrowseScriptButton_OnClick(object sender, RoutedEventArgs e)
         {
             var title = TranslationHelper.Instance.TranslatorInstance.GetTranslation("ScriptActionSettings",
@@ -75,7 +74,7 @@ namespace clawSoft.clawPDF.Shared.Views.ActionControls
 
             if (!string.IsNullOrEmpty(additionalParams))
                 scriptCall += " " + ScriptAction.ComposeScriptParameters(additionalParams,
-                                  new[] {@"C:\File1.pdf", @"C:\File2.pdf"}, _tokenReplacer);
+                                  new[] { @"C:\File1.pdf", @"C:\File2.pdf" }, _tokenReplacer);
             else
                 scriptCall += @" C:\File1.pdf C:\File2.pdf";
 

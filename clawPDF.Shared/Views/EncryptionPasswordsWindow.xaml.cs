@@ -22,17 +22,18 @@ namespace clawSoft.clawPDF.Shared.Views
                     RemoveButton.Visibility = Visibility.Collapsed;
                     PasswordHintText.Visibility = Visibility.Collapsed;
                     break;
+
                 default:
                     DataContext = new EncryptionPasswordViewModelwithRemove(askUserPassword);
                     SkipButton.Visibility = Visibility.Collapsed;
                     break;
             }
 
-            EncryptionPasswordViewModel.CloseViewAction = delegate(bool? result) { DialogResult = result; };
+            EncryptionPasswordViewModel.CloseViewAction = delegate (bool? result) { DialogResult = result; };
         }
 
         public EncryptionPasswordViewModelwithRemove EncryptionPasswordViewModel =>
-            (EncryptionPasswordViewModelwithRemove) DataContext;
+            (EncryptionPasswordViewModelwithRemove)DataContext;
 
         public EncryptionPasswordResponse Response => EncryptionPasswordViewModel.Response;
 

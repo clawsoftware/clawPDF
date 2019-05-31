@@ -26,10 +26,10 @@ namespace clawSoft.clawPDF.Shared.Views
             }
 
             SignaturePasswordViewModel.SignaturePasswordCheck = new SignaturePasswordCheck(certificateFile);
-            SignaturePasswordViewModel.CloseViewAction = delegate(bool? result) { DialogResult = result; };
+            SignaturePasswordViewModel.CloseViewAction = delegate (bool? result) { DialogResult = result; };
         }
 
-        public SignaturePasswordViewModel SignaturePasswordViewModel => (SignaturePasswordViewModel) DataContext;
+        public SignaturePasswordViewModel SignaturePasswordViewModel => (SignaturePasswordViewModel)DataContext;
 
         public string Password
         {

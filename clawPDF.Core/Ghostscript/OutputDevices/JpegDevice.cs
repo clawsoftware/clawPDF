@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using SystemInterface.IO;
 using clawSoft.clawPDF.Core.Jobs;
 using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.Utilities;
+using SystemInterface.IO;
 
 namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 {
@@ -26,6 +26,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                 case JpegColor.Gray8Bit:
                     parameters.Add("-sDEVICE=jpeggray");
                     break;
+
                 default:
                     parameters.Add("-sDEVICE=jpeg");
                     break;

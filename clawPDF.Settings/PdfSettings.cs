@@ -10,7 +10,6 @@ using pdfforge.DataStorage;
 // END_CUSTOM_SECTION:INCLUDES
 // Custom Code ends here. Do not edit below
 
-
 // ! This file is generated automatically.
 // ! Do not edit it outside the sections for custom code.
 // ! These changes will be deleted during the next generation run
@@ -80,7 +79,6 @@ namespace clawSoft.clawPDF.Core.Settings
         /// </summary>
         public int ViewerStartsOnPage { get; set; }
 
-
         private void Init()
         {
             CompressColorAndGray = new CompressColorAndGray();
@@ -103,7 +101,7 @@ namespace clawSoft.clawPDF.Core.Settings
             Signature.ReadValues(data, path + @"Signature\");
             try
             {
-                ColorModel = (ColorModel) Enum.Parse(typeof(ColorModel), data.GetValue(@"" + path + @"ColorModel"));
+                ColorModel = (ColorModel)Enum.Parse(typeof(ColorModel), data.GetValue(@"" + path + @"ColorModel"));
             }
             catch
             {
@@ -113,7 +111,7 @@ namespace clawSoft.clawPDF.Core.Settings
             try
             {
                 DocumentView =
-                    (DocumentView) Enum.Parse(typeof(DocumentView), data.GetValue(@"" + path + @"DocumentView"));
+                    (DocumentView)Enum.Parse(typeof(DocumentView), data.GetValue(@"" + path + @"DocumentView"));
             }
             catch
             {
@@ -131,7 +129,7 @@ namespace clawSoft.clawPDF.Core.Settings
 
             try
             {
-                PageOrientation = (PageOrientation) Enum.Parse(typeof(PageOrientation),
+                PageOrientation = (PageOrientation)Enum.Parse(typeof(PageOrientation),
                     data.GetValue(@"" + path + @"PageOrientation"));
             }
             catch
@@ -141,7 +139,7 @@ namespace clawSoft.clawPDF.Core.Settings
 
             try
             {
-                PageView = (PageView) Enum.Parse(typeof(PageView), data.GetValue(@"" + path + @"PageView"));
+                PageView = (PageView)Enum.Parse(typeof(PageView), data.GetValue(@"" + path + @"PageView"));
             }
             catch
             {
@@ -239,9 +237,9 @@ namespace clawSoft.clawPDF.Core.Settings
             return base.GetHashCode();
         }
 
-// Custom Code starts here
-// START_CUSTOM_SECTION:GENERAL
-// END_CUSTOM_SECTION:GENERAL
-// Custom Code ends here. Do not edit below
+        // Custom Code starts here
+        // START_CUSTOM_SECTION:GENERAL
+        // END_CUSTOM_SECTION:GENERAL
+        // Custom Code ends here. Do not edit below
     }
 }

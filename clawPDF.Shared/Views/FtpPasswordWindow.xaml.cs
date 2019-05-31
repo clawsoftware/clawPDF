@@ -20,15 +20,16 @@ namespace clawSoft.clawPDF.Shared.Views
                     RemoveButton.Visibility = Visibility.Collapsed;
                     PasswordHintText.Visibility = Visibility.Collapsed;
                     break;
+
                 default:
                     SkipButton.Visibility = Visibility.Collapsed;
                     break;
             }
 
-            FtpPasswordViewModel.CloseViewAction = delegate(bool? result) { DialogResult = result; };
+            FtpPasswordViewModel.CloseViewAction = delegate (bool? result) { DialogResult = result; };
         }
 
-        public FtpPasswordViewModel FtpPasswordViewModel => (FtpPasswordViewModel) DataContext;
+        public FtpPasswordViewModel FtpPasswordViewModel => (FtpPasswordViewModel)DataContext;
 
         public string FtpPassword
         {

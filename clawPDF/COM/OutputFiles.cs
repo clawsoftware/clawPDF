@@ -11,6 +11,7 @@ namespace clawSoft.clawPDF.COM
     public interface IOutputFiles
     {
         int Count { get; }
+
         string GetFilename(int index);
     }
 

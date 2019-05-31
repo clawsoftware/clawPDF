@@ -44,7 +44,7 @@ namespace clawSoft.clawPDF.Views.ActionControls
             {
                 if (DataContext == null)
                     return null;
-                return ((CurrentProfileViewModel) DataContext).CurrentProfile.EmailClient;
+                return ((CurrentProfileViewModel)DataContext).CurrentProfile.EmailClient;
             }
         }
 

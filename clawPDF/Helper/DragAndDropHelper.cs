@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using SystemInterface.IO;
-using SystemWrapper.IO;
 using clawSoft.clawPDF.Assistants;
 using clawSoft.clawPDF.Shared.Helper;
 using NLog;
+using SystemInterface.IO;
+using SystemWrapper.IO;
 
 namespace clawSoft.clawPDF.Helper
 {
@@ -32,7 +32,7 @@ namespace clawSoft.clawPDF.Helper
         /// </summary>
         public static void DragEnter(DragEventArgs e)
         {
-            if (((string[]) e.Data.GetData(DataFormats.FileDrop)).Length == 0)
+            if (((string[])e.Data.GetData(DataFormats.FileDrop)).Length == 0)
                 e.Effects = DragDropEffects.None;
             else
                 e.Effects = DragDropEffects.Copy;
@@ -44,7 +44,7 @@ namespace clawSoft.clawPDF.Helper
         /// </summary>
         public static void Drop(DragEventArgs e)
         {
-            var droppedFiles = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
+            var droppedFiles = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             Drop(droppedFiles);
         }
 

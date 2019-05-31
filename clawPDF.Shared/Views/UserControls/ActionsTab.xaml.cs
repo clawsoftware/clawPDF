@@ -12,6 +12,6 @@ namespace clawSoft.clawPDF.Shared.Views.UserControls
             if (TranslationHelper.Instance.IsInitialized) TranslationHelper.Instance.TranslatorInstance.Translate(this);
         }
 
-        public ActionsTabViewModel ViewModel => (ActionsTabViewModel) DataContext;
+        public ActionsTabViewModel ViewModel => (ActionsTabViewModel)DataContext;
     }
 }

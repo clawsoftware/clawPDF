@@ -9,7 +9,6 @@ using pdfforge.DataStorage;
 // END_CUSTOM_SECTION:INCLUDES
 // Custom Code ends here. Do not edit below
 
-
 // ! This file is generated automatically.
 // ! Do not edit it outside the sections for custom code.
 // ! These changes will be deleted during the next generation run
@@ -153,10 +152,9 @@ namespace clawSoft.clawPDF.Core.Settings
         /// </summary>
         public string TitleTemplate { get; set; }
 
-// Custom Code starts here
-// START_CUSTOM_SECTION:GENERAL
+        // Custom Code starts here
+        // START_CUSTOM_SECTION:GENERAL
         public bool IsDefault => Guid == ProfileGuids.DEFAULT_PROFILE_GUID;
-
 
         private void Init()
         {
@@ -255,7 +253,7 @@ namespace clawSoft.clawPDF.Core.Settings
             try
             {
                 OutputFormat =
-                    (OutputFormat) Enum.Parse(typeof(OutputFormat), data.GetValue(@"" + path + @"OutputFormat"));
+                    (OutputFormat)Enum.Parse(typeof(OutputFormat), data.GetValue(@"" + path + @"OutputFormat"));
             }
             catch
             {
@@ -289,7 +287,6 @@ namespace clawSoft.clawPDF.Core.Settings
                 TitleTemplate = "<PrintJobName>";
             }
         }
-
 
         public void StoreValues(Data data, string path)
         {
@@ -447,7 +444,7 @@ namespace clawSoft.clawPDF.Core.Settings
             return base.GetHashCode();
         }
 
-// END_CUSTOM_SECTION:GENERAL
-// Custom Code ends here. Do not edit below
+        // END_CUSTOM_SECTION:GENERAL
+        // Custom Code ends here. Do not edit below
     }
 }

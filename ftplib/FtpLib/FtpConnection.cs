@@ -246,7 +246,7 @@ namespace clawSoft.clawPDF.ftplib.FtpLib
                     ftpFileInfo.LastAccessTime = findFileData.ftLastAccessTime.ToDateTime();
                     ftpFileInfo.LastWriteTime = findFileData.ftLastWriteTime.ToDateTime();
                     ftpFileInfo.CreationTime = findFileData.ftCreationTime.ToDateTime();
-                    ftpFileInfo.Attributes = (FileAttributes) findFileData.dfFileAttributes;
+                    ftpFileInfo.Attributes = (FileAttributes)findFileData.dfFileAttributes;
                     list.Add(ftpFileInfo);
                 }
 
@@ -261,7 +261,7 @@ namespace clawSoft.clawPDF.ftplib.FtpLib
                         ftpFileInfo2.LastAccessTime = findFileData.ftLastAccessTime.ToDateTime();
                         ftpFileInfo2.LastWriteTime = findFileData.ftLastWriteTime.ToDateTime();
                         ftpFileInfo2.CreationTime = findFileData.ftCreationTime.ToDateTime();
-                        ftpFileInfo2.Attributes = (FileAttributes) findFileData.dfFileAttributes;
+                        ftpFileInfo2.Attributes = (FileAttributes)findFileData.dfFileAttributes;
                         list.Add(ftpFileInfo2);
                     }
 
@@ -304,7 +304,7 @@ namespace clawSoft.clawPDF.ftplib.FtpLib
                     ftpDirectoryInfo.LastAccessTime = findFileData.ftLastAccessTime.ToDateTime();
                     ftpDirectoryInfo.LastWriteTime = findFileData.ftLastWriteTime.ToDateTime();
                     ftpDirectoryInfo.CreationTime = findFileData.ftCreationTime.ToDateTime();
-                    ftpDirectoryInfo.Attributes = (FileAttributes) findFileData.dfFileAttributes;
+                    ftpDirectoryInfo.Attributes = (FileAttributes)findFileData.dfFileAttributes;
                     list.Add(ftpDirectoryInfo);
                 }
 
@@ -319,7 +319,7 @@ namespace clawSoft.clawPDF.ftplib.FtpLib
                         ftpDirectoryInfo2.LastAccessTime = findFileData.ftLastAccessTime.ToDateTime();
                         ftpDirectoryInfo2.LastWriteTime = findFileData.ftLastWriteTime.ToDateTime();
                         ftpDirectoryInfo2.CreationTime = findFileData.ftCreationTime.ToDateTime();
-                        ftpDirectoryInfo2.Attributes = (FileAttributes) findFileData.dfFileAttributes;
+                        ftpDirectoryInfo2.Attributes = (FileAttributes)findFileData.dfFileAttributes;
                         list.Add(ftpDirectoryInfo2);
                     }
 

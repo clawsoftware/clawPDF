@@ -21,11 +21,11 @@ namespace clawSoft.clawPDF.Views.UserControls
             foreach (var token in TokenHelper.GetTokenListForDirectory()) TargetFolderTokensComboBox.Items.Add(token);
         }
 
-        public CurrentProfileViewModel ViewModel => (CurrentProfileViewModel) DataContext;
+        public CurrentProfileViewModel ViewModel => (CurrentProfileViewModel)DataContext;
 
         private void TargetFolderTokensComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            InsertToken(TargetFolderTextBox, (ComboBox) sender);
+            InsertToken(TargetFolderTextBox, (ComboBox)sender);
         }
 
         private void InsertToken(TextBox textBox, ComboBox comboBox)

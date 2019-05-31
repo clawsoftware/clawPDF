@@ -59,7 +59,7 @@
                             <DataTemplate>
                                 <ComboBox
                                     ItemsSource="{Binding ViewModel.ReplacementValues,
-                                        RelativeSource={RelativeSource FindAncestor, 
+                                        RelativeSource={RelativeSource FindAncestor,
                                         AncestorType={x:Type UserControl }}}"
                                     SelectedValue="{Binding ReplacementType, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                                     SelectedValuePath="Value"

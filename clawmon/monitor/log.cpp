@@ -31,7 +31,7 @@ static const unsigned short int BOM = 0xFEFF;
 CMfmLog* g_pLog = NULL;
 
 CMfmLog::CMfmLog()
-: m_nLogLevel(LOGLEVEL_NONE)
+	: m_nLogLevel(LOGLEVEL_NONE)
 {
 	m_hLogFile = CreateFileW(L"clawmon.log", GENERIC_READ | GENERIC_WRITE,
 		FILE_SHARE_READ, NULL, CREATE_ALWAYS, 0, NULL);

@@ -23,7 +23,7 @@ namespace clawSoft.clawPDF.Views.UserControls
 
         public PrinterTabViewModel ViewModel
         {
-            get => (PrinterTabViewModel) DataContext;
+            get => (PrinterTabViewModel)DataContext;
             set => DataContext = value;
         }
 

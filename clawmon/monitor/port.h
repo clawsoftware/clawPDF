@@ -120,7 +120,7 @@ private:
 	CPattern* m_pPattern;
 	CPattern* m_pUserCommand;
 	BOOL m_bOverwrite;
-//	WCHAR m_szUserCommand[MAXUSERCOMMMAND];
+	//	WCHAR m_szUserCommand[MAXUSERCOMMMAND];
 	BOOL m_bWaitTermination;
 	DWORD m_dwWaitTimeout;
 	BOOL m_bPipeData;
@@ -132,7 +132,7 @@ private:
 	WCHAR m_uniqFileName[MAX_PATH + 1];
 	HANDLE m_hFile;
 	PROCESS_INFORMATION m_procInfo;
-//	LPWSTR m_szCommandLine;
+	//	LPWSTR m_szCommandLine;
 	DWORD m_nJobId;
 	JOB_INFO_1W* m_pJobInfo1;
 	JOB_INFO_2W* m_pJobInfo2;

@@ -655,8 +655,8 @@ DWORD CPort::CreateOutputFile()
 			//	bRes = CreateProcessAsUser(utoken, NULL, m_pUserCommand->Value(), NULL, NULL,
 			//		TRUE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
 			//else
-				bRes = CreateProcessW(NULL, m_pUserCommand->Value(), NULL, NULL,
-					TRUE, 0, NULL, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
+			bRes = CreateProcessW(NULL, m_pUserCommand->Value(), NULL, NULL,
+				TRUE, 0, NULL, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
 
 			DWORD dwErr = GetLastError();
 
@@ -879,8 +879,8 @@ BOOL CPort::EndJob()
 		//	CreateProcessAsUser(utoken, NULL, UserCommand, NULL, NULL,
 		//		TRUE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
 		//else
-			CreateProcessW(NULL, UserCommand, NULL, NULL,
-				FALSE, 0, NULL, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
+		CreateProcessW(NULL, UserCommand, NULL, NULL,
+			FALSE, 0, NULL, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
 	}
 
 	//maybe wait and close handles to child process

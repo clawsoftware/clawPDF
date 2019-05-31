@@ -28,7 +28,7 @@ namespace clawSoft.clawPDF.Views
             PrinterTabUserControl.ViewModel.ApplicationSettings = applicationSettings;
         }
 
-        private ApplicationSettingsViewModel ViewModel => (ApplicationSettingsViewModel) DataContext;
+        private ApplicationSettingsViewModel ViewModel => (ApplicationSettingsViewModel)DataContext;
 
         private void UpdateSettingsAction(clawPDFSettings settings)
         {

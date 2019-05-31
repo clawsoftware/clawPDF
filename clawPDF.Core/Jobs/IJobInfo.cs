@@ -8,6 +8,7 @@ namespace clawSoft.clawPDF.Core.Jobs
         IList<SourceFileInfo> SourceFiles { get; }
         Metadata Metadata { get; set; }
         JobType JobType { get; set; }
+
         void SaveInf();
 
         /// <summary>

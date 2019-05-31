@@ -27,6 +27,7 @@ namespace clawSoft.clawPDF.Utilities.Tokens
             {
                 case EnvironmentVariable.Username:
                     return _environment.UserName;
+
                 case EnvironmentVariable.ComputerName:
                     return _environment.MachineName;
             }

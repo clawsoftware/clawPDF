@@ -37,12 +37,11 @@ namespace clawSoft.clawPDF.Views
 
         private ProfileSettingsViewModel ViewModel
         {
-            get => (ProfileSettingsViewModel) DataContext;
+            get => (ProfileSettingsViewModel)DataContext;
             set => DataContext = value;
         }
 
         public clawPDFSettings Settings => ViewModel.Settings;
-
 
         private ProfileSettingsViewModel CreateViewModel(clawPDFSettings settings)
         {
@@ -55,7 +54,7 @@ namespace clawSoft.clawPDF.Views
             viewModel.QueryIgnoreDefectiveProfiles = QueryIgnoreDefectiveProfiles;
             viewModel.UpdateLayoutProfilesBoxAction = ProfilesBoxUpdateLayout;
 
-            viewModel.CloseViewAction = delegate(bool? result) { DialogResult = result; };
+            viewModel.CloseViewAction = delegate (bool? result) { DialogResult = result; };
 
             viewModel.InvalidProfileMessage = TranslationHelper.TranslatorInstance.GetTranslation(
                 "ProfileSettingsWindow",

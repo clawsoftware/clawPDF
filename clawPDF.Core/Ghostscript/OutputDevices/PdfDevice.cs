@@ -5,11 +5,10 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
-using SystemInterface.IO;
-using clawSoft.clawPDF.Core.Helper;
 using clawSoft.clawPDF.Core.Jobs;
 using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.Utilities;
+using SystemInterface.IO;
 
 namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 {

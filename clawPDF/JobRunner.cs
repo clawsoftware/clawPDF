@@ -62,7 +62,7 @@ namespace clawSoft.clawPDF
         {
             if (JobInfoQueue.Instance.IsEmpty && !_managePrintJobs) return;
 
-            _processingThread = new SynchronizedThread(ProcessJobs) {Name = "ProcessingThread"};
+            _processingThread = new SynchronizedThread(ProcessJobs) { Name = "ProcessingThread" };
             _processingThread.SetApartmentState(ApartmentState.STA);
 
             ThreadManager.Instance.StartSynchronizedThread(_processingThread);

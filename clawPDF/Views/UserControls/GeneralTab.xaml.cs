@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Navigation;
 using clawSoft.clawPDF.Helper;
-using clawSoft.clawPDF.Shared.Assistants;
 using clawSoft.clawPDF.Shared.Helper;
 using clawSoft.clawPDF.Utilities;
 using clawSoft.clawPDF.ViewModels.UserControls;
@@ -24,14 +22,14 @@ namespace clawSoft.clawPDF.Views.UserControls
 
         public Action PreviewLanguageAction { private get; set; }
 
-        public GeneralTabViewModel ViewModel => (GeneralTabViewModel) DataContext;
+        public GeneralTabViewModel ViewModel => (GeneralTabViewModel)DataContext;
 
         public Visibility RequiresUacVisibility =>
             new OsHelper().UserIsAdministrator() ? Visibility.Collapsed : Visibility.Visible;
 
         private void LanguagePreviewButton_Click(object sender, RoutedEventArgs e)
         {
-            TranslationHelper.Instance.SetTemporaryTranslation((Language) LanguageBox.SelectionBoxItem);
+            TranslationHelper.Instance.SetTemporaryTranslation((Language)LanguageBox.SelectionBoxItem);
             TranslationHelper.Instance.TranslatorInstance.Translate(this);
             TranslationHelper.Instance.TranslateProfileList(SettingsHelper.Settings.ConversionProfiles);
             //overwrite items of comboboxes with translated items

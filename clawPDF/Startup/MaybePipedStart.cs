@@ -37,6 +37,7 @@ namespace clawSoft.clawPDF.Startup
         }
 
         internal abstract string ComposePipeMessage();
+
         internal abstract bool StartApplication();
 
         private bool TrySendPipeMessage()

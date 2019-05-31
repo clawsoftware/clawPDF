@@ -11,7 +11,6 @@ using pdfforge.DataStorage.Storage;
 // END_CUSTOM_SECTION:INCLUDES
 // Custom Code ends here. Do not edit below
 
-
 // ! This file is generated automatically.
 // ! Do not edit it outside the sections for custom code.
 // ! These changes will be deleted during the next generation run
@@ -137,7 +136,6 @@ namespace clawSoft.clawPDF.Core.Settings
             for (var i = 0; i < ConversionProfiles.Count; i++)
                 copy.ConversionProfiles.Add(ConversionProfiles[i].Copy());
 
-
             return copy;
         }
 
@@ -154,7 +152,6 @@ namespace clawSoft.clawPDF.Core.Settings
                 if (!ConversionProfiles[i].Equals(v.ConversionProfiles[i]))
                     return false;
 
-
             return true;
         }
 
@@ -169,7 +166,6 @@ namespace clawSoft.clawPDF.Core.Settings
 
             for (var i = 0; i < ConversionProfiles.Count; i++) sb.AppendLine(ConversionProfiles.ToString());
 
-
             return sb.ToString();
         }
 
@@ -179,8 +175,8 @@ namespace clawSoft.clawPDF.Core.Settings
             return base.GetHashCode();
         }
 
-// Custom Code starts here
-// START_CUSTOM_SECTION:GENERAL
+        // Custom Code starts here
+        // START_CUSTOM_SECTION:GENERAL
 
         /// <summary>
         ///     Function that returns a profile from the inner Conversionprofiles(list) by a given guid.
@@ -253,7 +249,7 @@ namespace clawSoft.clawPDF.Core.Settings
         public void SortConversionProfiles()
         {
             //((List<ConversionProfile>)ConversionProfiles).Sort(CompareTemporaryFirstDefaultSecond);
-            ((List<ConversionProfile>) ConversionProfiles).Sort(new ProfileSorter().Compare);
+            ((List<ConversionProfile>)ConversionProfiles).Sort(new ProfileSorter().Compare);
         }
 
         /// <summary>
@@ -292,7 +288,7 @@ namespace clawSoft.clawPDF.Core.Settings
             }
         }
 
-// END_CUSTOM_SECTION:GENERAL
-// Custom Code ends here. Do not edit below
+        // END_CUSTOM_SECTION:GENERAL
+        // Custom Code ends here. Do not edit below
     }
 }

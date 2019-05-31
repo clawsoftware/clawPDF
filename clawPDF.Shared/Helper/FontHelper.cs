@@ -46,7 +46,7 @@ namespace clawSoft.clawPDF.Shared.Helper
 
             foreach (var fontKey in valueNames)
             {
-                var registryFontFileName = (string) fontsKey.GetValue(fontKey);
+                var registryFontFileName = (string)fontsKey.GetValue(fontKey);
 
                 if (registryFontFileName != null && Path.GetExtension(registryFontFileName)
                         .Equals(".ttf", StringComparison.InvariantCultureIgnoreCase))

@@ -49,7 +49,7 @@ namespace clawSoft.clawPDF.PDFProcessing
         {
             var signing = profile.PdfSettings.Signature;
 
-            if (!signing.Enabled) //Leave without signing 
+            if (!signing.Enabled) //Leave without signing
                 return;
 
             Logger.Debug("Start signing file.");
@@ -307,6 +307,7 @@ namespace clawSoft.clawPDF.PDFProcessing
                     if (signing.SignatureCustomPage < 1)
                         return 1;
                     return signing.SignatureCustomPage;
+
                 case SignaturePage.LastPage:
                     return stamper.Reader.NumberOfPages;
                 //case SignaturePosition.FirstPage:

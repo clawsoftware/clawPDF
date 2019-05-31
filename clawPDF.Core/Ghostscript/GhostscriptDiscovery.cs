@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using clawSoft.clawPDF.Utilities;
+using clawSoft.clawPDF.Utilities.IO;
 using SystemInterface.IO;
 using SystemInterface.Microsoft.Win32;
 using SystemWrapper.IO;
 using SystemWrapper.Microsoft.Win32;
-using clawSoft.clawPDF.Utilities;
-using clawSoft.clawPDF.Utilities.IO;
 
 namespace clawSoft.clawPDF.Core.Ghostscript
 {
@@ -26,7 +24,6 @@ namespace clawSoft.clawPDF.Core.Ghostscript
         }
 
         public string ApplicationPath { get; }
-
 
         /// <summary>
         ///     Search for Ghostscript instances in the application folder

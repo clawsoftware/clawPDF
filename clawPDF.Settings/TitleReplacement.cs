@@ -9,7 +9,6 @@ using pdfforge.DataStorage;
 // END_CUSTOM_SECTION:INCLUDES
 // Custom Code ends here. Do not edit below
 
-
 // ! This file is generated automatically.
 // ! Do not edit it outside the sections for custom code.
 // ! These changes will be deleted during the next generation run
@@ -28,8 +27,8 @@ namespace clawSoft.clawPDF.Core.Settings
             Init();
         }
 
-// Custom Code starts here
-// START_CUSTOM_SECTION:GENERAL
+        // Custom Code starts here
+        // START_CUSTOM_SECTION:GENERAL
         /// <summary>
         ///     Create a TitleReplacement with search and replace fields set
         /// </summary>
@@ -47,7 +46,6 @@ namespace clawSoft.clawPDF.Core.Settings
         public ReplacementType ReplacementType { get; set; }
 
         public string Search { get; set; }
-
 
         private void Init()
         {
@@ -69,7 +67,7 @@ namespace clawSoft.clawPDF.Core.Settings
 
             try
             {
-                ReplacementType = (ReplacementType) Enum.Parse(typeof(ReplacementType),
+                ReplacementType = (ReplacementType)Enum.Parse(typeof(ReplacementType),
                     data.GetValue(@"" + path + @"ReplacementType"));
             }
             catch
@@ -86,7 +84,6 @@ namespace clawSoft.clawPDF.Core.Settings
                 Search = "";
             }
         }
-
 
         public void StoreValues(Data data, string path)
         {
@@ -135,7 +132,7 @@ namespace clawSoft.clawPDF.Core.Settings
             return base.GetHashCode();
         }
 
-// END_CUSTOM_SECTION:GENERAL
-// Custom Code ends here. Do not edit below
+        // END_CUSTOM_SECTION:GENERAL
+        // Custom Code ends here. Do not edit below
     }
 }

@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Text;
 using System.Threading;
-using SystemInterface.IO;
-using SystemWrapper.IO;
 using clawSoft.clawPDF.Core.Actions;
 using clawSoft.clawPDF.Core.Ghostscript;
 using clawSoft.clawPDF.Core.Ghostscript.OutputDevices;
-using clawSoft.clawPDF.Core.Helper;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.PDFProcessing;
+using SystemInterface.IO;
+using SystemWrapper.IO;
 
 namespace clawSoft.clawPDF.Core.Jobs
 {
@@ -80,7 +79,7 @@ namespace clawSoft.clawPDF.Core.Jobs
         /// </summary>
         protected virtual void SetUpActions()
         {
-            // it does not work yet... 
+            // it does not work yet...
             /*if (Profile.Stamping.Enable)
             {
                 StampPdfAction stamp = new StampPdfAction(Profile.Stamping.StampText, Profile.Stamping.FontName);
@@ -172,15 +171,19 @@ namespace clawSoft.clawPDF.Core.Jobs
                     case OutputFormat.Pdf:
                         device = new PdfDevice(this);
                         break;
+
                     case OutputFormat.Png:
                         device = new PngDevice(this);
                         break;
+
                     case OutputFormat.Jpeg:
                         device = new JpegDevice(this);
                         break;
+
                     case OutputFormat.Tif:
                         device = new TiffDevice(this);
                         break;
+
                     case OutputFormat.Txt:
                         device = new TextDevice(this);
                         break;

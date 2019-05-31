@@ -110,7 +110,6 @@ namespace clawSoft.clawPDF.Mail
             mail.Body = body + mail.Body;
         }
 
-
         private string ConvertToHtml(string body)
         {
             var sb = new StringBuilder();

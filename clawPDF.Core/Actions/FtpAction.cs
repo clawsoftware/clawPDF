@@ -124,7 +124,7 @@ namespace clawSoft.clawPDF.Core.Actions
 
             Logger.Debug("Directory on ftp server: " + fullDirectory);
 
-            var directories = fullDirectory.Split(new[] {"/"}, StringSplitOptions.RemoveEmptyEntries);
+            var directories = fullDirectory.Split(new[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
 
             try
             {

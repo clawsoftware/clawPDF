@@ -39,20 +39,24 @@ namespace clawSoft.clawPDF.Shared.ViewModels.Wrapper
             switch (e.Action)
             {
                 case NotifyCollectionChangedAction.Add:
-                    Collection.Insert(e.NewStartingIndex, (T) e.NewItems[0]);
+                    Collection.Insert(e.NewStartingIndex, (T)e.NewItems[0]);
                     break;
+
                 case NotifyCollectionChangedAction.Remove:
                     Collection.RemoveAt(e.OldStartingIndex);
                     break;
+
                 case NotifyCollectionChangedAction.Move:
                     Collection.RemoveAt(e.OldStartingIndex);
-                    Collection.Insert(e.NewStartingIndex, (T) e.OldItems[0]);
+                    Collection.Insert(e.NewStartingIndex, (T)e.OldItems[0]);
                     break;
+
                 case NotifyCollectionChangedAction.Reset:
                     Collection.Clear();
                     foreach (var itm in ObservableCollection)
                         Collection.Add(itm);
                     break;
+
                 default:
                     throw new NotImplementedException();
             }
