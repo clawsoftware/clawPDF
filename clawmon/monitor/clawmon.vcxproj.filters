@@ -95,12 +95,12 @@
     <ClInclude Include="md5.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\common\comstrings.en">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\common\comstrings.it">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

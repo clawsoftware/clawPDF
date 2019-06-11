@@ -13,6 +13,10 @@ Yet another PDF Printer? Yes! This PDF Printer has the intention to be completel
 
 # Changelog
 
+## v0.8.4 (2019.06.11)
+
+- [bugfix]  unicode filename support (thx to daooze for bugreport)
+
 ## v0.8.3 (2019.05.31)
 
 - [bugfix]  starts under System-Account
@@ -66,7 +70,7 @@ Yet another PDF Printer? Yes! This PDF Printer has the intention to be completel
 
 # Build
 
-- Visual Studio 2017
+- Visual Studio 2019
 
 
 # Third-party
@@ -79,7 +83,7 @@ Yet another PDF Printer? Yes! This PDF Printer has the intention to be completel
 - parts of the ghostscript control: PdfScribe 1.0.6 (https://github.com/stchan/PdfScribe), licensed under AGPL v3 license.
 - redirection Port Monitor: clawmon (https://github.com/clawsoftware/clawmon), licensed under GPL v2 license.
 - Postscript Printer Drivers: Microsoft Postscript Printer Driver V3 (https://docs.microsoft.com/en-us/windows-hardware/drivers/print/microsoft-postscript-printer-driver), copyright (c) Microsoft Corporation. All rights reserved.
-- Postscript and PDF interpreter/renderer: Ghostscript 9.26 (https://www.ghostscript.com/download/gsdnld.html), licensed under AGPL v3 license.
+- Postscript and PDF interpreter/renderer: Ghostscript 9.27 (https://www.ghostscript.com/download/gsdnld.html), licensed under AGPL v3 license.
 - SystemWrapper 0.25.0.186 (https://github.com/jozefizso/SystemWrapper), licensed under Microsoft Public license.
 - ftplib 1.0.1.1 (https://archive.codeplex.com/?p=ftplib), licensed under MIT license.
 - DataStorage.dll, licensed under pdfforge Freeware License.

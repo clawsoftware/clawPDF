@@ -1,4 +1,4 @@
-//{{NO_DEPENDENCIES}}
+﻿//{{NO_DEPENDENCIES}}
 // Von Microsoft Visual C++ generierte Includedatei.
 // Verwendet durch resource.rc
 //
@@ -786,59 +786,39 @@
 #define VK_NUMPAD4                      0x64
 #define LANG_FILIPINO                   0x64
 #define VS_USER_DEFINED                 100
-#define IDD_MONITORUI                   100
 #define VK_NUMPAD5                      0x65
 #define LANG_DIVEHI                     0x65
-#define ID_EDTPORTNAME                  101
 #define VK_NUMPAD6                      0x66
-#define ID_EDTOUTPUTPATH                102
 #define VK_NUMPAD7                      0x67
 #define LANG_FULAH                      0x67
 #define LANG_PULAR                      0x67
-#define ID_BTNBROWSE                    103
 #define VK_NUMPAD8                      0x68
 #define LANG_HAUSA                      0x68
-#define ID_EDTFILEPATTERN               104
 #define VK_NUMPAD9                      0x69
-#define ID_BTNHELP                      105
 #define VK_MULTIPLY                     0x6A
 #define LANG_YORUBA                     0x6a
-#define ID_CHKOVERWRITE                 106
 #define VK_ADD                          0x6B
 #define LANG_QUECHUA                    0x6b
-#define ID_EDTUSERCOMMAND               107
 #define VK_SEPARATOR                    0x6C
 #define LANG_SOTHO                      0x6c
-#define ID_CHKWAITTERMINATION           108
 #define VK_SUBTRACT                     0x6D
 #define LANG_BASHKIR                    0x6d
-#define ID_PIPEDATA                     109
 #define VK_DECIMAL                      0x6E
 #define LANG_LUXEMBOURGISH              0x6e
-#define ID_BTNHELP2                     110
 #define VK_DIVIDE                       0x6F
 #define LANG_GREENLANDIC                0x6f
-#define ID_EDTCMDPATH                   111
 #define VK_F1                           0x70
 #define LANG_IGBO                       0x70
-#define ID_BTNBROWSE2                   112
 #define VK_F2                           0x71
-#define ID_CBLOGLEVEL                   113
 #define VK_F3                           0x72
-#define ID_EDTUSER                      114
 #define VK_F4                           0x73
 #define LANG_TIGRIGNA                   0x73
 #define LANG_TIGRINYA                   0x73
-#define ID_EDTDOMAIN                    115
 #define VK_F5                           0x74
-#define ID_EDTPASSWORD                  116
 #define VK_F6                           0x75
 #define LANG_HAWAIIAN                   0x75
-#define ID_HIDEPROCESS                  117
 #define VK_F7                           0x76
-#define ID_EDTTIMEOUT                   118
 #define VK_F8                           0x77
-#define ID_RUNASPUSER                   119
 #define VK_F9                           0x78
 #define WHEEL_DELTA                     120
 #define LANG_YI                         0x78
@@ -993,7 +973,6 @@
 #define EM_UNDO                         0x00C7
 #define VK_GAMEPAD_LEFT_SHOULDER        0xC8
 #define EM_FMTLINES                     0x00C8
-#define IDD_ADDPORTUI                   200
 #define VK_GAMEPAD_LEFT_TRIGGER         0xC9
 #define EM_LINEFROMCHAR                 0x00C9
 #define VK_GAMEPAD_RIGHT_TRIGGER        0xCA
@@ -1621,7 +1600,6 @@
 #define PWR_FAIL                        -1
 #define UNICODE_NOCHAR                  0xFFFF
 #define HTTRANSPARENT                   -1
-#define ID_TEXT                         -1
 
 // Next default values for new objects
 // 

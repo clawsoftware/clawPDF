@@ -203,54 +203,48 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             try
             {
                 oldRedirectValue = DisableWow64Redirection();
-                if (!DoesMonitorExist(PORTMONITOR))
+                //if (!DoesMonitorExist(PORTMONITOR))
+                //{
+                // Copy the monitor DLL to
+                // the system directory
+                String monitorfileSourcePath = Path.Combine(monitorFilePath, MONITORDLL);
+                String monitorfileDestinationPath = Path.Combine(Environment.SystemDirectory, MONITORDLL);
+                String monitoruifileSourcePath = Path.Combine(monitorFilePath, MONITORUIDLL);
+                String monitoruifileDestinationPath = Path.Combine(Environment.SystemDirectory, MONITORUIDLL);
+
+                Spooler.stop();
+
+                try
                 {
-                    // Copy the monitor DLL to
-                    // the system directory
-                    String monitorfileSourcePath = Path.Combine(monitorFilePath, MONITORDLL);
-                    String monitorfileDestinationPath = Path.Combine(Environment.SystemDirectory, MONITORDLL);
-                    String monitoruifileSourcePath = Path.Combine(monitorFilePath, MONITORUIDLL);
-                    String monitoruifileDestinationPath = Path.Combine(Environment.SystemDirectory, MONITORUIDLL);
-
-                    Spooler.stop();
-
-                    try
-                    {
-                        File.Copy(monitoruifileSourcePath, monitoruifileDestinationPath, true);
-                    }
-                    catch
-                    {
-                    }
-
-                    try
-                    {
-                        File.Copy(monitorfileSourcePath, monitorfileDestinationPath, true);
-                    }
-                    catch (IOException)
-                    {
-                        // File in use, log -
-                        // this is OK because it means the file is already there
-                    }
-
-                    Spooler.start();
-
-                    MONITOR_INFO_2 newMonitor = new MONITOR_INFO_2();
-                    newMonitor.pName = PORTMONITOR;
-                    newMonitor.pEnvironment = ENVIRONMENT;
-                    newMonitor.pDLLName = MONITORDLL;
-                    if (!AddPortMonitor(newMonitor))
-                        Console.WriteLine(String.Format("Could not add port monitor {0}", PORTMONITOR) + Environment.NewLine +
-                                                  String.Format(WIN32ERROR, Marshal.GetLastWin32Error().ToString()));
-                    else
-                        monitorAdded = true;
+                    File.Copy(monitoruifileSourcePath, monitoruifileDestinationPath, true);
                 }
+                catch { }
+
+                try
+                {
+                    File.Copy(monitorfileSourcePath, monitorfileDestinationPath, true);
+                }
+                catch { }
+
+                Spooler.start();
+
+                MONITOR_INFO_2 newMonitor = new MONITOR_INFO_2();
+                newMonitor.pName = PORTMONITOR;
+                newMonitor.pEnvironment = ENVIRONMENT;
+                newMonitor.pDLLName = MONITORDLL;
+                if (!AddPortMonitor(newMonitor))
+                    Console.WriteLine(String.Format("Could not add port monitor {0}", PORTMONITOR) + Environment.NewLine +
+                                              String.Format(WIN32ERROR, Marshal.GetLastWin32Error().ToString()));
                 else
-                {
-                    // Monitor already installed -
-                    // log it, and keep going
-                    Console.WriteLine(String.Format("Port monitor {0} already installed.", PORTMONITOR));
                     monitorAdded = true;
-                }
+                //}
+                //else
+                //{
+                // Monitor already installed -
+                // log it, and keep going
+                //    Console.WriteLine(String.Format("Port monitor {0} already installed.", PORTMONITOR));
+                //    monitorAdded = true;
+                // }
             }
             finally
             {
