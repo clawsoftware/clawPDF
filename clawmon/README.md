@@ -1,4 +1,4 @@
-# clawmon // mfilemom 1.5.2 fork
+# clawmon // mfilemon 1.5.2 fork
 
 Printer port monitor // print to file with automatic filename assignment
 
