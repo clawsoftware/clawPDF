@@ -20,20 +20,5 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include "sec_api.h"
+#include "stdafx.h"
 
-static int dummy = 0;
-
-#ifdef __GNUC__
-  #ifndef MINGW_HAS_SECURE_API
-	int __cdecl swprintf_s(wchar_t *_Dst,size_t _SizeInWords,const wchar_t *_Format,...)
-	{
-	  int ret;
-	  va_list args;
-	  va_start(args, _Format);
-	  ret = vswprintf(_Dst, _Format, args);
-	  va_end(args);
-	  return ret;
-	}
-  #endif
-#endif

@@ -1,172 +1,140 @@
-// Microsoft Visual C++ generated resource script.
-//
-#include "resource.h"
+/*
+clawmon - print to file with automatic filename assignment
+Copyright (C) 2019 // Andrew Hess // clawSoft
+
+MFILEMON - print to file with automatic filename assignment
+Copyright (C) 2007-2015 Monti Lorenzo
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
 #include <windows.h>
-/////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+#include "resource.h"
+#include "..\common\version.h"
 
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
-LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
-#pragma code_page(1252)
+#if (!defined(CLAWMONLANG) || CLAWMONLANG == 0x0409)
+#include "strings.en"
+#include "..\common\comstrings.en"
+#endif
 
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
+/*
+*	 DIALOGS
+*
+*/
 IDD_MONITORUI DIALOGEX 0, 0, 370, 240
-STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "port configuration"
 FONT 8, "Tahoma", 0, 0, 0x1
-BEGIN
-    LTEXT           "Port name",ID_TEXT,3,3,100,8
-    EDITTEXT        ID_EDTPORTNAME,3,12,180,14,ES_AUTOHSCROLL | WS_DISABLED
-    LTEXT           "Output path",ID_TEXT,3,30,100,8
-    EDITTEXT        ID_EDTOUTPUTPATH,3,39,180,14,ES_AUTOHSCROLL | WS_DISABLED
-    PUSHBUTTON      "...",ID_BTNBROWSE,186,39,14,14,WS_DISABLED
-    LTEXT           "Filename pattern",ID_TEXT,3,57,100,8
-    EDITTEXT        ID_EDTFILEPATTERN,3,66,180,14,ES_AUTOHSCROLL | WS_DISABLED
-    PUSHBUTTON      "?",ID_BTNHELP,186,66,14,14,WS_DISABLED
-    CONTROL         "Overwrite existing files",ID_CHKOVERWRITE,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,3,84,150,14
-    LTEXT           "User command (%f = filename, %p = path)",ID_TEXT,3,102,200,8
-    EDITTEXT        ID_EDTUSERCOMMAND,3,111,180,14,ES_AUTOHSCROLL | WS_DISABLED
-    PUSHBUTTON      "?",ID_BTNHELP2,186,111,14,14,WS_DISABLED
-    LTEXT           "Execute from",ID_TEXT,3,129,100,8
-    EDITTEXT        ID_EDTCMDPATH,3,138,180,14,ES_AUTOHSCROLL | WS_DISABLED
-    PUSHBUTTON      "...",ID_BTNBROWSE2,186,138,14,14,WS_DISABLED
-    CONTROL         "Use pipe to send data to user command",ID_PIPEDATA,
-                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,3,156,160,14
-    CONTROL         "Wait process termination for",ID_CHKWAITTERMINATION,
-                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,3,171,110,14
-    EDITTEXT        ID_EDTTIMEOUT,115,171,45,14,ES_AUTOHSCROLL | WS_DISABLED
-    LTEXT           "sec.",ID_TEXT,167,175,20,8
-    CONTROL         "Hide process",ID_HIDEPROCESS,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,3,186,160,14
-    CONTROL         "Start process as printing user",ID_RUNASPUSER,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,213,16,180,8
-    LTEXT           "Run as user",ID_TEXT,213,30,100,8
-    EDITTEXT        ID_EDTUSER,213,39,147,14,ES_AUTOHSCROLL | WS_DISABLED
-    LTEXT           "Domain",ID_TEXT,213,57,100,8
-    EDITTEXT        ID_EDTDOMAIN,213,66,147,14,ES_AUTOHSCROLL | WS_DISABLED
-    LTEXT           "Password",ID_TEXT,213,84,100,8
-    EDITTEXT        ID_EDTPASSWORD,213,93,147,14,ES_PASSWORD | ES_AUTOHSCROLL | WS_DISABLED
-    LTEXT           "Log level",ID_TEXT,213,120,40,8
-    COMBOBOX        ID_CBLOGLEVEL,258,117,88,50,CBS_DROPDOWNLIST | WS_TABSTOP
-    DEFPUSHBUTTON   "Ok",IDOK,213,162,60,17,WS_DISABLED
-    PUSHBUTTON      "Cancel",IDCANCEL,291,162,60,17
-    LTEXT           "Copyright © 2019 // Andrew Hess // clawSoft",ID_TEXT,3,207,200,8
-    LTEXT           "Released under the terms of the GNU General Public License.",ID_TEXT,3,215,200,8
-    LTEXT           "See LICENSE for details.",ID_TEXT,3,223,200,8
-END
+CAPTION szCaption1
+STYLE WS_POPUP | WS_SYSMENU | WS_CAPTION | DS_MODALFRAME | DS_CENTER
+{
+	LTEXT szPortName, ID_TEXT, 3, 3, 100, 8
+	EDITTEXT ID_EDTPORTNAME, 3, 12, 180, 14, WS_DISABLED | ES_AUTOHSCROLL
+	LTEXT szOutputPath, ID_TEXT, 3, 30, 100, 8
+	EDITTEXT ID_EDTOUTPUTPATH, 3, 39, 180, 14, ES_AUTOHSCROLL
+	PUSHBUTTON "...", ID_BTNBROWSE, 186, 39, 14, 14
+	LTEXT szFilePattern, ID_TEXT, 3, 57, 100, 8
+	EDITTEXT ID_EDTFILEPATTERN, 3, 66, 180, 14, ES_AUTOHSCROLL
+	PUSHBUTTON "?", ID_BTNHELP, 186, 66, 14, 14
+	AUTOCHECKBOX szOverwrite, ID_CHKOVERWRITE, 3, 84, 150, 14, BS_AUTOCHECKBOX | WS_TABSTOP
+	LTEXT szUserCommand, ID_TEXT, 3, 102, 200, 8
+	EDITTEXT ID_EDTUSERCOMMAND, 3, 111, 180, 14, ES_AUTOHSCROLL
+	PUSHBUTTON "?", ID_BTNHELP2, 186, 111, 14, 14
+	LTEXT szCmdPath, ID_TEXT, 3, 129, 100, 8
+	EDITTEXT ID_EDTCMDPATH, 3, 138, 180, 14, ES_AUTOHSCROLL
+	PUSHBUTTON "...", ID_BTNBROWSE2, 186, 138, 14, 14
+	AUTOCHECKBOX szPipeData, ID_PIPEDATA, 3, 156, 160, 14, BS_AUTOCHECKBOX | WS_TABSTOP
+	AUTOCHECKBOX szWaitProcess, ID_CHKWAITTERMINATION, 3, 171, 110, 14, BS_AUTOCHECKBOX | WS_TABSTOP
+	EDITTEXT ID_EDTTIMEOUT, 115, 171, 45, 14, ES_AUTOHSCROLL
+	LTEXT "sec.", ID_TEXT, 167, 175, 20, 8
+	AUTOCHECKBOX szHideProcess, ID_HIDEPROCESS, 3, 186, 160, 14, BS_AUTOCHECKBOX | WS_TABSTOP
+
+	AUTOCHECKBOX szRunAsPUser, ID_RUNASPUSER, 213, 16, 180, 8, BS_AUTOCHECKBOX | WS_TABSTOP
+
+    LTEXT szRunAs, ID_TEXT, 213, 30, 100, 8
+    EDITTEXT ID_EDTUSER, 213, 39, 147, 14, ES_AUTOHSCROLL
+    LTEXT szDomain, ID_TEXT, 213, 57, 100, 8
+    EDITTEXT ID_EDTDOMAIN, 213, 66, 147, 14, ES_AUTOHSCROLL
+    LTEXT szPassword, ID_TEXT, 213, 84, 100, 8
+    EDITTEXT ID_EDTPASSWORD, 213, 93, 147, 14, ES_PASSWORD | ES_AUTOHSCROLL
+	LTEXT szLogLevel, ID_TEXT, 213, 120, 40, 8
+	COMBOBOX ID_CBLOGLEVEL, 258, 117, 88, 50, CBS_DROPDOWNLIST | WS_TABSTOP
+	DEFPUSHBUTTON "Ok", IDOK, 213, 162, 60, 17
+	PUSHBUTTON szCancel, IDCANCEL, 291, 162, 60, 17
+
+	LTEXT szCopy1, ID_TEXT, 3, 207, 200, 8
+	LTEXT szCopy2, ID_TEXT, 3, 215, 200, 8
+	LTEXT szCopy3, ID_TEXT, 3, 223, 200, 8
+}
+
+
 
 IDD_ADDPORTUI DIALOGEX 0, 0, 220, 108
-STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "new port name"
-FONT 8, "Tahoma", 0, 0, 0x1
-BEGIN
-    LTEXT           "Port name",ID_TEXT,10,10,100,8
-    EDITTEXT        ID_EDTPORTNAME,8,20,180,14,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "Ok",IDOK,10,50,60,17
-    PUSHBUTTON      "Cancel",IDCANCEL,120,50,60,17
-    LTEXT           "Copyright © 2019 // Andrew Hess // clawSoft",ID_TEXT,10,74,200,8
-    LTEXT           "Released under the terms of the GNU General Public License.",ID_TEXT,10,82,200,8
-    LTEXT           "See LICENSE for details.",ID_TEXT,10,90,200,8
-END
+FONT 8, "Tahoma" 
+CAPTION szCaption2
+STYLE WS_POPUP | WS_SYSMENU | WS_CAPTION | DS_MODALFRAME | DS_CENTER
+{
+	LTEXT szPortName, ID_TEXT, 10, 10, 100, 8
+	EDITTEXT ID_EDTPORTNAME, 8, 20, 180, 14, ES_AUTOHSCROLL
+	DEFPUSHBUTTON "Ok", IDOK, 10, 50, 60, 17
+	PUSHBUTTON szCancel, IDCANCEL, 120, 50, 60, 17
+	LTEXT szCopy1, ID_TEXT, 10, 74, 200, 8
+	LTEXT szCopy2, ID_TEXT, 10, 82, 200, 8
+	LTEXT szCopy3, ID_TEXT, 10, 90, 200, 8
+}
 
 
-/////////////////////////////////////////////////////////////////////////////
-//
-// Version
-//
-
-1 VERSIONINFO
- FILEVERSION 1,0,0,1
- PRODUCTVERSION 1,0,0,1
- FILEFLAGSMASK 0x3fL
+/*
+*    VERSION INFORMATION
+*
+*/
+1       VERSIONINFO
+        FILEVERSION             nVersion
+        PRODUCTVERSION          nVersion
+        FILEFLAGSMASK           0x3fL
 #ifdef _DEBUG
- FILEFLAGS 0x1L
+        FILEFLAGS               VS_FF_DEBUG
 #else
- FILEFLAGS 0x0L
+        FILEFLAGS               0x0L
 #endif
- FILEOS 0x4L
- FILETYPE 0x2L
- FILESUBTYPE 0x0L
+        FILEOS                  VOS__WINDOWS32
+        FILETYPE                VFT_DLL
+        FILESUBTYPE             0x0L
 BEGIN
-    BLOCK "StringFileInfo"
+  BLOCK "StringFileInfo"
+  BEGIN
+#if (!defined(CLAWMONLANG) || CLAWMONLANG == 0x0409)
+    BLOCK "04090000"
+#endif
     BEGIN
-        BLOCK "04090000"
-        BEGIN
-            VALUE "Comments", "Released under the terms of the GNU General Public License"
-            VALUE "CompanyName", "Andrew Hess // clawSoft"
-            VALUE "FileDescription", "Printer port monitor UI"
-            VALUE "FileVersion", "1.0.0.1"
-            VALUE "InternalName", "clawmonui"
-            VALUE "LegalCopyright", "Copyright © 2019 // Andrew Hess // clawSoft"
-            VALUE "OriginalFilename", "clawmonui.dll"
-            VALUE "ProductName", "clawmon"
-            VALUE "ProductVersion", "1.0.0.1"
-        END
+      VALUE "Comments", szComments
+      VALUE "CompanyName", "Andrew Hess // clawSoft\0"
+      VALUE "FileDescription", "Printer port monitor UI\0"
+      VALUE "FileVersion", szVersion
+      VALUE "InternalName", "clawmonui\0"
+      VALUE "LegalCopyright", "Copyright © 2019 // Andrew Hess // clawSoft\0"
+      VALUE "LegalTrademarks", "\0"
+      VALUE "OriginalFilename", "clawmonui.dll\0"
+      VALUE "PrivateBuild", "\0"
+      VALUE "ProductName", "clawmon\0"
+      VALUE "ProductVersion", szVersion
+      VALUE "SpecialBuild", "\0"
     END
-    BLOCK "VarFileInfo"
-    BEGIN
-        VALUE "Translation", 0x409, 0
-    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+#if (!defined(CLAWMONLANG) || CLAWMONLANG == 0x0409)
+    VALUE "Translation", 0x409, 0x0L
+#endif
+  END
 END
-
-
-#ifdef APSTUDIO_INVOKED
-/////////////////////////////////////////////////////////////////////////////
-//
-// TEXTINCLUDE
-//
-
-1 TEXTINCLUDE 
-BEGIN
-    "resource.h\0"
-END
-
-2 TEXTINCLUDE 
-BEGIN
-    "\0"
-END
-
-3 TEXTINCLUDE 
-BEGIN
-    "\r\n"
-    "\0"
-END
-
-#endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO
-BEGIN
-    IDD_MONITORUI, DIALOG
-    BEGIN
-    END
-
-    IDD_ADDPORTUI, DIALOG
-    BEGIN
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
-#endif    // Deutsch (Deutschland) resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-
-#ifndef APSTUDIO_INVOKED
-/////////////////////////////////////////////////////////////////////////////
-//
-// Generated from the TEXTINCLUDE 3 resource.
-//
-
-
-/////////////////////////////////////////////////////////////////////////////
-#endif    // not APSTUDIO_INVOKED
-

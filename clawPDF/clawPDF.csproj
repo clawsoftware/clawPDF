@@ -201,24 +201,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helper\SettingsHelper.cs" />
     <Compile Include="Workflow\WorkflowFactory.cs" />
-    <None Include="clawmon\x64\pscript.hlp">
+    <Content Include="clawmon\x64\pscript.hlp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="clawmon\x64\pscript.ntf">
+    </Content>
+    <Content Include="clawmon\x64\pscript.ntf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="clawmon\x64\SCPDFPRN.ppd">
+    </Content>
+    <Content Include="clawmon\x64\SCPDFPRN.ppd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="clawmon\x86\pscript.hlp">
+    </Content>
+    <Content Include="clawmon\x86\pscript.hlp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="clawmon\x86\pscript.ntf">
+    </Content>
+    <Content Include="clawmon\x86\pscript.ntf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="clawmon\x86\SCPDFPRN.ppd">
+    </Content>
+    <Content Include="clawmon\x86\SCPDFPRN.ppd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <None Include="languages\Catalan %28Catalan%29.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -23,29 +23,29 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 //funzioni del port monitor. I membri di MONITOR2 punteranno a queste funzioni
 
 BOOL WINAPI MfmEnumPorts(HANDLE hMonitor, LPWSTR pName, DWORD Level, LPBYTE pPorts,
-	DWORD cbBuf, LPDWORD pcbNeeded, LPDWORD pcReturned);
+						 DWORD cbBuf, LPDWORD pcbNeeded, LPDWORD pcReturned);
 
 BOOL WINAPI MfmOpenPort(HANDLE hMonitor, LPWSTR pName, PHANDLE pHandle);
 
 BOOL WINAPI MfmStartDocPort(HANDLE hPort, LPWSTR pPrinterName, DWORD JobId,
-	DWORD Level, LPBYTE pDocInfo);
+							DWORD Level, LPBYTE pDocInfo);
 
-BOOL WINAPI MfmWritePort(HANDLE hPort, LPBYTE pBuffer,
-	DWORD cbBuf, LPDWORD pcbWritten);
+BOOL WINAPI MfmWritePort(HANDLE hPort, LPBYTE pBuffer, 
+						 DWORD cbBuf, LPDWORD pcbWritten);
 
 BOOL WINAPI MfmReadPort(HANDLE hPort, LPBYTE pBuffer,
-	DWORD cbBuffer, LPDWORD pcbRead);
+						DWORD cbBuffer, LPDWORD pcbRead);
 
 BOOL WINAPI MfmEndDocPort(HANDLE hPort);
 
 BOOL WINAPI MfmClosePort(HANDLE hPort);
 
-BOOL WINAPI MfmXcvOpenPort(HANDLE hMonitor, LPCWSTR pszObject,
-	ACCESS_MASK GrantedAccess, PHANDLE phXcv);
+BOOL WINAPI MfmXcvOpenPort(HANDLE hMonitor, LPCWSTR pszObject, 
+						   ACCESS_MASK GrantedAccess, PHANDLE phXcv);
 
 DWORD WINAPI MfmXcvDataPort(HANDLE hXcv, LPCWSTR pszDataName, PBYTE pInputData,
-	DWORD cbInputData, PBYTE pOutputData, DWORD cbOutputData,
-	PDWORD pcbOutputNeeded);
+							DWORD cbInputData, PBYTE pOutputData, DWORD cbOutputData,
+							PDWORD pcbOutputNeeded);
 
 BOOL WINAPI MfmXcvClosePort(HANDLE hXcv);
 

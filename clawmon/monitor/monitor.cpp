@@ -45,8 +45,8 @@ typedef struct tagXCVDATA
 } XCVDATA, *LPXCVDATA;
 
 //-------------------------------------------------------------------------------------
-BOOL WINAPI MfmEnumPorts(HANDLE hMonitor, LPWSTR pName, DWORD Level, LPBYTE pPorts,
-	DWORD cbBuf, LPDWORD pcbNeeded, LPDWORD pcReturned)
+BOOL WINAPI MfmEnumPorts(HANDLE hMonitor, LPWSTR pName, DWORD Level, LPBYTE pPorts, 
+						 DWORD cbBuf, LPDWORD pcbNeeded, LPDWORD pcReturned)
 {
 	return g_pPortList->EnumMultiFilePorts(hMonitor, pName, Level, pPorts,
 		cbBuf, pcbNeeded, pcReturned);
@@ -93,7 +93,7 @@ BOOL WINAPI MfmOpenPort(HANDLE hMonitor, LPWSTR pName, PHANDLE pHandle)
 
 //-------------------------------------------------------------------------------------
 BOOL WINAPI MfmStartDocPort(HANDLE hPort, LPWSTR pPrinterName, DWORD JobId,
-	DWORD Level, LPBYTE pDocInfo)
+						    DWORD Level, LPBYTE pDocInfo)
 {
 	UNREFERENCED_PARAMETER(Level);
 
@@ -127,15 +127,15 @@ BOOL WINAPI MfmStartDocPort(HANDLE hPort, LPWSTR pPrinterName, DWORD JobId,
 		SetLastError(res);
 		return FALSE;
 	}
-
+	
 	g_pLog->Log(LOGLEVEL_ALL, L"MfmStartDocPort returning TRUE (%s)", pPort->PortName());
 
 	return TRUE;
 }
 
 //-------------------------------------------------------------------------------------
-BOOL WINAPI MfmWritePort(HANDLE hPort, LPBYTE pBuffer,
-	DWORD cbBuf, LPDWORD pcbWritten)
+BOOL WINAPI MfmWritePort(HANDLE hPort, LPBYTE pBuffer, 
+						 DWORD cbBuf, LPDWORD pcbWritten)
 {
 	if (!hPort)
 	{
@@ -181,7 +181,7 @@ BOOL WINAPI MfmWritePort(HANDLE hPort, LPBYTE pBuffer,
 
 //-------------------------------------------------------------------------------------
 BOOL WINAPI MfmReadPort(HANDLE hPort, LPBYTE pBuffer,
-	DWORD cbBuffer, LPDWORD pcbRead)
+					    DWORD cbBuffer, LPDWORD pcbRead)
 {
 	UNREFERENCED_PARAMETER(hPort);
 	UNREFERENCED_PARAMETER(pBuffer);
@@ -225,8 +225,8 @@ BOOL WINAPI MfmClosePort(HANDLE hPort)
 }
 
 //-------------------------------------------------------------------------------------
-BOOL WINAPI MfmXcvOpenPort(HANDLE hMonitor, LPCWSTR pszObject,
-	ACCESS_MASK GrantedAccess, PHANDLE phXcv)
+BOOL WINAPI MfmXcvOpenPort(HANDLE hMonitor, LPCWSTR pszObject, 
+						   ACCESS_MASK GrantedAccess, PHANDLE phXcv)
 {
 	UNREFERENCED_PARAMETER(hMonitor);
 
@@ -249,8 +249,8 @@ BOOL WINAPI MfmXcvOpenPort(HANDLE hMonitor, LPCWSTR pszObject,
 
 //-------------------------------------------------------------------------------------
 DWORD WINAPI MfmXcvDataPort(HANDLE hXcv, LPCWSTR pszDataName, PBYTE pInputData,
-	DWORD cbInputData, PBYTE pOutputData, DWORD cbOutputData,
-	PDWORD pcbOutputNeeded)
+						    DWORD cbInputData, PBYTE pOutputData, DWORD cbOutputData,
+						    PDWORD pcbOutputNeeded)
 {
 	g_pLog->Log(LOGLEVEL_ALL, L"MfmXcvDataPort called (%s)", pszDataName);
 
@@ -482,17 +482,17 @@ LPMONITOR2 WINAPI InitializePrintMonitor2(PMONITORINIT pMonitorInit, PHANDLE phM
 		return NULL;
 	}
 
-	themon.pfnEnumPorts = MfmEnumPorts;
-	themon.pfnOpenPort = MfmOpenPort;
-	themon.pfnStartDocPort = MfmStartDocPort;
-	themon.pfnWritePort = MfmWritePort;
-	themon.pfnReadPort = MfmReadPort;
-	themon.pfnEndDocPort = MfmEndDocPort;
-	themon.pfnClosePort = MfmClosePort;
-	themon.pfnXcvOpenPort = MfmXcvOpenPort;
-	themon.pfnXcvDataPort = MfmXcvDataPort;
-	themon.pfnXcvClosePort = MfmXcvClosePort;
-	themon.pfnShutdown = MfmShutdown;
+	themon.pfnEnumPorts		= MfmEnumPorts;
+	themon.pfnOpenPort		= MfmOpenPort;
+	themon.pfnStartDocPort	= MfmStartDocPort;
+	themon.pfnWritePort		= MfmWritePort;
+	themon.pfnReadPort		= MfmReadPort;
+	themon.pfnEndDocPort	= MfmEndDocPort;
+	themon.pfnClosePort		= MfmClosePort;
+	themon.pfnXcvOpenPort	= MfmXcvOpenPort;
+	themon.pfnXcvDataPort	= MfmXcvDataPort;
+	themon.pfnXcvClosePort	= MfmXcvClosePort;
+	themon.pfnShutdown		= MfmShutdown;
 
 	g_pMonitorInit = pMonitorInit;
 
@@ -518,9 +518,9 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD dwReason, LPVOID lpvReserved)
 		//Steady, ready, go. You have 20 seconds to attach your debugger to spoolsv
 		Sleep(20000);
 #endif
-		// see here http://msdn.microsoft.com/en-us/library/ms682659%28v=vs.85%29.aspx
-		// why the following call should not be done
-		//		DisableThreadLibraryCalls(hinstDLL);
+// see here http://msdn.microsoft.com/en-us/library/ms682659%28v=vs.85%29.aspx
+// why the following call should not be done
+//		DisableThreadLibraryCalls(hinstDLL);
 		g_pLog = new CMfmLog();
 		g_pLog->Log(LOGLEVEL_NONE, L"*** clawmon log start ***");
 		g_pPortList = new CPortList(szMonitorName, szDescription);

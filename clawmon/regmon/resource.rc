@@ -52,12 +52,12 @@ BEGIN
     BEGIN
       VALUE "Comments", szComments
       VALUE "CompanyName", "Andrew Hess // clawSoft\0"
-      VALUE "FileDescription", "Printer port monitor\0"
+      VALUE "FileDescription", "Printer port monitor registration\0"
       VALUE "FileVersion", szVersion
       VALUE "InternalName", "clawmon\0"
       VALUE "LegalCopyright", "Copyright © 2019 // Andrew Hess // clawSoft\0"
       VALUE "LegalTrademarks", "\0"
-      VALUE "OriginalFilename", "clawmon.dll\0"
+      VALUE "OriginalFilename", "regmon.exe\0"
       VALUE "PrivateBuild", "\0"
       VALUE "ProductName", "clawmon\0"
       VALUE "ProductVersion", szVersion

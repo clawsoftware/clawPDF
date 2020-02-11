@@ -9,6 +9,23 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "regmon", "regmon\regmon.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clawmonui", "monitorUI\clawmonui.vcxproj", "{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{4CD3B416-6278-46E1-8DB7-068F0E59C389}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{7DE20957-8751-4189-BF00-DBAE11BA4B1B}"
+	ProjectSection(SolutionItems) = preProject
+		docs\images\clawmonui.png = docs\images\clawmonui.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "issues", "issues", "{568EB799-34CE-4E95-83FA-3158C7CBD53A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2", "2", "{2B0E97EC-026D-4143-9529-00D2B97D4534}"
+	ProjectSection(SolutionItems) = preProject
+		docs\issues\2\clawmon_FileToUserTemp.au3 = docs\issues\2\clawmon_FileToUserTemp.au3
+		docs\issues\2\clawmon_FileToUserTemp.exe = docs\issues\2\clawmon_FileToUserTemp.exe
+		docs\issues\2\config.PNG = docs\issues\2\config.PNG
+		docs\issues\2\config_with_src_delete.PNG = docs\issues\2\config_with_src_delete.PNG
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -44,6 +61,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7DE20957-8751-4189-BF00-DBAE11BA4B1B} = {4CD3B416-6278-46E1-8DB7-068F0E59C389}
+		{568EB799-34CE-4E95-83FA-3158C7CBD53A} = {4CD3B416-6278-46E1-8DB7-068F0E59C389}
+		{2B0E97EC-026D-4143-9529-00D2B97D4534} = {568EB799-34CE-4E95-83FA-3158C7CBD53A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E1EDC79-B996-4708-828F-773DA0A7AD09}

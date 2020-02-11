@@ -115,10 +115,10 @@ CPattern::CPattern(LPCWSTR szPattern, CPort* pPort, BOOL bUserCommand)
 						int index = (nWidth < -9 || nWidth > 9)
 							? 8
 							: (nWidth == 0)
-							? 3
-							: (nWidth < 0)
-							? 1 - nWidth
-							: nWidth - 1;
+								? 3
+								: (nWidth < 0)
+									? 1 - nWidth
+									: nWidth - 1;
 						while (*szPattern >= L'0' && *szPattern <= L'9')
 						{
 							WCHAR c = *szPattern++;
@@ -137,108 +137,108 @@ CPattern::CPattern(LPCWSTR szPattern, CPort* pPort, BOOL bUserCommand)
 					CPatternSegment* pNewSeg = NULL;
 					switch (*szPattern)
 					{
-					case L'i':
-						if (!bUserCommand)
-							pNewSeg = new CAutoIncrementSegment(nWidth, nStart);
-						else
-							while (pTemp <= szPattern)
-							{
-								//check buffer overflow
-								if ((pBuf[0] - szBuf[0]) < (LENGTHOF(szBuf[0]) - 1))
-									*pBuf[0]++ = *pTemp++;
-								else
-									pTemp++;
-							}
-						break;
-					case L'f':
-						if (bUserCommand)
-							pNewSeg = new CFileNameSegment(nWidth, m_pPort);
-						else
-							while (pTemp <= szPattern)
-							{
-								//check buffer overflow
-								if ((pBuf[0] - szBuf[0]) < (LENGTHOF(szBuf[0]) - 1))
-									*pBuf[0]++ = *pTemp++;
-								else
-									pTemp++;
-							}
-						break;
-					case L'p':
-						if (bUserCommand)
-							pNewSeg = new CPathSegment(nWidth, m_pPort);
-						else
-							while (pTemp <= szPattern)
-							{
-								//check buffer overflow
-								if ((pBuf[0] - szBuf[0]) < (LENGTHOF(szBuf[0]) - 1))
-									*pBuf[0]++ = *pTemp++;
-								else
-									pTemp++;
-							}
-						break;
-					case L'y':
-						pNewSeg = new CShortYearSegment(nWidth);
-						break;
-					case L'Y':
-						pNewSeg = new CLongYearSegment(nWidth);
-						break;
-					case L'm':
-						pNewSeg = new CMonthSegment(nWidth);
-						break;
-					case L'M':
-						pNewSeg = new CMonthNameSegment(nWidth);
-						break;
-					case L'd':
-						pNewSeg = new CDaySegment(nWidth);
-						break;
-					case L'D':
-						pNewSeg = new CDayNameSegment(nWidth);
-						break;
-					case L'h':
-						pNewSeg = new CHour12Segment(nWidth);
-						break;
-					case L'H':
-						pNewSeg = new CHour24Segment(nWidth);
-						break;
-					case L'n':
-						pNewSeg = new CMinuteSegment(nWidth);
-						break;
-					case L's':
-						pNewSeg = new CSecondSegment(nWidth);
-						break;
-					case L't':
-						pNewSeg = new CJobTitleSegment(nWidth, m_pPort);
-						break;
-					case L'T':
-						pNewSeg = new CTempDirSegment(nWidth);
-						break;
-					case L'j':
-						pNewSeg = new CJobIdSegment(nWidth, m_pPort);
-						break;
-					case L'u':
-						pNewSeg = new CUserNameSegment(nWidth, m_pPort);
-						break;
-					case L'c':
-						pNewSeg = new CComputerNameSegment(nWidth, m_pPort);
-						break;
-					case L'r':
-						pNewSeg = new CPrinterNameSegment(nWidth, m_pPort);
-						break;
-					case L'b':
-						pNewSeg = new CPrinterBinSegment(nWidth, m_pPort);
-						break;
-					default:
-						//not a valid field, get here from where we started parsing
-						//and put aside for a static field
-						while (pTemp <= szPattern)
-						{
-							//check buffer overflow
-							if ((pBuf[0] - szBuf[0]) < (LENGTHOF(szBuf[0]) - 1))
-								*pBuf[0]++ = *pTemp++;
+						case L'i':
+							if (!bUserCommand)
+								pNewSeg = new CAutoIncrementSegment(nWidth, nStart);
 							else
-								pTemp++;
-						}
-						break;
+								while (pTemp <= szPattern)
+								{
+									//check buffer overflow
+									if ((pBuf[0] - szBuf[0]) < (LENGTHOF(szBuf[0]) - 1))
+										*pBuf[0]++ = *pTemp++;
+									else
+										pTemp++;
+								}
+							break;
+						case L'f':
+							if (bUserCommand)
+								pNewSeg = new CFileNameSegment(nWidth, m_pPort);
+							else
+								while (pTemp <= szPattern)
+								{
+									//check buffer overflow
+									if ((pBuf[0] - szBuf[0]) < (LENGTHOF(szBuf[0]) - 1))
+										*pBuf[0]++ = *pTemp++;
+									else
+										pTemp++;
+								}
+							break;
+						case L'p':
+							if (bUserCommand)
+								pNewSeg = new CPathSegment(nWidth, m_pPort);
+							else
+								while (pTemp <= szPattern)
+								{
+									//check buffer overflow
+									if ((pBuf[0] - szBuf[0]) < (LENGTHOF(szBuf[0]) - 1))
+										*pBuf[0]++ = *pTemp++;
+									else
+										pTemp++;
+								}
+							break;
+						case L'y':
+							pNewSeg = new CShortYearSegment(nWidth);
+							break;
+						case L'Y':
+							pNewSeg = new CLongYearSegment(nWidth);
+							break;
+						case L'm':
+							pNewSeg = new CMonthSegment(nWidth);
+							break;
+						case L'M':
+							pNewSeg = new CMonthNameSegment(nWidth);
+							break;
+						case L'd':
+							pNewSeg = new CDaySegment(nWidth);
+							break;
+						case L'D':
+							pNewSeg = new CDayNameSegment(nWidth);
+							break;
+						case L'h':
+							pNewSeg = new CHour12Segment(nWidth);
+							break;
+						case L'H':
+							pNewSeg = new CHour24Segment(nWidth);
+							break;
+						case L'n':
+							pNewSeg = new CMinuteSegment(nWidth);
+							break;
+						case L's':
+							pNewSeg = new CSecondSegment(nWidth);
+							break;
+						case L't':
+							pNewSeg = new CJobTitleSegment(nWidth, m_pPort);
+							break;
+						case L'T':
+							pNewSeg = new CTempDirSegment(nWidth);
+							break;
+						case L'j':
+							pNewSeg = new CJobIdSegment(nWidth, m_pPort);
+							break;
+						case L'u':
+							pNewSeg = new CUserNameSegment(nWidth, m_pPort);
+							break;
+						case L'c':
+							pNewSeg = new CComputerNameSegment(nWidth, m_pPort);
+							break;
+						case L'r':
+							pNewSeg = new CPrinterNameSegment(nWidth, m_pPort);
+							break;
+						case L'b':
+							pNewSeg = new CPrinterBinSegment(nWidth, m_pPort);
+							break;
+						default:
+							//not a valid field, get here from where we started parsing
+							//and put aside for a static field
+							while (pTemp <= szPattern)
+							{
+								//check buffer overflow
+								if ((pBuf[0] - szBuf[0]) < (LENGTHOF(szBuf[0]) - 1))
+									*pBuf[0]++ = *pTemp++;
+								else
+									pTemp++;
+							}
+							break;
 					}
 
 					if (pNewSeg)

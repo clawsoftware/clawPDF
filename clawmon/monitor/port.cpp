@@ -68,7 +68,7 @@ static BOOL EnablePrivilege(
 
 //-------------------------------------------------------------------------------------
 static BOOL GetPrimaryToken(LPWSTR lpszUsername, LPWSTR lpszDomain, LPWSTR lpszPassword,
-	PHANDLE phToken, BOOL* bRestrictedToken)
+	PHANDLE phToken, BOOL *bRestrictedToken)
 {
 	DWORD dwLength;
 	*bRestrictedToken = FALSE;
@@ -169,7 +169,7 @@ static BOOL GetPrimaryToken(LPWSTR lpszUsername, LPWSTR lpszDomain, LPWSTR lpszP
 		*/
 
 		bGotTcbPriv = EnablePrivilege(hMyToken, SE_TCB_NAME, TRUE, &TcbPrevState);
-		bSuccess = GetTokenInformation(*phToken, TokenLinkedToken, (VOID*)& hLinkedToken,
+		bSuccess = GetTokenInformation(*phToken, TokenLinkedToken, (VOID*)&hLinkedToken,
 			sizeof(HANDLE), &dwLength);
 
 		if (bGotTcbPriv)
@@ -504,7 +504,7 @@ BOOL CPort::StartJob(DWORD nJobId, LPWSTR szJobTitle, LPWSTR szPrinterName)
 	{
 		DWORD dwId = 0;
 		m_threadData.pPort = this;
-		if ((m_hWriteThread = CreateThread(NULL, 0, WriteThreadProc, (LPVOID)& m_threadData, 0, &dwId)) == NULL)
+		if ((m_hWriteThread = CreateThread(NULL, 0, WriteThreadProc, (LPVOID)&m_threadData, 0, &dwId)) == NULL)
 			return FALSE;
 		g_pLog->Log(LOGLEVEL_ALL, L"Worker thread started (id: 0x%0.8X)", dwId);
 	}
@@ -643,7 +643,7 @@ DWORD CPort::CreateOutputFile()
 			LPWSTR username = (LPWSTR)(LPCWSTR)UserName();
 			HANDLE utoken = get_token_for_user(username);
 
-			static void* environment = NULL;
+			static void *environment = NULL;
 			CreateEnvironmentBlock(&environment, utoken, FALSE);
 
 			//create child process - give up in case of failure since we need to write to process
@@ -655,8 +655,8 @@ DWORD CPort::CreateOutputFile()
 			//	bRes = CreateProcessAsUser(utoken, NULL, m_pUserCommand->Value(), NULL, NULL,
 			//		TRUE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
 			//else
-			bRes = CreateProcessW(NULL, m_pUserCommand->Value(), NULL, NULL,
-				TRUE, 0, NULL, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
+				bRes = CreateProcessW(NULL, m_pUserCommand->Value(), NULL, NULL,
+					TRUE, 0, NULL, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
 
 			DWORD dwErr = GetLastError();
 
@@ -862,7 +862,7 @@ BOOL CPort::EndJob()
 		LPWSTR username = (LPWSTR)(LPCWSTR)UserName();
 		HANDLE utoken = get_token_for_user(username);
 
-		static void* environment = NULL;
+		static void *environment = NULL;
 		CreateEnvironmentBlock(&environment, utoken, FALSE);
 
 		WriteControlFile();
@@ -880,7 +880,7 @@ BOOL CPort::EndJob()
 		//		TRUE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
 		//else
 		CreateProcessW(NULL, UserCommand, NULL, NULL,
-			FALSE, 0, NULL, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
+				FALSE, 0, NULL, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
 	}
 
 	//maybe wait and close handles to child process

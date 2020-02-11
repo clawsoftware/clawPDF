@@ -33,7 +33,7 @@ LPCWSTR szMsgInvalidPortName = L"Insert a valid port name (no backslashes allowe
 LPCWSTR szMsgBrowseFolderTitle = L"Output folder:";
 LPCWSTR szMsgProvideFileName = L"Insert a valid pattern.";
 LPCWSTR szMsgInvalidFileName = L"A pattern cannot contain the following characters: /:*?\"<>\r\n"
-L"except * and ? can be present in a \"search field\".";
+                               L"except * and ? can be present in a \"search field\".";
 LPCWSTR szMsgNoAddOnRemoteSvr = L"Unable to add a port on a remote server.";
 LPCWSTR szMsgPortExists = L"A port with this name already exists.";
 LPCWSTR szMsgNoConfigOnRemoteSvr = L"Unable to configure a port on a remote server.";

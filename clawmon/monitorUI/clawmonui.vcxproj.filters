@@ -61,6 +61,9 @@
     <None Include="..\common\comstrings.en">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\common\comstrings.it">
+      <Filter>Resource Files</Filter>
+    </None>
     <None Include="strings.en">
       <Filter>Resource Files</Filter>
     </None>
