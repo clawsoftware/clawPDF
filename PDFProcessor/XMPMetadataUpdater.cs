@@ -30,7 +30,7 @@ namespace clawSoft.clawPDF.PDFProcessing
             catch (Exception ex)
             {
                 throw new ProcessingException(
-                    ex.GetType() + " while addding updating xmp metadata:" + Environment.NewLine + ex.Message, 27999);
+                    ex.GetType() + " while adding updating xmp metadata:" + Environment.NewLine + ex.Message, 27999);
             }
         }
 
@@ -39,7 +39,7 @@ namespace clawSoft.clawPDF.PDFProcessing
             if (profile.OutputFormat != OutputFormat.PdfA2B)
                 return;
 
-            Logger.Debug("Start updateing XMP Metadata for PDF/A");
+            Logger.Debug("Start updating XMP Metadata for PDF/A");
 
             var ms = new PDFMetadataStrings("", "", "", "", "", "", "", "");
             //var reader = new PdfReader(sourceFilename);

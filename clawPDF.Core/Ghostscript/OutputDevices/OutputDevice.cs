@@ -200,10 +200,13 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                 outlineString = "true charpath stroke";
             }
 
-            // Only Latin1 chars are allowed here
-            stampString = stampString.Replace("[STAMPSTRING]",
-                EncodeGhostscriptParametersOctal(profile.Stamping.StampText));
-            stampString = stampString.Replace("[FONTNAME]", profile.Stamping.PostScriptFontName);
+			//Job.NumberOfCopies
+			var stampIdentifier = (Job.TokenReplacer.ReplaceTokens(profile.Stamping.StampText));
+
+			// Only Latin1 chars are allowed here
+			stampString = stampString.Replace("[STAMPSTRING]",
+                EncodeGhostscriptParametersOctal(stampIdentifier)); //profile.Stamping.StampText
+			stampString = stampString.Replace("[FONTNAME]", profile.Stamping.PostScriptFontName);
             stampString = stampString.Replace("[FONTSIZE]", profile.Stamping.FontSize.ToString(_numberFormat));
             stampString = stampString.Replace("[STAMPOUTLINEFONTTHICKNESS]",
                 outlineWidth.ToString(CultureInfo.InvariantCulture));

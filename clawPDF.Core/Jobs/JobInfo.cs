@@ -165,6 +165,7 @@ namespace clawSoft.clawPDF.Core.Jobs
 
             if (SourceFiles.Count > 0)
             {
+				//Metadata.Copies =  SourceFiles[0].Copies
                 Metadata.PrintJobAuthor = SourceFiles[0].Author;
                 Metadata.PrintJobName = titleReplacer.Replace(SourceFiles[0].DocumentTitle);
                 Metadata.Title = ""; //Set to avoid null exception when replacing tokens
