@@ -155,7 +155,7 @@ namespace clawSoft.clawPDF.Core.Settings
             }
         }
 
-        public void StoreValues(Data data, string path)
+        public void StoreValues(Data data, string path, string name)
         {
             data.SetValue(@"" + path + @"Color", ColorTranslator.ToHtml(Color));
             data.SetValue(@"" + path + @"Enabled", Enabled.ToString());

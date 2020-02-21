@@ -305,7 +305,7 @@ namespace clawSoft.clawPDF.Core.Settings
             Properties.StoreValues(data, path + @"Properties\");
             SaveDialog.StoreValues(data, path + @"SaveDialog\");
             Scripting.StoreValues(data, path + @"Scripting\");
-            Stamping.StoreValues(data, path + @"Stamping\");
+            Stamping.StoreValues(data, path + @"Stamping\", Guid);
             TiffSettings.StoreValues(data, path + @"TiffSettings\");
             data.SetValue(@"" + path + @"AuthorTemplate", Data.EscapeString(AuthorTemplate));
             data.SetValue(@"" + path + @"FileNameTemplate", Data.EscapeString(FileNameTemplate));
