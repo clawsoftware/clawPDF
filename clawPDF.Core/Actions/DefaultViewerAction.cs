@@ -55,20 +55,22 @@ namespace clawSoft.clawPDF.Core.Actions
 
         private ActionResult OpenJobOutput(IJob job)
         {
-            Logger.Trace("Open file(s) with default programm");
+            Logger.Trace("Open file(s) with default program");
             try
             {
                 if (FirstFileOnly)
                 {
-                    Process.Start(job.OutputFiles[0]);
-                    Logger.Trace("Openend (only first) file: " + job.OutputFiles[0]);
+					// TODO: Disable starting of the process for the output files... Instead you can start the script?
+					//Process.Start(job.OutputFiles[0]);
+                    Logger.Trace("Opened (only first) file: " + job.OutputFiles[0]);
                 }
                 else
                 {
                     foreach (var file in job.OutputFiles)
                     {
-                        Process.Start(file);
-                        Logger.Trace("Openend file: " + file);
+						// TODO: Disable starting of the process for the output files... Instead you can start the script?
+						//Process.Start(file);
+                        Logger.Trace("Opened file: " + file);
                     }
                 }
             }
