@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:userControls="clr-namespace:clawSoft.clawPDF.Views.UserControls"
         xmlns:userControls1="clr-namespace:clawSoft.clawPDF.Shared.Views.UserControls;assembly=clawPDF.Shared"
-        Title="clawPDF Settings"
+        Title="cPDF Settings"
         MinHeight="591"
         MinWidth="670"
         Width="771"
