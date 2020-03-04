@@ -22,6 +22,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #include "stdafx.h"
 #include "portlist.h"
+
+#include <ctime>
+
 #include "pattern.h"
 #include "log.h"
 #include "..\common\autoclean.h"

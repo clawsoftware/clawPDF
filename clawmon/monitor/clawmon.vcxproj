@@ -108,6 +108,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>${MSBuildProjectDirectory}\..\openssl\Win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>legacy_stdio_definitions.lib;userenv.lib;winspool.lib;advapi32.lib;user32.lib;libeay32MTd.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -135,7 +136,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>${MSBuildProjectDirectory}\..\openssl\Win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>legacy_stdio_definitions.lib;userenv.lib;winspool.lib;advapi32.lib;user32.lib;libeay32MTd.lib;%(AdditionalDependencies)</AdditionalDependencies>
