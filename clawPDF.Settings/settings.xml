@@ -497,7 +497,7 @@
         <value name="Name" type="value" datatype="String" enumname="" defaultvalue="NewProfile">
           <comment>Name of the profile</comment>
         </value>
-        <value name="OpenViewer" type="value" datatype="Bool" enumname="" defaultvalue="true">
+        <value name="OpenViewer" type="value" datatype="Bool" enumname="" defaultvalue="false">
           <comment>Open the default viewer after converting the document</comment>
         </value>
         <value name="OutputFormat" type="value" datatype="Enum" enumname="OutputFormat" defaultvalue="OutputFormat.Pdf">
