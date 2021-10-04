@@ -38,6 +38,10 @@
                           IsChecked="{Binding CurrentProfile.SkipPrintDialog, Mode=TwoWay}">
                     Skip print dialog (directly proceed to the save dialog)
                 </CheckBox>
+                <CheckBox Name="OpenViewerCheckBox" Margin="0,5,0,0"
+                          IsChecked="{Binding CurrentProfile.OpenViewer, Mode=TwoWay}">
+                    Open Viewer (after conversion)
+                </CheckBox>
             </StackPanel>
         </HeaderedContentControl>
 
