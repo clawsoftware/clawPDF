@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -125,7 +125,7 @@ namespace clawSoft.clawPDF.Mail
 
             public int flags = 0;
             public int position;
-            public string path;
+            public IntPtr path;
             public string name;
 
             // ReSharper disable once UnusedMember.Local
@@ -178,29 +178,29 @@ namespace clawSoft.clawPDF.Mail
             [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
             public class MapiMessage
             {
-                public string ConversationID = null;
-                public string DateReceived = null;
-                public int FileCount;
-                public IntPtr Files = IntPtr.Zero;
-                public int Flags = 0;
-                public string MessageType = null;
+                public int Reserved = 0;
+                public string Subject;
                 public string NoteText;
+                public string MessageType = null;
+                public string DateReceived = null;
+                public string ConversationID = null;
+                public int Flags = 0;
                 public IntPtr Originator = IntPtr.Zero;
                 public int RecipientCount;
                 public IntPtr Recipients = IntPtr.Zero;
-                public int Reserved = 0;
-                public string Subject;
+                public int FileCount;
+                public IntPtr Files = IntPtr.Zero;
             }
 
             [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
             public class MapiRecipDesc
             {
+                public int Reserved = 0;
+                public int RecipientClass;
+                public string Name;
                 public string Address;
                 public int eIDSize = 0;
                 public IntPtr EntryID = IntPtr.Zero;
-                public string Name;
-                public int RecipientClass;
-                public int Reserved = 0;
             }
 
             #endregion Structs
@@ -368,6 +368,15 @@ namespace clawSoft.clawPDF.Mail
             }
         }
 
+        [DllImport("kernel32.dll", EntryPoint = "RtlMoveMemory", CharSet = CharSet.Ansi)]
+        static extern void RtlMoveStringAnsi(IntPtr pdst, string psrc, IntPtr sizetcb);
+
+        private void CopyStringAnsi(IntPtr intPtr, string str)
+        {
+            int length = (str.Length + 1) * Marshal.SystemMaxDBCSCharSize;
+            RtlMoveStringAnsi(intPtr, str, (IntPtr)length);
+        }
+
         /// <summary>
         ///     Allocates the file attachments
         /// </summary>
@@ -375,6 +384,8 @@ namespace clawSoft.clawPDF.Mail
         /// <returns></returns>
         private IntPtr _AllocAttachments(out int fileCount)
         {
+            const int MAX_PATH = 256;
+
             fileCount = 0;
             if (Files == null) return IntPtr.Zero;
             if (Files.Count <= 0 || Files.Count > 100) return IntPtr.Zero;
@@ -385,14 +396,18 @@ namespace clawSoft.clawPDF.Mail
 
             var mfd = new MapiFileDescriptor();
             mfd.position = -1;
-            var runptr = (int)ptra;
+
+            IntPtr currentPtr = ptra;
+
             for (var i = 0; i < Files.Count; i++)
             {
                 var path = Files[i] as string;
                 mfd.name = Path.GetFileName(path);
-                mfd.path = path;
-                Marshal.StructureToPtr(mfd, (IntPtr)runptr, false);
-                runptr += asize;
+                mfd.path = Marshal.AllocHGlobal(MAX_PATH);
+
+                CopyStringAnsi(mfd.path, path);
+                Marshal.StructureToPtr(mfd, currentPtr, false);
+                currentPtr = (IntPtr)((long)currentPtr + asize);
             }
 
             fileCount = Files.Count;
@@ -750,14 +765,14 @@ namespace clawSoft.clawPDF.Mail
                 Handle = Marshal.AllocHGlobal(_count * size);
 
                 // place all interop recipients into the memory just allocated
-                var ptr = (int)Handle;
+                IntPtr currentPtr = Handle;
                 foreach (Recipient native in outer)
                 {
                     var interop = native.GetInteropRepresentation();
 
                     // stick it in the memory block
-                    Marshal.StructureToPtr(interop, (IntPtr)ptr, false);
-                    ptr += size;
+                    Marshal.StructureToPtr(interop, (IntPtr)currentPtr, false);
+                    currentPtr = (IntPtr)((long)currentPtr + size);
                 }
             }
 
