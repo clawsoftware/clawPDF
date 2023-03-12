@@ -11,7 +11,7 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.5/clawPDF_0.8.5_se
 # Tested under
 
 - Windows RDS/Terminalserver
-- Windows 11 x32/x64
+- Windows 11 x64
 - Windows 10 x32/x64
 - Windows 8 x32/x64
 - Windows 7 x32/x64
