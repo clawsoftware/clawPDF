@@ -68,7 +68,7 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.5/clawPDF_0.8.5_se
 - clawPDF.exe /PrintFile=D:\example.docx /profile=f81ea998-3a76-4104-a574-9a66d6f3039b
 - clawPDF.exe /PrintFile=D:\example.pdf /profile=JpegGuid
 
-/profile=GUID (HKEY_CURRENT_USER\Software\clawSoft\clawPDF\Settings\ConversionProfiles\[id]\Guid) 
+/profile=GUID (HKEY_CURRENT_USER\Software\clawSoft\clawPDF\Settings\ConversionProfiles\id\Guid) 
 
 
 ## ManagePrintJobs
