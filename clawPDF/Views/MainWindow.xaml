@@ -37,7 +37,6 @@
             <TextBlock Name="IntroductionStep1Text" Margin="20 3">1. Set up your profiles and settings here.</TextBlock>
             <TextBlock Name="IntroductionStep2Text" Margin="20 3">2. Print any document to the printer "clawPDF".</TextBlock>
             <TextBlock Name="IntroductionStep3Text" Margin="20 3">3. Save your PDF or send it as mail.</TextBlock>
-            <TextBlock Name="IntroductionGetHelpText" Margin="0 10 0 0">To get help, hit F1 or the question mark.</TextBlock>
         </StackPanel>
         <DockPanel VerticalAlignment="Bottom">
             <Button DockPanel.Dock="Left" Name="HelpButton" Background="Transparent" Height="50" Width="50" Margin="30 10"

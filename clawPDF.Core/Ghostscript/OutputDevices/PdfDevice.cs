@@ -35,23 +35,6 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
             parameters.Add("-dPDFSETTINGS=/default");
             parameters.Add("-dEmbedAllFonts=true");
 
-            /* FastWebView=true causes crashes in Ghostscript 9.20 so it has been removed for now, GS uses fastwebview=false by defrault
-
-            if (!(Job.Profile.OutputFormat.Equals(OutputFormat.PdfA2B) || Job.Profile.OutputFormat.Equals(OutputFormat.PdfA1B))
-                && Job.Profile.PdfSettings.FastWebView)
-            {
-                parameters.Add("-dFastWebView=true");
-            }
-            */
-
-            /* Parameters that are recommended for better quality of pictures
-             * - without obvious effect
-             */
-            //parameters.Add("-dTextAlphaBits=4");
-            //parameters.Add("-dDOINTERPOLATE");
-            //if(Job.Profile.OutputFormat != OutputFormat.PdfA1B)
-            //    parameters.Add("-dGraphicsAlphaBits=4");
-
             SetPageOrientation(parameters, DistillerDictonaries);
             SetColorSchemeParameters(parameters);
 
@@ -70,17 +53,22 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
         {
             var shortenedTempPath = Job.JobTempFolder;
 
-            if (Job.Profile.OutputFormat == OutputFormat.PdfA1B)
-                parameters.Add("-dPDFA=1");
-            else
-                parameters.Add("-dPDFA=2");
-            //parameters.Add("-dNOOUTERSAVE"); //Set in pdf-A example, but is not documented in the distiller parameters
+            switch (Job.Profile.OutputFormat)
+            {
+                case OutputFormat.PdfA1B:
+                    parameters.Add("-dPDFA=1");
+                    break;
 
-            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
-                         "\"");
+                case OutputFormat.PdfA2B:
+                    parameters.Add("-dPDFA=2");
+                    break;
+            }
+
+            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath + "\"");
 
             //Add ICC profile
             var iccFile = PathSafe.Combine(shortenedTempPath, "profile.icc");
+
             //Set ICC Profile according to the color model
             switch (Job.Profile.PdfSettings.ColorModel)
             {
@@ -93,14 +81,13 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                     break;
 
                 default:
-                case ColorModel.Rgb:
                     FileWrap.WriteAllBytes(iccFile, CoreResources.eciRGB_v2);
                     break;
             }
 
             parameters.Add("-sPDFACompatibilityPolicy=1");
 
-            parameters.Add("-sOutputICCProfile=\"" + iccFile + "\"");
+            parameters.Add("-sOutputICCProfile=" + iccFile);
 
             var defFile = PathSafe.Combine(Job.JobTempFolder, "pdfa_def.ps");
             var sb = new StringBuilder(CoreResources.PdfaDefinition);
@@ -121,8 +108,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
             //Add ICC profile
             var iccFile = PathSafe.Combine(shortenedTempPath, "profile.icc");
             FileWrap.WriteAllBytes(iccFile, CoreResources.ISOcoated_v2_300_eci);
-            parameters.Add("-sOutputICCProfile=\"" + iccFile + "\"");
-            //parameters.Add("-dNOOUTERSAVE"); //Set in pdf-X example, but is not documented in the distiller parameters
+            parameters.Add("-sOutputICCProfile=" + iccFile);
 
             var defFile = PathSafe.Combine(shortenedTempPath, "pdfx_def.ps");
             var sb = new StringBuilder(CoreResources.PdfxDefinition);
@@ -156,9 +142,9 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                     parameters.Add("-dColorImageFilter=/DCTEncode");
                     parameters.Add("-dGrayImageFilter=/DCTEncode");
                     distillerDictonaries.Add(
-                        ".setpdfwrite << /ColorImageDict <</QFactor 2.4 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
+                        "<< /ColorImageDict <</QFactor 2.4 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
                     distillerDictonaries.Add(
-                        ".setpdfwrite << /GrayImageDict <</QFactor 2.4 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
+                        "<< /GrayImageDict <</QFactor 2.4 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
                     break;
 
                 case CompressionColorAndGray.JpegHigh:
@@ -169,9 +155,9 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                     parameters.Add("-dColorImageFilter=/DCTEncode");
                     parameters.Add("-dGrayImageFilter=/DCTEncode");
                     distillerDictonaries.Add(
-                        ".setpdfwrite << /ColorImageDict <</QFactor 1.3 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
+                        "<< /ColorImageDict <</QFactor 1.3 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
                     distillerDictonaries.Add(
-                        ".setpdfwrite << /GrayImageDict <</QFactor 1.3 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
+                        "<< /GrayImageDict <</QFactor 1.3 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
                     break;
 
                 case CompressionColorAndGray.JpegMedium:
@@ -182,9 +168,9 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                     parameters.Add("-dColorImageFilter=/DCTEncode");
                     parameters.Add("-dGrayImageFilter=/DCTEncode");
                     distillerDictonaries.Add(
-                        ".setpdfwrite << /ColorImageDict <</QFactor 0.76 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
+                        "<< /ColorImageDict <</QFactor 0.76 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
                     distillerDictonaries.Add(
-                        ".setpdfwrite << /GrayImageDict <</QFactor 0.76 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
+                        "<< /GrayImageDict <</QFactor 0.76 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
                     break;
 
                 case CompressionColorAndGray.JpegLow:
@@ -195,9 +181,9 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                     parameters.Add("-dColorImageFilter=/DCTEncode");
                     parameters.Add("-dGrayImageFilter=/DCTEncode");
                     distillerDictonaries.Add(
-                        ".setpdfwrite << /ColorImageDict <</QFactor 0.40 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
+                        "<< /ColorImageDict <</QFactor 0.40 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
                     distillerDictonaries.Add(
-                        ".setpdfwrite << /GrayImageDict <</QFactor 0.40 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
+                        "<< /GrayImageDict <</QFactor 0.40 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
                     break;
 
                 case CompressionColorAndGray.JpegMinimum:
@@ -208,9 +194,9 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                     parameters.Add("-dColorImageFilter=/DCTEncode");
                     parameters.Add("-dGrayImageFilter=/DCTEncode");
                     distillerDictonaries.Add(
-                        ".setpdfwrite << /ColorImageDict <</QFactor 0.15 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
+                        "<< /ColorImageDict <</QFactor 0.15 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
                     distillerDictonaries.Add(
-                        ".setpdfwrite << /GrayImageDict <</QFactor 0.15 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
+                        "<< /GrayImageDict <</QFactor 0.15 /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
                     break;
 
                 case CompressionColorAndGray.Zip:
@@ -229,13 +215,11 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                     parameters.Add("-dEncodeGrayImages=true");
                     parameters.Add("-dColorImageFilter=/DCTEncode");
                     parameters.Add("-dGrayImageFilter=/DCTEncode");
-                    distillerDictonaries.Add(".setpdfwrite << /ColorImageDict <</QFactor " +
-                                             Job.Profile.PdfSettings.CompressColorAndGray.JpegCompressionFactor
-                                                 .ToString(CultureInfo.InvariantCulture) +
+                    distillerDictonaries.Add("<< /ColorImageDict <</QFactor " +
+                                             Job.Profile.PdfSettings.CompressColorAndGray.JpegCompressionFactor.ToString(CultureInfo.InvariantCulture) +
                                              " /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
-                    distillerDictonaries.Add(".setpdfwrite << /GrayImageDict <</QFactor " +
-                                             Job.Profile.PdfSettings.CompressColorAndGray.JpegCompressionFactor
-                                                 .ToString(CultureInfo.InvariantCulture) +
+                    distillerDictonaries.Add("<< /GrayImageDict <</QFactor " +
+                                             Job.Profile.PdfSettings.CompressColorAndGray.JpegCompressionFactor.ToString(CultureInfo.InvariantCulture) +
                                              " /Blend 1 /HSample [2 1 1 2] /VSample [2 1 1 2]>> >> setdistillerparams");
                     break;
 

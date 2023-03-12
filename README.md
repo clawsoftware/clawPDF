@@ -1,22 +1,34 @@
 # clawPDF // PDFCreator 2.3 fork
 
 Yet another PDF Printer? Yes! This PDF Printer has the intention to be completely open source.<br><br>
-Open Source virtual PDF printer for Windows 7 / 8 / 10 / 2008 / R2 / 2016 / 2019<br>
+Open Source virtual PDF printer for Windows 7 / 8 / 10 / 11 / RDS / Terminalserver<br>
 Print to PDF, PDF/A, PDF/X, PNG, JPEG, TIF and text
 
 # Download
 
-https://github.com/clawsoftware/clawPDF/releases/download/0.8.4/clawPDF_0.8.4_setup.msi
+https://github.com/clawsoftware/clawPDF/releases/download/0.8.5/clawPDF_0.8.5_setup.msi
 
 # Tested under
 
-- Windows Server 2016 RDS/Terminalserver
+- Windows RDS/Terminalserver
+- Windows 11 x32/x64
 - Windows 10 x32/x64
 - Windows 8 x32/x64
 - Windows 7 x32/x64
 
 
 # Changelog
+
+## v0.8.5 (2023.03.11)
+
+- [update]	Update to GS10
+- [bugfix]  MapiClient (thx to christian1980nrw)
+- [bugfix]  FtpConnection (thx to droshcom)
+- [bugfix]  Typo Czech.ini (thx to PetrTodorov)
+- [bugfix]  Fixed printing via UWP print dialog
+- [feature] OpenViewer setting (thx to victorromeo)
+- [feature] Batch Printing
+- [misc]	Optimizations
 
 ## v0.8.4 (2019.06.11)
 
@@ -49,6 +61,21 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.4/clawPDF_0.8.4_se
 - ...
 
 
+# Commandline
+
+## Batch Printing
+
+clawPDF.exe /PrintFile=D:\example.docx /profile=f81ea998-3a76-4104-a574-9a66d6f3039b
+clawPDF.exe /PrintFile=D:\example.pdf /profile=JpegGuid
+
+/profile=GUID (HKEY_CURRENT_USER\Software\clawSoft\clawPDF\Settings\ConversionProfiles\[id]\Guid) 
+
+
+## ManagePrintJobs
+
+clawPDF.exe /ManagePrintJobs
+
+
 # Requirements
 
 - .Net Framework 4.5.2+
@@ -62,15 +89,6 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.4/clawPDF_0.8.4_se
 ![clawpdf4](clawPDF/docs/images/clawpdf4.png?raw=true "clawpdf4")
 ![clawpdf5](clawPDF/docs/images/clawpdf5.png?raw=true "clawpdf5")
 ![clawpdf6](clawPDF/docs/images/clawpdf6.png?raw=true "clawpdf6")
-
-
-# Roadmap
-
-- keep ghostscript up to date (continuous process)
-- add more features
-- remove DataStorage.dll, DynamicTranslator.dll and TrueTypeFontInfo.dll
-- rewrite group policy settings
-- batch printing
 
 
 # Build
@@ -88,7 +106,7 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.4/clawPDF_0.8.4_se
 - parts of the ghostscript control: PdfScribe 1.0.6 (https://github.com/stchan/PdfScribe), licensed under AGPL v3 license.
 - redirection Port Monitor: clawmon (https://github.com/clawsoftware/clawmon), licensed under GPL v2 license.
 - Postscript Printer Drivers: Microsoft Postscript Printer Driver V3 (https://docs.microsoft.com/en-us/windows-hardware/drivers/print/microsoft-postscript-printer-driver), copyright (c) Microsoft Corporation. All rights reserved.
-- Postscript and PDF interpreter/renderer: Ghostscript 9.27 (https://www.ghostscript.com/download/gsdnld.html), licensed under AGPL v3 license.
+- Postscript and PDF interpreter/renderer: Ghostscript 10 (https://www.ghostscript.com/download/gsdnld.html), licensed under AGPL v3 license.
 - SystemWrapper 0.25.0.186 (https://github.com/jozefizso/SystemWrapper), licensed under Microsoft Public license.
 - ftplib 1.0.1.1 (https://archive.codeplex.com/?p=ftplib), licensed under MIT license.
 - DataStorage.dll, licensed under pdfforge Freeware License.
@@ -102,4 +120,4 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.4/clawPDF_0.8.4_se
 # License
 
 clawPDF is licensed under AGPL v3 license<br>
-Copyright (C) 2019 // Andrew Hess // clawSoft
+Copyright (C) 2023 // Andrew Hess // clawSoft

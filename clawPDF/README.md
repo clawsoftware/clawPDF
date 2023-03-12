@@ -97,4 +97,4 @@ Yet another PDF Printer? Yes! This PDF Printer has the intention to be completel
 # License
 
 clawPDF is licensed under AGPL v3 license<br>
-Copyright (C) 2019 // Andrew Hess // clawSoft
+Copyright (C) 2023 // Andrew Hess // clawSoft

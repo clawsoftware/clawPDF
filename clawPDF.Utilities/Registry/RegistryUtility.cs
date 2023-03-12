@@ -1,4 +1,5 @@
-﻿using SystemInterface.Microsoft.Win32;
+﻿using System;
+using SystemInterface.Microsoft.Win32;
 
 namespace clawSoft.clawPDF.Utilities.Registry
 {
@@ -68,6 +69,42 @@ namespace clawSoft.clawPDF.Utilities.Registry
                 var destSubKey = destinationKey.CreateSubKey(sourceSubKeyName);
                 RecurseCopyKey(sourceSubKey, destSubKey);
             }
+        }
+
+        public static string ReadRegistryValue(string keyName, string valueName)
+        {
+            string result = null;
+            using (var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(keyName))
+            {
+                if (key != null)
+                {
+                    result = key.GetValue(valueName)?.ToString();
+                }
+            }
+            return result;
+        }
+
+        public static void WriteRegistryValue(string keyName, string valueName, object value)
+        {
+            using (var key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(keyName))
+            {
+                key.SetValue(valueName, value);
+            }
+        }
+
+        public static void DeleteRegistryValue(string keyName, string valueName)
+        {
+            try
+            {
+                using (var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(keyName, true))
+                {
+                    if (key != null)
+                    {
+                        key.DeleteValue(valueName, false);
+                    }
+                }
+            }
+            catch { }
         }
     }
 }

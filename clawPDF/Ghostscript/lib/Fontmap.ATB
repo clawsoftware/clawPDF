@@ -1,0 +1,167 @@
+% Copyright (C) 2001-2021 Artifex Software, Inc.
+% All Rights Reserved.
+%
+% This software is provided AS-IS with no warranty, either express or
+% implied.
+%
+% This software is distributed under license and may not be copied,
+% modified or distributed except as expressly authorized under the terms
+% of the license contained in the file LICENSE in this distribution.
+%
+% Refer to licensing information at http://www.artifex.com or contact
+% Artifex Software, Inc.,  1305 Grant Avenue - Suite 200, Novato,
+% CA 94945, U.S.A., +1(415)492-9861, for further information.
+%
+
+% Fontmap.ATB - an alternative Fontmap for Ghostscript,
+% suitable for use with the 65 Adobe Type Manager fonts 
+% supplied with Adobe Type Basics.
+
+% Before you use ATM fonts with Ghostscript, please read carefully
+% the license that accompanies the ATM fonts; neither Artifex Software Inc
+% nor any other distributor of Ghostscript takes any responsibility for
+% any possible violations of such licenses.
+
+% The 65 Adobe Type Basics ATM fonts
+
+%disk 1
+/Bookman-Light			(bkl_____.pfb)	;
+/Bookman-Demi			(bkd_____.pfb)	;
+/Bookman-DemiItalic		(bkdi____.pfb)	;
+/Bookman-LightItalic		(bkli____.pfb)	;
+/Courier			(com_____.pfb)	;
+/Courier-Bold			(cob_____.pfb)	;
+/Courier-BoldOblique		(cobo____.pfb)	;
+/Courier-Oblique		(coo_____.pfb)	;
+/Helvetica			(hv______.pfb)	;
+/Helvetica-Bold			(hvb_____.pfb)	;
+/Helvetica-BoldOblique		(hvbo____.pfb)	;
+/Helvetica-Oblique		(hvo_____.pfb)	;
+/Helvetica-Narrow		(hvn_____.pfb)	;
+/Helvetica-Narrow-Bold		(hvnb____.pfb)	;
+/Helvetica-Narrow-BoldOblique	(hvnbo___.pfb)	;
+/Helvetica-Narrow-Oblique	(hvno____.pfb)	;
+/Palatino-Roman			(por_____.pfb)	;
+/Palatino-Bold			(pob_____.pfb)	;
+/Palatino-BoldItalic		(pobi____.pfb)	;
+/Palatino-Italic		(poi_____.pfb)	;
+/Symbol				(sy______.pfb)	;
+/Times-Roman			(tir_____.pfb)	;
+/Times-Bold			(tib_____.pfb)	;
+/Times-BoldItalic		(tibi____.pfb)	;
+/Times-Italic			(tii_____.pfb)	;
+
+% disk2
+/AGaramond-Regular		(gdrg____.pfb)	;
+/AGaramond-Italic		(gdi_____.pfb)	;
+/AGaramond-Bold			(gdb_____.pfb)	;
+/AGaramond-BoldItalic		(gdbi____.pfb)	;
+/Americana			(am______.pfb)	;
+/Americana-ExtraBold		(ameb____.pfb)	;
+/AvantGarde-Book		(agw_____.pfb)	;
+/AvantGarde-Demi		(agd_____.pfb)	;
+/AvantGarde-DemiOblique		(agdo____.pfb)	;
+/AvantGarde-BookOblique		(agwo____.pfb)	;
+/Carta				(cr______.pfb)	;
+/Kaufmann			(kf______.pfb)	;
+/Lithos-Regular			(lorg____.pfb)	;
+/Lithos-Black			(lobl____.pfb)	;
+/NewCenturySchlbk-Roman		(ncr_____.pfb)	;
+/NewCenturySchlbk-Bold		(ncb_____.pfb)	;
+/NewCenturySchlbk-BoldItalic	(ncbi____.pfb)	;
+/NewCenturySchlbk-Italic	(nci_____.pfb)	;
+/Parisian			(pn______.pfb)	;
+/ParkAvenue			(pa______.pfb)	;
+/Tekton				(tkrg____.pfb)	;
+/Tekton-Bold			(tkb_____.pfb)	;
+/Trajan-Bold			(tjb_____.pfb)	;
+/ZapfChancery-MediumItalic	(zcmi____.pfb)	;
+/ZapfDingbats			(zd______.pfb)	;
+
+%disk 3
+/ACaslon-Regular		(awrg____.pfb)	;
+/ACaslon-Semibold		(awsb____.pfb)	;
+/ACaslon-SemiboldItalic		(awsbi___.pfb)	;
+/ACaslon-Italic			(awi_____.pfb)	;
+/Barmeno-Regular		(bfrg____.pfb)	;
+/Barmeno-Medium			(bfm_____.pfb)	;
+/Barmeno-Bold			(bfb_____.pfb)	;
+/Barmeno-ExtraBold		(bfeb____.pfb)	;
+/Blackoak			(bo______.pfb)	;
+/Formata-Regular		(fmrg____.pfb)	;
+/Formata-Medium			(fmm_____.pfb)	;
+/Formata-MediumItalic		(fmmi____.pfb)	;
+/Formata-Italic			(fmi_____.pfb)	;
+/Poetica-SuppOrnaments		(pvor____.pfb)	;
+/WoodtypeOrnaments-Two		(woor2___.pfb)	;
+
+
+% Fonts converted from bitmaps.
+
+/Charter-Roman			(bchr.gsf)	;
+/Charter-Italic			(bchri.gsf)	;
+/Charter-Bold			(bchb.gsf)	;
+/Charter-BoldItalic		(bchbi.gsf)	;
+
+/ZapfChancery			(zcr.gsf)	;
+/ZapfChancery-Oblique		(zcro.gsf)	;
+/ZapfChancery-Bold		(zcb.gsf)	;
+
+% Fonts from the X11R5 distribution.
+
+/Utopia-Regular		(putr.gsf)	;
+/Utopia-Italic		(putri.gsf)	;
+/Utopia-Bold		(putb.gsf)	;
+/Utopia-BoldItalic	(putbi.gsf)	;
+
+% Shareware fonts.  See FONTMAP.GS for the copyright statements.
+
+/Shareware-Cyrillic-Regular	(fcyr.gsf)	;
+/Shareware-Cyrillic-Italic	(fcyri.gsf)	;
+% Aliases
+/Cyrillic			/Cyrillic-Regular	;
+/Cyrillic-Regular		/Shareware-Cyrillic-Regular	;
+/Cyrillic-Italic		/Shareware-Cyrillic-Italic	;
+
+/Calligraphic-Hiragana		(fhirw.gsf)	;
+/Calligraphic-Katakana		(fkarw.gsf)	;
+
+% Fonts converted from Hershey outlines.
+
+/Hershey-Gothic-English		(hrge_r.gsf)	4290000 ;
+/Hershey-Gothic-English-Bold	(hrge_rb.gsf)	4290030 ;
+/Hershey-Gothic-English-Oblique	(hrge_ro.gsf)	4290010 ;
+
+/Hershey-Gothic-German		(hrgr_r.gsf)	4291000 ;
+/Hershey-Gothic-German-Bold	(hrgr_rb.gsf)	4291030 ;
+/Hershey-Gothic-German-Oblique	(hrgr_ro.gsf)	4291010 ;
+
+/Hershey-Gothic-Italian		(hrit_r.gsf)	4292000 ; 
+/Hershey-Gothic-Italian-Bold	(hrit_rb.gsf)	4292030 ;
+/Hershey-Gothic-Italian-Oblique	(hrit_ro.gsf)	4292010 ;
+
+/Hershey-Greek-Complex		(hrgk_c.gsf)	4293200 ;
+/Hershey-Greek-Simplex		(hrgk_s.gsf)	4293100 ;
+
+/Hershey-Plain			(hrpl_r.gsf)	4294000 ;
+/Hershey-Plain-Bold		(hrpl_rb.gsf)	4294030 ;
+/Hershey-Plain-Oblique		(hrpl_ro.gsf)	4294010 ;
+/Hershey-Plain-Simplex		(hrpl_s.gsf)	4294100 ;
+/Hershey-Plain-Simplex-Bold	(hrpl_sb.gsf)	4294130 ;
+/Hershey-Plain-Simplex-Bold-Oblique (hrpl_sbo.gsf) 4294140 ;
+/Hershey-Plain-Simplex-Oblique	(hrpl_so.gsf)	4294110 ;
+/Hershey-Plain-Triplex		(hrpl_t.gsf)	4294300 ;
+/Hershey-Plain-Triplex-Italic	(hrpl_ti.gsf)	4294320 ;
+/Hershey-Plain-Triplex-Bold	(hrpl_tb.gsf)	4294330 ;
+/Hershey-Plain-Triplex-Bold-Italic (hrpl_tbi.gsf) 4294350 ;
+
+/Hershey-Script-Complex		(hrsc_c.gsf)	4295200 ;
+/Hershey-Script-Complex-Bold	(hrsc_cb.gsf)	4295230 ;
+/Hershey-Script-Complex-Oblique	(hrsc_co.gsf)	4295210 ;
+/Hershey-Script-Simplex		(hrsc_s.gsf)	4295100 ;
+/Hershey-Script-Simplex-Bold	(hrsc_sb.gsf)	4295130 ;
+/Hershey-Script-Simplex-Oblique	(hrsc_so.gsf)	4295110 ;
+
+% This font, and only this font among the Hershey fonts, uses
+% the SymbolEncoding.
+/Hershey-Symbol			(hrsy_r.gsf)	4296000 ;

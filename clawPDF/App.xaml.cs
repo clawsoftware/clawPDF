@@ -14,6 +14,7 @@ using clawSoft.clawPDF.Shared.Views;
 using clawSoft.clawPDF.Startup;
 using clawSoft.clawPDF.Threading;
 using clawSoft.clawPDF.Utilities.Communication;
+using clawSoft.clawPDF.Utilities.Registry;
 using NLog;
 using Application = System.Windows.Forms.Application;
 
@@ -51,6 +52,15 @@ namespace clawSoft.clawPDF
             }
             finally
             {
+                if (string.Join(" ", e.Args).Contains("INFODATAFILE"))
+                {
+                    string defaultProfile = RegistryUtility.ReadRegistryValue(@"Software\clawSoft\clawPDF\Batch", "DefaultProfileGuid");
+                    if (!string.IsNullOrEmpty(defaultProfile))
+                    {
+                        RegistryUtility.WriteRegistryValue(@"Software\clawSoft\clawPDF\Settings\ApplicationSettings", "LastUsedProfileGuid", defaultProfile);
+                        RegistryUtility.DeleteRegistryValue(@"Software\clawSoft\clawPDF\Batch", "DefaultProfileGuid");
+                    }
+                }
                 globalMutex.Release();
                 Logger.Debug("Ending clawPDF");
                 Shutdown();
@@ -135,20 +145,6 @@ namespace clawSoft.clawPDF
             EnsurePrinterIsInstalled();
         }
 
-        private void EnsureGhoscriptIsInstalled()
-        {
-            if (!HasGhostscriptInstance())
-            {
-                Logger.Debug("No valid Ghostscript version found. Exiting...");
-                var message = TranslationHelper.Instance.TranslatorInstance.GetTranslation("ConversionWorkflow",
-                    "NoSupportedGSFound",
-                    "Can't find a supported Ghostscript installation.\r\n\r\nProgram exiting now.");
-                const string caption = @"clawPDF";
-                MessageWindow.ShowTopMost(message, caption, MessageWindowButtons.OK, MessageWindowIcon.Error);
-                Environment.Exit(1);
-            }
-        }
-
         private void EnsurePrinterIsInstalled()
         {
             var repairPrinterAssistant = new RepairPrinterAssistant();
@@ -159,13 +155,6 @@ namespace clawSoft.clawPDF
                     SettingsHelper.Settings.ApplicationSettings.PrinterMappings.Select(mapping => mapping.PrinterName);
                 if (!repairPrinterAssistant.TryRepairPrinter(printers)) Environment.Exit(1);
             }
-        }
-
-        private bool HasGhostscriptInstance()
-        {
-            var gsVersion = new GhostscriptDiscovery().GetBestGhostscriptInstance();
-
-            return gsVersion != null;
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)

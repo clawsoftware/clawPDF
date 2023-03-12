@@ -33,12 +33,12 @@ BEGIN
             VALUE "Comments", "Released under the terms of the GNU General Public License"
             VALUE "CompanyName", "Andrew Hess // clawSoft"
             VALUE "FileDescription", "Printer port monitor"
-            VALUE "FileVersion", "1.0.0.1"
+            VALUE "FileVersion", "1.0.0.2"
             VALUE "InternalName", "clawmon"
-            VALUE "LegalCopyright", "Copyright © 2019 // Andrew Hess // clawSoft"
+            VALUE "LegalCopyright", "Copyright © 2023 // Andrew Hess // clawSoft"
             VALUE "OriginalFilename", "clawmon.dll"
             VALUE "ProductName", "clawmon"
-            VALUE "ProductVersion", "1.0.0.1"
+            VALUE "ProductVersion", "1.0.0.2"
         END
     END
     BLOCK "VarFileInfo"

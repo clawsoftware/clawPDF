@@ -1,0 +1,197 @@
+% Copyright (C) 2001-2021 Artifex Software, Inc.
+% All Rights Reserved.
+%
+% This software is provided AS-IS with no warranty, either express or
+% implied.
+%
+% This software is distributed under license and may not be copied,
+% modified or distributed except as expressly authorized under the terms
+% of the license contained in the file LICENSE in this distribution.
+%
+% Refer to licensing information at http://www.artifex.com or contact
+% Artifex Software, Inc.,  1305 Grant Avenue - Suite 200, Novato,
+% CA 94945, U.S.A., +1(415)492-9861, for further information.
+%
+
+
+% May add general FAPIfontmap records here like this :
+/Wingdings-Regular << /Path FCOfontfile2 /FontType 1 /FAPI /UFST /SubfontId 0 /Encoding /Wingdings /Decoding /FCO_Wingdings>> ;
+
+% Mapping Postscript fonts to pclp2_xj.fco FCO members :
+FCOfontfile ReadFCOfontmap:
+0         Albertus-Medium
+1         Albertus-ExtraBold
+2         AntiqueOlive
+3         AntiqueOlive-Italic
+4         AntiqueOlive-Bold
+5         Arial
+6         Arial-Italic
+7         Arial-Bold
+8         Arial-BoldItalic
+9         Clarendon-Condensed-Bold
+10        Coronet
+11        CourierHP
+12        CourierHP-Italic
+13        CourierHP-Bold
+14        CourierHP-BoldItalic
+15        Garamond-Antiqua
+16        Garamond-Kursiv
+17        Garamond-Halbfett
+18        Garamond-KursivHalbfett
+19        LetterGothic
+20        LetterGothic-Italic
+21        LetterGothic-Bold
+22        Marigold
+23        CGOmega
+24        CGOmega-Italic
+25        CGOmega-Bold
+26        CGOmega-BoldItalic
+27        SymbolMT  SymbolEncoding  FCO_Symbol
+28        CGTimes
+29        CGTimes-Italic
+30        CGTimes-Bold
+31        CGTimes-BoldItalic
+32        TimesNewRoman
+33        TimesNewRoman-Italic
+34        TimesNewRoman-Bold
+35        TimesNewRoman-BoldItalic
+36        Univers-Medium
+37        Univers-MediumItalic
+38        Univers-Bold
+39        Univers-BoldItalic
+40        Univers-Condensed-Medium
+41        Univers-Condensed-MediumItalic
+42        Univers-Condensed-Bold
+43        Univers-Condensed-BoldItalic
+44        Courier
+45        Courier-Italic
+46        Courier-Bold
+47        Courier-BoldItalic
+48        AlbertusMT-Light
+49        AlbertusMT
+50        AlbertusMT-Italic
+51        AntiqueOlive-Roman
+52        AntiqueOlive-Italic
+53        AntiqueOlive-Bold
+54        AntiqueOlive-Compact
+55        AvantGarde-Book
+56        AvantGarde-BookOblique
+57        AvantGarde-Demi
+58        AvantGarde-DemiOblique
+59        Bodoni
+60        Bodoni-Italic
+61        Bodoni-Bold
+62        Bodoni-BoldItalic
+63        Bodoni-Poster
+64        Bodoni-PosterCompressed
+65        Bookman-Light
+66        Bookman-LightItalic
+67        Bookman-Demi
+68        Bookman-DemiItalic
+69        Candid
+70        Apple-Chancery
+71        Chicago
+72        Clarendon-Light
+73        Clarendon
+74        Clarendon-Bold
+75        CooperBlack
+76        CooperBlack-Italic
+77        Copperplate-ThirtyTwoBC
+78        Copperplate-ThirtyThreeBC
+79        Coronet-Regular
+80        Courier
+81        Courier-Oblique
+82        Courier-Bold
+83        Courier-BoldOblique
+84        Eurostile
+85        Eurostile-Bold
+86        Eurostile-ExtendedTwo
+87        Eurostile-BoldExtendedTwo
+88        StempelGaramond-Roman
+89        StempelGaramond-Italic
+90        StempelGaramond-Bold
+91        StempelGaramond-BoldItalic
+92        Geneva
+93        GillSans-Light
+94        GillSans-LightItalic
+95        GillSans
+96        GillSans-Italic
+97        GillSans-Bold
+98        GillSans-BoldItalic
+99        GillSans-ExtraBold
+100       GillSans-Condensed
+101       GillSans-BoldCondensed
+102       Goudy
+103       Goudy-Italic
+104       Goudy-Bold
+105       Goudy-BoldItalic
+106       Goudy-ExtraBold
+107       Helvetica-Condensed
+108       Helvetica-Condensed-Oblique
+109       Helvetica-Condensed-Bold
+110       Helvetica-Condensed-BoldObl
+111       Helvetica
+112       Helvetica-Oblique
+113       Helvetica-Bold
+114       Helvetica-BoldOblique
+115       Helvetica-Narrow
+116       Helvetica-Narrow-Oblique
+117       Helvetica-Narrow-Bold
+118       Helvetica-Narrow-BoldOblique
+119       HoeflerText-Regular
+120       HoeflerText-Italic
+121       HoeflerText-Black
+122       HoeflerText-BlackItalic
+123       HoeflerText-Ornaments
+124       JoannaMT
+125       JoannaMT-Italic
+126       JoannaMT-Bold
+127       JoannaMT-BoldItalic
+128       LetterGothic
+129       LetterGothic-Slanted
+130       LetterGothic-Bold
+131       LetterGothic-BoldSlanted
+132       LubalinGraph-Book
+133       LubalinGraph-BookOblique
+134       LubalinGraph-Demi
+135       LubalinGraph-DemiOblique
+136       Monaco
+137       MonaLisa-Recut
+138       NewYork
+139       NewCenturySchlbk-Roman
+140       NewCenturySchlbk-Italic
+141       NewCenturySchlbk-Bold
+142       NewCenturySchlbk-BoldItalic
+143       Optima
+144       Optima-Italic
+145       Optima-Bold
+146       Optima-BoldItalic
+147       Oxford
+148       Palatino-Roman
+149       Palatino-Italic
+150       Palatino-Bold
+151       Palatino-BoldItalic
+152    Symbol  SymbolEncoding  FCO_Symbol
+153       Taffy
+154       Times-Roman
+155       Times-Italic
+156       Times-Bold
+157       Times-BoldItalic
+158       Univers
+159       Univers-Oblique
+160       Univers-Bold
+161       Univers-BoldOblique
+162       Univers-Condensed
+163       Univers-CondensedOblique
+164       Univers-CondensedBold
+165       Univers-CondensedBoldOblique
+166       Univers-Light
+167       Univers-LightOblique
+168       Univers-Extended
+169       Univers-ExtendedObl
+170       Univers-BoldExt
+171       Univers-BoldExtObl
+172       ZapfChancery-MediumItalic
+173       ZapfDingbats DingbatsEncoding FCO_Dingbats
+EndFCOfontmap
+%EOF

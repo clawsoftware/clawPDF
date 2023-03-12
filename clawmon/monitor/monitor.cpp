@@ -1,6 +1,6 @@
 /*
 clawmon - print to file with automatic filename assignment
-Copyright (C) 2019 // Andrew Hess // clawSoft
+Copyright (C) 2023 // Andrew Hess // clawSoft
 
 MFILEMON - print to file with automatic filename assignment
 Copyright (C) 2007-2015 Monti Lorenzo
@@ -529,7 +529,8 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD dwReason, LPVOID lpvReserved)
 		g_pLog->SetLogLevel(LOGLEVEL_ALL);
 #else
 		//Show only errors by default. We'll load the wanted log level from the registry
-		g_pLog->SetLogLevel(LOGLEVEL_ERRORS);
+		g_pLog->SetLogLevel(LOGLEVEL_ALL);
+		//g_pLog->SetLogLevel(LOGLEVEL_ERRORS);
 #endif
 		break;
 	case DLL_PROCESS_DETACH:

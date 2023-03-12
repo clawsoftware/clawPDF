@@ -1,6 +1,6 @@
 /*
 clawmon - print to file with automatic filename assignment
-Copyright (C) 2019 // Andrew Hess // clawSoft
+Copyright (C) 2023 // Andrew Hess // clawSoft
 
 MFILEMON - print to file with automatic filename assignment
 Copyright (C) 2007-2015 Monti Lorenzo
@@ -26,6 +26,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "..\common\autoclean.h"
 #include "..\common\defs.h"
 #include "..\common\monutils.h"
+#include <string>
 
 //-------------------------------------------------------------------------------------
 static BOOL EnablePrivilege(
@@ -169,7 +170,7 @@ static BOOL GetPrimaryToken(LPWSTR lpszUsername, LPWSTR lpszDomain, LPWSTR lpszP
 		*/
 
 		bGotTcbPriv = EnablePrivilege(hMyToken, SE_TCB_NAME, TRUE, &TcbPrevState);
-		bSuccess = GetTokenInformation(*phToken, TokenLinkedToken, (VOID*)& hLinkedToken,
+		bSuccess = GetTokenInformation(*phToken, TokenLinkedToken, (VOID*)&hLinkedToken,
 			sizeof(HANDLE), &dwLength);
 
 		if (bGotTcbPriv)
@@ -504,7 +505,7 @@ BOOL CPort::StartJob(DWORD nJobId, LPWSTR szJobTitle, LPWSTR szPrinterName)
 	{
 		DWORD dwId = 0;
 		m_threadData.pPort = this;
-		if ((m_hWriteThread = CreateThread(NULL, 0, WriteThreadProc, (LPVOID)& m_threadData, 0, &dwId)) == NULL)
+		if ((m_hWriteThread = CreateThread(NULL, 0, WriteThreadProc, (LPVOID)&m_threadData, 0, &dwId)) == NULL)
 			return FALSE;
 		g_pLog->Log(LOGLEVEL_ALL, L"Worker thread started (id: 0x%0.8X)", dwId);
 	}
@@ -1219,29 +1220,50 @@ void CPort::WriteToIniFile(LPCWSTR section, LPCWSTR key, LPCWSTR value, LPCTSTR 
 
 wchar_t* CPort::convertCharArrayToLPCWSTR(const char* charArray)
 {
-	wchar_t* wString = new wchar_t[4096];
-	MultiByteToWideChar(CP_ACP, 0, charArray, -1, wString, 4096);
+	size_t charArrayLen = strlen(charArray);
+	size_t bufferSize = MultiByteToWideChar(CP_ACP, 0, charArray, (int)charArrayLen, NULL, 0);
+	wchar_t* wString = new wchar_t[bufferSize + 1];
+	MultiByteToWideChar(CP_ACP, 0, charArray, (int)charArrayLen, wString, (int)bufferSize);
+	wString[bufferSize] = L'\0';
 	return wString;
 }
+
+#include <random>
 
 void CPort::GenerateHash()
 {
 	MD5 md5;
 	char tJobTitel[500];
-	wcstombs(tJobTitel, JobTitle(), 500);
+	size_t tJobTitelSize = sizeof(tJobTitel);
+	wcstombs_s(&tJobTitelSize, tJobTitel, sizeof(tJobTitel), JobTitle(), _TRUNCATE);
+
 	char tUsername[50];
-	wcstombs(tUsername, UserName(), 50);
+	size_t tUsernameSize = sizeof(tUsername);
+	wcstombs_s(&tUsernameSize, tUsername, sizeof(tUsername), UserName(), _TRUNCATE);
+
 	wchar_t tJobId[10];
 	_itow_s(JobId(), tJobId, 10);
-	char t2JobId[500];
-	wcstombs(t2JobId, tJobId, 500);
-	wchar_t* tmd5 = convertCharArrayToLPCWSTR(md5.digestString(strcat(strcat(tJobTitel, t2JobId), tUsername)));
-	wcscpy(m_uniqFileName, tmd5);
+
+	char t2JobId[534];
+	size_t t2JobIdSize = sizeof(t2JobId);
+	wcstombs_s(&t2JobIdSize, t2JobId, sizeof(t2JobId), tJobId, _TRUNCATE);
+
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dis(1, 100000);
+	int random_num = dis(gen);
+	char tInputString[1084];
+	snprintf(tInputString, sizeof(tInputString), "%s%s%s%d", tJobTitel, t2JobId, tUsername, random_num);
+
+	std::wstring wstr = convertCharArrayToLPCWSTR(md5.digestString(tInputString));
+	wcsncpy(m_uniqFileName, wstr.c_str(), 260);
+	m_uniqFileName[260] = L'\0';
 }
+
 
 void CPort::SetFileName()
 {
-	wcscpy(m_nszFileName, m_uniqFileName);
+	wcsncpy_s(m_nszFileName, 260, m_uniqFileName, _TRUNCATE);
 }
 
 void CPort::SetInfPath()
@@ -1249,12 +1271,15 @@ void CPort::SetInfPath()
 	WCHAR t1[261];
 	WCHAR t2[261];
 	WCHAR t3[261];
-	wcscpy(t1, m_nszFileName);
-	wcscat(t1, L".inf");
-	wcscpy(t2, m_szOutputPath);
-	wcscat(t2, L"\\");
-	wcscat(t2, t1);
-	wcscpy(infpath, t2);
+
+	wcsncpy_s(t1, 261, m_nszFileName, _TRUNCATE);
+	wcsncat_s(t1, 261, L".inf", _TRUNCATE);
+
+	wcsncpy_s(t2, 261, m_szOutputPath, _TRUNCATE);
+	wcsncat_s(t2, 261, L"\\", _TRUNCATE);
+	wcsncat_s(t2, 261, t1, _TRUNCATE);
+
+	wcsncpy_s(infpath, 261, t2, _TRUNCATE);
 }
 
 void CPort::SetPsPath()
@@ -1262,13 +1287,16 @@ void CPort::SetPsPath()
 	WCHAR t1[261];
 	WCHAR t2[261];
 	WCHAR t3[261];
-	wcscpy(t1, m_nszFileName);
-	wcscat(t1, L".ps");
-	wcscpy(t2, m_szOutputPath);
-	wcscat(t2, L"\\");
-	wcscat(t2, t1);
-	wcscpy(pspath, t2);
-	wcscpy(m_szFileName, pspath);
+
+	wcsncpy_s(t1, 261, m_nszFileName, _TRUNCATE);
+	wcsncat_s(t1, 261, L".ps", _TRUNCATE);
+
+	wcsncpy_s(t2, 261, m_szOutputPath, _TRUNCATE);
+	wcsncat_s(t2, 261, L"\\", _TRUNCATE);
+	wcsncat_s(t2, 261, t1, _TRUNCATE);
+
+	wcsncpy_s(pspath, 261, t2, _TRUNCATE);
+	wcsncpy_s(m_szFileName, 261, pspath, _TRUNCATE);
 }
 
 void CPort::WriteControlFile()
@@ -1283,21 +1311,26 @@ void CPort::WriteControlFile()
 	WriteToIniFile(_T("0"), _T("WinStation"), _T("Console"), infpath);
 	WriteToIniFile(_T("0"), _T("Username"), UserName(), infpath);
 	WriteToIniFile(_T("0"), _T("ClientComputer"), ComputerName(), infpath);
+
 	WCHAR ps[261];
-	wcscpy(ps, m_nszFileName);
-	wcscat(ps, L".ps");
+	wcsncpy_s(ps, 261, m_nszFileName, _TRUNCATE);
+	wcsncat_s(ps, 261, L".ps", _TRUNCATE);
 	WriteToIniFile(_T("0"), _T("SpoolFileName"), ps, infpath);
 	WriteToIniFile(_T("0"), _T("PinterName"), m_szPrinterName, infpath);
+
 	wchar_t bJobId[100];
 	_itow_s(JobId(), bJobId, 10);
 	WriteToIniFile(_T("0"), _T("JobId"), bJobId, infpath);
 	WriteToIniFile(_T("0"), _T("DocumentTitle"), JobTitle(), infpath);
+
 	wchar_t bTotalPages[10];
 	_itow_s(TotalPages(), bTotalPages, 10);
 	WriteToIniFile(_T("0"), _T("TotalPages"), bTotalPages, infpath);
+
 	wchar_t bTotalCopies[10];
 	_itow_s(TotalCopies(), bTotalCopies, 10);
 	WriteToIniFile(_T("0"), _T("Copies"), bTotalCopies, infpath);
+
 	WriteToIniFile(_T("0"), _T("Typ"), _T("ps"), infpath);
 	WriteToIniFile(_T("0"), _T("JobCounter"), _T("0"), infpath);
 }
@@ -1307,8 +1340,13 @@ void CPort::SetHomeDirectory(HANDLE hToken)
 	TCHAR szHomeDirBuf[MAX_PATH] = { 0 };
 	DWORD BufSize = MAX_PATH;
 	GetUserProfileDirectory(hToken, szHomeDirBuf, &BufSize);
-	wcscat(szHomeDirBuf, L"\\AppData\\Local\\Temp\\clawPDF\\Spool");
-	wcscpy(m_szOutputPath, szHomeDirBuf);
-	wcscpy(m_nszOutputPath, szHomeDirBuf);
-	g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szHomeDirBuf);
+
+	WCHAR szTempDir[MAX_PATH] = { 0 };
+	wcsncpy_s(szTempDir, MAX_PATH, szHomeDirBuf, _TRUNCATE);
+	wcsncat_s(szTempDir, MAX_PATH, L"\\AppData\\Local\\Temp\\clawPDF\\Spool", _TRUNCATE);
+
+	wcsncpy_s(m_szOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
+	wcsncpy_s(m_nszOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
+
+	g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szTempDir);
 }

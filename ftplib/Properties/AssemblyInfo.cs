@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyCompany("Andrew Hess // clawSoft")]
 [assembly: AssemblyProduct("clawSoft.FTPLib")]
-[assembly: AssemblyCopyright("Copyright © 2019 Andrew Hess // clawSoft")]
+[assembly: AssemblyCopyright("Copyright © 2023 Andrew Hess // clawSoft")]
 [assembly: AssemblyTitle("clawSoft.FTPLib")]
 [assembly: AssemblyDescription("clawSoft FTPLib")]
 [assembly: AssemblyConfiguration("")]
@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 [assembly: RuntimeCompatibility(WrapNonExceptionThrows = true)]
 [assembly: AssemblyTrademark("")]
 [assembly: ComVisible(false)]
-[assembly: AssemblyFileVersion("0.8.4.0")]
+[assembly: AssemblyFileVersion("0.8.5.0")]
 [assembly: Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
 [assembly: CompilationRelaxations(8)]
-[assembly: AssemblyVersion("0.8.4.0")]
+[assembly: AssemblyVersion("0.8.5.0")]

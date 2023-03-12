@@ -498,7 +498,7 @@
           <comment>Name of the profile</comment>
         </value>
         <value name="OpenViewer" type="value" datatype="Bool" enumname="" defaultvalue="true">
-          <comment>Open the default viewer after converting the document</comment>
+          <comment>Open with standard viewer after conversion</comment>
         </value>
         <value name="OutputFormat" type="value" datatype="Enum" enumname="OutputFormat" defaultvalue="OutputFormat.Pdf">
           <comment>Default format for this print job. Valid values are: Pdf, PdfA1B, PdfA2B, PdfX, Jpeg, Png, Tif</comment>

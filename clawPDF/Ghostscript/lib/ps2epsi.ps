@@ -1,0 +1,173 @@
+% Copyright (C) 2001-2021 Artifex Software, Inc.
+% All Rights Reserved.
+%
+% This software is provided AS-IS with no warranty, either express or
+% implied.
+%
+% This software is distributed under license and may not be copied,
+% modified or distributed except as expressly authorized under the terms
+% of the license contained in the file LICENSE in this distribution.
+%
+% Refer to licensing information at http://www.artifex.com or contact
+% Artifex Software, Inc.,  1305 Grant Avenue - Suite 200, Novato,
+% CA 94945, U.S.A., +1(415)492-9861, for further information.
+
+% Convert a PostScript file to an EPSI file, adding the Preview Image.
+
+% If the file is already EPSF, then skip the creation of an EPSF, and
+% only add the preview.  A warning is issued if the %%Pages: comment
+% indicates that there is more than a single page in the input file.
+
+% Expected invocation:
+%   gs -q -dNOOUTERSAVE -dNODISPLAY -dLastPage=1 -sOutputFile=out.epsi --permit-file-read=in.ps -- ps2epsi.ps in.ps
+
+% Usually this will be invoked by the ps2epsi script (or .bat or .cmd versions)
+
+false	% no errors from initial param check
+% NOOUTERSAVE is needed for the SAVE to not remove the tempfile (if one was needed)
+vmstatus pop pop 0 gt { (Error: missing -dNOOUTERSAVE option) = pop true } if
+% NODISPLAY may not be strictly needed, but we don't want to open the default device
+/NODISPLAY where { pop } { (Error: missing -dNODISPLAY option) = pop true } ifelse
+% LastPage is needed if we are using eps2write on a PostScript (or PDF) file that has multiple pages.
+/LastPage where { pop } { (Error: missing -dLastPage option) = pop true } ifelse
+% OutputFile is needed so that it gets on the permit-file-writing list
+/OutputFile where { pop } { (Error: missing -sOutputFile option) = pop true } ifelse
+
+.shellarguments not count 3 lt or count -1 roll or
+{
+  (usage:  gs -q -dNOOUTERSAVE -dNODISPLAY -dLastPage=1 -sOutputFile=out.epsi --permit-file-read=in.eps -- ps2epsi.ps in.ps) =
+  quit
+} {
+  dup /InputFile exch def
+  (r) file /I exch def
+} ifelse
+
+/O OutputFile (w) file def
+
+/S 65535 string def
+
+/R { I S readline not { (Error: Unexpected end of file.) = quit } if } bind def
+/WL { O exch writestring O (\n) writestring } bind def	% Write with linefeed
+/TName null def
+
+/EPSFheader (%!PS-Adobe-3.0 EPSF-3.0) def
+% Read the header to check if this file was EPSF
+R
+dup EPSFheader ne {
+  % InputFile was not EPSF
+  pop		% discard the first line of the InputFile
+  % run the file through eps2write (into a tempfile) to make an EPSF
+  (_ps2epsi) (w+) .tempfile closefile /TName exch def
+  /SAVE save def
+  (eps2write) finddevice mark /OutputFile TName 3 index putdeviceprops pop
+  setdevice
+  InputFile run
+  SAVE restore
+  /I TName (r) file def
+  R
+} if
+WL	% Write the first line (either from InputFile or the tempfile
+
+% From the "5002 Encapsulated PostScript File Format Specification Version 3.0 1 May 1992"
+%   The preview section must appear after the header comment section, but
+%   before the document prologue definitions. That is, it should immediately
+%   follow the %%EndComments: line in the EPS file.
+{	% loop until we see the %%EndComments line, writing those lines to output
+  R
+  dup (%%EndComments) anchorsearch exch pop {	% discard the match or extra copy of the string
+    pop exit	% found it
+  } if
+  % Check the %%Pages: comment to issue a warning if there is more than one page.
+  dup (%%Pages:) anchorsearch exch pop {	% discard the match or extra copy of the string
+    cvi 1 gt {
+      (Warning: EPSI files can only have 1 page, Only the first page will be in the preview.) =
+    } if
+  } if
+  % Collect the BoundingBox data that will be used when generating the preview
+  dup (%%BoundingBox:) anchorsearch exch pop {	% discard the match or extra copy of the string
+    mark
+    exch token not { (Error: invalid BoundingBox parameters) = quit } if
+    exch token not { (Error: invalid BoundingBox parameters) = quit } if
+    exch token not { (Error: invalid BoundingBox parameters) = quit } if
+    exch token not { (Error: invalid BoundingBox parameters) = quit } if
+    exch pop ]
+    /BBox exch def
+    % Preview dimensions
+    /PWidth BBox dup 2 get exch 0 get sub def
+    /PHeight BBox dup 3 get exch 1 get sub def
+  } if
+  WL	% send to output file with linefeed.
+} loop
+
+WL	% send to output file with linefeed.
+
+% If the InputFile already has a preview, skip past it
+R
+dup (%%BeginPreview) anchorsearch exch pop {	% discard the match or extra copy of the string
+  pop
+  % Read lines until after the %%EndPreview
+  {
+    R
+    (%%EndPreview) anchorsearch exch pop {	% discard the match or extra copy of the string
+      pop pop exit	% found it
+    } if
+  } loop
+  % Get the next line for use after the generated preview
+  R
+} 
+if
+/LineAfterEndComments exch def
+
+//null (w+) .tempfile
+closefile			% will be opened by bit device
+/Pname exch def
+
+(bit) selectdevice
+<<
+  /GrayValues 256		% Gray, not monochrome
+  /OutputFile Pname
+  /TextAlphaBits 4
+  /GraphicsAlphaBits 4
+  /LastPage 1			% TBD: does this work?
+  /.IgnoreNumCopies true
+  /Install { BBox 0 get neg BBox 1 get neg translate { 1.0 exch sub } settransfer }	% EPSI 00 is white
+  /HWResolution [ 72. 72. ]
+  /PageSize [ PWidth PHeight ]
+>> setpagedevice
+
+InputFile run
+
+/P Pname (r) file def		% Preview data file
+/SP PWidth string def		% One string per image line
+
+% Write the preview
+O (%%BeginPreview: ) writestring
+O PWidth write==only O ( ) writestring
+O PHeight write==only O ( 8 ) writestring
+O PHeight PWidth 39 add 40 idiv mul write==	% 40 bytes per line
+O flushfile
+0 1 PHeight 1 sub {
+  pop
+  P SP readstring pop
+  0 40 PWidth {
+    O (% ) writestring		% 82 bytes on each line, plus EOL
+    SP exch 40 PWidth 2 index sub .min getinterval   
+    O exch writehexstring
+    O (\n) writestring
+  } for
+  pop
+} for
+(%%EndPreview) WL
+
+% Write the line that followed the %%EndComments
+LineAfterEndComments WL
+
+% Copy the remainder of the inputfile
+{
+  I S readstring exch O exch writestring not { exit } if
+} loop
+
+% If we created a tempfile, delete it
+TName null ne { TName deletefile } if
+
+quit

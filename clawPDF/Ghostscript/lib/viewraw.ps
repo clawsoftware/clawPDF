@@ -1,0 +1,187 @@
+% Copyright (C) 2001-2021 Artifex Software, Inc.
+% All Rights Reserved.
+%
+% This software is provided AS-IS with no warranty, either express or
+% implied.
+%
+% This software is distributed under license and may not be copied,
+% modified or distributed except as expressly authorized under the terms
+% of the license contained in the file LICENSE in this distribution.
+%
+% Refer to licensing information at http://www.artifex.com or contact
+% Artifex Software, Inc.,  1305 Grant Avenue - Suite 200, Novato,
+% CA 94945, U.S.A., +1(415)492-9861, for further information.
+%
+
+% viewcmyk.ps
+% Display a raw CMYK file.
+% Requires the colorimage operator.
+% If SCALE is defined, maps input pixels to output pixels with that scale;
+% if SCALE is undefined, scales the image to fit the page.
+% If BITS is defined, it is the number of bits per sample (1,2,4,8);
+% if BITS is undefined, its default value is 1.
+% Colorspace defaults to cmyk, but -dGray or -dRGB can change it
+
+/viewraw {        		% <filename> <ncomp> <width> viewraw -
+  20 dict begin
+  % Default ncomp is 4 == CMYK
+  /w exch def
+  /fname exch def
+  /F fname (r) file def		% the raw file
+  /f /F load def		% the usual DataSource
+  /bpc /BITS where { pop BITS } { 1 } ifelse def
+  /ncomp
+  /Gray where
+  { pop 1 /CS /DeviceGray def }        	% DeviceGray is 1 component
+  { /RGB where
+    { pop 3 BITS 8 ge          		% DeviceRGB is 3 component, use Indexed for 1, 2, 4 BITS
+      { /CS /DeviceRGB def }
+      {
+        BITS 4 eq {
+          /P 4096 3 mul string def	% the palette
+          0 1 15 { /r exch def
+            0 1 15 { /g exch def
+              0 1 15 { /b exch def
+                r 256 mul g 16 mul add b add 3 mul	% base of the triplet
+                P 1 index r 17 mul put
+                P 1 index 1 add g 17 mul put
+                P exch 2 add b 17 mul put
+              } for
+            } for
+          } for
+          /CS
+          [ /Indexed /DeviceRGB 4095 P ] def
+          /BITS 12 def			% change to 4 bit indexed
+          % redefine the DataSource to pack the 16-bit values into 12-bit
+          % The 'proc' returns 2 12-bit pixels in 3 bytes
+          % This proc is needed for the output from -sDEVICE=bitrgb -dGrayValues=16
+          /S3 3 string def
+          /f {
+            F read
+            {
+              256 mul F read
+              pop add 16 mul S3 0 2 index 256 div cvi put
+              240 and F read
+              { add S3 exch 1 exch put S3 2 F read pop put }
+              { S3 exch 1 exch put S3 2 0 put }
+              ifelse
+              S3
+            }
+            { () }
+            ifelse
+          } bind def
+        } if
+        BITS 2 eq {
+          /CS
+          [ /Indexed /DeviceRGB 255 <
+              000000 000055 0000AA 0000FF
+              005500 005555 0055AA 0055FF
+              00AA00 00AA55 00AAAA 00AAFF
+              00FF00 00FF55 00FFAA 00FFFF
+              550000 550055 5500AA 5500FF
+              555500 555555 5555AA 5555FF
+              55AA00 55AA55 55AAAA 55AAFF
+              55FF00 55FF55 55FFAA 55FFFF
+              AA0000 AA0055 AA00AA AA00FF
+              AA5500 AA5555 AA55AA AA55FF
+              AAAA00 AAAA55 AAAAAA AAAAFF
+              AAFF00 AAFF55 AAFFAA AAFFFF
+              FF0000 FF0055 FF00AA FF00FF
+              FF5500 FF5555 FF55AA FF55FF
+              FFAA00 FFAA55 FFAAAA FFAAFF
+              FFFF00 FFFF55 FFFFAA FFFFFF
+
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+              000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000 000000
+            >
+          ] def
+          /BITS 8 def			% change to 4 bit indexed
+        } if
+        BITS 1 eq {
+          /CS
+          [ /Indexed /DeviceRGB 15 <
+              000000 0000FF 00FF00 00FFFF FF0000 FF00FF FFFF00 FFFFFF
+              000000 0000FF 00FF00 00FFFF FF0000 FF00FF FFFF00 FFFFFF
+            >
+          ] def
+          /BITS 4 def			% change to 4 bit indexed
+        } if
+      }
+      ifelse
+    }
+    { 4 /CS /DeviceCMYK def }         	% DeviceCMYK is 4 component
+    ifelse
+  }
+  ifelse
+  def
+
+  % Calculate Height from file length and width
+  mark fname status pop pop pop /flen exch def cleartomark
+  % NB: bitrgb writes 4 bits when BITS=1, 8 bits when BITS=2, 16 bits when BITS=4
+  % presumably to keep values on nice boundaries this takes some fudging
+  /h flen w bpc ncomp dup 3 eq bpc 8 lt and { 1 add } if mul mul 7 add 8 idiv idiv def
+  %% (Dimensions: ) print [w h] == flush
+                % Set up scaling.
+  /SCALE where {
+    pop
+        % Map pixels SCALE-for-1.  Assume orthogonal transformation.
+    SCALE 1 0 dtransform add abs div
+    SCALE 0 1 dtransform add abs div
+  } {
+        % Scale the image (uniformly) to fit the page.
+    clippath pathbbox pop pop translate
+    pathbbox 3 -1 roll sub h div
+    3 1 roll exch sub w div .min dup
+  } ifelse scale
+  %% w h bpc [1 0 0 -1 0 h] f false ncomp colorimage
+  CS setcolorspace
+  << /ImageType 1 /Width w /Height h /ImageMatrix [1 0 0 -1 0 h]
+     /MultipleDataSources false /DataSource /f load /BitsPerComponent BITS
+     /Decode
+       bpc 1 eq {        	% inverted sense for 1 bit per component
+         [ [0] [ 1 0 ] [0] [ 0 15 ] [ 0 1 0 1 0 1 0 1 ] ] ncomp get
+       } if
+       bpc 2 eq {
+         [ [0] [ 0 1 ] [0] [ 0 255 ] [ 0 1 0 1 0 1 0 1 ] ] ncomp get
+       } if
+       bpc 4 eq {
+         [ [0] [ 0 1 ] [0] [ 0 4095 ] [ 1 0 1 0 1 0 1 0 ] ] ncomp get
+       } if
+       bpc 8 ge {
+         [ [0] [ 0 1 ] [0] [ 0 1 0 1 0 1 ] [ 1 0 1 0 1 0 1 0 ] ] ncomp get
+       } if
+  >> image
+  showpage
+  F closefile
+  end
+} bind def
+
+% If the program was invoked from the command line, run it now.
+[ .shellarguments {
+  counttomark 2 eq {
+    cvi viewraw
+  } {
+    cleartomark
+    (Usage: gs -- viewraw filename.raw width\n) print
+    ( e.g.: gs -- viewraw my.raw 2550\n) print flush
+  } ifelse
+} {
+  pop
+} ifelse

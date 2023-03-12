@@ -1,0 +1,91 @@
+%!
+% This is a sample prefix file for creating a PDF/A document.
+% Users should modify entries marked with "Customize".
+% This assumes an ICC profile resides in the file (srgb.icc),
+% in the current directory unless the user modifies the corresponding line below.
+
+% Define entries in the document Info dictionary :
+[ /Title (Title)       % Customise
+  /DOCINFO pdfmark
+
+% Define an ICC profile :
+/ICCProfile (srgb.icc) % Customise
+def
+
+[/_objdef {icc_PDFA} /type /stream /OBJ pdfmark
+
+%% This code attempts to set the /N (number of components) key for the ICC colour space.
+%% To do this it checks the ColorConversionStrategy or the device ProcessColorModel if
+%% ColorConversionStrategy is not set.
+%% This is not 100% reliable. A better solution is for the user to edit this and replace
+%% the code between the ---8<--- lines with a simple declaration like:
+%%   /N 3
+%% where the value of N is the number of components from the profile defined in /ICCProfile above.
+%%
+[{icc_PDFA}
+<<
+%% ----------8<--------------8<-------------8<--------------8<----------
+  systemdict /ColorConversionStrategy known {
+    systemdict /ColorConversionStrategy get cvn dup /Gray eq {
+      pop /N 1 false
+    }{
+      dup /RGB eq {
+        pop /N 3 false
+      }{
+        /CMYK eq {
+          /N 4 false
+        }{
+          (\tColorConversionStrategy not a device space, falling back to ProcessColorModel, output may not be valid PDF/A.\n)=
+          true
+        } ifelse
+      } ifelse
+    } ifelse
+  } {
+    (\tColorConversionStrategy not set, falling back to ProcessColorModel, output may not be valid PDF/A.\n)=
+    true
+  } ifelse
+
+  {
+    currentpagedevice /ProcessColorModel get
+    dup /DeviceGray eq {
+      pop /N 1
+    }{
+      dup /DeviceRGB eq {
+        pop /N 3
+      }{
+        dup /DeviceCMYK eq {
+          pop /N 4
+        } {
+          (\tProcessColorModel not a device space.)=
+          /ProcessColorModel cvx /rangecheck signalerror
+        } ifelse
+      } ifelse
+    } ifelse
+  } if
+%% ----------8<--------------8<-------------8<--------------8<----------
+
+>> /PUT pdfmark
+[
+{icc_PDFA}
+{ICCProfile (r) file} stopped
+{
+  (\n\tFailed to open the supplied ICCProfile for reading. This may be due to\n) print
+  (\t  an incorrect filename or a failure to add --permif-file-read=<profile>\n) print
+  (\t  to the command line. This PostScript program needs to open the file\n) print
+  (\t  and you must explicitly grant it permission to do so.\n\n) print
+  (\tPDF/A processing aborted, output may not be a PDF/A file.\n\n) print
+  cleartomark
+}
+{
+  /PUT pdfmark
+  % Define the output intent dictionary :
+
+  [/_objdef {OutputIntent_PDFA} /type /dict /OBJ pdfmark
+  [{OutputIntent_PDFA} <<
+    /Type /OutputIntent               % Must be so (the standard requires).
+    /S /GTS_PDFA1                     % Must be so (the standard requires).
+    /DestOutputProfile {icc_PDFA}     % Must be so (see above).
+    /OutputConditionIdentifier (sRGB) % Customize
+  >> /PUT pdfmark
+  [{Catalog} <</OutputIntents [ {OutputIntent_PDFA} ]>> /PUT pdfmark
+} ifelse

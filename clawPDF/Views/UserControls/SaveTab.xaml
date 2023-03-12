@@ -34,6 +34,10 @@
                           IsChecked="{Binding CurrentProfile.ShowProgress, Mode=TwoWay}">
                     Show progress during conversion
                 </CheckBox>
+                <CheckBox Name="OpenViewerCheckBox" Margin="0,5,0,0"
+                          IsChecked="{Binding CurrentProfile.OpenViewer, Mode=TwoWay}">
+                    Open with standard viewer after conversion
+                </CheckBox>
                 <CheckBox Name="SkipPrintDialogCheckBox" Margin="0,5,0,0"
                           IsChecked="{Binding CurrentProfile.SkipPrintDialog, Mode=TwoWay}">
                     Skip print dialog (directly proceed to the save dialog)

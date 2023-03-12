@@ -19,7 +19,7 @@ namespace clawSoft.clawPDF.Core {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class CoreResources {
@@ -93,23 +93,21 @@ namespace clawSoft.clawPDF.Core {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die %!
         ///% This is a sample prefix file for creating a PDF/A document.
-        ///% Feel free to modify entries marked with &quot;Customize&quot;.
-        ///
-        ///% This assumes an ICC profile to reside in the file (ISO Coated sb.icc),
-        ///% unless the user modifies the corresponding line below.
+        ///% Users should modify entries marked with &quot;Customize&quot;.
+        ///% This assumes an ICC profile resides in the file (srgb.icc),
+        ///% in the current directory unless the user modifies the corresponding line below.
         ///
         ///% Define entries in the document Info dictionary :
-        ///
-        ////ICCProfile [ICC_PROFILE]
-        ///def
-        ///
-        ///[ /Title (Title)                  % Customize.
+        ///[ /Title (Title)       % Customise
         ///  /DOCINFO pdfmark
         ///
         ///% Define an ICC profile :
+        ////ICCProfile [ICC_PROFILE]
+        ///def
         ///
         ///[/_objdef {icc_PDFA} /type /stream /OBJ pdfmark
-        ///[{icc_PDFA} &lt;&lt;/N  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///
+        ///%% This code attempts to set the /N [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string PdfaDefinition {
             get {
@@ -120,18 +118,15 @@ namespace clawSoft.clawPDF.Core {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die %!
         ///% This is a sample prefix file for creating a PDF/X-3 document.
-        ///% Feel free to modify entries marked with &quot;Customize&quot;.
+        ///% Users should modify entries marked with &quot;Customize&quot;.
+        ///% This assumes an ICC profile resides in the file (ISO Coated sb.icc)
+        ///% in the current directory unless the user modifies the corresponding line below.
         ///
-        ///% This assumes an ICC profile to reside in the file (ISO Coated sb.icc),
-        ///% unless the user modifies the corresponding line below.
-        ///
-        ///systemdict /ProcessColorModel known {
-        ///  systemdict /ProcessColorModel get dup /DeviceGray ne exch /DeviceCMYK ne and
-        ///} {
-        ///  true
-        ///} ifelse
-        ///{ (ERROR: ProcessColorModel must be /DeviceGray or DeviceCMYK.)=
-        ///  /ProcessColorModel cvx /rangecheck signal [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///% First up, attempt to ensure the user has set ColorConversionStrategy correctly.
+        ///% PDF/X-3 only permits Gray or CMYK in the output.
+        ///%
+        ///systemdict /ColorConversionStrategy known {
+        ///  systemdict /ColorConversionStrategy get cvn dup /Gray ne [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string PdfxDefinition {
             get {
@@ -151,7 +146,7 @@ namespace clawSoft.clawPDF.Core {
         ///    /.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
         ///    /.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
         ///    /space/exclam/quotedbl/numbersign/dollar/percent/ampersand/quoteright
-        ///    /parenle [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///    /parenleft/parenrig [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string PostScriptStamp {
             get {

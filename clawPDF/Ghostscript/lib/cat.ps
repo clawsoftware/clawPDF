@@ -1,0 +1,74 @@
+% Copyright (C) 2001-2021 Artifex Software, Inc.
+% All Rights Reserved.
+%
+% This software is provided AS-IS with no warranty, either express or
+% implied.
+%
+% This software is distributed under license and may not be copied,
+% modified or distributed except as expressly authorized under the terms
+% of the license contained in the file LICENSE in this distribution.
+%
+% Refer to licensing information at http://www.artifex.com or contact
+% Artifex Software, Inc.,  1305 Grant Avenue - Suite 200, Novato,
+% CA 94945, U.S.A., +1(415)492-9861, for further information.
+%
+%
+% $Id: cat.ps 8331 2008-02-05 11:07:00Z kens $
+%
+% Appends one file to another. Primarily used to overcome the
+% 'copy' limitation of Windows command shell for ps2epsi
+%
+% the files to be appended are given by the environament
+% variables %infile% and %outfile%. %infile% is appended to
+% %outfile%
+%
+
+/datastring 1024 string def
+
+{
+        (outfile) getenv
+        {
+                /outfilename exch def
+                (infile) getenv
+                {
+                        /infilename exch def
+
+                        infilename status
+                        {
+                                pop pop pop pop outfilename status
+                                {
+                                        pop pop pop pop
+                                        infilename (r) file /infile exch def
+                                        outfilename (a+) file /outfile exch def
+                                        {
+                                                infile datastring readstring
+                                                {
+                                                        outfile exch writestring
+                                                }
+                                                {
+                                                        dup length 0 gt
+                                                        {outfile exch writestring} {pop} ifelse
+                                                        exit
+                                                } ifelse
+                                        } loop
+                                        infile closefile
+                                        outfile closefile
+                                }
+                                {
+                                        (Failed to find file ) print outfilename ==
+                                } ifelse
+                        }
+                        {
+                                (Failed to find file ) print infilename ==
+                        } ifelse
+                }
+                {
+                        (Couldn't find %infile% environment variable) ==
+                } ifelse
+        }
+        {
+                (Couldn't find %outfile% environment variable) ==
+        }
+        ifelse
+} bind
+exec

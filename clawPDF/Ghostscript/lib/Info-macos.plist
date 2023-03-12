@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+        <key>CFBundleIdentifier</key>
+        <string>com.ghostscript.Ghostscript</string>
+        <key>CFBundleName</key>
+        <string>Ghostscript</string>
+        <key>CFBundleShortVersionString</key>
+        <string>703</string>
+        <key>NSExecutable</key>
+        <string>Ghostscript</string>
+</dict>
+</plist>

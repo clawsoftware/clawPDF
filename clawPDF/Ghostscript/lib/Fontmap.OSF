@@ -1,0 +1,163 @@
+% fontmap.osf aka Fontmap.OSF1 - Ghostscript fontmap for DEC OSF/1 systems.
+%
+% UNIX systems from Digital Equipment Corporation are bundled with a license
+% for Display PostScript, including certain fonts.  Using their font outlines
+% (which on OSF/1 systems are found in /usr/lib/X11/fonts/Type1Adobe)
+% improves the visual quality of documents displayed on screen.  To do that,
+% use this file as your Fontmap file and add /usr/lib/X11/fonts/Type1Adobe
+% as the second argument to GS_LIB_DEFAULT in your makefile
+% in your makefile.
+%
+% This file is Pete Kaiser's original Ultrix file as modified by
+% Bjorn S. Nilsson (nilsson@nbi.dk) first for Ultrix 4.3 and then
+% for OSF/1 version 1.3.
+%
+
+%/AvantGarde-Book			(AvantGarde-Book)	;
+%/AvantGarde-BookOblique		(AvantGarde-BookOblique);
+%/AvantGarde-Demi			(AvantGarde-Demi)	;
+%/AvantGarde-DemiOblique		(AvantGarde-DemiOblique);
+
+%/Courier-BoldItalic			/Courier-BoldOblique	;
+%/Courier-Italic			/Courier-Oblique	;
+
+%/Courier				(Courier)		;
+%/Courier-Bold				(Courier-Bold)		;
+%/Courier-BoldOblique			(Courier-BoldOblique)	;
+%/Courier-Oblique			(Courier-Oblique)	;
+
+%/Helvetica				(Helvetica)		;
+%/Helvetica-Bold			(Helvetica-Bold)	;
+%/Helvetica-BoldOblique			(Helvetica-BoldOblique)	;
+%/Helvetica-Oblique			(Helvetica-Oblique)	;
+
+%/LubalinGraph-Book			(LubalinGraph-Book)	;
+%/LubalinGraph-BookOblique		(LubalinGraph-BookOblique);
+%/LubalinGraph-Demi			(LubalinGraph-Demi)	;
+%/LubalinGraph-DemiOblique		(LubalinGraph-DemiOblique);
+
+%/NewCenturySchlbk-Bold			(NewCenturySchlbk-Bold)	;
+%/NewCenturySchlbk-BoldItalic		(NewCenturySchlbk-BoldItalic);
+%/NewCenturySchlbk-Italic		(NewCenturySchlbk-Italic);
+%/NewCenturySchlbk-Roman		(NewCenturySchlbk-Roman);
+
+%/Souvenir-Demi				(Souvenir-Demi)		;
+%/Souvenir-DemiItalic			(Souvenir-DemiItalic)	;
+%/Souvenir-Light			(Souvenir-Light)	;
+%/Souvenir-LightItalic			(Souvenir-LightItalic)	;
+
+%/Symbol				(Symbol)		;
+
+%/Times-Bold				(Times-Bold)		;
+%/Times-BoldItalic			(Times-BoldItalic)	;
+%/Times-Italic				(Times-Italic)		;
+%/Times-Roman				(Times-Roman)		;
+
+%/ZapfDingbats				(ZapfDingbats)		;
+
+/AvantGarde-Book		(AvantGarde-Book.pfa)		;
+/AvantGarde-BookOblique		(AvantGarde-BookOblique.pfa)	;
+/AvantGarde-Demi		(AvantGarde-Demi.pfa)		;
+/AvantGarde-DemiOblique		(AvantGarde-DemiOblique.pfa)	;
+/Bookman-Demi			(pbkd.gsf)			;
+/Bookman-DemiItalic		(pbkdi.gsf)			;
+/Bookman-Light			(pbkl.gsf)			;
+/Bookman-LightItalic		(pbkli.gsf)			;
+/Calligraphic-Hiragana		(fhirw.gsf)			;
+/Calligraphic-Katakana		(fkarw.gsf)			;
+/CharterBT-Bold			(bchb.gsf)			;
+/CharterBT-BoldItalic		(bchbi.gsf)			;
+/CharterBT-Italic		(bchri.gsf)			;
+/CharterBT-Roman		(bchr.gsf)			;
+/Courier			(Courier.pfa)			;
+/Courier-Bold			(Courier-Bold.pfa)		;
+/Courier-BoldOblique		(Courier-BoldOblique.pfa)	;
+/Courier-Oblique		(Courier-Oblique.pfa)		;
+/Helvetica			(Helvetica.pfa)			;
+/Helvetica-Bold			(Helvetica-Bold.pfa)		;
+/Helvetica-BoldOblique		(Helvetica-BoldOblique.pfa)	;
+/Helvetica-Oblique		(Helvetica-Oblique.pfa)		;
+/Hershey-Gothic-English		(hrger.gsf)			;
+/Hershey-Gothic-German		(hrgrr.gsf)			;
+/Hershey-Gothic-Italian		(hritr.gsf)			; 
+/Hershey-Plain-Duplex		(hrpld.gsf)			;
+/Hershey-Plain-Duplex-Italic	(hrpldi.gsf)			;
+/Hershey-Plain-Triplex		(hrplt.gsf)			;
+/Hershey-Plain-Triplex-Italic	(hrplti.gsf)			;
+/Hershey-Script-Complex		(hrscc.gsf)			;
+/Hershey-Script-Simplex		(hrscs.gsf)			;
+/Hershey-Gothic-English-Bold	(hrgerb.gsf)			;
+/Hershey-Gothic-English-Oblique	(hrgero.gsf)			;
+/Hershey-Gothic-English-Semibold (hrgerd.gsf)			;
+/Hershey-Gothic-German-Bold	(hrgrrb.gsf)			;
+/Hershey-Gothic-German-Oblique	(hrgrro.gsf)			;
+/Hershey-Gothic-Italian-Bold	(hritrb.gsf)			;
+/Hershey-Gothic-Italian-Oblique	(hritro.gsf)			;
+/Hershey-Plain-Duplex-Bold	(hrpldb.gsf)			;
+/Hershey-Plain-Duplex-Bold-Italic (hrpldbi.gsf)			;
+/Hershey-Plain-Triplex-Bold	(hrpltb.gsf)			;
+/Hershey-Plain-Triplex-Bold-Italic (hrpltbi.gsf)		;
+/Hershey-Script-Complex-Bold	(hrsccb.gsf)			;
+/Hershey-Script-Complex-Oblique	(hrscco.gsf)			;
+/Hershey-Script-Simplex-Bold	(hrscsb.gsf)			;
+/Hershey-Script-Simplex-Oblique	(hrscso.gsf)			;
+/Hershey-Greek-Complex		(hrgkc.gsf)			;
+/Hershey-Greek-Simplex		(hrgks.gsf)			;
+/Hershey-Plain			(hrplr.gsf)			;
+/Hershey-Plain-Simplex		(hrpls.gsf)			;
+/Hershey-Plain-Bold		(hrplrb.gsf)			;
+/Hershey-Plain-Bold-Oblique	(hrplrbo.gsf)			;
+/Hershey-Plain-Oblique		(hrplro.gsf)			;
+/Hershey-Plain-Simplex-Bold	(hrplsb.gsf)			;
+/Hershey-Plain-Simplex-Bold-Oblique (hrplsbo.gsf)		;
+/Hershey-Plain-Simplex-Oblique	(hrplso.gsf)			;
+/Hershey-Symbol			(hrsy_r.gsf)			;
+/LubalinGraph-Book		(LubalinGraph-Book.pfa)		;
+/LubalinGraph-BookOblique	(LubalinGraph-BookOblique.pfa)	;
+/LubalinGraph-Demi		(LubalinGraph-Demi.pfa)		;
+/LubalinGraph-DemiOblique	(LubalinGraph-DemiOblique.pfa)	;
+/NewCenturySchlbk-Bold		(NewCenturySchlbk-Bold.pfa)	;
+/NewCenturySchlbk-BoldItalic	(NewCenturySchlbk-BoldItalic.pfa) ;
+/NewCenturySchlbk-Italic	(NewCenturySchlbk-Italic.pfa)	;
+/NewCenturySchlbk-Roman		(NewCenturySchlbk-Roman.pfa)	;
+/NimbusRomanNo9L-Regular	(n021003l.gsf)			;
+/NimbusSansL-Regular		(n019003l.gsf)			;
+/Palatino-Bold			(pplb.gsf)			;
+/Palatino-BoldItalic		(pplbi.gsf)			;
+/Palatino-Italic		(pplri.gsf)			;
+/Palatino-Roman			(pplr.gsf)			;
+/Shareware-Cyrillic-Regular	(fcyr.gsf)			;
+/Shareware-Cyrillic-Italic	(fcyri.gsf)			;
+/Souvenir-Demi			(Souvenir-Demi.pfa)		;
+/Souvenir-DemiItalic		(Souvenir-DemiItalic.pfa)	;
+/Souvenir-Light			(Souvenir-Light.pfa)		;
+/Souvenir-LightItalic		(Souvenir-LightItalic.pfa)	;
+/Symbol				(Symbol.pfa)			;
+/Times-Bold			(Times-Bold.pfa)		;
+/Times-BoldItalic		(Times-BoldItalic.pfa)		;
+/Times-Italic			(Times-Italic.pfa)		;
+/Times-Roman			(Times-Roman.pfa)		;
+/URWAntiquaT-RegularCondensed	(u003043t.gsf)			;
+/URWGroteskT-Bold		(u004006t.gsf)			;
+/Utopia-Bold			(putb.gsf)			;
+/Utopia-BoldItalic		(putbi.gsf)			;
+/Utopia-Italic			(putri.gsf)			;
+/Utopia-Regular			(putr.gsf)			;
+/ZapfChancery			(zcr.gsf)			;
+/ZapfChancery-Bold		(zcb.gsf)			;
+/ZapfChancery-Oblique		(zcro.gsf)			;
+/ZapfDingbats			(ZapfDingbats.pfa)		;
+/Cyrillic			/Cyrillic-Regular		;
+/Cyrillic-Regular		/Shareware-Cyrillic-Regular	;
+/Cyrillic-Italic		/Shareware-Cyrillic-Italic	;
+
+% BSN additions from original Fontmap file and some more aliases
+
+/Helvetica-Narrow-Bold		/Helvetica-Narrow	;
+/ZapfChancery-MediumItalic	/ZapfChancery-Oblique	;
+/Charter-Roman			/CharterBT-Roman	;
+/Charter-Italic			/CharterBT-Italic	;
+/Charter-Bold			/CharterBT-Bold		;
+/Charter-BoldItalic		/CharterBT-BoldItalic	;
+/Courier-Italic			/Courier-Oblique	;
+/Courier-BoldItalic		/Courier-BoldOblique	;

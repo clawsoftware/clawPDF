@@ -76,6 +76,20 @@ namespace clawSoft.clawPDF.ftplib.FtpLib
             if (WININET.FtpSetCurrentDirectory(_hConnect, directory) == 0) Error();
         }
 
+        public bool TrySetCurrentDirectory(string directory)
+        {
+            bool result = false;
+            if (WININET.FtpSetCurrentDirectory(_hConnect, directory) == 1)
+            {
+                if (WININET.FtpSetCurrentDirectory(_hConnect, "..") == 1)
+                {
+                    result = true;
+                }
+            }
+
+            return result;
+        }
+
         public void SetLocalDirectory(string directory)
         {
             if (Directory.Exists(directory))
@@ -346,7 +360,8 @@ namespace clawSoft.clawPDF.ftplib.FtpLib
             var intPtr = WININET.FtpFindFirstFile(_hConnect, path, ref findFileData, 67108864, IntPtr.Zero);
             try
             {
-                if (intPtr == IntPtr.Zero) return false;
+                if (intPtr == IntPtr.Zero
+                    && !TrySetCurrentDirectory(path)) return false;
                 return true;
             }
             finally

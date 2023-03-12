@@ -1,0 +1,104 @@
+%!
+% This is a sample prefix file for creating a PDF/X-3 document.
+% Users should modify entries marked with "Customize".
+% This assumes an ICC profile resides in the file (ISO Coated sb.icc)
+% in the current directory unless the user modifies the corresponding line below.
+
+% First up, attempt to ensure the user has set ColorConversionStrategy correctly.
+% PDF/X-3 only permits Gray or CMYK in the output.
+%
+systemdict /ColorConversionStrategy known {
+  systemdict /ColorConversionStrategy get cvn dup /Gray ne exch /CMYK ne and
+} {
+  (\nERROR: ColorConversionStrategy not set.)=
+  true
+} ifelse
+{ (ERROR: ColorConversionStrategy must be /DeviceGray or /DeviceCMYK.)=
+  /ColorConversionStrategy cvx /rangecheck signalerror
+} if
+
+
+% Define entries in the document Info dictionary :
+%
+[ /GTS_PDFXVersion (PDF/X-3:2002) % Must be so (the standard requires).
+  /Title (Title)                  % Customize.
+  /Trapped /False                 % Must be so (Ghostscript doesn't provide other).
+/DOCINFO pdfmark
+
+
+/ICCProfile (ISO Coated sb.icc) def  % Customize or remove.
+
+% Define an ICC profile in the output, if the user specified one.
+%
+currentdict /ICCProfile known {
+  [/_objdef {icc_PDFX} /type /stream /OBJ pdfmark
+
+% This code attempts to set the /N (number of components) key for the ICC colour space.
+% To do this it checks the ColorConversionStrategy or the device ProcessColorModel if
+% ColorConversionStrategy is not set.
+% This is not 100% reliable. A better solution is for the user to edit this and replace
+% the code between the ---8<--- lines with a simple declaration like:
+%   /N 3
+% where the value of N is the number of components from the profile defined in /ICCProfile above.
+% Note, if you don't set ColorConversionStrategy, the output will likely be invalid anyway.
+  [{icc_PDFX} <<
+% ----------8<--------------8<-------------8<--------------8<----------
+  systemdict /ColorConversionStrategy known {
+    systemdict /ColorConversionStrategy get cvn dup /Gray eq {
+      pop /N 1 false
+    }{
+      dup /RGB eq {
+        (RGB is not a valid ColorConversionStrategy for PDF/X output)=
+        /ColorConversionStrategycvx /rangecheck signalerror
+      }{
+        /CMYK eq {
+          /N 4 false
+        }{
+          (ColorConversionStrategy not a device space, falling back to ProcessColorModel, output may not be valid PDF/X.)=
+          true
+        } ifelse
+      } ifelse
+    } ifelse
+  } {
+    (ColorConversionStrategy not set, falling back to ProcessColorModel, output may not be valid PDF/X.)=
+    true
+  } ifelse
+
+  {
+    currentpagedevice /ProcessColorModel get
+    dup /DeviceGray eq {
+      pop /N 1
+    }{
+      dup /DeviceRGB eq {
+        (RGB is not a valid ProcessColorModel for PDF/X output)=
+        /ColorConversionStrategycvx /rangecheck signalerror
+      }{
+        dup /DeviceCMYK eq {
+          pop /N 4
+        } {
+          (ProcessColorModel not a device space.)=
+          /ProcessColorModel cvx /rangecheck signalerror
+        } ifelse
+      } ifelse
+    } ifelse
+  } if
+% ----------8<--------------8<-------------8<--------------8<----------
+  >> /PUT pdfmark
+  [{icc_PDFX} ICCProfile (r) file /PUT pdfmark
+} if
+
+% Define the output intent dictionary :
+
+[/_objdef {OutputIntent_PDFX} /type /dict /OBJ pdfmark
+[{OutputIntent_PDFX} <<
+  /Type /OutputIntent              % Must be so (the standard requires).
+  /S /GTS_PDFX                     % Must be so (the standard requires).
+  /OutputCondition (Commercial and specialty printing) % Customize
+  /Info (none)                     % Customize
+  /OutputConditionIdentifier (CGATS TR001)      % Customize
+  /RegistryName (http://www.color.org)   % Must be so (the standard requires).
+  currentdict /ICCProfile known {
+    /DestOutputProfile {icc_PDFX}  % Must be so (see above).
+  } if
+>> /PUT pdfmark
+[{Catalog} <</OutputIntents [ {OutputIntent_PDFX} ]>> /PUT pdfmark

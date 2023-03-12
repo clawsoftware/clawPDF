@@ -2,6 +2,7 @@
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Helper;
 using clawSoft.clawPDF.Utilities;
+using clawSoft.clawPDF.Utilities.Registry;
 using NLog;
 using SystemInterface.IO;
 using SystemWrapper.IO;
@@ -22,7 +23,6 @@ namespace clawSoft.clawPDF.Startup
             _appSettings = appSettings;
         }
 
-        //for testing
         public IAppStart CreateApplicationStart(string[] commandLineArgs)
         {
             return CreateApplicationStart(commandLineArgs, new FileWrap());
@@ -40,10 +40,15 @@ namespace clawSoft.clawPDF.Startup
 
             var commandLineParser = new CommandLineParser(commandLineArgs);
 
+
             if (commandLineParser.HasArgument("PrintFile"))
             {
                 var printFile = FindPrintFile(commandLineParser);
                 var printerName = FindPrinterName(commandLineParser);
+                var profileName = FindProfileParameter(commandLineParser);
+                string lastProfile = RegistryUtility.ReadRegistryValue(@"Software\clawSoft\clawPDF\Settings\ApplicationSettings", "LastUsedProfileGuid");
+                RegistryUtility.WriteRegistryValue(@"Software\clawSoft\clawPDF\Batch", "DefaultProfileGuid", lastProfile);
+                RegistryUtility.WriteRegistryValue(@"Software\clawSoft\clawPDF\Settings\ApplicationSettings", "LastUsedProfileGuid", profileName);
                 return new PrintFileStart(printFile, printerName);
             }
 
@@ -71,7 +76,9 @@ namespace clawSoft.clawPDF.Startup
             // let's see if we have a new JobInfo passed as command line argument
             var newJob = FindJobInfoFile(commandLineParser);
             if (newJob != null)
+            {
                 return new NewPrintJobStart(newJob);
+            }
 
             // or a PSFile?
             newJob = FindPsFile(commandLineParser);
@@ -149,6 +156,14 @@ namespace clawSoft.clawPDF.Startup
                 return commandLineParser.GetArgument("PrinterName");
 
             return _appSettings.PrimaryPrinter;
+        }
+
+        private string FindProfileParameter(CommandLineParser commandLineParser)
+        {
+            if (commandLineParser.HasArgument("Profile"))
+                return commandLineParser.GetArgument("Profile");
+
+            return "";
         }
     }
 }

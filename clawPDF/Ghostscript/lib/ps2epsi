@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# Revised in 2020 to use the eps2write device (within ps2epsi.ps)
+
+# This definition is changed on install to match the
+# executable name set in the makefile, but we check a couple of other
+# places (bin/ sibling to $LIBDIR and 'gs' on the $PATH)
+GS_EXECUTABLE=gs
+LIBDIR=`dirname $0`
+gs="$LIBDIR/$GS_EXECUTABLE"
+if test ! -x "$gs"; then
+	# Might be executing lib/ps2epsi with bin/ as sibling to lib/
+	gs="$LIBDIR/../bin/$GS_EXECUTABLE"
+	if test ! -x "$gs"; then
+		# Fallback to using any 'gs' on the path
+		gs="$GS_EXECUTABLE"
+	fi
+fi
+GS_EXECUTABLE="$gs"
+
+export outfile
+
+if [ $# -lt 1 -o $# -gt 2 ]; then
+	echo "Usage: `basename \"$0\"` file.ps [file.epsi]" 1>&2
+	exit 1
+fi
+
+infile=$1;
+
+if [ $# -eq 1 ]; then
+	case "${infile}" in
+	  *.ps)		base=`basename "${infile}" .ps` ;;
+	  *.cps)	base=`basename "${infile}" .cps` ;;
+	  *.eps)	base=`basename "${infile}" .eps` ;;
+	  *.epsf)	base=`basename "${infile}" .epsf` ;;
+	  *)		base=`basename "${infile}"` ;;
+	esac
+	outfile=${base}.epsi
+else
+	outfile=$2
+fi
+
+# Note, we expect 'ps2epsi.ps' to be on one of the search paths which can be seen by: gs -h
+"$GS_EXECUTABLE" -q -dNOOUTERSAVE -dNODISPLAY -dLastPage=1 -sOutputFile="${outfile}" \
+		--permit-file-all="${infile}" -- ps2epsi.ps  "${infile}" 1>&2
+
+exit 0

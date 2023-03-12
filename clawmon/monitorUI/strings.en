@@ -13,7 +13,7 @@
 #define szLogLevel "Log level"
 #define szCancel "Cancel"
 #define szCaption2 "new port name"
-#define szCopy1 "Copyright © 2019 // Andrew Hess // clawSoft"
+#define szCopy1 "Copyright © 2023 // Andrew Hess // clawSoft"
 #define szCopy2 "Released under the terms of the GNU General Public License."
 #define szCopy3 "See LICENSE for details."
 #define szRunAsPUser "Start process as printing user"

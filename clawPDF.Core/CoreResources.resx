@@ -118,6 +118,214 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="eciRGB_v2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ecirgb_v2.icc;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ISOcoated_v2_300_eci" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ISOcoated_v2_300_eci.icc;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ISOcoated_v2_grey1c_bas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ISOcoated_v2_grey1c_bas.ICC;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PdfaDefinition" xml:space="preserve">
+    <value>%!
+% This is a sample prefix file for creating a PDF/A document.
+% Users should modify entries marked with "Customize".
+% This assumes an ICC profile resides in the file (srgb.icc),
+% in the current directory unless the user modifies the corresponding line below.
+
+% Define entries in the document Info dictionary :
+[ /Title (Title)       % Customise
+  /DOCINFO pdfmark
+
+% Define an ICC profile :
+/ICCProfile [ICC_PROFILE]
+def
+
+[/_objdef {icc_PDFA} /type /stream /OBJ pdfmark
+
+%% This code attempts to set the /N (number of components) key for the ICC colour space.
+%% To do this it checks the ColorConversionStrategy or the device ProcessColorModel if
+%% ColorConversionStrategy is not set.
+%% This is not 100% reliable. A better solution is for the user to edit this and replace
+%% the code between the ---8&lt;--- lines with a simple declaration like:
+%%   /N 3
+%% where the value of N is the number of components from the profile defined in /ICCProfile above.
+%%
+[{icc_PDFA}
+&lt;&lt;
+%% ----------8&lt;--------------8&lt;-------------8&lt;--------------8&lt;----------
+  systemdict /ColorConversionStrategy known {
+    systemdict /ColorConversionStrategy get cvn dup /Gray eq {
+      pop /N 1 false
+    }{
+      dup /RGB eq {
+        pop /N 3 false
+      }{
+        /CMYK eq {
+          /N 4 false
+        }{
+          (\tColorConversionStrategy not a device space, falling back to ProcessColorModel, output may not be valid PDF/A.\n)=
+          true
+        } ifelse
+      } ifelse
+    } ifelse
+  } {
+    (\tColorConversionStrategy not set, falling back to ProcessColorModel, output may not be valid PDF/A.\n)=
+    true
+  } ifelse
+
+  {
+    currentpagedevice /ProcessColorModel get
+    dup /DeviceGray eq {
+      pop /N 1
+    }{
+      dup /DeviceRGB eq {
+        pop /N 3
+      }{
+        dup /DeviceCMYK eq {
+          pop /N 4
+        } {
+          (\tProcessColorModel not a device space.)=
+          /ProcessColorModel cvx /rangecheck signalerror
+        } ifelse
+      } ifelse
+    } ifelse
+  } if
+%% ----------8&lt;--------------8&lt;-------------8&lt;--------------8&lt;----------
+
+&gt;&gt; /PUT pdfmark
+[
+{icc_PDFA}
+{ICCProfile (r) file} stopped
+{
+  (\n\tFailed to open the supplied ICCProfile for reading. This may be due to\n) print
+  (\t  an incorrect filename or a failure to add --permif-file-read=&lt;profile&gt;\n) print
+  (\t  to the command line. This PostScript program needs to open the file\n) print
+  (\t  and you must explicitly grant it permission to do so.\n\n) print
+  (\tPDF/A processing aborted, output may not be a PDF/A file.\n\n) print
+  cleartomark
+}
+{
+  /PUT pdfmark
+  % Define the output intent dictionary :
+
+  [/_objdef {OutputIntent_PDFA} /type /dict /OBJ pdfmark
+  [{OutputIntent_PDFA} &lt;&lt;
+    /Type /OutputIntent               % Must be so (the standard requires).
+    /S /GTS_PDFA1                     % Must be so (the standard requires).
+    /DestOutputProfile {icc_PDFA}     % Must be so (see above).
+    /OutputConditionIdentifier (sRGB) % Customize
+  &gt;&gt; /PUT pdfmark
+  [{Catalog} &lt;&lt;/OutputIntents [ {OutputIntent_PDFA} ]&gt;&gt; /PUT pdfmark
+} ifelse</value>
+  </data>
+  <data name="PdfxDefinition" xml:space="preserve">
+    <value>%!
+% This is a sample prefix file for creating a PDF/X-3 document.
+% Users should modify entries marked with "Customize".
+% This assumes an ICC profile resides in the file (ISO Coated sb.icc)
+% in the current directory unless the user modifies the corresponding line below.
+
+% First up, attempt to ensure the user has set ColorConversionStrategy correctly.
+% PDF/X-3 only permits Gray or CMYK in the output.
+%
+systemdict /ColorConversionStrategy known {
+  systemdict /ColorConversionStrategy get cvn dup /Gray ne exch /CMYK ne and
+} {
+  (\nERROR: ColorConversionStrategy not set.)=
+  true
+} ifelse
+{ (ERROR: ColorConversionStrategy must be /DeviceGray or /DeviceCMYK.)=
+  /ColorConversionStrategy cvx /rangecheck signalerror
+} if
+
+
+% Define entries in the document Info dictionary :
+%
+[ /GTS_PDFXVersion (PDF/X-3:2002) % Must be so (the standard requires).
+  /Title (Title)                  % Customize.
+  /Trapped /False                 % Must be so (Ghostscript doesn't provide other).
+/DOCINFO pdfmark
+
+
+/ICCProfile (ISO Coated sb.icc) def  % Customize or remove.
+
+% Define an ICC profile in the output, if the user specified one.
+%
+currentdict /ICCProfile known {
+  [/_objdef {icc_PDFX} /type /stream /OBJ pdfmark
+
+% This code attempts to set the /N (number of components) key for the ICC colour space.
+% To do this it checks the ColorConversionStrategy or the device ProcessColorModel if
+% ColorConversionStrategy is not set.
+% This is not 100% reliable. A better solution is for the user to edit this and replace
+% the code between the ---8&lt;--- lines with a simple declaration like:
+%   /N 3
+% where the value of N is the number of components from the profile defined in /ICCProfile above.
+% Note, if you don't set ColorConversionStrategy, the output will likely be invalid anyway.
+  [{icc_PDFX} &lt;&lt;
+% ----------8&lt;--------------8&lt;-------------8&lt;--------------8&lt;----------
+  systemdict /ColorConversionStrategy known {
+    systemdict /ColorConversionStrategy get cvn dup /Gray eq {
+      pop /N 1 false
+    }{
+      dup /RGB eq {
+        (RGB is not a valid ColorConversionStrategy for PDF/X output)=
+        /ColorConversionStrategycvx /rangecheck signalerror
+      }{
+        /CMYK eq {
+          /N 4 false
+        }{
+          (ColorConversionStrategy not a device space, falling back to ProcessColorModel, output may not be valid PDF/X.)=
+          true
+        } ifelse
+      } ifelse
+    } ifelse
+  } {
+    (ColorConversionStrategy not set, falling back to ProcessColorModel, output may not be valid PDF/X.)=
+    true
+  } ifelse
+
+  {
+    currentpagedevice /ProcessColorModel get
+    dup /DeviceGray eq {
+      pop /N 1
+    }{
+      dup /DeviceRGB eq {
+        (RGB is not a valid ProcessColorModel for PDF/X output)=
+        /ColorConversionStrategycvx /rangecheck signalerror
+      }{
+        dup /DeviceCMYK eq {
+          pop /N 4
+        } {
+          (ProcessColorModel not a device space.)=
+          /ProcessColorModel cvx /rangecheck signalerror
+        } ifelse
+      } ifelse
+    } ifelse
+  } if
+% ----------8&lt;--------------8&lt;-------------8&lt;--------------8&lt;----------
+  &gt;&gt; /PUT pdfmark
+  [{icc_PDFX} ICCProfile (r) file /PUT pdfmark
+} if
+
+% Define the output intent dictionary :
+
+[/_objdef {OutputIntent_PDFX} /type /dict /OBJ pdfmark
+[{OutputIntent_PDFX} &lt;&lt;
+  /Type /OutputIntent              % Must be so (the standard requires).
+  /S /GTS_PDFX                     % Must be so (the standard requires).
+  /OutputCondition (Commercial and specialty printing) % Customize
+  /Info (none)                     % Customize
+  /OutputConditionIdentifier (CGATS TR001)      % Customize
+  /RegistryName (http://www.color.org)   % Must be so (the standard requires).
+  currentdict /ICCProfile known {
+    /DestOutputProfile {icc_PDFX}  % Must be so (see above).
+  } if
+&gt;&gt; /PUT pdfmark
+[{Catalog} &lt;&lt;/OutputIntents [ {OutputIntent_PDFX} ]&gt;&gt; /PUT pdfmark</value>
+  </data>
   <data name="PostScriptStamp" xml:space="preserve">
     <value>%!PS
 /stampstring ([STAMPSTRING]) def
@@ -190,98 +398,6 @@
     grestore  
     showpage_org
 } def</value>
-  </data>
-  <data name="PdfaDefinition" xml:space="preserve">
-    <value>%!
-% This is a sample prefix file for creating a PDF/A document.
-% Feel free to modify entries marked with "Customize".
-
-% This assumes an ICC profile to reside in the file (ISO Coated sb.icc),
-% unless the user modifies the corresponding line below.
-
-% Define entries in the document Info dictionary :
-
-/ICCProfile [ICC_PROFILE]
-def
-
-[ /Title (Title)                  % Customize.
-  /DOCINFO pdfmark
-
-% Define an ICC profile :
-
-[/_objdef {icc_PDFA} /type /stream /OBJ pdfmark
-[{icc_PDFA} &lt;&lt;/N systemdict /ProcessColorModel get /DeviceGray eq {1} {4} ifelse &gt;&gt; /PUT pdfmark
-[{icc_PDFA} ICCProfile (r) file /PUT pdfmark
-
-% Define the output intent dictionary :
-
-[/_objdef {OutputIntent_PDFA} /type /dict /OBJ pdfmark
-[{OutputIntent_PDFA} &lt;&lt;
-  /Type /OutputIntent             % Must be so (the standard requires).
-  /S /GTS_PDFA1                   % Must be so (the standard requires).
-  /DestOutputProfile {icc_PDFA}            % Must be so (see above).
-  /OutputConditionIdentifier (CGATS TR001)      % Customize
-&gt;&gt; /PUT pdfmark
-[{Catalog} &lt;&lt;/OutputIntents [ {OutputIntent_PDFA} ]&gt;&gt; /PUT pdfmark</value>
-  </data>
-  <data name="PdfxDefinition" xml:space="preserve">
-    <value>%!
-% This is a sample prefix file for creating a PDF/X-3 document.
-% Feel free to modify entries marked with "Customize".
-
-% This assumes an ICC profile to reside in the file (ISO Coated sb.icc),
-% unless the user modifies the corresponding line below.
-
-systemdict /ProcessColorModel known {
-  systemdict /ProcessColorModel get dup /DeviceGray ne exch /DeviceCMYK ne and
-} {
-  true
-} ifelse
-{ (ERROR: ProcessColorModel must be /DeviceGray or DeviceCMYK.)=
-  /ProcessColorModel cvx /rangecheck signalerror
-} if
-
-% Define entries to the document Info dictionary :
-
-%/ICCProfile (ISO Coated sb.icc) def  % Customize or remove.
-
-[ /GTS_PDFXVersion (PDF/X-3:2002) % Must be so (the standard requires).
-  /Title (Title)                  % Customize.
-  /Trapped /False                 % Must be so (Ghostscript doesn't provide other).
-  /DOCINFO pdfmark
-
-% Define an ICC profile :
-
-currentdict /ICCProfile known {
-  [/_objdef {icc_PDFX} /type /stream /OBJ pdfmark
-  [{icc_PDFX} &lt;&lt;/N systemdict /ProcessColorModel get /DeviceGray eq {1} {4} ifelse &gt;&gt; /PUT pdfmark
-  [{icc_PDFX} ICCProfile (r) file /PUT pdfmark
-} if
-
-% Define the output intent dictionary :
-
-[/_objdef {OutputIntent_PDFX} /type /dict /OBJ pdfmark
-[{OutputIntent_PDFX} &lt;&lt;
-  /Type /OutputIntent              % Must be so (the standard requires).
-  /S /GTS_PDFX                     % Must be so (the standard requires).
-  /OutputCondition (Commercial and specialty printing) % Customize
-  /Info (none)                     % Customize
-  /OutputConditionIdentifier (CGATS TR001)      % Customize
-  /RegistryName (http://www.color.org)   % Must be so (the standard requires).
-  currentdict /ICCProfile known {
-    /DestOutputProfile {icc_PDFX}  % Must be so (see above).
-  } if
-&gt;&gt; /PUT pdfmark
-[{Catalog} &lt;&lt;/OutputIntents [ {OutputIntent_PDFX} ]&gt;&gt; /PUT pdfmark</value>
-  </data>
-  <data name="ISOcoated_v2_300_eci" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\ISOcoated_v2_300_eci.icc;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="eciRGB_v2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>resources\ecirgb_v2.icc;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ISOcoated_v2_grey1c_bas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\ISOcoated_v2_grey1c_bas.ICC;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="WebCoatedFOGRA28" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\WebCoatedFOGRA28.icc;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

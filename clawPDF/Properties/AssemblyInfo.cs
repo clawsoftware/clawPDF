@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Andrew Hess // clawSoft")]
 [assembly: AssemblyProduct("clawPDF")]
-[assembly: AssemblyCopyright("Copyright © 2019 Andrew Hess // clawSoft")]
+[assembly: AssemblyCopyright("Copyright © 2023 Andrew Hess // clawSoft")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly:
@@ -39,6 +39,6 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern
 // übernehmen, indem Sie "*" eingeben
 
-[assembly: AssemblyVersion("0.8.4.0")]
-[assembly: AssemblyFileVersion("0.8.4.0")]
+[assembly: AssemblyVersion("0.8.5.0")]
+[assembly: AssemblyFileVersion("0.8.5.0")]
 [assembly: NeutralResourcesLanguage("")]
