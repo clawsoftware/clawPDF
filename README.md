@@ -11,7 +11,7 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.5/clawPDF_0.8.5_se
 # Tested under
 
 - Windows RDS/Terminalserver
-- Windows 11 x32/x64
+- Windows 11 x64
 - Windows 10 x32/x64
 - Windows 8 x32/x64
 - Windows 7 x32/x64
@@ -65,15 +65,15 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.5/clawPDF_0.8.5_se
 
 ## Batch Printing
 
-clawPDF.exe /PrintFile=D:\example.docx /profile=f81ea998-3a76-4104-a574-9a66d6f3039b
-clawPDF.exe /PrintFile=D:\example.pdf /profile=JpegGuid
+- clawPDF.exe /PrintFile=D:\example.docx /profile=f81ea998-3a76-4104-a574-9a66d6f3039b
+- clawPDF.exe /PrintFile=D:\example.pdf /profile=JpegGuid
 
-/profile=GUID (HKEY_CURRENT_USER\Software\clawSoft\clawPDF\Settings\ConversionProfiles\[id]\Guid) 
+/profile=GUID (HKEY_CURRENT_USER\Software\clawSoft\clawPDF\Settings\ConversionProfiles\id\Guid) 
 
 
 ## ManagePrintJobs
 
-clawPDF.exe /ManagePrintJobs
+- clawPDF.exe /ManagePrintJobs
 
 
 # Requirements
