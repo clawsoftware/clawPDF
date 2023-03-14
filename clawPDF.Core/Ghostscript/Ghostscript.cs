@@ -37,14 +37,9 @@ namespace clawSoft.clawPDF.Core.Ghostscript
             p.StartInfo.CreateNoWindow = true;
 
             var ghostScriptArguments = parameters.ToArray();
-            GhostScriptANY.CallAPI(ghostScriptArguments);
+            GhostscriptCall.CallAPI(ghostScriptArguments);
 
             return true;
-        }
-
-        private void RaiseOutputEvent(string message)
-        {
-            if (Output != null) Output(this, new OutputEventArgs(message));
         }
 
         /// <summary>

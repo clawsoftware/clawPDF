@@ -9,6 +9,7 @@ using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.PDFProcessing;
 using SystemInterface.IO;
 using SystemWrapper.IO;
+using static clawSoft.clawPDF.Core.Ghostscript.GhostScript;
 
 namespace clawSoft.clawPDF.Core.Jobs
 {

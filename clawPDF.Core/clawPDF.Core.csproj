@@ -68,8 +68,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CoreResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Ghostscript\GhostScriptANY.cs" />
-    <Compile Include="Ghostscript\NativeMethods.cs" />
+    <Compile Include="Ghostscript\GhostscriptCall.cs" />
+    <Compile Include="Ghostscript\GhostscriptAPI.cs" />
     <Compile Include="Ghostscript\OutputDevices\TextDevice.cs" />
     <Compile Include="Helper\EncodingHelper.cs" />
     <Compile Include="Jobs\ITempPathProvider.cs" />
