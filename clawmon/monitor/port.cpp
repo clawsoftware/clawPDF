@@ -1317,7 +1317,7 @@ void CPort::WriteControlFile()
 	wcsncpy_s(ps, 261, m_nszFileName, _TRUNCATE);
 	wcsncat_s(ps, 261, L".ps", _TRUNCATE);
 	WriteToIniFile(_T("0"), _T("SpoolFileName"), ps, infpath);
-	WriteToIniFile(_T("0"), _T("PinterName"), m_szPrinterName, infpath);
+	WriteToIniFile(_T("0"), _T("PrinterName"), m_szPrinterName, infpath);
 
 	wchar_t bJobId[100];
 	_itow_s(JobId(), bJobId, 10);

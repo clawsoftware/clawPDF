@@ -55,11 +55,8 @@ namespace clawSoft.clawPDF.Shared.Helper
                     Marshal.FreeHGlobal(pAddr);
                     return printerInfo2;
                 }
-
-                lastWin32Error = Marshal.GetLastWin32Error();
             }
-
-            throw new Win32Exception(lastWin32Error);
+            return null;
         }
 
         /// <summary>
