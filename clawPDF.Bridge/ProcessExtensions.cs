@@ -30,7 +30,7 @@ namespace clawPDF.Bridge
         private static extern void WTSFreeMemory(IntPtr pMemory);
 
         [DllImport("Wtsapi32.dll")]
-        private static extern bool WTSQuerySessionInformation(
+        private static extern bool WTSQuerySessionInformationW(
             System.IntPtr hServer, int sessionId, WTS_INFO_CLASS wtsInfoClass, out System.IntPtr ppBuffer, out uint pBytesReturned);
 
         [DllImport("Wtsapi32.dll")]
@@ -215,11 +215,11 @@ namespace clawPDF.Bridge
                         WTS_SESSION_INFO si = (WTS_SESSION_INFO)Marshal.PtrToStructure((System.IntPtr)currentSession, typeof(WTS_SESSION_INFO));
                         currentSession += dataSize;
 
-                        WTSQuerySessionInformation(serverHandle, si.SessionID, WTS_INFO_CLASS.WTSUserName, out userPtr, out bytes);
+                        WTSQuerySessionInformationW(serverHandle, si.SessionID, WTS_INFO_CLASS.WTSUserName, out userPtr, out bytes);
 
-                        Console.WriteLine(Marshal.PtrToStringAnsi(userPtr));
+                        Console.WriteLine(Marshal.PtrToStringUni(userPtr));
 
-                        if (Marshal.PtrToStringAnsi(userPtr).Equals(username))
+                        if (Marshal.PtrToStringUni(userPtr).Equals(username))
                         {
                             Console.WriteLine(username);
                             Console.WriteLine(si.SessionID);

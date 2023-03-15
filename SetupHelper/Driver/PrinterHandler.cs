@@ -17,33 +17,34 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
     {
         #region Printer Driver Win32 API Constants
 
-        const uint DRIVER_KERNELMODE = 0x00000001;
-        const uint DRIVER_USERMODE = 0x00000002;
+        private const uint DRIVER_KERNELMODE = 0x00000001;
+        private const uint DRIVER_USERMODE = 0x00000002;
 
-        const uint APD_STRICT_UPGRADE = 0x00000001;
-        const uint APD_STRICT_DOWNGRADE = 0x00000002;
-        const uint APD_COPY_ALL_FILES = 0x00000004;
-        const uint APD_COPY_NEW_FILES = 0x00000008;
-        const uint APD_COPY_FROM_DIRECTORY = 0x00000010;
+        private const uint APD_STRICT_UPGRADE = 0x00000001;
+        private const uint APD_STRICT_DOWNGRADE = 0x00000002;
+        private const uint APD_COPY_ALL_FILES = 0x00000004;
+        private const uint APD_COPY_NEW_FILES = 0x00000008;
+        private const uint APD_COPY_FROM_DIRECTORY = 0x00000010;
 
-        const uint DPD_DELETE_UNUSED_FILES = 0x00000001;
-        const uint DPD_DELETE_SPECIFIC_VERSION = 0x00000002;
-        const uint DPD_DELETE_ALL_FILES = 0x00000004;
+        private const uint DPD_DELETE_UNUSED_FILES = 0x00000001;
+        private const uint DPD_DELETE_SPECIFIC_VERSION = 0x00000002;
+        private const uint DPD_DELETE_ALL_FILES = 0x00000004;
 
-        const int WIN32_FILE_ALREADY_EXISTS = 183; // Returned by XcvData "AddPort" if the port already exists
-        #endregion
+        private const int WIN32_FILE_ALREADY_EXISTS = 183; // Returned by XcvData "AddPort" if the port already exists
+
+        #endregion Printer Driver Win32 API Constants
 
         private const string ENVIRONMENT = null;
         private const string PRINTERNAME = "clawPDF";
         private const string DRIVERNAME = "clawPDF Virtual Printer";
-        private const string HARDWAREID = "clawPDF_Driver0101";
+        private const string HARDWAREID = "clawPDF_Driver";
         private const string PORTMONITOR = "CLAWMON";
         private const string MONITORDLL = "clawmon.dll";
         private const string MONITORUIDLL = "clawmonui.dll";
         private const string PORTNAME = "CLAWMON:";
         private const string PRINTPROCESOR = "winprint";
 
-        private const string DRIVERMANUFACTURER = "Andrew Hess";
+        private const string DRIVERMANUFACTURER = "Andrew Hess // clawSoft";
 
         private const string DRIVERFILE = "PSCRIPT5.DLL";
         private const string DRIVERUIFILE = "PS5UI.DLL";
@@ -202,39 +203,48 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             try
             {
                 oldRedirectValue = DisableWow64Redirection();
-                if (!DoesMonitorExist(PORTMONITOR))
+                //if (!DoesMonitorExist(PORTMONITOR))
+                //{
+                // Copy the monitor DLL to
+                // the system directory
+                String monitorfileSourcePath = Path.Combine(monitorFilePath, MONITORDLL);
+                String monitorfileDestinationPath = Path.Combine(Environment.SystemDirectory, MONITORDLL);
+                String monitoruifileSourcePath = Path.Combine(monitorFilePath, MONITORUIDLL);
+                String monitoruifileDestinationPath = Path.Combine(Environment.SystemDirectory, MONITORUIDLL);
+
+                Spooler.stop();
+
+                try
                 {
-                    // Copy the monitor DLL to
-                    // the system directory
-                    String fileSourcePath = Path.Combine(monitorFilePath, MONITORDLL);
-                    String fileDestinationPath = Path.Combine(Environment.SystemDirectory, MONITORDLL);
-                    try
-                    {
-                        File.Copy(fileSourcePath, fileDestinationPath, true);
-                    }
-                    catch (IOException)
-                    {
-                        // File in use, log -
-                        // this is OK because it means the file is already there
-                    }
-                    MONITOR_INFO_2 newMonitor = new MONITOR_INFO_2();
-                    newMonitor.pName = PORTMONITOR;
-                    newMonitor.pEnvironment = ENVIRONMENT;
-                    newMonitor.pDLLName = MONITORDLL;
-                    if (!AddPortMonitor(newMonitor))
-                        Console.WriteLine(String.Format("Could not add port monitor {0}", PORTMONITOR) + Environment.NewLine +
-                                                  String.Format(WIN32ERROR, Marshal.GetLastWin32Error().ToString()));
-                    else
-                        monitorAdded = true;
-                    //}
-                    //else
-                    //{
-                    // Monitor already installed -
-                    // log it, and keep going
-                    //    Console.WriteLine(String.Format("Port monitor {0} already installed.", PORTMONITOR));
-                    //    monitorAdded = true;
-                    // }
+                    File.Copy(monitoruifileSourcePath, monitoruifileDestinationPath, true);
                 }
+                catch { }
+
+                try
+                {
+                    File.Copy(monitorfileSourcePath, monitorfileDestinationPath, true);
+                }
+                catch { }
+
+                Spooler.start();
+
+                MONITOR_INFO_2 newMonitor = new MONITOR_INFO_2();
+                newMonitor.pName = PORTMONITOR;
+                newMonitor.pEnvironment = ENVIRONMENT;
+                newMonitor.pDLLName = MONITORDLL;
+                if (!AddPortMonitor(newMonitor))
+                    Console.WriteLine(String.Format("Could not add port monitor {0}", PORTMONITOR) + Environment.NewLine +
+                                              String.Format(WIN32ERROR, Marshal.GetLastWin32Error().ToString()));
+                else
+                    monitorAdded = true;
+                //}
+                //else
+                //{
+                // Monitor already installed -
+                // log it, and keep going
+                //    Console.WriteLine(String.Format("Port monitor {0} already installed.", PORTMONITOR));
+                //    monitorAdded = true;
+                // }
             }
             finally
             {
@@ -745,7 +755,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
 
                 printerDriverInfo.pMonitorName = PORTMONITOR;
                 printerDriverInfo.pDefaultDataType = String.Empty;
-                printerDriverInfo.dwlDriverVersion = 0x0000000200000000U;
+                printerDriverInfo.dwlDriverVersion = 0x0001000000000000U;
                 printerDriverInfo.pszMfgName = DRIVERMANUFACTURER;
                 printerDriverInfo.pszHardwareID = HARDWAREID;
                 printerDriverInfo.pszProvider = DRIVERMANUFACTURER;

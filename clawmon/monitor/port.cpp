@@ -27,6 +27,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "..\common\defs.h"
 #include "..\common\monutils.h"
 #include <string>
+#include <Shlobj.h>
 
 //-------------------------------------------------------------------------------------
 static BOOL EnablePrivilege(
@@ -1337,16 +1338,22 @@ void CPort::WriteControlFile()
 
 void CPort::SetHomeDirectory(HANDLE hToken)
 {
-	TCHAR szHomeDirBuf[MAX_PATH] = { 0 };
-	DWORD BufSize = MAX_PATH;
-	GetUserProfileDirectory(hToken, szHomeDirBuf, &BufSize);
-
-	WCHAR szTempDir[MAX_PATH] = { 0 };
-	wcsncpy_s(szTempDir, MAX_PATH, szHomeDirBuf, _TRUNCATE);
-	wcsncat_s(szTempDir, MAX_PATH, L"\\AppData\\Local\\Temp\\clawPDF\\Spool", _TRUNCATE);
-
-	wcsncpy_s(m_szOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
-	wcsncpy_s(m_nszOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
-
-	g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szTempDir);
+	WCHAR szHomeDirBuf[MAX_PATH] = { 0 };
+	HRESULT hr = SHGetFolderPath(NULL, CSIDL_PROFILE, hToken, 0, szHomeDirBuf);
+	if (hr == S_OK)
+	{
+		WCHAR szTempDir[MAX_PATH] = { 0 };
+		wcsncpy_s(szTempDir, MAX_PATH, szHomeDirBuf, _TRUNCATE);
+		wcsncat_s(szTempDir, MAX_PATH, L"\\AppData\\Local\\Temp\\clawPDF\\Spool", _TRUNCATE);
+		wcsncpy_s(m_szOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
+		wcsncpy_s(m_nszOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
+		g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szTempDir);
+	}
+	else
+	{
+		g_pLog->Log(LOGLEVEL_ALL, L" Fallback to Windows Temp");
+		WCHAR szTempDir[MAX_PATH] = { 0 };
+		wcsncat_s(szTempDir, MAX_PATH, L"\\Windows\\Temp\\clawPDF\\Spool", _TRUNCATE);
+		g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szTempDir);
+	}
 }
