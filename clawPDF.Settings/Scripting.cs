@@ -42,12 +42,18 @@ namespace clawSoft.clawPDF.Core.Settings
         /// </summary>
         public bool WaitForScript { get; set; }
 
+        /// <summary>
+        ///     Hide the process execution
+        /// </summary>
+        public bool HideProcess { get; set; }
+
         private void Init()
         {
             Enabled = false;
             ParameterString = "";
             ScriptFile = "";
             WaitForScript = true;
+            HideProcess = true;
         }
 
         public void ReadValues(Data data, string path)
@@ -87,6 +93,15 @@ namespace clawSoft.clawPDF.Core.Settings
             {
                 WaitForScript = true;
             }
+
+            try
+            {
+                HideProcess = bool.Parse(data.GetValue(@"" + path + @"HideProcess"));
+            }
+            catch
+            {
+                HideProcess = true;
+            }
         }
 
         public void StoreValues(Data data, string path)
@@ -95,6 +110,7 @@ namespace clawSoft.clawPDF.Core.Settings
             data.SetValue(@"" + path + @"ParameterString", Data.EscapeString(ParameterString));
             data.SetValue(@"" + path + @"ScriptFile", Data.EscapeString(ScriptFile));
             data.SetValue(@"" + path + @"WaitForScript", WaitForScript.ToString());
+            data.SetValue(@"" + path + @"HideProcess", HideProcess.ToString());
         }
 
         public Scripting Copy()
@@ -105,6 +121,7 @@ namespace clawSoft.clawPDF.Core.Settings
             copy.ParameterString = ParameterString;
             copy.ScriptFile = ScriptFile;
             copy.WaitForScript = WaitForScript;
+            copy.HideProcess = HideProcess;
 
             return copy;
         }
@@ -118,6 +135,7 @@ namespace clawSoft.clawPDF.Core.Settings
             if (!ParameterString.Equals(v.ParameterString)) return false;
             if (!ScriptFile.Equals(v.ScriptFile)) return false;
             if (!WaitForScript.Equals(v.WaitForScript)) return false;
+            if (!HideProcess.Equals(v.HideProcess)) return false;
 
             return true;
         }
@@ -130,6 +148,7 @@ namespace clawSoft.clawPDF.Core.Settings
             sb.AppendLine("ParameterString=" + ParameterString);
             sb.AppendLine("ScriptFile=" + ScriptFile);
             sb.AppendLine("WaitForScript=" + WaitForScript);
+            sb.AppendLine("HideProcess=" + HideProcess);
 
             return sb.ToString();
         }

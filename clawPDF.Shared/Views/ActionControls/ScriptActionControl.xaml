@@ -54,5 +54,8 @@
         <CheckBox IsChecked="{Binding CurrentProfile.Scripting.WaitForScript}" Margin="0 10 0 0">
             <TextBlock Name="WaitForScript" TextWrapping="Wrap">Wait until the script execution has ended</TextBlock>
         </CheckBox>
+        <CheckBox IsChecked="{Binding CurrentProfile.Scripting.HideProcess}" Margin="0 10 0 0">
+            <TextBlock Name="HideProcess" TextWrapping="Wrap">Hide the process execution</TextBlock>
+        </CheckBox>
     </StackPanel>
 </actionControls:ActionControl>

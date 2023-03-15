@@ -58,6 +58,12 @@ namespace clawSoft.clawPDF.Core.Actions
             try
             {
                 Logger.Debug("Launching script...");
+
+                if (job.Profile.Scripting.HideProcess)
+                {
+                    proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                }
+
                 proc.Start();
 
                 if (job.Profile.Scripting.WaitForScript)
