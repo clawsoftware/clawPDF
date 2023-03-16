@@ -5,12 +5,10 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
 using clawSoft.clawPDF.Assistants;
-using clawSoft.clawPDF.Core.Ghostscript;
 using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.Helper;
 using clawSoft.clawPDF.Shared.Helper;
 using clawSoft.clawPDF.Shared.Helper.Logging;
-using clawSoft.clawPDF.Shared.Views;
 using clawSoft.clawPDF.Startup;
 using clawSoft.clawPDF.Threading;
 using clawSoft.clawPDF.Utilities.Communication;
@@ -52,13 +50,30 @@ namespace clawSoft.clawPDF
             }
             finally
             {
-                if (string.Join(" ", e.Args).Contains("INFODATAFILE"))
+                if (string.Join(" ", e.Args).ToLower().Contains("/printfile="))
                 {
-                    string defaultProfile = RegistryUtility.ReadRegistryValue(@"Software\clawSoft\clawPDF\Batch", "DefaultProfileGuid");
+                    var defaultProfile = RegistryUtility.ReadRegistryValue(@"Software\clawSoft\clawPDF\Batch", "DefaultProfileGuid");
+
                     if (!string.IsNullOrEmpty(defaultProfile))
                     {
-                        RegistryUtility.WriteRegistryValue(@"Software\clawSoft\clawPDF\Settings\ApplicationSettings", "LastUsedProfileGuid", defaultProfile);
+                        Thread.Sleep(5000);
+                        var settings = SettingsHelper.Settings;
+                        var printerDefaultProfileGuid = RegistryUtility.ReadRegistryValue(@"Software\clawSoft\clawPDF\Batch", "PrinterDefaultProfileGuid");
+                        var primaryPrinter = settings.ApplicationSettings.PrimaryPrinter;
+                        settings.ApplicationSettings.LastUsedProfileGuid = defaultProfile;
                         RegistryUtility.DeleteRegistryValue(@"Software\clawSoft\clawPDF\Batch", "DefaultProfileGuid");
+                        RegistryUtility.DeleteRegistryValue(@"Software\clawSoft\clawPDF\Batch", "PrinterDefaultProfileGuid");
+
+                        foreach (var printer in settings.ApplicationSettings.PrinterMappings)
+                        {
+                            if (printer.PrinterName == primaryPrinter)
+                            {
+                                printer.ProfileGuid = printerDefaultProfileGuid;
+                            }
+                        }
+
+                        SettingsHelper.ApplySettings(settings);
+                        SettingsHelper.SaveSettings();
                     }
                 }
                 globalMutex.Release();

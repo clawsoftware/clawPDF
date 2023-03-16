@@ -1,9 +1,14 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Helper;
 using clawSoft.clawPDF.Utilities;
 using clawSoft.clawPDF.Utilities.Registry;
 using NLog;
+using pdfforge.DataStorage.Storage;
 using SystemInterface.IO;
 using SystemWrapper.IO;
 
@@ -13,6 +18,7 @@ namespace clawSoft.clawPDF.Startup
     {
         private readonly ApplicationSettings _appSettings;
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+        public Action<clawPDFSettings> UpdateSettings { get; set; }
 
         public AppStartFactory() : this(SettingsHelper.Settings.ApplicationSettings)
         {
@@ -40,15 +46,46 @@ namespace clawSoft.clawPDF.Startup
 
             var commandLineParser = new CommandLineParser(commandLineArgs);
 
+            if (commandLineParser.HasArgument("Config"))
+            {
+                Console.WriteLine("Load settings");
+                var settings = SettingsHelper.CreateEmptySettings();
+                var ini = new IniStorage(Encoding.UTF8);
+                var configFile = FindConfigParameter(commandLineParser);
+                settings.LoadDataStart(ini, configFile, SettingsHelper.UpgradeSettings);
+                SettingsHelper.ApplySettings(settings);
+                SettingsHelper.SaveSettings();
+                return null;
+            }
 
             if (commandLineParser.HasArgument("PrintFile"))
             {
+                var settings = SettingsHelper.Settings;
+                var primaryPrinter = settings.ApplicationSettings.PrimaryPrinter;
+                var printerDefaultProfileGuid = "";
+                var lastProfile = settings.ApplicationSettings.LastUsedProfileGuid;
+
                 var printFile = FindPrintFile(commandLineParser);
                 var printerName = FindPrinterName(commandLineParser);
                 var profileName = FindProfileParameter(commandLineParser);
-                string lastProfile = RegistryUtility.ReadRegistryValue(@"Software\clawSoft\clawPDF\Settings\ApplicationSettings", "LastUsedProfileGuid");
-                RegistryUtility.WriteRegistryValue(@"Software\clawSoft\clawPDF\Batch", "DefaultProfileGuid", lastProfile);
-                RegistryUtility.WriteRegistryValue(@"Software\clawSoft\clawPDF\Settings\ApplicationSettings", "LastUsedProfileGuid", profileName);
+
+                foreach (var printer in settings.ApplicationSettings.PrinterMappings)
+                {
+                    if (printer.PrinterName == primaryPrinter)
+                    {
+                        printerDefaultProfileGuid = printer.ProfileGuid;
+                        printer.ProfileGuid = "";
+                    }
+                }
+
+                settings.ApplicationSettings.LastUsedProfileGuid = profileName;
+
+                RegistryUtility.WriteRegistryValue(@"Software\clawSoft\clawPDF\Batch", "DefaultProfileGuid", lastProfile ?? "");
+                RegistryUtility.WriteRegistryValue(@"Software\clawSoft\clawPDF\Batch", "PrinterDefaultProfileGuid", printerDefaultProfileGuid ?? "");
+
+                SettingsHelper.ApplySettings(settings);
+                SettingsHelper.SaveSettings();
+
                 return new PrintFileStart(printFile, printerName);
             }
 
@@ -66,7 +103,7 @@ namespace clawSoft.clawPDF.Startup
             if (!commandLineParser.HasArgument("InitializeSettings"))
                 return false;
 
-            var excludingArguments = new[] { "ManagePrintJobs", "InfoDataFile", "PsFile", "PdfFile" };
+            var excludingArguments = new[] { "ManagePrintJobs", "InfoDataFile", "PsFile", "PdfFile", "Config" };
 
             return excludingArguments.All(argument => !commandLineParser.HasArgument(argument));
         }
@@ -162,6 +199,14 @@ namespace clawSoft.clawPDF.Startup
         {
             if (commandLineParser.HasArgument("Profile"))
                 return commandLineParser.GetArgument("Profile");
+
+            return "";
+        }
+
+        private string FindConfigParameter(CommandLineParser commandLineParser)
+        {
+            if (commandLineParser.HasArgument("Config"))
+                return commandLineParser.GetArgument("Config");
 
             return "";
         }

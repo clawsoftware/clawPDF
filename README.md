@@ -2,26 +2,84 @@
 
 Yet another PDF Printer? Yes! This PDF Printer has the intention to be completely open source.<br><br>
 Open Source virtual PDF printer for Windows 7 / 8 / 10 / 11 / RDS / Terminalserver<br>
-Print to PDF, PDF/A, PDF/X, PNG, JPEG, TIF and text
+Print to PDF, PDF/A, PDF/X, PNG, JPEG, TIF and TXT
 
 # Download
 
-https://github.com/clawsoftware/clawPDF/releases/download/0.8.5/clawPDF_0.8.5_setup.msi
+https://github.com/clawsoftware/clawPDF/releases/download/0.8.6/clawPDF_0.8.6_setup.msi
+
+
+# Features
+
+- Print to PDF, PDF/A, PDF/X, PNG, JPEG, TIF and TXT
+- Full unicode support
+- Multiple profiles
+- Post Actions
+- Create additional printers with assigned profile
+- 24 languages
+- Many settings
+- Easy to use
+- Easy to deploy (MSI-Installer & Config)
+- No adware, spyware, nagware
+- ...
 
 # Tested under
 
-- Windows RDS/Terminalserver
+- Windows Server 2022 Terminalserver/RDS
+- Windows Server 2019 Terminalserver/RDS
+- Windows Server 2016 Terminalserver/RDS
 - Windows 11 x64
 - Windows 10 x32/x64
 - Windows 8 x32/x64
 - Windows 7 x32/x64
 
+# Commandline
+
+## Batch Printing
+```
+The GUID for the Profile parameter is located under: HKEY_CURRENT_USER\Software\clawSoft\clawPDF\Settings\ConversionProfiles\[id]\Guid
+
+clawPDF.exe /PrintFile=D:\example.docx /profile=f81ea998-3a76-4104-a574-9a66d6f3039b
+clawPDF.exe /PrintFile=D:\example.pdf /profile=JpegGuid
+
+clawPDF.exe /PrintFile=D:\example.txt /printerName=clawPDF2
+clawPDF.exe /PrintFile=D:\example.docx /printerName=clawJPG
+```
+
+## Overwrite Config
+```
+- To deploy a default configuration in an enterprise environment.
+- To export a configuration select "Application Settings -> Debug -> Save settings to file".
+
+clawPDF.exe /Config=D:\clawPDF.ini
+```
+
+## Printer Managment
+```
+SetupHelper.exe /Printer=Add /Name=ExamplePrinter
+SetupHelper.exe /Printer=Remove /Name=ExamplePrinter
+```
+
+## ManagePrintJobs
+```
+clawPDF.exe /ManagePrintJobs
+```
+
 
 # Changelog
 
+## v0.8.6 (2023.03.16)
+
+- [feature] Profile Settings -> Actions -> Run Script -> Hide the process execution
+- [feature] Config parameter e.g. to deploy settings in enterprise environments
+- [bugfix]  Unicode support in usernames
+- [bugfix]  Printing is now working for ghostscript parameters with east-asian characters
+- [bugfix]  Profiles for additional printers work now (Application Settings -> Printers -> Profile)
+- [misc]    Optimizations for Windows Remote Desktop
+
 ## v0.8.5 (2023.03.11)
 
-- [update]	Update to GS10
+- [update]	Update to Ghostscript 10
 - [bugfix]  MapiClient (thx to christian1980nrw)
 - [bugfix]  FtpConnection (thx to droshcom)
 - [bugfix]  Typo Czech.ini (thx to PetrTodorov)
@@ -32,48 +90,22 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.5/clawPDF_0.8.5_se
 
 ## v0.8.4 (2019.06.11)
 
-- [bugfix]  unicode filename support (thx to daooze for bugreport)
+- [bugfix]  Unicode filename support (thx to daooze for bugreport)
 
 ## v0.8.3 (2019.05.31)
 
-- [bugfix]  starts under System-Account
-- [cleanup] migrated code from c++ to c#
-- [update]  ghostscript 9.27
-- [bugfix]  author metadata
+- [bugfix]  Starts under System-Account
+- [cleanup] Migrated code from c++ to c#
+- [update]  Ghostscript 9.27
+- [bugfix]  Author metadata
 
-## v0.8.01 (2019.02.10)
+## v0.8.1 (2019.02.10)
 
-- [bugfix] performance boost for RDS environments
+- [bugfix] Performance boost for RDS environments
 
 ## v0.8.0 (2019.02.10)
 
-- initial version
-
-
-# Features
-
-- print to PDF, PDF/A, PDF/X, PNG, JPEG, TIF and text
-- 24 languages
-- many settings
-- easy to use
-- easy to deploy (MSI-Installer)
-- no adware, spyware, nagware
-- ...
-
-
-# Commandline
-
-## Batch Printing
-
-- clawPDF.exe /PrintFile=D:\example.docx /profile=f81ea998-3a76-4104-a574-9a66d6f3039b
-- clawPDF.exe /PrintFile=D:\example.pdf /profile=JpegGuid
-
-/profile=GUID (HKEY_CURRENT_USER\Software\clawSoft\clawPDF\Settings\ConversionProfiles\id\Guid) 
-
-
-## ManagePrintJobs
-
-- clawPDF.exe /ManagePrintJobs
+- Initial version
 
 
 # Requirements

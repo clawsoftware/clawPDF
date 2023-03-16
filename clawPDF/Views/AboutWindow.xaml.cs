@@ -52,6 +52,11 @@ namespace clawSoft.clawPDF.Views
             ShowUrlInBrowser(Urls.clawSoftWebsiteUrl);
         }
 
+        private void SponsorsButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            ShowUrlInBrowser(Urls.clawSoftSponsorsUrl);
+        }
+
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             TranslationHelper.Instance.TranslatorInstance.Translate(this);

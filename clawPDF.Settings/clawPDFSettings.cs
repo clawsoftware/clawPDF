@@ -288,6 +288,19 @@ namespace clawSoft.clawPDF.Core.Settings
             }
         }
 
+        public void LoadDataStart(IStorage storage, string path, Action<Data> dataValidation)
+        {
+            try
+            {
+                data.Clear();
+                storage.SetData(data);
+                storage.ReadData(path);
+                dataValidation(data);
+                ReadValues(data, "");
+            }
+            catch {}
+        }
+
         // END_CUSTOM_SECTION:GENERAL
         // Custom Code ends here. Do not edit below
     }

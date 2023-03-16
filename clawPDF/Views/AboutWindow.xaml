@@ -67,9 +67,12 @@
             </RichTextBox>
         </DockPanel>
 
-        <Button Style="{StaticResource NoChromeButton}" Grid.Row="0" Grid.Column="1" IsTabStop="False"
-                Content="" Height="44" HorizontalAlignment="Right" VerticalAlignment="Top"
-                Margin="0,10,10.2,0" Click="CompanyButton_OnClick" Width="1" />
+        <Button Style="{StaticResource NoChromeButton}" Grid.Row="1" IsTabStop="False"
+                Content="GitHub Project" Height="23" HorizontalAlignment="Right" VerticalAlignment="Top"
+                Margin="0,5,10,0" Click="CompanyButton_OnClick" Width="195" />
+        <Button Style="{StaticResource NoChromeButton}" Grid.Row="1" IsTabStop="False"
+                Content="GitHub Sponsors" Height="23" HorizontalAlignment="Right" VerticalAlignment="Top"
+                Margin="0,28,10,0" Click="SponsorsButton_OnClick" Width="195" />
         <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap" x:Name="LicenseInfo" Margin="9.6,0,10.2,10.2" Grid.Column="1" Grid.Row="1" Height="48"><Run Text="clawPDF is free software consisting of multiple components with individual licenses. Please read the license section in the manual for further information on these licenses." /></TextBlock>
     </Grid>
 </Window>
