@@ -1,4 +1,4 @@
-# clawPDF // PDFCreator 2.3 fork
+# clawPDF - virtual PDF printer
 
 Yet another PDF Printer? Yes! This PDF Printer has the intention to be completely open source.<br><br>
 Open Source virtual PDF printer for Windows 7 / 8 / 10 / 11 / RDS / Terminalserver<br>
