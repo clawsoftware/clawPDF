@@ -16,7 +16,7 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.6/clawPDF_0.8.6_se
 - Multiple profiles
 - Post Actions
 - Create additional printers with assigned profile
-- 24 languages
+- [24 translations. Add yours!](https://github.com/clawsoftware/clawPDF/wiki/Translations)
 - Many settings
 - Easy to use
 - Easy to deploy (MSI-Installer & Config)
