@@ -121,8 +121,7 @@ namespace clawSoft.clawPDF.PDFProcessing
                         jobPasswords); //Encryption before adding Background and Signing!
                     XmpMetadataUpdater.UpdateXmpMetadata(stamper, profile);
                     BackgroundAdder.AddBackground(stamper, profile);
-                    Signer.SignPdfFile(stamper, profile,
-                        jobPasswords); //Signing after adding background and update metadata
+                    Signer.SignPdfFile(stamper, profile, jobPasswords); //Signing after adding background and update metadata
                     stamper.Close();
                 }
             }

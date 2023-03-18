@@ -101,6 +101,9 @@ namespace clawSoft.clawPDF.Workflow
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfXFile", "PDF/X file") +
                     @" (*.pdf)|*.pdf";
                 saveFileDialog.Filter +=
+                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfImageFile", "PDF/Image file") +
+                    @" (*.pdf)|*.pdf";
+                saveFileDialog.Filter +=
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "JpegFile", "JPEG file") +
                     @" (*.jpg)|*.jpg;*.jpeg;";
                 saveFileDialog.Filter +=
@@ -109,6 +112,9 @@ namespace clawSoft.clawPDF.Workflow
                 saveFileDialog.Filter +=
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "TiffFile", "TIFF file") +
                     @" (*.tif)|*.tif;*.tiff";
+                saveFileDialog.Filter +=
+                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "OCRTextFile", "OCR Text file") +
+                    @" (*.txt)|*.txt;";
                 saveFileDialog.Filter +=
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "TextFile", "Text file") +
                     @" (*.txt)|*.txt;";
@@ -425,6 +431,11 @@ namespace clawSoft.clawPDF.Workflow
                         _translator.GetTranslation("InteractiveWorkflow", "PdfXFile", "PDF/X file") + @" (*.pdf)|*.pdf";
                     break;
 
+                case OutputFormat.PdfImage:
+                    saveFileDialog.Filter =
+                        _translator.GetTranslation("InteractiveWorkflow", "PdfImageFile", "PDF/Image file") + @" (*.pdf)|*.pdf";
+                    break;
+
                 case OutputFormat.Jpeg:
                     saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "JpegFile", "JPEG file") +
                                             @" (*.jpg)|*.jpg;*.jpeg;";
@@ -438,6 +449,11 @@ namespace clawSoft.clawPDF.Workflow
                 case OutputFormat.Tif:
                     saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "TiffFile", "TIFF file") +
                                             @" (*.tif)|*.tif;*.tiff";
+                    break;
+
+                case OutputFormat.OCRTxt:
+                    saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "OCRTextFile", "OCR Text file") +
+                                            @" (*.txt)|*.txt;";
                     break;
 
                 case OutputFormat.Txt:

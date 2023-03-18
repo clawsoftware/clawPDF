@@ -54,7 +54,7 @@ namespace clawPDF.Bridge
         {
             Dictionary<string, Dictionary<string, string>> iniData = ReadIniFile(infFile);
             string username = iniData["0"]["Username"];
-            ProcessExtensions.StartProcessAsUser(username, Path.GetDirectoryName(Application.ExecutablePath) + @"\" + "clawPDF.exe", Path.GetDirectoryName(Application.ExecutablePath) + @"\" + "clawPDF.exe" + " /INFODATAFILE=" + "\"" + infFile + "\"", Path.GetDirectoryName(Application.ExecutablePath), true);
+            ProcessExtensions.StartProcessAsUser(username, "\"" + Path.GetDirectoryName(Application.ExecutablePath) + @"\" + "clawPDF.exe" + "\"", Path.GetDirectoryName(Application.ExecutablePath) + @"\" + "clawPDF.exe" + " /INFODATAFILE=" + "\"" + infFile + "\"", Path.GetDirectoryName(Application.ExecutablePath), true);
         }
     }
 }

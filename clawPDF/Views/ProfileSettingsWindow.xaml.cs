@@ -96,6 +96,7 @@ namespace clawSoft.clawPDF.Views
             ActionsTabUserControl.ViewModel.CurrentProfile = currentProfile;
             ImageFormatsTabUserControl.ViewModel.CurrentProfile = currentProfile;
             PdfTabUserControl.ViewModel.CurrentProfile = currentProfile;
+            OCRTabUserControl.ViewModel.CurrentProfile = currentProfile;
         }
 
         private string QueryProfileName(string profileName)

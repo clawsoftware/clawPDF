@@ -49,12 +49,12 @@ namespace clawSoft.clawPDF.Views
 
         private void CompanyButton_OnClick(object sender, RoutedEventArgs e)
         {
-            ShowUrlInBrowser(Urls.clawSoftWebsiteUrl);
+            ShowUrlInBrowser(Urls.clawPDFWebsiteURL);
         }
 
         private void SponsorsButton_OnClick(object sender, RoutedEventArgs e)
         {
-            ShowUrlInBrowser(Urls.clawSoftSponsorsUrl);
+            ShowUrlInBrowser(Urls.clawSoftSponsorUrl);
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)

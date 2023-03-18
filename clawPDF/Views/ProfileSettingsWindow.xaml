@@ -143,6 +143,15 @@
                 </TabItem.Header>
                 <userControls1:PdfTab x:Name="PdfTabUserControl" />
             </TabItem>
+
+            <TabItem Template="{StaticResource FancyTabItem}" Name="OCRTab">
+                <TabItem.Header>
+                    <userControls1:TabHeaderControl x:Name="OCRTabText" Text="OCR">
+                        <ContentControl Margin="4 1 4 4" Foreground="White" Content="{StaticResource OCRSettings}" />
+                    </userControls1:TabHeaderControl>
+                </TabItem.Header>
+                <userControls1:OCRTab x:Name="OCRTabUserControl" />
+            </TabItem>
         </TabControl>
         <DockPanel Grid.Row="2" LastChildFill="False" Margin="10">
             <Button Name="CancelButton" IsCancel="True" DockPanel.Dock="Right" MinWidth="150" TabIndex="0">Cancel</Button>

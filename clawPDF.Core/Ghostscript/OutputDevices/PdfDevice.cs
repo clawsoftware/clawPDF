@@ -118,6 +118,31 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
             parameters.Add(defFile);
         }
 
+        private void SetPdfImageParameters(IList<string> parameters)
+        {
+            var shortenedTempPath = Job.JobTempFolder;
+
+            parameters.Clear();
+            parameters.Add("-dCompatibilityLevel=1.4");
+            parameters.Add("-dPDFSETTINGS=/default");
+            parameters.Add("-sDEVICE=pdfimage32");
+
+            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
+                         "\"");
+
+            //Add ICC profile
+            var iccFile = PathSafe.Combine(shortenedTempPath, "profile.icc");
+            FileWrap.WriteAllBytes(iccFile, CoreResources.ISOcoated_v2_300_eci);
+            parameters.Add("-sOutputICCProfile=" + iccFile);
+
+            var defFile = PathSafe.Combine(shortenedTempPath, "pdfx_def.ps");
+            var sb = new StringBuilder(CoreResources.PdfxDefinition);
+            sb.Replace("%/ICCProfile (ISO Coated sb.icc)",
+                "/ICCProfile (" + EncodeGhostscriptParametersOctal(iccFile.Replace('\\', '/')) + ")");
+            FileWrap.WriteAllText(defFile, sb.ToString());
+            parameters.Add(defFile);
+        }
+
         private void GrayAndColorImagesCompressionAndResample(IList<string> parameters,
             IList<string> distillerDictonaries)
         {

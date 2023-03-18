@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
 
 namespace clawSoft.clawPDF.Core.Ghostscript
@@ -20,6 +21,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript
             IntPtr gsInstancePtr;
             lock (resourceLock)
             {
+                GhostscriptAPI._putenv_s_14("TESSDATA_PREFIX", Directory.GetCurrentDirectory() + @"\tessdata");
                 if (Environment.Is64BitOperatingSystem)
                 {
                     GhostscriptAPI.CreateAPIInstance64(out gsInstancePtr, IntPtr.Zero);

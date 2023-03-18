@@ -40,7 +40,7 @@ namespace clawSoft.clawPDF.Views.UserControls
 
         private void DownloadHyperlink_OnRequestNavigate(object sender, RequestNavigateEventArgs e)
         {
-            Process.Start(Urls.clawSoftWebsiteUrl);
+            Process.Start(Urls.clawPDFWebsiteURL);
             e.Handled = true;
         }
     }

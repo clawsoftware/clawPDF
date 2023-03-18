@@ -2,7 +2,10 @@
 {
     public static class Urls
     {
-        public const string clawSoftWebsiteUrl = "https://github.com/clawsoftware/clawPDF";
-        public const string clawSoftSponsorsUrl = "https://github.com/sponsors/clawsoftware";
+        public const string clawPDFWebsiteURL = "https://github.com/clawsoftware/clawPDF";
+        public const string clawPDFWikiURL = "https://github.com/clawsoftware/clawPDF/wiki";
+        public const string clawSoftSponsorUrl = "https://github.com/sponsors/clawsoftware";
+        public const string tessdatabestUrl = "https://github.com/tesseract-ocr/tessdata_best";
+        public const string tessdatafastUrl = "https://github.com/tesseract-ocr/tessdata_fast";
     }
 }

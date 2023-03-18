@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>clawSoft.clawPDF.Core.Settings</RootNamespace>
     <AssemblyName>clawPDF.Settings</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -96,6 +96,7 @@
     <Compile Include="Security.cs" />
     <Compile Include="Signature.cs" />
     <Compile Include="Stamping.cs" />
+    <Compile Include="OCRSettings.cs" />
     <Compile Include="TiffSettings.cs" />
     <Compile Include="TitleReplacement.cs" />
   </ItemGroup>

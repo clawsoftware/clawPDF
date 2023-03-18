@@ -43,6 +43,7 @@ namespace clawSoft.clawPDF.Core.Actions
             var isPdfFile = job.Profile.OutputFormat == OutputFormat.Pdf ||
                             job.Profile.OutputFormat == OutputFormat.PdfA1B ||
                             job.Profile.OutputFormat == OutputFormat.PdfA2B ||
+                            job.Profile.OutputFormat == OutputFormat.PdfImage ||
                             job.Profile.OutputFormat == OutputFormat.PdfX;
 
             if (!isPdfFile)

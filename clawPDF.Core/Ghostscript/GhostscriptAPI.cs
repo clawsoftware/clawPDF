@@ -40,6 +40,9 @@ namespace clawSoft.clawPDF.Core.Ghostscript
         [DllImport("gsdll64.dll", EntryPoint = "gsapi_delete_instance", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         internal static extern void DeleteAPIInstance64(IntPtr instance);
 
+        [DllImport("UCRTBASE.DLL", EntryPoint = "_putenv_s")]
+        internal static extern int _putenv_s_14(string e, string v);
+
         #endregion Hooks into Ghostscript DLL
     }
 }

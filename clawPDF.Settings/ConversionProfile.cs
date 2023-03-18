@@ -1,4 +1,5 @@
 using System;
+using System.Runtime;
 using System.Text;
 using clawSoft.clawPDF.Core.Settings.Enums;
 using pdfforge.DataStorage;
@@ -108,6 +109,11 @@ namespace clawSoft.clawPDF.Core.Settings
         public TiffSettings TiffSettings { get; set; }
 
         /// <summary>
+        ///     Settings for OCR
+        /// </summary>
+        public OCRSettings OCRSettings { get; set; }
+
+        /// <summary>
         ///     Template for the Author field. This may contain tokens.
         /// </summary>
         public string AuthorTemplate { get; set; }
@@ -175,6 +181,7 @@ namespace clawSoft.clawPDF.Core.Settings
             Scripting = new Scripting();
             Stamping = new Stamping();
             TiffSettings = new TiffSettings();
+            OCRSettings = new OCRSettings();
             AuthorTemplate = "<PrintJobAuthor>";
             FileNameTemplate = "<Title>";
             Guid = "";
@@ -205,6 +212,7 @@ namespace clawSoft.clawPDF.Core.Settings
             Scripting.ReadValues(data, path + @"Scripting\");
             Stamping.ReadValues(data, path + @"Stamping\");
             TiffSettings.ReadValues(data, path + @"TiffSettings\");
+            OCRSettings.ReadValues(data, path + @"OCRSettings\");
             try
             {
                 AuthorTemplate = Data.UnescapeString(data.GetValue(@"" + path + @"AuthorTemplate"));
@@ -307,6 +315,7 @@ namespace clawSoft.clawPDF.Core.Settings
             Scripting.StoreValues(data, path + @"Scripting\");
             Stamping.StoreValues(data, path + @"Stamping\");
             TiffSettings.StoreValues(data, path + @"TiffSettings\");
+            OCRSettings.StoreValues(data, path + @"OCRSettings\");
             data.SetValue(@"" + path + @"AuthorTemplate", Data.EscapeString(AuthorTemplate));
             data.SetValue(@"" + path + @"FileNameTemplate", Data.EscapeString(FileNameTemplate));
             data.SetValue(@"" + path + @"Guid", Data.EscapeString(Guid));
@@ -339,6 +348,7 @@ namespace clawSoft.clawPDF.Core.Settings
             copy.Scripting = Scripting.Copy();
             copy.Stamping = Stamping.Copy();
             copy.TiffSettings = TiffSettings.Copy();
+            copy.OCRSettings = OCRSettings.Copy();
             copy.AuthorTemplate = AuthorTemplate;
             copy.FileNameTemplate = FileNameTemplate;
             copy.Guid = Guid;
@@ -374,6 +384,7 @@ namespace clawSoft.clawPDF.Core.Settings
             if (!Scripting.Equals(v.Scripting)) return false;
             if (!Stamping.Equals(v.Stamping)) return false;
             if (!TiffSettings.Equals(v.TiffSettings)) return false;
+            if (!OCRSettings.Equals(v.OCRSettings)) return false;
             if (!AuthorTemplate.Equals(v.AuthorTemplate)) return false;
             if (!FileNameTemplate.Equals(v.FileNameTemplate)) return false;
             if (!Guid.Equals(v.Guid)) return false;

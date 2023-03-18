@@ -273,6 +273,10 @@ namespace clawSoft.clawPDF.Core.Jobs
                     outputFilename += ".tif";
                     break;
 
+                case OutputFormat.OCRTxt:
+                    outputFilename += ".txt";
+                    break;
+
                 case OutputFormat.Txt:
                     outputFilename += ".txt";
                     break;

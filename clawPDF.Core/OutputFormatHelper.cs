@@ -32,6 +32,9 @@ namespace clawSoft.clawPDF.Core
                     return extension.Equals(".tif", StringComparison.OrdinalIgnoreCase) ||
                            extension.Equals(".tiff", StringComparison.OrdinalIgnoreCase);
 
+                case OutputFormat.OCRTxt:
+                    return extension.Equals(".txt", StringComparison.OrdinalIgnoreCase);
+
                 case OutputFormat.Txt:
                     return extension.Equals(".txt", StringComparison.OrdinalIgnoreCase);
             }

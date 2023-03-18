@@ -1,4 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using clawSoft.clawPDF.Helper;
 using clawSoft.clawPDF.Shared.Helper;
@@ -61,10 +64,34 @@ namespace clawSoft.clawPDF.Views
                 welcomeSettingsHelper.SetCurrentApplicationVersionAsWelcomeVersionInRegistry();
         }
 
-        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
             var w = new AboutWindow();
             w.ShowDialog();
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowUrlInBrowser(Urls.clawPDFWikiURL);
+        }
+
+        private void HeartButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowUrlInBrowser(Urls.clawSoftSponsorUrl);
+        }
+
+        private void ShowUrlInBrowser(string url)
+        {
+            try
+            {
+                Process.Start(url);
+            }
+            catch (Win32Exception)
+            {
+            }
+            catch (FileNotFoundException)
+            {
+            }
         }
 
         private void MainWindow_OnDragEnter(object sender, DragEventArgs e)

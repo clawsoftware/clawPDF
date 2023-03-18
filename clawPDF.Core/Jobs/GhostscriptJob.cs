@@ -185,6 +185,10 @@ namespace clawSoft.clawPDF.Core.Jobs
                         device = new TiffDevice(this);
                         break;
 
+                    case OutputFormat.OCRTxt:
+                        device = new OCRDevice(this);
+                        break;
+
                     case OutputFormat.Txt:
                         device = new TextDevice(this);
                         break;

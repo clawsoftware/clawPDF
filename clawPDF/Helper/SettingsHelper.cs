@@ -299,6 +299,31 @@ namespace clawSoft.clawPDF.Helper
             SetDefaultProperties(pdfaProfile, true);
             settings.ConversionProfiles.Add(pdfaProfile);
 
+            //PdfImageProfile
+            var pdfImageProfile = new ConversionProfile();
+            pdfImageProfile.Name = "PDF/Image (print as image)";
+            pdfImageProfile.Guid = ProfileGuids.PDFImage_PROFILE_GUID;
+
+            pdfImageProfile.OutputFormat = OutputFormat.PdfImage;
+            pdfImageProfile.PdfSettings.CompressColorAndGray.Enabled = true;
+            pdfImageProfile.PdfSettings.CompressColorAndGray.Compression = CompressionColorAndGray.Automatic;
+            pdfImageProfile.PdfSettings.CompressMonochrome.Enabled = true;
+            pdfImageProfile.PdfSettings.CompressMonochrome.Compression = CompressionMonochrome.CcittFaxEncoding;
+
+            SetDefaultProperties(pdfImageProfile, true);
+            settings.ConversionProfiles.Add(pdfImageProfile);
+
+            //OCRTextProfile
+            var ocrTextProfile = new ConversionProfile();
+            ocrTextProfile.Name = "OCR (print as text)";
+            ocrTextProfile.Guid = ProfileGuids.OCRText_PROFILE_GUID;
+
+            ocrTextProfile.OutputFormat = OutputFormat.OCRTxt;
+            ocrTextProfile.OCRSettings.OCRLanguage = "eng+deu";
+
+            SetDefaultProperties(ocrTextProfile, true);
+            settings.ConversionProfiles.Add(ocrTextProfile);
+
             //PngProfile
             var pngProfile = new ConversionProfile();
             pngProfile.Name = "PNG (graphic file)";

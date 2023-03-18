@@ -52,6 +52,11 @@ namespace clawSoft.clawPDF.Core.Settings
         public ColorModel ColorModel { get; set; }
 
         /// <summary>
+        ///     Pdf/Image Print
+        /// </summary>
+        public bool PdfImage { get; set; }
+
+        /// <summary>
         ///     Defines which controls will be opened in the reader. Valid values are: NoOutLineNoThumbnailImages,Outline,
         ///     ThumbnailImages, FullScreen, ContentGroupPanel ,AttachmentsPanel
         /// </summary>

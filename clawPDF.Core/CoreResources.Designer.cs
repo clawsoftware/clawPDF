@@ -19,7 +19,7 @@ namespace clawSoft.clawPDF.Core {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class CoreResources {
@@ -107,7 +107,7 @@ namespace clawSoft.clawPDF.Core {
         ///
         ///[/_objdef {icc_PDFA} /type /stream /OBJ pdfmark
         ///
-        ///%% This code attempts to set the /N [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///%% This code attemp [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string PdfaDefinition {
             get {
@@ -126,7 +126,7 @@ namespace clawSoft.clawPDF.Core {
         ///% PDF/X-3 only permits Gray or CMYK in the output.
         ///%
         ///systemdict /ColorConversionStrategy known {
-        ///  systemdict /ColorConversionStrategy get cvn dup /Gray ne [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///  systemdict /ColorConversionStrategy get cvn du [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string PdfxDefinition {
             get {
@@ -146,7 +146,7 @@ namespace clawSoft.clawPDF.Core {
         ///    /.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
         ///    /.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
         ///    /space/exclam/quotedbl/numbersign/dollar/percent/ampersand/quoteright
-        ///    /parenleft/parenrig [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///    /parenle [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string PostScriptStamp {
             get {

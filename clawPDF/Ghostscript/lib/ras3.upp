@@ -1,8 +1,0 @@
--supModel="SUN rasterfile, 3 Bit, 7 Colors (RGB-Ghostscript)"
--sDEVICE=uniprint
--dNOPAUSE
--P- -dSAFER
--dupColorModel=/DeviceRGB
--dupRendering=/ErrorDiffusion
--dupOutputFormat=/SunRaster
--dupComponentBits="{1 1 1}"
