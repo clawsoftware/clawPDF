@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using clawSoft.clawPDF.Core;
 using clawSoft.clawPDF.Core.Actions;
+using clawSoft.clawPDF.Core.Ghostscript.OutputDevices;
 using clawSoft.clawPDF.Core.Jobs;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Core.Settings.Enums;
@@ -14,6 +15,7 @@ using clawSoft.clawPDF.Utilities.IO;
 using clawSoft.clawPDF.ViewModels;
 using clawSoft.clawPDF.Views;
 using pdfforge.DynamicTranslator;
+using SystemInterface.IO;
 
 namespace clawSoft.clawPDF.Workflow
 {
@@ -24,6 +26,8 @@ namespace clawSoft.clawPDF.Workflow
     {
         private readonly IPathSafe _pathSafe = new PathWrapSafe();
         private readonly Translator _translator = TranslationHelper.Instance.TranslatorInstance;
+        protected readonly IDirectory DirectoryWrap;
+        protected readonly IFile FileWrap;
 
         /// <summary>
         ///     Create a new Workflow object with the given job info
@@ -84,6 +88,10 @@ namespace clawSoft.clawPDF.Workflow
                 filePath = FileUtil.Instance.EllipsisForTooLongPath(filePath);
                 Job.OutputFilenameTemplate = filePath;
             }
+            else if(Job.Profile.AutoSave.Enabled && !string.IsNullOrEmpty(Job.Profile.AutoSave.TargetDirectory))
+            {
+                Job.OutputFilenameTemplate = Job.Profile.AutoSave.TargetDirectory + @"\" + Job.ComposeOutputFilename();
+            }
             else
             {
                 var saveFileDialog = new SaveFileDialog();
@@ -128,17 +136,22 @@ namespace clawSoft.clawPDF.Workflow
                         FileUtil.Instance.MakeValidFolderName(
                             Job.TokenReplacer.ReplaceTokens(Job.Profile.SaveDialog.Folder));
                     DirectoryHelper = new DirectoryHelper(saveDirectory);
-                    if (DirectoryHelper.CreateDirectory())
+                    saveFileDialog.InitialDirectory = saveDirectory;
+                    try
                     {
-                        saveFileDialog.RestoreDirectory = true;
-                        saveFileDialog.InitialDirectory = saveDirectory;
-                        Logger.Debug("Set directory in save file dialog: " + saveDirectory);
+                        if (DirectoryHelper.CreateDirectory())
+                        {
+                            saveFileDialog.RestoreDirectory = true;
+                            saveFileDialog.InitialDirectory = saveDirectory;
+                            Logger.Debug("Set directory in save file dialog: " + saveDirectory);
+                        }
+                        else
+                        {
+                            Logger.Warn(
+                                "Could not create directory for save file dialog. It will be opened with default save location.");
+                        }
                     }
-                    else
-                    {
-                        Logger.Warn(
-                            "Could not create directory for save file dialog. It will be opened with default save location.");
-                    }
+                    catch { }
                 }
 
                 Cancel = !LaunchSaveFileDialog(saveFileDialog);
