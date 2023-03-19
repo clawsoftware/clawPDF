@@ -204,6 +204,9 @@ namespace clawSoft.clawPDF.Workflow
                 || Job.Profile.OutputFormat == OutputFormat.PdfImage32
                 || Job.Profile.OutputFormat == OutputFormat.PdfImage24
                 || Job.Profile.OutputFormat == OutputFormat.PdfImage8
+                || Job.Profile.OutputFormat == OutputFormat.PdfOCR32
+                || Job.Profile.OutputFormat == OutputFormat.PdfOCR24
+                || Job.Profile.OutputFormat == OutputFormat.PdfOCR8
                 || Job.Profile.OutputFormat == OutputFormat.PdfX)
             {
                 if (Job.Profile.PdfSettings.Security.Enabled)

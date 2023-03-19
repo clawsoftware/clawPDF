@@ -1,10 +1,5 @@
-﻿// Andrew Hess 2019.01.01
-// Replaced with the following code to make it compatible with newer Ghostscript versions
-// https://raw.githubusercontent.com/pdfforge/PDFCreator/master/Source/Application/Conversn/Ghostscript/OutputDevices/PdfDevice.cs
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Reflection;
 using System.Text;
 using clawSoft.clawPDF.Core.Jobs;
 using clawSoft.clawPDF.Core.Settings.Enums;
@@ -40,7 +35,10 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 
             if (Job.Profile.OutputFormat != OutputFormat.PdfImage32
                 && Job.Profile.OutputFormat != OutputFormat.PdfImage24
-                && Job.Profile.OutputFormat != OutputFormat.PdfImage8)
+                && Job.Profile.OutputFormat != OutputFormat.PdfImage8
+                && Job.Profile.OutputFormat != OutputFormat.PdfOCR32
+                && Job.Profile.OutputFormat != OutputFormat.PdfOCR24
+                && Job.Profile.OutputFormat != OutputFormat.PdfOCR8)
             {
                 SetColorSchemeParameters(parameters);
             }
@@ -54,6 +52,12 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                 SetPdfImage24Parameters(parameters);
             else if (Job.Profile.OutputFormat == OutputFormat.PdfImage8)
                 SetPdfImage8Parameters(parameters);
+            else if (Job.Profile.OutputFormat == OutputFormat.PdfOCR32)
+                SetPdfOCR32Parameters(parameters);
+            else if (Job.Profile.OutputFormat == OutputFormat.PdfOCR24)
+                SetPdfOCR24Parameters(parameters);
+            else if (Job.Profile.OutputFormat == OutputFormat.PdfOCR8)
+                SetPdfOCR8Parameters(parameters);
             else if (Job.Profile.OutputFormat == OutputFormat.PdfA1B
                      || Job.Profile.OutputFormat == OutputFormat.PdfA2B
                      || Job.Profile.OutputFormat == OutputFormat.PdfA3B)
@@ -172,6 +176,48 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
             if (replaceDevice != -1)
             {
                 parameters[replaceDevice] = "-sDEVICE=pdfimage8";
+            }
+
+            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
+                         "\"");
+        }
+
+        private void SetPdfOCR32Parameters(IList<string> parameters)
+        {
+            var shortenedTempPath = Job.JobTempFolder;
+
+            int replaceDevice = parameters.IndexOf("-sDEVICE=pdfwrite");
+            if (replaceDevice != -1)
+            {
+                parameters[replaceDevice] = "-sDEVICE=pdfocr32";
+            }
+
+            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
+                         "\"");
+        }
+
+        private void SetPdfOCR24Parameters(IList<string> parameters)
+        {
+            var shortenedTempPath = Job.JobTempFolder;
+
+            int replaceDevice = parameters.IndexOf("-sDEVICE=pdfwrite");
+            if (replaceDevice != -1)
+            {
+                parameters[replaceDevice] = "-sDEVICE=pdfocr24";
+            }
+
+            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
+                         "\"");
+        }
+
+        private void SetPdfOCR8Parameters(IList<string> parameters)
+        {
+            var shortenedTempPath = Job.JobTempFolder;
+
+            int replaceDevice = parameters.IndexOf("-sDEVICE=pdfwrite");
+            if (replaceDevice != -1)
+            {
+                parameters[replaceDevice] = "-sDEVICE=pdfocr8";
             }
 
             Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +

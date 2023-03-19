@@ -10,6 +10,9 @@
         public const string PDFImage32_PROFILE_GUID = "PdfImage32Guid";
         public const string PDFImage24_PROFILE_GUID = "PdfImage24Guid";
         public const string PDFImage8_PROFILE_GUID = "PdfImage8Guid";
+        public const string PDFOCR32_PROFILE_GUID = "PdfOCR32Guid";
+        public const string PDFOCR24_PROFILE_GUID = "PdfOCR24Guid";
+        public const string PDFOCR8_PROFILE_GUID = "PdfOCR8Guid";
         public const string OCRText_PROFILE_GUID = "OCRTextGuid";
         public const string PNG_PROFILE_GUID = "PngGuid";
         public const string PRINT_PROFILE_GUID = "PrintGuid";

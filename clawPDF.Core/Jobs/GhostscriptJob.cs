@@ -173,6 +173,9 @@ namespace clawSoft.clawPDF.Core.Jobs
                     case OutputFormat.PdfImage32:
                     case OutputFormat.PdfImage24:
                     case OutputFormat.PdfImage8:
+                    case OutputFormat.PdfOCR32:
+                    case OutputFormat.PdfOCR24:
+                    case OutputFormat.PdfOCR8:
                     case OutputFormat.Pdf:
                         device = new PdfDevice(this);
                         break;

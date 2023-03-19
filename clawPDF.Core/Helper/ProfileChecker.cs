@@ -220,7 +220,10 @@ namespace clawSoft.clawPDF.Core.Helper
                                                          && profile.OutputFormat != OutputFormat.PdfX
                                                          && profile.OutputFormat != OutputFormat.PdfImage32
                                                          && profile.OutputFormat != OutputFormat.PdfImage24
-                                                         && profile.OutputFormat != OutputFormat.PdfImage8)
+                                                         && profile.OutputFormat != OutputFormat.PdfImage8
+                                                         && profile.OutputFormat != OutputFormat.PdfOCR32
+                                                         && profile.OutputFormat != OutputFormat.PdfOCR24
+                                                         && profile.OutputFormat != OutputFormat.PdfOCR8)
                 return actionResult;
 
             if (profile.BackgroundPage.Enabled)

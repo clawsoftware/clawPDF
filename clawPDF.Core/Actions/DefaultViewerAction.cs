@@ -47,6 +47,9 @@ namespace clawSoft.clawPDF.Core.Actions
                             job.Profile.OutputFormat == OutputFormat.PdfImage32 ||
                             job.Profile.OutputFormat == OutputFormat.PdfImage24 ||
                             job.Profile.OutputFormat == OutputFormat.PdfImage8 ||
+                            job.Profile.OutputFormat == OutputFormat.PdfOCR32 ||
+                            job.Profile.OutputFormat == OutputFormat.PdfOCR24 ||
+                            job.Profile.OutputFormat == OutputFormat.PdfOCR8 ||
                             job.Profile.OutputFormat == OutputFormat.PdfX;
 
             if (!isPdfFile)

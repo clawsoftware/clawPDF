@@ -476,6 +476,21 @@ namespace clawSoft.clawPDF.Workflow
                         _translator.GetTranslation("InteractiveWorkflow", "PdfImage8File", "PDF/Gray-Image file") + @" (*.pdf)|*.pdf";
                     break;
 
+                case OutputFormat.PdfOCR32:
+                    saveFileDialog.Filter =
+                        _translator.GetTranslation("InteractiveWorkflow", "PdfOCR32File", "PDF/CMYK-OCR file") + @" (*.pdf)|*.pdf";
+                    break;
+
+                case OutputFormat.PdfOCR24:
+                    saveFileDialog.Filter =
+                        _translator.GetTranslation("InteractiveWorkflow", "PdfOCR24File", "PDF/RGB-OCR file") + @" (*.pdf)|*.pdf";
+                    break;
+
+                case OutputFormat.PdfOCR8:
+                    saveFileDialog.Filter =
+                        _translator.GetTranslation("InteractiveWorkflow", "PdfOCR8File", "PDF/Gray-OCR file") + @" (*.pdf)|*.pdf";
+                    break;
+
                 case OutputFormat.Jpeg:
                     saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "JpegFile", "JPEG file") +
                                             @" (*.jpg)|*.jpg;*.jpeg;";

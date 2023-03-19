@@ -25,6 +25,11 @@ namespace clawSoft.clawPDF.PDFProcessing
                 case OutputFormat.Pdf:
                 case OutputFormat.PdfA2B:
                 case OutputFormat.PdfImage32:
+                case OutputFormat.PdfImage24:
+                case OutputFormat.PdfImage8:
+                case OutputFormat.PdfOCR32:
+                case OutputFormat.PdfOCR24:
+                case OutputFormat.PdfOCR8:
                 case OutputFormat.PdfX:
                     return profile.PdfSettings.Security.Enabled
                            || profile.BackgroundPage.Enabled
