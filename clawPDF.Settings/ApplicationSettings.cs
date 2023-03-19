@@ -52,7 +52,7 @@ namespace clawSoft.clawPDF.Core.Settings
             Language = "";
             LastUsedProfileGuid = "DefaultGuid";
             LoggingLevel = LoggingLevel.Error;
-            PrinterDialogTopMost = PrinterDialogTopMost.Yes;
+            PrinterDialogTopMost = PrinterDialogTopMost.True;
             PrimaryPrinter = "clawPDF";
             UpdateInterval = UpdateInterval.Weekly;
         }
@@ -145,7 +145,7 @@ namespace clawSoft.clawPDF.Core.Settings
             }
             catch
             {
-                PrinterDialogTopMost = PrinterDialogTopMost.Yes;
+                PrinterDialogTopMost = PrinterDialogTopMost.True;
             }
 
             try

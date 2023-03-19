@@ -161,7 +161,7 @@ namespace clawSoft.clawPDF
         {
             var window = new ManagePrintJobsWindow();
             bool revertTopMost = true;
-            if (SettingsHelper.Settings.ApplicationSettings.PrinterDialogTopMost == PrinterDialogTopMost.Yes) revertTopMost = false;
+            if (SettingsHelper.Settings.ApplicationSettings.PrinterDialogTopMost == PrinterDialogTopMost.True) revertTopMost = false;
             TopMostHelper.ShowDialogTopMost(window, revertTopMost);
             //window.ShowDialog();
         }

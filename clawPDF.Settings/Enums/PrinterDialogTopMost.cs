@@ -2,7 +2,7 @@
 {
     public enum PrinterDialogTopMost
     {
-        No = 0,
-        Yes = 1
+        False = 0,
+        True = 1
     }
 }

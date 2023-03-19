@@ -55,7 +55,7 @@ namespace clawSoft.clawPDF.Workflow
                 var model = new PrintJobViewModel(Job.JobInfo, Job.Profile);
                 w.DataContext = model;
                 bool revertTopMost = true;
-                if(Settings.ApplicationSettings.PrinterDialogTopMost == PrinterDialogTopMost.Yes) revertTopMost = false;
+                if(Settings.ApplicationSettings.PrinterDialogTopMost == PrinterDialogTopMost.True) revertTopMost = false;
 
                 if (TopMostHelper.ShowDialogTopMost(w, revertTopMost) != true || model.PrintJobAction == PrintJobAction.Cancel)
                 {
