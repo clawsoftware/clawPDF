@@ -114,13 +114,22 @@ namespace clawSoft.clawPDF.Workflow
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfXFile", "PDF/X file") +
                     @" (*.pdf)|*.pdf";
                 saveFileDialog.Filter +=
-                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfImage32File", "PDF/CMYK-Image file") +
+                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfImage8File", "PDF/Gray-Image file") +
                     @" (*.pdf)|*.pdf";
                 saveFileDialog.Filter +=
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfImage24File", "PDF/RGB-Image file") +
                     @" (*.pdf)|*.pdf";
                 saveFileDialog.Filter +=
-                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfImage8File", "PDF/Gray-Image file") +
+                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfOCR32File", "PDF/CMYK-Image file") +
+                    @" (*.pdf)|*.pdf";
+                saveFileDialog.Filter +=
+                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfOCR8File", "PDF/Gray-Image file") +
+                    @" (*.pdf)|*.pdf";
+                saveFileDialog.Filter +=
+                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfOCR24File", "PDF/RGB-Image file") +
+                    @" (*.pdf)|*.pdf";
+                saveFileDialog.Filter +=
+                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfOCR32File", "PDF/CMYK-Image file") +
                     @" (*.pdf)|*.pdf";
                 saveFileDialog.Filter +=
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "JpegFile", "JPEG file") +
@@ -137,6 +146,7 @@ namespace clawSoft.clawPDF.Workflow
                 saveFileDialog.Filter +=
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "TextFile", "Text file") +
                     @" (*.txt)|*.txt;";
+
 
                 saveFileDialog.FilterIndex = (int)Job.Profile.OutputFormat + 1;
                 saveFileDialog.OverwritePrompt = true;

@@ -78,6 +78,7 @@ namespace clawSoft.clawPDF.Core
                 case OutputFormat.Tif:
                     return Path.ChangeExtension(file, ".tif");
 
+                case OutputFormat.OCRTxt:
                 case OutputFormat.Txt:
                     return Path.ChangeExtension(file, ".txt");
             }

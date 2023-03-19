@@ -23,7 +23,9 @@ namespace clawSoft.clawPDF.PDFProcessing
             switch (profile.OutputFormat)
             {
                 case OutputFormat.Pdf:
+                case OutputFormat.PdfA1B: // TODO
                 case OutputFormat.PdfA2B:
+                case OutputFormat.PdfA3B:
                 case OutputFormat.PdfImage32:
                 case OutputFormat.PdfImage24:
                 case OutputFormat.PdfImage8:

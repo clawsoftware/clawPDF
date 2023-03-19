@@ -315,7 +315,7 @@ namespace clawSoft.clawPDF.Helper
 
             //PdfOCR24Profile
             var pdfOCR24Profile = new ConversionProfile();
-            pdfOCR24Profile.Name = "PDF/OCR (print as PDF with text overlay)";
+            pdfOCR24Profile.Name = "PDF/OCR (overlay with text)";
             pdfOCR24Profile.Guid = ProfileGuids.PDFOCR24_PROFILE_GUID;
 
             pdfOCR24Profile.OutputFormat = OutputFormat.PdfOCR24;
@@ -330,7 +330,7 @@ namespace clawSoft.clawPDF.Helper
 
             //OCRTextProfile
             var ocrTextProfile = new ConversionProfile();
-            ocrTextProfile.Name = "OCR (print as text)";
+            ocrTextProfile.Name = "OCR/TXT (print as text)";
             ocrTextProfile.Guid = ProfileGuids.OCRText_PROFILE_GUID;
 
             ocrTextProfile.OutputFormat = OutputFormat.OCRTxt;

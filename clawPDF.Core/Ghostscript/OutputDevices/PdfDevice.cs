@@ -191,6 +191,8 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
             {
                 parameters[replaceDevice] = "-sDEVICE=pdfocr32";
             }
+            parameters.Add("-r200");
+            parameters.Add("-sOCRLanguage=" + Job.Profile.OCRSettings.OCRLanguage);
 
             Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
                          "\"");
@@ -205,6 +207,8 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
             {
                 parameters[replaceDevice] = "-sDEVICE=pdfocr24";
             }
+            parameters.Add("-r200");
+            parameters.Add("-sOCRLanguage=" + Job.Profile.OCRSettings.OCRLanguage);
 
             Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
                          "\"");
@@ -219,6 +223,8 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
             {
                 parameters[replaceDevice] = "-sDEVICE=pdfocr8";
             }
+            parameters.Add("-r200");
+            parameters.Add("-sOCRLanguage=" + Job.Profile.OCRSettings.OCRLanguage);
 
             Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
                          "\"");
