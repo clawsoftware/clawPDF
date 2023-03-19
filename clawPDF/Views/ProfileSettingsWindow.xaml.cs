@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using clawSoft.clawPDF.Core.Actions;
 using clawSoft.clawPDF.Core.Settings;
@@ -198,6 +200,25 @@ namespace clawSoft.clawPDF.Views
 
             SettingsHelper.ApplySettings(Settings);
             SettingsHelper.SaveSettings();
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowUrlInBrowser(Urls.clawPDFWikiURL);
+        }
+
+        private void ShowUrlInBrowser(string url)
+        {
+            try
+            {
+                Process.Start(url);
+            }
+            catch (Win32Exception)
+            {
+            }
+            catch (FileNotFoundException)
+            {
+            }
         }
     }
 }

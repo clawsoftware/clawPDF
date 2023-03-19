@@ -12,6 +12,9 @@ namespace clawSoft.clawPDF.ViewModels.UserControls
         private ApplicationProperties _applicationProperties;
         private IList<Language> _languages;
 
+        public IEnumerable<EnumValue<PrinterDialogTopMost>> PrinterDialogTopMost =>
+    TranslationHelper.Instance.TranslatorInstance.GetEnumTranslation<PrinterDialogTopMost>();
+
         public GeneralTabViewModel()
         {
             Languages = Translator.FindTranslations(TranslationHelper.Instance.TranslationPath);

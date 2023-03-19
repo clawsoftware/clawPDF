@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Threading;
 using clawSoft.clawPDF.Core.Jobs;
+using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.Exceptions;
 using clawSoft.clawPDF.Helper;
+using clawSoft.clawPDF.Properties;
+using clawSoft.clawPDF.Shared.Helper;
 using clawSoft.clawPDF.Threading;
 using clawSoft.clawPDF.Utilities.Threading;
 using clawSoft.clawPDF.Views;
@@ -157,7 +160,10 @@ namespace clawSoft.clawPDF
         private void ShowManagePrintJobsWindow()
         {
             var window = new ManagePrintJobsWindow();
-            window.ShowDialog();
+            bool revertTopMost = true;
+            if (SettingsHelper.Settings.ApplicationSettings.PrinterDialogTopMost == PrinterDialogTopMost.Yes) revertTopMost = false;
+            TopMostHelper.ShowDialogTopMost(window, revertTopMost);
+            //window.ShowDialog();
         }
     }
 }

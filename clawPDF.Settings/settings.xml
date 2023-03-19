@@ -69,8 +69,10 @@
 				<value name="LastUsedProfileGuid" type="value" datatype="String" enumname="" defaultvalue="DefaultGuid">
 					<comment />
 				</value>
-				<value name="LoggingLevel" type="value" datatype="Enum" enumname="LoggingLevel"
-					   defaultvalue="LoggingLevel.Error">
+				<value name="LoggingLevel" type="value" datatype="Enum" enumname="LoggingLevel" defaultvalue="LoggingLevel.Error">
+					<comment />
+				</value>
+				<value name="PrinterDialogTopMost" type="value" datatype="Enum" enumname="PrinterDialogTopMost" defaultvalue="PrinterDialogTopMost.Yes">
 					<comment />
 				</value>
 				<value name="PrimaryPrinter" type="value" datatype="String" enumname="" defaultvalue="clawPDF">

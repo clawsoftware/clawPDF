@@ -50,10 +50,8 @@
                     FontWeight="Bold" FontFamily="Calibri" FontSize="50" Click="HeartButton_Click" Content="{StaticResource Heart}" />
             <Button DockPanel.Dock="Right" Name="ProfileSettingsButton" Content="Profile Settings"
                     Style="{StaticResource ButtonStyle}" Click="ProfileSettingsButton_OnClick" />
-            <StackPanel Name="ApplicationSettingsPanel" Style="{StaticResource GpoStyle}">
-                <Button DockPanel.Dock="Right" Name="AppSettingsButton" Content="Application Settings"
+            <Button DockPanel.Dock="Right" Name="AppSettingsButton" Content="Application Settings"
                         Style="{StaticResource ButtonStyle}" Click="AppSettingsButton_OnClick" />
-            </StackPanel>
         </DockPanel>
     </Grid>
 </Window>
