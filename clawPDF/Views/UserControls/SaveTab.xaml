@@ -25,7 +25,7 @@
             <StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <Label Name="DefaultFileFormatLabel">Set default file format:</Label>
-                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Center" Width="85"
+                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Center" Width="100"
                               SelectedValue="{Binding CurrentProfile.OutputFormat}" SelectedValuePath="Value"
                               DisplayMemberPath="Name"
                               ItemsSource="{Binding ElementName=This, Path=DefaultFileFormatValues}" Margin="5,0,0,0" />

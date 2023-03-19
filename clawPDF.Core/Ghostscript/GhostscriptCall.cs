@@ -29,6 +29,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript
                     {
                         int num_params = args.Length;
                         var argParam = new GCHandle[num_params];
+                        string test = string.Join(" ", args);
                         var argPtrs = new IntPtr[num_params];
                         List<byte[]> CharacterArray = new List<byte[]>(num_params);
                         GCHandle argPtrsStable = new GCHandle();

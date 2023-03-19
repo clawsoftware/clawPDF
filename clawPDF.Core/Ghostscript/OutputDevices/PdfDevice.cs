@@ -4,6 +4,7 @@
 
 using System.Collections.Generic;
 using System.Globalization;
+using System.Reflection;
 using System.Text;
 using clawSoft.clawPDF.Core.Jobs;
 using clawSoft.clawPDF.Core.Settings.Enums;
@@ -36,17 +37,30 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
             parameters.Add("-dEmbedAllFonts=true");
 
             SetPageOrientation(parameters, DistillerDictonaries);
-            SetColorSchemeParameters(parameters);
+
+            if (Job.Profile.OutputFormat != OutputFormat.PdfImage32
+                && Job.Profile.OutputFormat != OutputFormat.PdfImage24
+                && Job.Profile.OutputFormat != OutputFormat.PdfImage8)
+            {
+                SetColorSchemeParameters(parameters);
+            }
 
             //ColorSheme must be defined before adding def files of PdfA/X
             if (Job.Profile.OutputFormat == OutputFormat.PdfX)
                 SetPdfXParameters(parameters);
+            else if (Job.Profile.OutputFormat == OutputFormat.PdfImage32)
+                SetPdfImage32Parameters(parameters);
+            else if (Job.Profile.OutputFormat == OutputFormat.PdfImage24)
+                SetPdfImage24Parameters(parameters);
+            else if (Job.Profile.OutputFormat == OutputFormat.PdfImage8)
+                SetPdfImage8Parameters(parameters);
             else if (Job.Profile.OutputFormat == OutputFormat.PdfA1B
-                     || Job.Profile.OutputFormat == OutputFormat.PdfA2B)
+                     || Job.Profile.OutputFormat == OutputFormat.PdfA2B
+                     || Job.Profile.OutputFormat == OutputFormat.PdfA3B)
                 SetPdfAParameters(parameters);
 
-            GrayAndColorImagesCompressionAndResample(parameters, DistillerDictonaries);
-            MonoImagesCompression(parameters);
+                GrayAndColorImagesCompressionAndResample(parameters, DistillerDictonaries);
+                MonoImagesCompression(parameters);
         }
 
         private void SetPdfAParameters(IList<string> parameters)
@@ -61,6 +75,10 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 
                 case OutputFormat.PdfA2B:
                     parameters.Add("-dPDFA=2");
+                    break;
+
+                case OutputFormat.PdfA3B:
+                    parameters.Add("-dPDFA=3");
                     break;
             }
 
@@ -118,29 +136,46 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
             parameters.Add(defFile);
         }
 
-        private void SetPdfImageParameters(IList<string> parameters)
+        private void SetPdfImage32Parameters(IList<string> parameters)
         {
             var shortenedTempPath = Job.JobTempFolder;
 
-            parameters.Clear();
-            parameters.Add("-dCompatibilityLevel=1.4");
-            parameters.Add("-dPDFSETTINGS=/default");
-            parameters.Add("-sDEVICE=pdfimage32");
+            int replaceDevice = parameters.IndexOf("-sDEVICE=pdfwrite");
+            if (replaceDevice != -1)
+            {
+                parameters[replaceDevice] = "-sDEVICE=pdfimage32";
+            }
 
             Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
                          "\"");
+        }
 
-            //Add ICC profile
-            var iccFile = PathSafe.Combine(shortenedTempPath, "profile.icc");
-            FileWrap.WriteAllBytes(iccFile, CoreResources.ISOcoated_v2_300_eci);
-            parameters.Add("-sOutputICCProfile=" + iccFile);
+        private void SetPdfImage24Parameters(IList<string> parameters)
+        {
+            var shortenedTempPath = Job.JobTempFolder;
 
-            var defFile = PathSafe.Combine(shortenedTempPath, "pdfx_def.ps");
-            var sb = new StringBuilder(CoreResources.PdfxDefinition);
-            sb.Replace("%/ICCProfile (ISO Coated sb.icc)",
-                "/ICCProfile (" + EncodeGhostscriptParametersOctal(iccFile.Replace('\\', '/')) + ")");
-            FileWrap.WriteAllText(defFile, sb.ToString());
-            parameters.Add(defFile);
+            int replaceDevice = parameters.IndexOf("-sDEVICE=pdfwrite");
+            if (replaceDevice != -1)
+            {
+                parameters[replaceDevice] = "-sDEVICE=pdfimage24";
+            }
+
+            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
+                         "\"");
+        }
+
+        private void SetPdfImage8Parameters(IList<string> parameters)
+        {
+            var shortenedTempPath = Job.JobTempFolder;
+
+            int replaceDevice = parameters.IndexOf("-sDEVICE=pdfwrite");
+            if (replaceDevice != -1)
+            {
+                parameters[replaceDevice] = "-sDEVICE=pdfimage8";
+            }
+
+            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
+                         "\"");
         }
 
         private void GrayAndColorImagesCompressionAndResample(IList<string> parameters,

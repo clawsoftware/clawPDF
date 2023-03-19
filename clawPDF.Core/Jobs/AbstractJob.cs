@@ -257,6 +257,10 @@ namespace clawSoft.clawPDF.Core.Jobs
                 case OutputFormat.Pdf:
                 case OutputFormat.PdfA1B:
                 case OutputFormat.PdfA2B:
+                case OutputFormat.PdfA3B:
+                case OutputFormat.PdfImage32:
+                case OutputFormat.PdfImage24:
+                case OutputFormat.PdfImage8:
                 case OutputFormat.PdfX:
                     outputFilename += ".pdf";
                     break;

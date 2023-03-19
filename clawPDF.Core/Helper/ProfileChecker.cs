@@ -215,8 +215,12 @@ namespace clawSoft.clawPDF.Core.Helper
             var actionResult = new ActionResult();
 
             if (profile.OutputFormat != OutputFormat.Pdf && profile.OutputFormat != OutputFormat.PdfA1B
-                                                         && profile.OutputFormat != OutputFormat.PdfA2B &&
-                                                         profile.OutputFormat != OutputFormat.PdfX)
+                                                         && profile.OutputFormat != OutputFormat.PdfA2B
+                                                         && profile.OutputFormat != OutputFormat.PdfA3B
+                                                         && profile.OutputFormat != OutputFormat.PdfX
+                                                         && profile.OutputFormat != OutputFormat.PdfImage32
+                                                         && profile.OutputFormat != OutputFormat.PdfImage24
+                                                         && profile.OutputFormat != OutputFormat.PdfImage8)
                 return actionResult;
 
             if (profile.BackgroundPage.Enabled)

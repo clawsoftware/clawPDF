@@ -108,10 +108,19 @@ namespace clawSoft.clawPDF.Workflow
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfA2bFile", "PDF/A-2b file") +
                     @" (*.pdf)|*.pdf";
                 saveFileDialog.Filter +=
+                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfA3bFile", "PDF/A-3b file") +
+                    @" (*.pdf)|*.pdf";
+                saveFileDialog.Filter +=
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfXFile", "PDF/X file") +
                     @" (*.pdf)|*.pdf";
                 saveFileDialog.Filter +=
-                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfImageFile", "PDF/Image file") +
+                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfImage32File", "PDF/CMYK-Image file") +
+                    @" (*.pdf)|*.pdf";
+                saveFileDialog.Filter +=
+                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfImage24File", "PDF/RGB-Image file") +
+                    @" (*.pdf)|*.pdf";
+                saveFileDialog.Filter +=
+                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "PdfImage8File", "PDF/Gray-Image file") +
                     @" (*.pdf)|*.pdf";
                 saveFileDialog.Filter +=
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "JpegFile", "JPEG file") +
@@ -441,14 +450,30 @@ namespace clawSoft.clawPDF.Workflow
                         @" (*.pdf)|*.pdf";
                     break;
 
+                case OutputFormat.PdfA3B:
+                    saveFileDialog.Filter =
+                        _translator.GetTranslation("InteractiveWorkflow", "PdfA3bFile", "PDF/A-3b file") +
+                        @" (*.pdf)|*.pdf";
+                    break;
+
                 case OutputFormat.PdfX:
                     saveFileDialog.Filter =
                         _translator.GetTranslation("InteractiveWorkflow", "PdfXFile", "PDF/X file") + @" (*.pdf)|*.pdf";
                     break;
 
-                case OutputFormat.PdfImage:
+                case OutputFormat.PdfImage32:
                     saveFileDialog.Filter =
-                        _translator.GetTranslation("InteractiveWorkflow", "PdfImageFile", "PDF/Image file") + @" (*.pdf)|*.pdf";
+                        _translator.GetTranslation("InteractiveWorkflow", "PdfImage32File", "PDF/CMYK-Image file") + @" (*.pdf)|*.pdf";
+                    break;
+
+                case OutputFormat.PdfImage24:
+                    saveFileDialog.Filter =
+                        _translator.GetTranslation("InteractiveWorkflow", "PdfImage24File", "PDF/RGB-Image file") + @" (*.pdf)|*.pdf";
+                    break;
+
+                case OutputFormat.PdfImage8:
+                    saveFileDialog.Filter =
+                        _translator.GetTranslation("InteractiveWorkflow", "PdfImage8File", "PDF/Gray-Image file") + @" (*.pdf)|*.pdf";
                     break;
 
                 case OutputFormat.Jpeg:

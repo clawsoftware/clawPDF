@@ -299,19 +299,47 @@ namespace clawSoft.clawPDF.Helper
             SetDefaultProperties(pdfaProfile, true);
             settings.ConversionProfiles.Add(pdfaProfile);
 
-            //PdfImageProfile
-            var pdfImageProfile = new ConversionProfile();
-            pdfImageProfile.Name = "PDF/Image (print as image)";
-            pdfImageProfile.Guid = ProfileGuids.PDFImage_PROFILE_GUID;
+            //PdfImage32Profile
+            var pdfImage32Profile = new ConversionProfile();
+            pdfImage32Profile.Name = "PDF/CMYK-Image (print as CMYK image)";
+            pdfImage32Profile.Guid = ProfileGuids.PDFImage32_PROFILE_GUID;
 
-            pdfImageProfile.OutputFormat = OutputFormat.PdfImage;
-            pdfImageProfile.PdfSettings.CompressColorAndGray.Enabled = true;
-            pdfImageProfile.PdfSettings.CompressColorAndGray.Compression = CompressionColorAndGray.Automatic;
-            pdfImageProfile.PdfSettings.CompressMonochrome.Enabled = true;
-            pdfImageProfile.PdfSettings.CompressMonochrome.Compression = CompressionMonochrome.CcittFaxEncoding;
+            pdfImage32Profile.OutputFormat = OutputFormat.PdfImage32;
+            pdfImage32Profile.PdfSettings.CompressColorAndGray.Enabled = true;
+            pdfImage32Profile.PdfSettings.CompressColorAndGray.Compression = CompressionColorAndGray.Automatic;
+            pdfImage32Profile.PdfSettings.CompressMonochrome.Enabled = true;
+            pdfImage32Profile.PdfSettings.CompressMonochrome.Compression = CompressionMonochrome.CcittFaxEncoding;
 
-            SetDefaultProperties(pdfImageProfile, true);
-            settings.ConversionProfiles.Add(pdfImageProfile);
+            SetDefaultProperties(pdfImage32Profile, true);
+            settings.ConversionProfiles.Add(pdfImage32Profile);
+
+            //PdfImage24Profile
+            var pdfImage24Profile = new ConversionProfile();
+            pdfImage24Profile.Name = "PDF/RGB-Image (print as RGB image)";
+            pdfImage24Profile.Guid = ProfileGuids.PDFImage24_PROFILE_GUID;
+
+            pdfImage24Profile.OutputFormat = OutputFormat.PdfImage24;
+            pdfImage24Profile.PdfSettings.CompressColorAndGray.Enabled = true;
+            pdfImage24Profile.PdfSettings.CompressColorAndGray.Compression = CompressionColorAndGray.Automatic;
+            pdfImage24Profile.PdfSettings.CompressMonochrome.Enabled = true;
+            pdfImage24Profile.PdfSettings.CompressMonochrome.Compression = CompressionMonochrome.CcittFaxEncoding;
+
+            SetDefaultProperties(pdfImage24Profile, true);
+            settings.ConversionProfiles.Add(pdfImage24Profile);
+
+            //PdfImage8Profile
+            var pdfImage8Profile = new ConversionProfile();
+            pdfImage8Profile.Name = "PDF/Gray-Image (print as gray image)";
+            pdfImage8Profile.Guid = ProfileGuids.PDFImage8_PROFILE_GUID;
+
+            pdfImage8Profile.OutputFormat = OutputFormat.PdfImage8;
+            pdfImage8Profile.PdfSettings.CompressColorAndGray.Enabled = true;
+            pdfImage8Profile.PdfSettings.CompressColorAndGray.Compression = CompressionColorAndGray.Automatic;
+            pdfImage8Profile.PdfSettings.CompressMonochrome.Enabled = true;
+            pdfImage8Profile.PdfSettings.CompressMonochrome.Compression = CompressionMonochrome.CcittFaxEncoding;
+
+            SetDefaultProperties(pdfImage8Profile, true);
+            settings.ConversionProfiles.Add(pdfImage8Profile);
 
             //OCRTextProfile
             var ocrTextProfile = new ConversionProfile();
