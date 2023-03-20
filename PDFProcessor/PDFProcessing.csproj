@@ -60,6 +60,10 @@
       <Project>{94936199-c9c7-4a5f-a58e-6123158e84f3}</Project>
       <Name>clawPDF.Settings</Name>
     </ProjectReference>
+    <ProjectReference Include="..\clawPDF.Utilities\clawPDF.Utilities.csproj">
+      <Project>{EA29538B-89A5-4FB3-AE0F-5E2370E852F8}</Project>
+      <Name>clawPDF.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="iTextSharp">

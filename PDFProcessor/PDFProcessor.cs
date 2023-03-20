@@ -125,8 +125,7 @@ namespace clawSoft.clawPDF.PDFProcessing
                 using (var stamper =
                     StamperCreator.CreateStamperAccordingToEncryptionAndSignature(preProcessFile, pdfFile, profile))
                 {
-                    Encrypter.SetEncryption(stamper, profile,
-                        jobPasswords); //Encryption before adding Background and Signing!
+                    Encrypter.SetEncryption(stamper, profile, jobPasswords); //Encryption before adding Background and Signing!
                     XmpMetadataUpdater.UpdateXmpMetadata(stamper, profile);
                     BackgroundAdder.AddBackground(stamper, profile);
                     Signer.SignPdfFile(stamper, profile, jobPasswords); //Signing after adding background and update metadata
