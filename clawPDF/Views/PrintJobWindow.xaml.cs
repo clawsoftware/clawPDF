@@ -1,5 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.Windows;
+using System.Windows.Media;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.Helper;
@@ -8,6 +11,7 @@ using clawSoft.clawPDF.Shared.ViewModels;
 using clawSoft.clawPDF.Shared.Views;
 using clawSoft.clawPDF.ViewModels;
 using clawSoft.clawPDF.WindowsApi;
+using pdfforge.DynamicTranslator;
 
 namespace clawSoft.clawPDF.Views
 {
@@ -15,18 +19,25 @@ namespace clawSoft.clawPDF.Views
     {
         private clawPDFSettings _settings = SettingsHelper.Settings;
         private PrintJobViewModel vm;
+        private static readonly TranslationHelper TranslationHelper = TranslationHelper.Instance;
 
         public PrintJobWindow()
         {
             InitializeComponent();
             vm = new PrintJobViewModel();
             DataContext = vm;
+            PageOrientationComboBox.ItemsSource = PageOrientationValues;
+            ColorModelComboBox.ItemsSource = ColorModelValues;
         }
+
+        public static IEnumerable<EnumValue<PageOrientation>> PageOrientationValues => 
+            TranslationHelper.TranslatorInstance.GetEnumTranslation<PageOrientation>();
+
+        public static IEnumerable<EnumValue<ColorModel>> ColorModelValues =>
+            TranslationHelper.TranslatorInstance.GetEnumTranslation<ColorModel>();
 
         private void SettingsButton_OnClick(object sender, RoutedEventArgs e)
         {
-            //var vm = (PrintJobViewModel)DataContext;
-
             TopMostHelper.UndoTopMostWindow(this);
             _settings.ApplicationSettings.LastUsedProfileGuid = vm.SelectedProfile.Guid;
 
@@ -65,8 +76,6 @@ namespace clawSoft.clawPDF.Views
 
         private void SecurityPasswordsButton_OnClick(object sender, RoutedEventArgs e)
         {
-            //var vm = (PrintJobViewModel)DataContext;
-
             var askUserPassword = vm.SelectedProfile.PdfSettings.Security.RequireUserPassword;
 
             var pwWindow = new EncryptionPasswordsWindow(EncryptionPasswordMiddleButton.Remove, true, askUserPassword);
@@ -89,20 +98,36 @@ namespace clawSoft.clawPDF.Views
 
         private void profileChange(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            if (vm.SelectedProfile.PdfSettings.Security.Enabled)
+            {
+                PasswordTab.Background = new SolidColorBrush(Colors.LightBlue);
+            }
+            else
+            {
+                PasswordTab.Background = null;
+            }
             SecurityCheckBox.IsChecked = vm.SelectedProfile.PdfSettings.Security.Enabled;
             UserPasswordCheckBox.IsChecked = vm.SelectedProfile.PdfSettings.Security.RequireUserPassword;
             OCRLanguage.Text = vm.SelectedProfile.OCRSettings.OCRLanguage;
+            PageOrientationComboBox.SelectedValue = vm.SelectedProfile.PdfSettings.PageOrientation;
+            PageOrientationComboBox.SelectedValuePath = "Value";
+            PageOrientationComboBox.DisplayMemberPath = "Name";
+            ColorModelComboBox.SelectedValue = vm.SelectedProfile.PdfSettings.ColorModel;
+            ColorModelComboBox.SelectedValuePath = "Value";
+            ColorModelComboBox.DisplayMemberPath = "Name";
         }
 
         private void SecurityCheckBoxChecked(object sender, RoutedEventArgs e)
         {
             vm.SelectedProfile.PdfSettings.Security.Enabled = true;
             vm.SelectedProfile.PdfSettings.Security.EncryptionLevel = EncryptionLevel.Aes128Bit;
+            PasswordTab.Background = new SolidColorBrush(Colors.LightBlue);
         }
 
         private void SecurityCheckBoxUnchecked(object sender, RoutedEventArgs e)
         {
             vm.SelectedProfile.PdfSettings.Security.Enabled = false;
+            PasswordTab.Background = null;
         }
 
         private void UserPasswordCheckBoxChecked(object sender, RoutedEventArgs e)
@@ -118,6 +143,38 @@ namespace clawSoft.clawPDF.Views
         private void OCRLanguageChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             vm.SelectedProfile.OCRSettings.OCRLanguage = OCRLanguage.Text;
+        }
+
+        private void PageOrientationComboBoxChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if(PageOrientationComboBox.SelectedIndex == 0)
+            {
+                vm.SelectedProfile.PdfSettings.PageOrientation = PageOrientation.Automatic;
+            }
+            else if(PageOrientationComboBox.SelectedIndex == 1)
+            {
+                vm.SelectedProfile.PdfSettings.PageOrientation = PageOrientation.Portrait;
+            }
+            else if (PageOrientationComboBox.SelectedIndex == 2)
+            {
+                vm.SelectedProfile.PdfSettings.PageOrientation = PageOrientation.Landscape;
+            }
+        }
+
+        private void ColorModelComboBoxChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if(ColorModelComboBox.SelectedIndex == 0)
+            {
+                vm.SelectedProfile.PdfSettings.ColorModel = ColorModel.Cmyk;
+            }
+            else if (ColorModelComboBox.SelectedIndex == 1)
+            {
+                vm.SelectedProfile.PdfSettings.ColorModel = ColorModel.Rgb;
+            }
+            else if (ColorModelComboBox.SelectedIndex == 2)
+            {
+                vm.SelectedProfile.PdfSettings.ColorModel = ColorModel.Gray;
+            }
         }
     }
 }

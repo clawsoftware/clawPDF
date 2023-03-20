@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using clawSoft.clawPDF.Core.Jobs;
+using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.Utilities;
 using SystemInterface.IO;
 
@@ -20,6 +21,13 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 
         protected override void AddDeviceSpecificParameters(IList<string> parameters)
         {
+            parameters.Add("-sDEVICE=ocr");
+            parameters.Add("-dCompatibilityLevel=1.4");
+            parameters.Add("-dPDFSETTINGS=/default");
+            parameters.Add("-dEmbedAllFonts=true");
+
+            SetPageOrientation(parameters, DistillerDictonaries);
+
             if (_useOCRDevice)
                 AddOCRDeviceParameters(parameters);
         }
@@ -27,9 +35,29 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
         private void AddOCRDeviceParameters(IList<string> parameters)
         {
             // Solution with gs ORCdevice
-            parameters.Add("-sDEVICE=ocr");
             parameters.Add("-r200");
             parameters.Add("-sOCRLanguage=" + Job.Profile.OCRSettings.OCRLanguage);
+        }
+
+        private void SetPageOrientation(IList<string> parameters, IList<string> distillerDictonaries)
+        {
+            switch (Job.Profile.PdfSettings.PageOrientation)
+            {
+                case PageOrientation.Landscape:
+                    parameters.Add("-dAutoRotatePages=/None");
+                    distillerDictonaries.Add("<</Orientation 3>> setpagedevice");
+                    break;
+
+                case PageOrientation.Automatic:
+                    parameters.Add("-dAutoRotatePages=/PageByPage");
+                    parameters.Add("-dParseDSCComments=false"); //necessary for automatic rotation
+                    break;
+                //case  PageOrientation.Portrait:
+                default:
+                    parameters.Add("-dAutoRotatePages=/None");
+                    distillerDictonaries.Add("<</Orientation 0>> setpagedevice");
+                    break;
+            }
         }
 
         protected override string ComposeOutputFilename()

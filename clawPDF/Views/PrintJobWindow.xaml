@@ -37,10 +37,9 @@
             <ComboBox Name="ProfileCombo" ItemsSource="{Binding ProfilesView}" SelectionChanged="profileChange"  DisplayMemberPath="Name"
                       IsSynchronizedWithCurrentItem="True" />
 
-            <TabControl Height="200" Margin="0 20 0 10" Background="{DynamicResource {x:Static SystemColors.WindowBrush}}" BorderThickness="0"
-            BorderBrush="Transparent">
-                <TabItem Header="Metadata">
-                    <StackPanel>
+            <TabControl Name="PrinterTabControl" x:FieldModifier="public" Height="200" Margin="0 20 0 10" Background="{DynamicResource {x:Static SystemColors.WindowBrush}}" BorderThickness="0 1 0 0">
+                <TabItem Name="MetadataTab" Header="Metadata" x:FieldModifier="public">
+                    <StackPanel Margin="0 15 0 0">
                         <Label Target="{Binding ElementName=SubjectText}" Name="SubjectLabel">_Subject</Label>
                         <TextBox Name="SubjectText" Text="{Binding Metadata.Subject}" />
                         <Label Target="{Binding ElementName=KeywordsText}" Name="KeywordsLabel">_Keywords</Label>
@@ -49,8 +48,26 @@
                         <TextBox Name="AuthorText" Text="{Binding Metadata.Author}" />
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="Password">
-                    <StackPanel Margin="5 30 0 0">
+                <TabItem Name="SettingsTab" Header="Settings" x:FieldModifier="public">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <HeaderedContentControl Name="PageOrientationControl" HorizontalAlignment="Left"
+                                        Template="{StaticResource HeaderPanelTemplate}" Header="Page Orientation">
+                            <StackPanel HorizontalAlignment="Left" Margin="0,5,0,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <ComboBox Name="PageOrientationComboBox" SelectionChanged="PageOrientationComboBoxChanged"  Width="200" />
+                                </StackPanel>
+                            </StackPanel>
+                        </HeaderedContentControl>
+                        <HeaderedContentControl Name="ColorModelControl" Margin="0,10,0,0"
+                                        Template="{StaticResource HeaderPanelTemplate}" Header="Color Model">
+                            <StackPanel Margin="0 5 0 0" HorizontalAlignment="Left">
+                                <ComboBox Name="ColorModelComboBox" SelectionChanged="ColorModelComboBoxChanged" Width="200"  />
+                            </StackPanel>
+                        </HeaderedContentControl>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Name="PasswordTab" Header="Password" x:FieldModifier="public">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                         <CheckBox Name="SecurityCheckBox" Checked="SecurityCheckBoxChecked" Unchecked="SecurityCheckBoxUnchecked">Encrypt PDF files to protect its contents</CheckBox>
                         <StackPanel IsEnabled="{Binding ElementName=SecurityCheckBox, Path=IsChecked}" Margin="10">
                             <CheckBox Name="UserPasswordCheckBox"
@@ -65,8 +82,8 @@
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="OCR">
-                    <StackPanel Margin="5 30 0 0">
+                <TabItem Name="OCRTab" Header="OCR" x:FieldModifier="public">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock Margin="0,5,0,0" Name="OCRLanguageNoteTextBlock" TextWrapping="Wrap">Please provide the language(s) to be recognized in the file to be printed and specify the language files without the ".traineddata" extension. If there are several languages, separate them with a plus sign (e.g. eng+deu+fra).</TextBlock>
                         <Label Margin="0,5,0,0" Name="OCRLanguageLabel" Content="Language(s):"/>
                         <TextBox Name="OCRLanguage" HorizontalAlignment="Stretch" TextChanged="OCRLanguageChanged" />
