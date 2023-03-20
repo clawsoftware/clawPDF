@@ -56,7 +56,7 @@ namespace clawSoft.clawPDF
 
                     if (!string.IsNullOrEmpty(defaultProfile))
                     {
-                        Thread.Sleep(5000);
+                        Thread.Sleep(3000);
                         var settings = SettingsHelper.Settings;
                         var printerDefaultProfileGuid = RegistryUtility.ReadRegistryValue(@"Software\clawSoft\clawPDF\Batch", "PrinterDefaultProfileGuid");
                         var primaryPrinter = settings.ApplicationSettings.PrimaryPrinter;

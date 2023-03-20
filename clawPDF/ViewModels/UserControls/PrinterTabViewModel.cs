@@ -41,8 +41,17 @@ namespace clawSoft.clawPDF.ViewModels.UserControls
             ConversionProfiles = profiles;
             ApplicationSettings = applicationSettings;
 
-            AddPrinterCommand = new DelegateCommand(AddPrintercommandExecute);
-            DeletePrinterCommand = new DelegateCommand(DeletePrinterCommandExecute, ModifyPrinterCommandCanExecute);
+            try
+            {
+                AddPrinterCommand = new DelegateCommand(AddPrintercommandExecute);
+            }
+            catch { }
+
+            try
+            {
+                DeletePrinterCommand = new DelegateCommand(DeletePrinterCommandExecute, ModifyPrinterCommandCanExecute);
+            }
+            catch { }
         }
 
         public PrinterTabViewModel()
@@ -223,6 +232,7 @@ namespace clawSoft.clawPDF.ViewModels.UserControls
 
         private void AddPrintercommandExecute(object o)
         {
+
             var printerName = AddPrinterAction();
 
             if (!string.IsNullOrWhiteSpace(printerName))

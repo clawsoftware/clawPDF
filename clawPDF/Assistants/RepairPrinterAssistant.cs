@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using clawSoft.clawPDF.Shared.Helper;
 using clawSoft.clawPDF.Shared.ViewModels;
 using clawSoft.clawPDF.Shared.Views;
@@ -49,21 +50,15 @@ namespace clawSoft.clawPDF.Assistants
                     return false;
                 }
 
-                var shellExecuteHelper = new ShellExecuteHelper();
-
-                //Logger.Debug("Uninstalling Printers...");
-                //var uninstallResult = shellExecuteHelper.RunAsAdmin(printerHelperPath, @"/Driver=Remove");
-                //Logger.Debug("Done: {0}", uninstallResult);
 
                 Logger.Debug("Reinstalling Printers...");
-                var clawPdfPath = _pathSafe.Combine(applicationPath, "clawPDF.exe");
 
-                var printerNameString = GetPrinterNameString(printerNames);
-
-                //var installParams = $"/InstallPrinter {printerNameString} /PortApplication \"{clawPdfPath}\"";
-                var installResult = shellExecuteHelper.RunAsAdmin(printerHelperPath, @"/Driver=Add");
+                CallProgramAsAdmin(printerHelperPath, "/Driver=Add");
+                var installResult = CallProgramAsAdmin(printerHelperPath, "/Printer=Add /Name=clawPDF");
                 Logger.Debug("Done: {0}", installResult);
             }
+
+            Thread.Sleep(10000);
 
             Logger.Debug("Now we'll check again, if the printer is installed");
             if (IsRepairRequired())
@@ -80,6 +75,28 @@ namespace clawSoft.clawPDF.Assistants
             Logger.Info("The printer was repaired successfully");
 
             return true;
+        }
+
+        private bool CallProgramAsAdmin(string path, string arguments)
+        {
+            var shellExecuteHelper = new ShellExecuteHelper();
+            var result = shellExecuteHelper.RunAsAdmin(path, arguments);
+
+            if (result == ShellExecuteResult.RunAsWasDenied)
+            {
+                var message = TranslationHelper.Instance.TranslatorInstance.GetTranslation("ApplicationSettingsWindow",
+                    "SufficientPermissions",
+                    "Operation failed. You probably do not have sufficient permissions.");
+                var caption =
+                    TranslationHelper.Instance.TranslatorInstance.GetTranslation("ApplicationSettingsWindow", "Error",
+                        "Error");
+
+                MessageWindow.ShowTopMost(message, caption, MessageWindowButtons.OK, MessageWindowIcon.Error);
+
+                return false;
+            }
+
+            return result == ShellExecuteResult.Success;
         }
 
         private string GetPrinterNameString(IEnumerable<string> printerNames)

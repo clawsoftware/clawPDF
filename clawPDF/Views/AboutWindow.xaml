@@ -38,8 +38,8 @@
             </Style>
         </Grid.Resources>
         <Grid.RowDefinitions>
-            <RowDefinition Height="260*" />
-            <RowDefinition Height="63*" />
+            <RowDefinition Height="266*" />
+            <RowDefinition Height="71*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -47,9 +47,9 @@
         </Grid.ColumnDefinitions>
 
         <ContentControl Grid.Row="0" Grid.Column="0" IsTabStop="False" Content="{StaticResource Alpaca}"
-                        Margin="10,10,10.4,11" />
+                        Margin="10,10,11,11" />
 
-        <DockPanel Grid.Row="0" Grid.Column="1" Margin="9.6,10,10.2,11">
+        <DockPanel Grid.Row="0" Grid.Column="1" Margin="9,10,10,11">
             <TextBlock DockPanel.Dock="Top" FontSize="22" FontWeight="Bold" Foreground="#555">clawPDF</TextBlock>
             <TextBlock DockPanel.Dock="Top" FontSize="12" FontWeight="Bold" Foreground="#888" Padding="0 0"
                        Name="VersionText">
@@ -67,12 +67,15 @@
             </RichTextBox>
         </DockPanel>
 
+        <Button Style="{StaticResource NoChromeButton}" IsTabStop="False"
+                Content="Project Website" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+                Margin="10,0,12,47" Click="CompanyButton_OnClick" Grid.Row="1" Height="23" />
         <Button Style="{StaticResource NoChromeButton}" Grid.Row="1" IsTabStop="False"
-                Content="GitHub Project" Height="23" HorizontalAlignment="Right" VerticalAlignment="Top"
-                Margin="0,5,10,0" Click="CompanyButton_OnClick" Width="195" />
+                Content="Support the Project" Height="23" HorizontalAlignment="Stretch"
+                Margin="10,19,12,0" Click="SponsorsButton_OnClick" VerticalAlignment="Top" />
         <Button Style="{StaticResource NoChromeButton}" Grid.Row="1" IsTabStop="False"
-                Content="GitHub Sponsors" Height="23" HorizontalAlignment="Right" VerticalAlignment="Top"
-                Margin="0,28,10,0" Click="SponsorsButton_OnClick" Width="195" />
-        <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap" x:Name="LicenseInfo" Margin="9.6,0,10.2,10.2" Grid.Column="1" Grid.Row="1" Height="48"><Run Text="clawPDF is free software consisting of multiple components with individual licenses. Please read the license section in the manual for further information on these licenses." /></TextBlock>
+                Content="Contact me"
+                Margin="10,40,12,0" Click="ContactButton_OnClick" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="23" />
+        <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" x:Name="LicenseInfo" Margin="9,0,10,0" Grid.Column="1" Grid.Row="1" Height="48"><Run Text="clawPDF is free software consisting of multiple components with individual licenses. Please read the license section in the manual for further information on these licenses." /></TextBlock>
     </Grid>
 </Window>
