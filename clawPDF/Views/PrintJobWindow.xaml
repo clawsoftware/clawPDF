@@ -34,18 +34,46 @@
             <Label Target="{Binding ElementName=TitleText}" Name="TitleLabel">_Title</Label>
             <TextBox Name="TitleText" Text="{Binding Metadata.Title}" />
             <Label Target="{Binding ElementName=ProfileCombo}" Name="ProfileLabel">_Profile</Label>
-            <ComboBox Name="ProfileCombo" ItemsSource="{Binding ProfilesView}" DisplayMemberPath="Name"
+            <ComboBox Name="ProfileCombo" ItemsSource="{Binding ProfilesView}" SelectionChanged="profileChange"  DisplayMemberPath="Name"
                       IsSynchronizedWithCurrentItem="True" />
-            <Expander Name="MetadataExpander" Header="_Metadata" Margin="0 20 0 10" Height="175" IsExpanded="True">
-                <StackPanel>
-                    <Label Target="{Binding ElementName=SubjectText}" Name="SubjectLabel">_Subject</Label>
-                    <TextBox Name="SubjectText" Text="{Binding Metadata.Subject}" />
-                    <Label Target="{Binding ElementName=KeywordsText}" Name="KeywordsLabel">_Keywords</Label>
-                    <TextBox Name="KeywordsText" Text="{Binding Metadata.Keywords}" />
-                    <Label Target="{Binding ElementName=AuthorText}" Name="AuthorLabel">_Author</Label>
-                    <TextBox Name="AuthorText" Text="{Binding Metadata.Author}" />
-                </StackPanel>
-            </Expander>
+
+            <TabControl Height="200" Margin="0 20 0 10" Background="{DynamicResource {x:Static SystemColors.WindowBrush}}" BorderThickness="0"
+            BorderBrush="Transparent">
+                <TabItem Header="Metadata">
+                    <StackPanel>
+                        <Label Target="{Binding ElementName=SubjectText}" Name="SubjectLabel">_Subject</Label>
+                        <TextBox Name="SubjectText" Text="{Binding Metadata.Subject}" />
+                        <Label Target="{Binding ElementName=KeywordsText}" Name="KeywordsLabel">_Keywords</Label>
+                        <TextBox Name="KeywordsText" Text="{Binding Metadata.Keywords}" />
+                        <Label Target="{Binding ElementName=AuthorText}" Name="AuthorLabel">_Author</Label>
+                        <TextBox Name="AuthorText" Text="{Binding Metadata.Author}" />
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Password">
+                    <StackPanel Margin="5 30 0 0">
+                        <CheckBox Name="SecurityCheckBox" Checked="SecurityCheckBoxChecked" Unchecked="SecurityCheckBoxUnchecked">Encrypt PDF files to protect its contents</CheckBox>
+                        <StackPanel IsEnabled="{Binding ElementName=SecurityCheckBox, Path=IsChecked}" Margin="10">
+                            <CheckBox Name="UserPasswordCheckBox"
+                              Checked="UserPasswordCheckBoxChecked" Unchecked="UserPasswordCheckBoxUnchecked"
+                              Margin="0,0,0,10">
+                                Require a password to open the PDF file
+                            </CheckBox>
+                            <Button Name="SecurityPasswordsButton" Click="SecurityPasswordsButton_OnClick"
+                            HorizontalAlignment="Left" MaxWidth="231" Margin="0,0,0,10" Padding="10,0,10,0">
+                                Set Passwords
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="OCR">
+                    <StackPanel Margin="5 30 0 0">
+                        <TextBlock Margin="0,5,0,0" Name="OCRLanguageNoteTextBlock" TextWrapping="Wrap">Please provide the language(s) to be recognized in the file to be printed and specify the language files without the ".traineddata" extension. If there are several languages, separate them with a plus sign (e.g. eng+deu+fra).</TextBlock>
+                        <Label Margin="0,5,0,0" Name="OCRLanguageLabel" Content="Language(s):"/>
+                        <TextBox Name="OCRLanguage" HorizontalAlignment="Stretch" TextChanged="OCRLanguageChanged" />
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+
 
             <Grid Height="55">
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="5 5"
