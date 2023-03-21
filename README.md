@@ -77,7 +77,6 @@ clawPDF.exe /ManagePrintJobs
 
 # Changelog
 
-
 ## v0.8.7 (2023.03.21)
 
 - [feature] Optical Character Recognition (OCR)
@@ -88,44 +87,7 @@ clawPDF.exe /ManagePrintJobs
 - [feature] OutputPath Parameter
 - [misc]    Optimizations
 
-## v0.8.6 (2023.03.16)
-
-- [feature] Profile Settings -> Actions -> Run Script -> Hide the process execution
-- [feature] Config parameter e.g. to deploy settings in enterprise environments
-- [bugfix]  Unicode support in usernames
-- [bugfix]  Printing is now working for ghostscript parameters with east-asian characters
-- [bugfix]  Profiles for additional printers work now (Application Settings -> Printers -> Profile)
-- [misc]    Optimizations for Windows Remote Desktop
-
-## v0.8.5 (2023.03.11)
-
-- [update]	Update to Ghostscript 10
-- [bugfix]  MapiClient (thx to christian1980nrw)
-- [bugfix]  FtpConnection (thx to droshcom)
-- [bugfix]  Typo Czech.ini (thx to PetrTodorov)
-- [bugfix]  Fixed printing via UWP print dialog
-- [feature] OpenViewer setting (thx to victorromeo)
-- [feature] Batch Printing
-- [misc]	Optimizations
-
-## v0.8.4 (2019.06.11)
-
-- [bugfix]  Unicode filename support (thx to daooze for bugreport)
-
-## v0.8.3 (2019.05.31)
-
-- [bugfix]  Starts under System-Account
-- [cleanup] Migrated code from c++ to c#
-- [update]  Ghostscript 9.27
-- [bugfix]  Author metadata
-
-## v0.8.1 (2019.02.10)
-
-- [bugfix] Performance boost for RDS environments
-
-## v0.8.0 (2019.02.10)
-
-- Initial version
+[more...](https://github.com/clawsoftware/clawPDF/wiki/Changlog)
 
 
 # Requirements
@@ -147,6 +109,7 @@ clawPDF.exe /ManagePrintJobs
 
 - Visual Studio 2022
 
+[more...](https://github.com/clawsoftware/clawPDF/wiki/Build-it-yourself)
 
 # Third-party
 
