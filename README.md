@@ -2,7 +2,7 @@
 
 Yet another PDF/OCR/Image Printer? Yes! This PDF/OCR/Image Printer has the intention to be completely open source.<br><br>
 Open Source virtual PDF printer for Windows 7 / 8 / 10 / 11 / RDS<br>
-Print to PDF, PDF/A-1b, PDF/A-2b, PDF/A-3b, OCR, PDF/X, PDF/Image, PNG, JPEG, TIF and TXT
+Print to PDF, PDF/A-1b, PDF/A-2b, PDF/A-3b, OCR, PDF/X, PDF/Image, PNG, JPEG, TIF and TXT.
 
 # Download
 
@@ -27,7 +27,6 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.7/clawPDF_0.8.7_se
 - Easy to use
 - Easy to deploy (MSI-Installer & Config)
 - No adware, spyware, nagware
-- ...
 
 ![clawPDF](docs/images/MergeFiles.gif?raw=true "clawPDF")
 
