@@ -87,7 +87,7 @@ clawPDF.exe /ManagePrintJobs
 - [feature] OutputPath Parameter
 - [misc]    Optimizations
 
-[more...](https://github.com/clawsoftware/clawPDF/wiki/Changlog)
+[more](https://github.com/clawsoftware/clawPDF/wiki/Changlog)
 
 
 # Requirements
@@ -109,7 +109,7 @@ clawPDF.exe /ManagePrintJobs
 
 - Visual Studio 2022
 
-[more...](https://github.com/clawsoftware/clawPDF/wiki/Build-it-yourself)
+[more](https://github.com/clawsoftware/clawPDF/wiki/Build-it-yourself)
 
 # Third-party
 
