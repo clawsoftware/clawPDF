@@ -29,10 +29,16 @@ namespace clawSoft.clawPDF.Core.Settings
         /// </summary>
         public int SettingsVersion { get; set; }
 
+        /// <summary>
+        ///     Version of the Application
+        /// </summary>
+        public int ApplicationVersion { get; set; }
+
         private void Init()
         {
             NextUpdate = DateTime.Now;
             SettingsVersion = 5;
+            ApplicationVersion = 87;
         }
 
         public void ReadValues(Data data, string path)
@@ -55,12 +61,23 @@ namespace clawSoft.clawPDF.Core.Settings
             {
                 SettingsVersion = 2;
             }
+
+            try
+            {
+                ApplicationVersion = int.Parse(data.GetValue(@"" + path + @"ApplicationVersion"),
+                    CultureInfo.InvariantCulture);
+            }
+            catch
+            {
+                ApplicationVersion = 0;
+            }
         }
 
         public void StoreValues(Data data, string path)
         {
             data.SetValue(@"" + path + @"NextUpdate", NextUpdate.ToString("yyyy-MM-dd HH:mm:ss"));
             data.SetValue(@"" + path + @"SettingsVersion", SettingsVersion.ToString(CultureInfo.InvariantCulture));
+            data.SetValue(@"" + path + @"ApplicationVersion", ApplicationVersion.ToString(CultureInfo.InvariantCulture));
         }
 
         public ApplicationProperties Copy()
@@ -69,6 +86,7 @@ namespace clawSoft.clawPDF.Core.Settings
 
             copy.NextUpdate = NextUpdate;
             copy.SettingsVersion = SettingsVersion;
+            copy.ApplicationVersion = ApplicationVersion;
 
             return copy;
         }
@@ -80,6 +98,7 @@ namespace clawSoft.clawPDF.Core.Settings
 
             if (!NextUpdate.Equals(v.NextUpdate)) return false;
             if (!SettingsVersion.Equals(v.SettingsVersion)) return false;
+            if (!ApplicationVersion.Equals(v.ApplicationVersion)) return false;
 
             return true;
         }
@@ -90,6 +109,7 @@ namespace clawSoft.clawPDF.Core.Settings
 
             sb.AppendLine("NextUpdate=" + NextUpdate);
             sb.AppendLine("SettingsVersion=" + SettingsVersion);
+            sb.AppendLine("ApplicationVersion=" + ApplicationVersion);
 
             return sb.ToString();
         }

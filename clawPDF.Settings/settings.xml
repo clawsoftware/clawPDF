@@ -16,6 +16,9 @@
 				<value name="SettingsVersion" type="value" datatype="Int" enumname="" defaultvalue="5">
 					<comment>Version of the settings classes. This is used for internal purposes, i.e. to match properties when they were renamed</comment>
 				</value>
+				<value name="ApplicationVersion" type="value" datatype="Int" enumname="" defaultvalue="87">
+					<comment>Version of the Application</comment>
+				</value>
 			</class>
 			<class name="ApplicationSettings" propertyName="ApplicationSettings" readonly="False" classtype="Class">
 				<comment>clawPDF application settings</comment>
