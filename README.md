@@ -1,20 +1,26 @@
-# clawPDF - virtual PDF printer
+# clawPDF - Virtual PDF/OCR/Image Printer
 
-Yet another PDF Printer? Yes! This PDF Printer has the intention to be completely open source.<br><br>
-Open Source virtual PDF printer for Windows 7 / 8 / 10 / 11 / RDS / Terminalserver<br>
-Print to PDF, PDF/A, PDF/X, PNG, JPEG, TIF and TXT
+Yet another PDF/OCR/Image Printer? Yes! This PDF/OCR/Image Printer has the intention to be completely open source.<br><br>
+Open Source virtual PDF printer for Windows 7 / 8 / 10 / 11 / RDS<br>
+Print to PDF, PDF/A-1b, PDF/A-2b, PDF/A-3b, OCR, PDF/X, PDF/Image, PNG, JPEG, TIF and TXT
 
 # Download
 
-https://github.com/clawsoftware/clawPDF/releases/download/0.8.6/clawPDF_0.8.6_setup.msi
+https://github.com/clawsoftware/clawPDF/releases/download/0.8.7/clawPDF_0.8.7_setup.msi
 
 
 # Features
 
-- Print to PDF, PDF/A, PDF/X, PNG, JPEG, TIF and TXT
-- Full unicode support
-- Multiple profiles
-- Post Actions
+- Print to PDF, PDF/A-1b, PDF/A-2b, PDF/A-3b, OCR, PDF/X, PDF/Image, PNG, JPEG, TIF and TXT
+- Print 100% valid [PDF/A-1b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-1b.pdf), [PDF/A-2b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-2b.pdf) and [PDF/A-3b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-3b.pdf)
+- [Optical Character Recognition (OCR)](https://github.com/clawsoftware/clawPDF/wiki/Optical-Character-Recognition-(OCR))
+- [Drag and Drop Support](https://github.com/clawsoftware/clawPDF/wiki/Drag-and-Drop)
+- [Merge Files](https://github.com/clawsoftware/clawPDF/wiki/Merge-Files)
+- [Command Line Support](https://github.com/clawsoftware/clawPDF/wiki/Command-Line-Commands)
+- [Silent Print](https://github.com/clawsoftware/clawPDF/wiki/Silent-Print)
+- Full Unicode Support
+- Multiple Profiles
+- [Post Actions](https://github.com/clawsoftware/clawPDF/wiki/Post-Actions)
 - Create additional printers with assigned profile
 - [24 translations. Add yours!](https://github.com/clawsoftware/clawPDF/wiki/Translations)
 - Many settings
@@ -23,11 +29,13 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.6/clawPDF_0.8.6_se
 - No adware, spyware, nagware
 - ...
 
+![clawPDF](docs/images/MergeFiles.gif?raw=true "clawPDF")
+
 # Tested under
 
-- Windows Server 2022 Terminalserver/RDS
-- Windows Server 2019 Terminalserver/RDS
-- Windows Server 2016 Terminalserver/RDS
+- Windows Server 2022 RDS
+- Windows Server 2019 RDS
+- Windows Server 2016 RDS
 - Windows 11 x64
 - Windows 10 x32/x64
 - Windows 8 x32/x64
@@ -41,6 +49,7 @@ The GUID for the Profile parameter is located under: HKEY_CURRENT_USER\Software\
 
 clawPDF.exe /PrintFile=D:\example.docx /profile=f81ea998-3a76-4104-a574-9a66d6f3039b
 clawPDF.exe /PrintFile=D:\example.pdf /profile=JpegGuid
+clawPDF.exe /PrintFile=D:\example.pdf /profile=JpegGuid /OutputPath=D:\batchjob
 
 clawPDF.exe /PrintFile=D:\example.txt /printerName=clawPDF2
 clawPDF.exe /PrintFile=D:\example.docx /printerName=clawJPG
@@ -67,6 +76,17 @@ clawPDF.exe /ManagePrintJobs
 
 
 # Changelog
+
+
+## v0.8.7 (2023.03.21)
+
+- [feature] Optical Character Recognition (OCR)
+- [feature] Added PDF/A-3b
+- [feature] Added PDF/Image
+- [feature] Added more settings to the Print Job window
+- [feature] Application Settings -> General -> Print Job Window -> Stay on top
+- [feature] OutputPath Parameter
+- [misc]    Optimizations
 
 ## v0.8.6 (2023.03.16)
 
@@ -110,7 +130,7 @@ clawPDF.exe /ManagePrintJobs
 
 # Requirements
 
-- .Net Framework 4.5.2+
+- .Net Framework 4.6.2+
 
 
 # Screenshot
@@ -125,28 +145,28 @@ clawPDF.exe /ManagePrintJobs
 
 # Build
 
-- Visual Studio 2019
+- Visual Studio 2022
 
 
 # Third-party
 
 ## clawPDF uses the following licensed software or parts of the source code:
 
-- main code: PDFCreator 2.3 (https://github.com/pdfforge/PDFCreator), licensed under AGPL v3 license.
-- PDF library: iTextSharp 5.5.13 (https://github.com/itext/itextsharp), licensed under AGPL v3 license.
-- logging: Nlog 4.5.11 (https://github.com/NLog/NLog), licensed under BSD 3-Clause.
-- parts of the ghostscript control: PdfScribe 1.0.6 (https://github.com/stchan/PdfScribe), licensed under AGPL v3 license.
-- redirection Port Monitor: clawmon (https://github.com/clawsoftware/clawmon), licensed under GPL v2 license.
+- PDFCreator (https://github.com/pdfforge/PDFCreator), licensed under AGPL v3 license.
+- PDF library: iTextSharp (https://github.com/itext/itextsharp), licensed under AGPL v3 license.
+- Logging: Nlog (https://github.com/NLog/NLog), licensed under BSD 3-Clause.
+- Parts of the ghostscript control: PdfScribe (https://github.com/stchan/PdfScribe), licensed under AGPL v3 license.
+- Redirection Port Monitor: clawmon (https://github.com/clawsoftware/clawmon), licensed under GPL v2 license.
 - Postscript Printer Drivers: Microsoft Postscript Printer Driver V3 (https://docs.microsoft.com/en-us/windows-hardware/drivers/print/microsoft-postscript-printer-driver), copyright (c) Microsoft Corporation. All rights reserved.
 - Postscript and PDF interpreter/renderer: Ghostscript 10 (https://www.ghostscript.com/download/gsdnld.html), licensed under AGPL v3 license.
-- SystemWrapper 0.25.0.186 (https://github.com/jozefizso/SystemWrapper), licensed under Microsoft Public license.
-- ftplib 1.0.1.1 (https://archive.codeplex.com/?p=ftplib), licensed under MIT license.
+- SystemWrapper (https://github.com/jozefizso/SystemWrapper), licensed under Microsoft Public license.
+- Ftplib (https://archive.codeplex.com/?p=ftplib), licensed under MIT license.
 - DataStorage.dll, licensed under pdfforge Freeware License.
 - DynamicTranslator.dll, licensed under pdfforge Freeware License.
 - TrueTypeFontInfo.dll, licensed under pdfforge Freeware License.
-- appbar_save (http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported.
-- appbar_cogs (http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported.
-- appbar_page_file_pdf (http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported.
+- Appbar_save (http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported.
+- Appbar_cogs (http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported.
+- Appbar_page_file_pdf (http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported.
 
 
 # License
