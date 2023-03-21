@@ -28,7 +28,15 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.7/clawPDF_0.8.7_se
 - Easy to deploy (MSI-Installer & Config)
 - No adware, spyware, nagware
 
-![clawPDF](docs/images/MergeFiles.gif?raw=true "clawPDF")
+# Demo
+
+## Print a PDF/A and protect it with a password
+
+![PrintPDFAwithPassword](docs/images/PrintPDFAwithPassword.gif?raw=true "PrintPDFAwithPassword")
+
+## Merge multiple documents
+
+![Merge](docs/images/MergeFiles.gif?raw=true "Merge")
 
 # Tested under
 
