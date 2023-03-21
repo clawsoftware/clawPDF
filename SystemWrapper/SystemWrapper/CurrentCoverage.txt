@@ -1,0 +1,61 @@
+﻿Microsoft.Win32.SafeHandles
+	* Complete
+	--------------------------
+	- SafeFileHandle
+
+	* Partial
+	--------------------------
+
+System
+	* Complete
+	--------------------------
+	- DateTime
+	- Version
+	
+	* Partial
+	--------------------------
+	- AppDomain
+	
+System.IO
+	* Complete
+	--------------------------
+	- BinaryReader
+	- BinaryWriter
+	- Directory
+	- DirectoryInfo
+	- File
+	- FileInfo
+	- FileStream
+	- MemoryStream
+	- Path
+	- StreamReader
+	- StreamWriter
+	
+	* Partial
+	--------------------------
+
+System.IO.Compression
+	* Complete
+	--------------------------
+
+	* Partial
+	--------------------------
+	- DeflateStream
+
+System.Reflection
+	* Complete
+	--------------------------
+	- AssemblyName
+
+	* Partial
+	--------------------------
+	- Assembly
+	
+System.Security.AccessControl
+	* Complete
+	--------------------------
+
+	* Partial
+	--------------------------
+	- DirectorySecurity
+	- FileSecurity

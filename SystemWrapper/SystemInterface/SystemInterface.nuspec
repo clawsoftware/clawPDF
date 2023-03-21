@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>SystemWrapper.Interfaces</id>
+    <version>$Version$</version>
+    <authors>Jozef Izso, Yann Brulhart, SystemWrapper</authors>
+    <owners>Jozef Izso</owners>
+    <license type="expression">MS-PL</license>
+    <projectUrl>https://github.com/jozefizso/SystemWrapper</projectUrl>
+    <icon>icon.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Set of interfaces of .NET system APIs that allows interaction mocking.</description>
+    <releaseNotes>New interfaces for areas like IO, Net, X509, Xml, Data, ActiveDirectory and SmtpClient.
+Droped support for .NET 4.0</releaseNotes>
+    <copyright>Copyright (c) 2014-2020 Jozef Izso, Copyright (c) 2008 Jared Barneck</copyright>
+    <tags>SystemWrapper mocks unit tests registry filesystem</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\bin\$Configuration$\SystemInterface.*" target="lib\net45\" />
+    <file src="..\Build\*.cs" target="src\Build\" />
+    <file src="..\SystemInterface\**\*.cs" target="src\SystemInterface\" exclude="..\SystemInterface\obj\**;..\SystemInterface\bin\**" />
+    <file src="..\Images\SystemWrapper_128.png" target="icon.png" />
+  </files>
+</package>

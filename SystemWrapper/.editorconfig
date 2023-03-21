@@ -1,0 +1,45 @@
+; Sytem Wrapper and Interfaces
+;
+; See http://editorconfig.org/ for more information.
+
+
+; Top-most EditorConfig file
+root = true
+
+; Use Windows line endings
+[*]
+charset = utf-8
+end_of_line = crlf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+
+; C# settings
+[*.cs]
+indent_style = space
+indent_size = 4
+
+; Solution file
+[*.sln]
+indent_style = tab
+indent_size = 4
+
+[*.csproj]
+indent_style = space
+indent_size = 2
+insert_final_newline = false
+
+[*.csproj.user]
+indent_style = space
+indent_size = 2
+insert_final_newline = false
+
+; Markdown files
+[*.md]
+insert_final_newline = false
+
+; NuGet packages configuration files
+[packages.config]
+indent_style = space
+indent_size = 2
+insert_final_newline = false

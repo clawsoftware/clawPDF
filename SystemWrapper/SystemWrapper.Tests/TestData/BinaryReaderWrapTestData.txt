@@ -1,0 +1,2 @@
+﻿This is a sample text file used for creating file streams
+

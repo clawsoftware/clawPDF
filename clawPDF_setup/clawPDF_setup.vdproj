@@ -75,12 +75,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1F2C2920D63041D0BD187AEF2689403E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_241B4BD74B6E4FD6ABB8D92C628FD4B0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -101,12 +95,6 @@
         {
         "MsmKey" = "8:_2DE9273C4C3B209CE272E7F7E125CCA9"
         "OwnerKey" = "8:_5479D0BF191E1CE46357774BB693901D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2DE9273C4C3B209CE272E7F7E125CCA9"
-        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -155,12 +143,6 @@
         {
         "MsmKey" = "8:_405DFFF14F4F7AA1779D3F5A6F967F21"
         "OwnerKey" = "8:_FF9309FE09FF412514F3C56730D1F0CF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_405DFFF14F4F7AA1779D3F5A6F967F21"
-        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -250,12 +232,6 @@
         "Entry"
         {
         "MsmKey" = "8:_712A2A86AC9FFEC569B83D51A9B98536"
-        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_712A2A86AC9FFEC569B83D51A9B98536"
         "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -287,12 +263,6 @@
         {
         "MsmKey" = "8:_77223A17A9196A9A0A92926864DF82E7"
         "OwnerKey" = "8:_FF9309FE09FF412514F3C56730D1F0CF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_77223A17A9196A9A0A92926864DF82E7"
-        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -501,12 +471,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_BF3AA1FA4FA84D58A362747A73D84DD9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -515,12 +479,6 @@
         {
         "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
         "OwnerKey" = "8:_5479D0BF191E1CE46357774BB693901D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
-        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -586,12 +544,6 @@
         "Entry"
         {
         "MsmKey" = "8:_DEC868D28729B9DC2D2BC75411C63EAF"
-        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DEC868D28729B9DC2D2BC75411C63EAF"
         "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -623,12 +575,6 @@
         {
         "MsmKey" = "8:_ECDACE12FBA9D6468759660592A13D18"
         "OwnerKey" = "8:_DEC868D28729B9DC2D2BC75411C63EAF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_ECDACE12FBA9D6468759660592A13D18"
-        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -693,12 +639,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_FA13F4A136588B2E114BD9C283189E31"
-        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_FD7711D890784156A58F6B164215CC88"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -712,25 +652,7 @@
         "Entry"
         {
         "MsmKey" = "8:_FF9309FE09FF412514F3C56730D1F0CF"
-        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_FF9309FE09FF412514F3C56730D1F0CF"
         "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1F2C2920D63041D0BD187AEF2689403E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1205,37 +1127,6 @@
             "TargetName" = "8:Catalan (Catalan).ini"
             "Tag" = "8:"
             "Folder" = "8:_25DCCE0FB86246B0BAA4F57F940E53E1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1F2C2920D63041D0BD187AEF2689403E"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawSoft.ftplib, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_1F2C2920D63041D0BD187AEF2689403E"
-                    {
-                    "Name" = "8:clawSoft.ftplib.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\_Build\\Release\\clawSoft.ftplib.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6D653F6EE3324579B145A191268F8DEA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2313,37 +2204,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BE4B9E48968D4791B433D23DC093401E"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.Core, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_BE4B9E48968D4791B433D23DC093401E"
-                    {
-                    "Name" = "8:clawPDF.Core.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\_Build\\Release\\clawPDF.Core.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6D653F6EE3324579B145A191268F8DEA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BF3AA1FA4FA84D58A362747A73D84DD9"
             {
             "SourcePath" = "8:..\\_Build\\Release\\languages\\Russian.ini"
@@ -2933,7 +2793,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:clawPDF 0.8.7"
         "ProductCode" = "8:{ED56E7A4-BE5E-4D4C-BCDE-33B9E63B1A9C}"
-        "PackageCode" = "8:{1D58D232-8ABA-4E8C-9155-D95DE1C365E4}"
+        "PackageCode" = "8:{EFA286A4-BB85-4938-AE89-FA666BE10519}"
         "UpgradeCode" = "8:{7D6DE248-9C3E-416C-8141-8178A480E45A}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>SystemWrapper.Wrappers</id>
+    <version>$Version$</version>
+    <authors>Jozef Izso, Yann Brulhart, SystemWrapper</authors>
+    <owners>Jozef Izso</owners>
+    <license type="expression">MS-PL</license>
+    <projectUrl>https://github.com/jozefizso/SystemWrapper</projectUrl>
+    <icon>icon.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Implementation of SystemWrapper.Interfaces using standard .NET Framework objects.</description>
+    <releaseNotes>New interfaces and wrappers for areas like IO, Net, X509, Xml, Data, ActiveDirectory and SmtpClient.
+Droped support for .NET 4.0</releaseNotes>
+    <copyright>Copyright (c) 2014-2020 Jozef Izso, Copyright (c) 2008 Jared Barneck</copyright>
+    <tags>SystemWrapper mocks unit tests registry filesystem</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="SystemWrapper.Interfaces" version="[$Version$]" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\bin\$Configuration$\SystemWrapper.*" target="lib\net45\" />
+    <file src="..\Build\*.cs" target="src\Build\" />
+    <file src="..\SystemWrapper\**\*.cs" target="src\SystemWrapper\" exclude="..\SystemWrapper\obj\**;..\SystemWrapper\bin\**" />
+    <file src="..\Images\SystemWrapper_128.png" target="icon.png" />
+  </files>
+</package>

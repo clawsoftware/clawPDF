@@ -1,0 +1,43 @@
+#
+# SystemWrapper solution
+# AppVeyor configuration
+#
+
+version: 0.27.0.{build}
+
+branches:
+  except:
+    - gh-pages
+
+os: Visual Studio 2019
+
+platform: Any CPU
+configuration: Release
+
+init:
+  - ps: Install-Module VSSetup -Scope CurrentUser
+  - ps: Get-VSSetupInstance -All
+
+build_script: build.bat pack
+
+artifacts:
+  - path: 'publish\*.nupkg'
+
+assembly_info:
+  patch: true
+  file: 'Build\AssemblySharedInfo.cs'
+  assembly_version: "{version}"
+  assembly_file_version: "1.0.0.0"
+  assembly_informational_version: "{version}"
+
+test: off
+
+cache:
+  - packages -> **\packages.config
+
+#deploy:
+#  - provider: NuGet
+#    api_key: 
+#      secure: jINaEHhYh83PTuZYPwnkoTDUMB+pTz6UMmeqkWeRnqtZXIuX/Nd3Fyu197viK/vR
+#    on:
+#      appveyor_repo_tag: true

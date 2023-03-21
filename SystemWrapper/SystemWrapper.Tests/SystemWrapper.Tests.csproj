@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{977D8BEB-334E-4938-BAE0-CB75698B1255}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SystemWrapper.Tests</RootNamespace>
+    <AssemblyName>SystemWrapper.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SystemWrapper.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Build\AssemblySharedInfo.cs">
+      <Link>Properties\AssemblySharedInfo.cs</Link>
+    </Compile>
+    <Compile Include="AuthorAttribute.cs" />
+    <Compile Include="Configuration\ConfigurationManagerWrapTests.cs" />
+    <Compile Include="Data\SqlClient\SqlConnectionFactoryTests.cs" />
+    <Compile Include="Data\SqlClient\SqlCommandFactoryTests.cs" />
+    <Compile Include="Data\SqlClient\SqlCommandWrapTests.cs" />
+    <Compile Include="Data\SqlClient\SqlConnectionWrapTests.cs" />
+    <Compile Include="Data\SqlClient\SqlDataReaderWrapTests.cs" />
+    <Compile Include="Diagnostics\FileVersionInfoFactoryTests.cs" />
+    <Compile Include="Diagnostics\FileVersionInfoWrapTests.cs" />
+    <Compile Include="Diagnostics\ProcessStartInfoWrapTests.cs" />
+    <Compile Include="Diagnostics\ProcessWrapTests.cs" />
+    <Compile Include="Diagnostics\StopwatchWrapTests.cs" />
+    <Compile Include="Diagnostics\TraceSourceWrapTests.cs" />
+    <Compile Include="EnvironmentWrapTests.cs" />
+    <Compile Include="IO\Compression\DeflateStreamFactoryTests.cs" />
+    <Compile Include="IO\Compression\ZipArchiveEntryWrapTests.cs" />
+    <Compile Include="IO\Compression\ZipArchiveFactoryTests.cs" />
+    <Compile Include="IO\Compression\ZipArchiveWrapTests.cs" />
+    <Compile Include="IO\Compression\ZipFileExtensionsTests.cs" />
+    <Compile Include="IO\Compression\ZipFileWrapTests.cs" />
+    <Compile Include="IO\StreamWriterFactoryTests.cs" />
+    <Compile Include="IO\StreamWriterWrapTests.cs" />
+    <Compile Include="IO\BinaryReaderWrapTests.cs" />
+    <Compile Include="IO\Compression\DeflateStreamWrapTests.cs" />
+    <Compile Include="IO\DirectoryInfoWrapTests.cs" />
+    <Compile Include="IO\DirectoryWrapTests.cs" />
+    <Compile Include="Microsoft.Win32\RegistryWrapTests.cs" />
+    <Compile Include="Net\Mail\SmtpClientWrapTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\AssemblyNameWrapTests.cs" />
+    <Compile Include="Reflection\AssemblyWrapTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\BinaryReaderWrapTestData.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\DeflateStreamWrapTestData.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SystemInterface\SystemInterface.csproj">
+      <Project>{6634E69D-1B08-4D6B-8C2F-5F88EBDE53B4}</Project>
+      <Name>SystemInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SystemWrapper\SystemWrapper.csproj">
+      <Project>{B8DEECE0-6074-47C2-9AF4-123EE324D212}</Project>
+      <Name>SystemWrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Settings.StyleCop" />
+    <None Include="SystemWrapper.snk" />
+    <Content Include="TestData\Encoding_UTF8.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Encoding_Windows1250.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
