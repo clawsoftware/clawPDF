@@ -30,6 +30,10 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.7/clawPDF_0.8.7_se
 
 # Demo
 
+## Optical Character Recognition (OCR)
+
+![OCR](docs/images/ImageOCR.gif?raw=true "OCR")
+
 ## Print a PDF/A and protect it with a password
 
 ![PrintPDFAwithPassword](docs/images/PrintPDFAwithPassword.gif?raw=true "PrintPDFAwithPassword")
