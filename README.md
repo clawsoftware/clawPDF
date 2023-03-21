@@ -17,7 +17,7 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.7/clawPDF_0.8.7_se
 - [Drag and Drop Support](https://github.com/clawsoftware/clawPDF/wiki/Drag-and-Drop)
 - [Merge Files](https://github.com/clawsoftware/clawPDF/wiki/Merge-Files)
 - [Command Line Support](https://github.com/clawsoftware/clawPDF/wiki/Command-Line-Commands)
-- [Silent Print](https://github.com/clawsoftware/clawPDF/wiki/Silent-Print)
+- [Silent Printing](https://github.com/clawsoftware/clawPDF/wiki/Silent-Print)
 - Full Unicode Support
 - Multiple Profiles
 - [Post Actions](https://github.com/clawsoftware/clawPDF/wiki/Post-Actions)
