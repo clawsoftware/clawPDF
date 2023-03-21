@@ -12,6 +12,7 @@ using clawSoft.clawPDF.Shared.ViewModels;
 using clawSoft.clawPDF.Shared.Views;
 using clawSoft.clawPDF.Utilities;
 using clawSoft.clawPDF.Utilities.IO;
+using clawSoft.clawPDF.Utilities.Registry;
 using clawSoft.clawPDF.ViewModels;
 using clawSoft.clawPDF.Views;
 using pdfforge.DynamicTranslator;
