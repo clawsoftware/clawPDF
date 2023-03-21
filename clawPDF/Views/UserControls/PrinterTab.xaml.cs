@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading;
+using System.Windows;
 using System.Windows.Controls;
 using clawSoft.clawPDF.Shared.Assistants;
 using clawSoft.clawPDF.Shared.Helper;
@@ -49,6 +50,7 @@ namespace clawSoft.clawPDF.Views.UserControls
 
             string printerName;
             helper.AddPrinter(out printerName);
+            Thread.Sleep(10000);
 
             return printerName;
         }
@@ -57,6 +59,7 @@ namespace clawSoft.clawPDF.Views.UserControls
         {
             var helper = new PrinterActionsAssistant();
             var success = helper.DeletePrinter(printerMapping.PrinterName, ViewModel.ClawPdfPrinters.Count);
+            Thread.Sleep(10000);
 
             if (success)
             {

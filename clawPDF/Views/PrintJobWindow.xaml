@@ -87,6 +87,7 @@
                         <TextBlock Margin="0,5,0,0" Name="OCRLanguageNoteTextBlock" TextWrapping="Wrap">Please provide the language(s) to be recognized in the file to be printed and specify the language files without the ".traineddata" extension. If there are several languages, separate them with a plus sign (e.g. eng+deu+fra).</TextBlock>
                         <Label Margin="0,5,0,0" Name="OCRLanguageLabel" Content="Language(s):"/>
                         <TextBox Name="OCRLanguage" HorizontalAlignment="Stretch" TextChanged="OCRLanguageChanged" />
+                        <Button Margin="0,5,0,0" Content="TESSDATA" Click="openTessdataSource_Click"/>
                     </StackPanel>
                 </TabItem>
             </TabControl>

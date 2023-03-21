@@ -54,9 +54,12 @@ namespace clawSoft.clawPDF
                 {
                     var defaultProfile = RegistryUtility.ReadRegistryValue(@"Software\clawSoft\clawPDF\Batch", "DefaultProfileGuid");
 
+                    globalMutex.Release();
+                    Logger.Debug("Ending clawPDF");
+
                     if (!string.IsNullOrEmpty(defaultProfile))
                     {
-                        Thread.Sleep(3000);
+                        Thread.Sleep(5000);
                         var settings = SettingsHelper.Settings;
                         var printerDefaultProfileGuid = RegistryUtility.ReadRegistryValue(@"Software\clawSoft\clawPDF\Batch", "PrinterDefaultProfileGuid");
                         var primaryPrinter = settings.ApplicationSettings.PrimaryPrinter;
@@ -76,9 +79,9 @@ namespace clawSoft.clawPDF
                         SettingsHelper.SaveSettings();
                     }
                 }
-                globalMutex.Release();
-                Logger.Debug("Ending clawPDF");
-                Shutdown();
+
+                Environment.Exit(0);
+                //Shutdown();
             }
         }
 

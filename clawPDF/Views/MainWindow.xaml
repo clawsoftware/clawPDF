@@ -8,6 +8,7 @@
         DragEnter="MainWindow_OnDragEnter"
         Drop="MainWindow_OnDrop"
         ResizeMode="CanMinimize"
+        Closed="MainWindow_OnClose"
         Icon="../clawPDF.ico"
         WindowStartupLocation="CenterScreen" x:ClassModifier="internal">
     <Grid>

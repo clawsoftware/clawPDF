@@ -109,5 +109,10 @@ namespace clawSoft.clawPDF.Views
             var w = new MainWindow();
             return TopMostHelper.ShowDialogTopMost(w, true);
         }
+
+        private void MainWindow_OnClose(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

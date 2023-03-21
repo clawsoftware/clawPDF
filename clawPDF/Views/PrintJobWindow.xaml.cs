@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Media;
 using clawSoft.clawPDF.Core.Settings;
@@ -175,6 +177,11 @@ namespace clawSoft.clawPDF.Views
             {
                 vm.SelectedProfile.PdfSettings.ColorModel = ColorModel.Gray;
             }
+        }
+
+        private void openTessdataSource_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("explorer.exe", System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\tessdata");
         }
     }
 }

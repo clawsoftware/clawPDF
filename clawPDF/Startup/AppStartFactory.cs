@@ -69,6 +69,7 @@ namespace clawSoft.clawPDF.Startup
                 var printFile = FindPrintFile(commandLineParser);
                 var printerName = FindPrinterName(commandLineParser);
                 var profileName = FindProfileParameter(commandLineParser);
+                var outputPath = FindOutputPathParameter(commandLineParser);
 
                 foreach (var printer in settings.ApplicationSettings.PrinterMappings)
                 {
@@ -83,6 +84,11 @@ namespace clawSoft.clawPDF.Startup
 
                 RegistryUtility.WriteRegistryValue(@"Software\clawSoft\clawPDF\Batch", "DefaultProfileGuid", lastProfile ?? "");
                 RegistryUtility.WriteRegistryValue(@"Software\clawSoft\clawPDF\Batch", "PrinterDefaultProfileGuid", printerDefaultProfileGuid ?? "");
+
+                if(!string.IsNullOrEmpty(outputPath))
+                {
+                    RegistryUtility.WriteRegistryValue(@"Software\clawSoft\clawPDF\Batch", "OutputPath", outputPath ?? "");
+                }
 
                 SettingsHelper.ApplySettings(settings);
                 SettingsHelper.SaveSettings();
@@ -200,6 +206,14 @@ namespace clawSoft.clawPDF.Startup
         {
             if (commandLineParser.HasArgument("Profile"))
                 return commandLineParser.GetArgument("Profile");
+
+            return "";
+        }
+
+        private string FindOutputPathParameter(CommandLineParser commandLineParser)
+        {
+            if (commandLineParser.HasArgument("OutputPath"))
+                return commandLineParser.GetArgument("OutputPath");
 
             return "";
         }

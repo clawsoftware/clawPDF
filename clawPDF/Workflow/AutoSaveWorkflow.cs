@@ -1,9 +1,11 @@
 ﻿using System;
 using System.IO;
+using System.Windows;
 using clawSoft.clawPDF.Core.Actions;
 using clawSoft.clawPDF.Core.Jobs;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Utilities;
+using clawSoft.clawPDF.Utilities.Registry;
 
 namespace clawSoft.clawPDF.Workflow
 {
@@ -29,10 +31,20 @@ namespace clawSoft.clawPDF.Workflow
 
         protected override void QueryTargetFile()
         {
+            var outputPath = RegistryUtility.ReadRegistryValue(@"Software\clawSoft\clawPDF\Batch", "OutputPath") ?? "";
             var tr = Job.TokenReplacer;
+            string outputFolder;
 
-            var outputFolder =
-                FileUtil.Instance.MakeValidFolderName(tr.ReplaceTokens(Job.Profile.AutoSave.TargetDirectory));
+            if (!string.IsNullOrEmpty(outputPath))
+            {
+                outputFolder = FileUtil.Instance.MakeValidFolderName(tr.ReplaceTokens(outputPath));
+                RegistryUtility.DeleteRegistryValue(@"Software\clawSoft\clawPDF\Batch", "OutputPath");
+            }
+            else
+            {
+                outputFolder = FileUtil.Instance.MakeValidFolderName(tr.ReplaceTokens(Job.Profile.AutoSave.TargetDirectory));
+            }
+                
             var filePath = Path.Combine(outputFolder, Job.ComposeOutputFilename());
 
             try

@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_05DCACAE7D0346F7B4734A7B12BA4388"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_11AADFAB1C7948E8A6741DD02ED1A690"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -381,12 +375,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_85C27A3266E945C8BE97F34AEF239C12"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_87D610AB7F254F23A27B711F20692D18"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -532,13 +520,13 @@
         "Entry"
         {
         "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
-        "OwnerKey" = "8:_7F78C114226A455AA68D0A82851D76E8"
+        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
-        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
+        "OwnerKey" = "8:_7F78C114226A455AA68D0A82851D76E8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -561,12 +549,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C45916085DCC4AE48F545909FF9471E8"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_C63A5FEE57F242608F22DAC95B1AA995"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -580,6 +562,12 @@
         "Entry"
         {
         "MsmKey" = "8:_DBFF53CEA224400BB02BF8543F12CA25"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DCA76ABC81DF4C879484CB286C2DAED9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -742,6 +730,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7F78C114226A455AA68D0A82851D76E8"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -749,12 +743,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_4E05DB632D024749BCF6ECFC7F09AB29"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BE4B9E48968D4791B433D23DC093401E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -918,10 +906,20 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.2"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    "Name" = "8:Microsoft .NET Framework 4.6.2 (x86 und x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.2"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Visual.C++.14.0.x64"
+                    {
+                    "Name" = "8:Visual C++ \"14\" Runtime Libraries (x64)"
+                    "ProductCode" = "8:Microsoft.Visual.C++.14.0.x64"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Visual.C++.14.0.x86"
+                    {
+                    "Name" = "8:Visual C++ \"14\" Runtime Libraries (x86)"
+                    "ProductCode" = "8:Microsoft.Visual.C++.14.0.x86"
                     }
                 }
             }
@@ -1010,26 +1008,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_05DCACAE7D0346F7B4734A7B12BA4388"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\tessdata\\ces.traineddata"
-            "TargetName" = "8:ces.traineddata"
-            "Tag" = "8:"
-            "Folder" = "8:_CCCC55184D6D412FA13E5383B18703C9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_11AADFAB1C7948E8A6741DD02ED1A690"
             {
             "SourcePath" = "8:..\\_Build\\Release\\license.rtf"
@@ -1245,7 +1223,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawSoft.ftplib, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawSoft.ftplib, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_1F2C2920D63041D0BD187AEF2689403E"
@@ -1296,7 +1274,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_2ADCA95456CE47B9A8F7651A167A03F4"
@@ -1347,7 +1325,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.PDFProcessing, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.PDFProcessing, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_2DE9273C4C3B209CE272E7F7E125CCA9"
@@ -1378,7 +1356,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.Shared, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.Shared, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_2E6513C97F7A08611FDD3F399BAE12C7"
@@ -1631,7 +1609,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.Core, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.Core, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_5479D0BF191E1CE46357774BB693901D"
@@ -1784,7 +1762,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SetupHelper, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SetupHelper, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_7F78C114226A455AA68D0A82851D76E8"
@@ -1900,26 +1878,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_85C27A3266E945C8BE97F34AEF239C12"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\tessdata\\ita.traineddata"
-            "TargetName" = "8:ita.traineddata"
-            "Tag" = "8:"
-            "Folder" = "8:_CCCC55184D6D412FA13E5383B18703C9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_87D610AB7F254F23A27B711F20692D18"
@@ -2359,7 +2317,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.Core, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.Core, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_BE4B9E48968D4791B433D23DC093401E"
@@ -2410,7 +2368,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.Utilities, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.Utilities, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_BFCF777D72218B58DF0CBD20D7F6247C"
@@ -2443,26 +2401,6 @@
             "TargetName" = "8:Finnish.ini"
             "Tag" = "8:"
             "Folder" = "8:_25DCCE0FB86246B0BAA4F57F940E53E1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C45916085DCC4AE48F545909FF9471E8"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\tessdata\\nld.traineddata"
-            "TargetName" = "8:nld.traineddata"
-            "Tag" = "8:"
-            "Folder" = "8:_CCCC55184D6D412FA13E5383B18703C9"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2537,6 +2475,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DCA76ABC81DF4C879484CB286C2DAED9"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\tessdata\\spa.traineddata"
+            "TargetName" = "8:spa.traineddata"
+            "Tag" = "8:"
+            "Folder" = "8:_CCCC55184D6D412FA13E5383B18703C9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DE1EBD4F4D59428DA5D8427C1BC4CD2E"
             {
             "SourcePath" = "8:..\\_Build\\Release\\tessdata\\eng.traineddata"
@@ -2561,7 +2519,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.Settings, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.Settings, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_DEC868D28729B9DC2D2BC75411C63EAF"
@@ -2763,7 +2721,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawSoft.ftplib, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawSoft.ftplib, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_FA13F4A136588B2E114BD9C283189E31"
@@ -2814,7 +2772,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.Mail, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.Mail, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_FF9309FE09FF412514F3C56730D1F0CF"
@@ -2975,7 +2933,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:clawPDF 0.8.6"
         "ProductCode" = "8:{1C3E05DA-925A-44FF-8F23-B5ED77C88A35}"
-        "PackageCode" = "8:{AA579BBC-B657-4054-9CD7-A05D6DAD9254}"
+        "PackageCode" = "8:{BF2140D6-0C70-4D14-949D-5C479ECCF2E8}"
         "UpgradeCode" = "8:{7D6DE248-9C3E-416C-8141-8178A480E45A}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -2990,7 +2948,7 @@
         "Subject" = "8:"
         "ARPCONTACT" = "8:Andrew Hess // clawSoft"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:Open Source PDF Printer"
+        "ARPCOMMENTS" = "8:Open Source PDF/OCR/Image Printer"
         "ARPURLINFOABOUT" = "8:https://github.com/clawsoftware/clawPDF"
         "ARPPRODUCTICON" = "8:_813B2B53728848139712FBC3EEFD6734"
         "ARPIconIndex" = "3:0"
