@@ -36,10 +36,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\pdfforge.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>signClawPDF.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DataStorage">
@@ -146,6 +146,7 @@
     <None Include="Resources\ISOcoated_v2_300_eci.icc" />
     <None Include="Resources\ISOcoated_v2_grey1c_bas.ICC" />
     <None Include="Resources\WebCoatedFOGRA28.icc" />
+    <None Include="signClawPDF.pfx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CoreResources.resx">

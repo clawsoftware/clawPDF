@@ -39,7 +39,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript
             foreach (var path in paths)
             {
                 string dllPath;
-                if (Environment.Is64BitOperatingSystem)
+                if (IntPtr.Size == 8)
                 {
                     dllPath = _pathSafe.Combine(path, @"gsdll64.dll");
                 }
@@ -48,7 +48,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript
                     dllPath = _pathSafe.Combine(path, @"gsdll32.dll");
                 }
 
-                if (_file.Exists(dllPath)) return new GhostscriptVersion("<internal>", dllPath);
+                if (_file.Exists(dllPath)) return new GhostscriptVersion("10", dllPath);
             }
 
             return null;

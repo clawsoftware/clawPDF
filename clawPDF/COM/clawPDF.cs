@@ -10,7 +10,7 @@ namespace clawSoft.clawPDF.COM
 {
     [ComVisible(true)]
     [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
-    [Guid("A1F6647E-8C19-4A3E-89DF-7FDFAD2A0C30")]
+    [Guid("4400958B-7C3F-435A-B402-840DDE68A2CA")]
     public interface IClawPdf
     {
         Printers GetclawPdfPrinters { get; }
@@ -25,7 +25,7 @@ namespace clawSoft.clawPDF.COM
 
     [ComVisible(true)]
     [ClassInterface(ClassInterfaceType.None)]
-    [Guid("69189C58-70C4-4DF2-B94D-5D786E9AD513")]
+    [Guid("496229AE-E777-44EA-873D-4BC5AE0B3DC4")]
     [ProgId("clawPDF.clawPDFObj")]
     public class ClawPdfObj : IClawPdf
     {

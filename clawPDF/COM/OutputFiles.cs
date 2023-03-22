@@ -7,7 +7,7 @@ namespace clawSoft.clawPDF.COM
 {
     [ComVisible(true)]
     [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
-    [Guid("15D1FBEA-9BC9-4B55-8D1E-295E8ADCCD42")]
+    [Guid("BB8B36EA-40F8-461B-8049-BF465B6C597A")]
     public interface IOutputFiles
     {
         int Count { get; }
@@ -17,7 +17,7 @@ namespace clawSoft.clawPDF.COM
 
     [ComVisible(true)]
     [ClassInterface(ClassInterfaceType.None)]
-    [Guid("071A256A-A4BA-417F-B64F-B3F3E1600B8A")]
+    [Guid("7376FAFB-116A-4306-8349-95D516B52249")]
     public class OutputFiles : IOutputFiles
     {
         private readonly IList<string> _outputFiles;

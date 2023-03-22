@@ -16,7 +16,7 @@ namespace clawSoft.clawPDF.COM
     public delegate void JobFinishedDelegate();
 
     [ComVisible(true)]
-    [Guid("489689FE-E8AF-41FF-8D5A-8212DF2F013C")]
+    [Guid("413F0C18-77C0-4140-8BF9-B2359C98A00E")]
     [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
     public interface IJobFinishedEvent
     {
@@ -25,7 +25,7 @@ namespace clawSoft.clawPDF.COM
 
     [ComVisible(true)]
     [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
-    [Guid("01E51AAE-D371-469A-A556-FC491A81778D")]
+    [Guid("01DECF47-E733-469F-8DC6-6DF1C6DFFB93")]
     public interface IPrintJob
     {
         bool IsFinished { get; }
@@ -49,7 +49,7 @@ namespace clawSoft.clawPDF.COM
 
     [ComVisible(true)]
     [ComSourceInterfaces(typeof(IJobFinishedEvent))]
-    [Guid("9616B8B3-FE6E-4122-AC93-E46DBD571F87")]
+    [Guid("EAEA9D1F-CB54-4482-9B0E-69088B450C23")]
     [ClassInterface(ClassInterfaceType.None)]
     public class PrintJob : IPrintJob
     {

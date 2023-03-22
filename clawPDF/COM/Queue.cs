@@ -14,7 +14,7 @@ namespace clawSoft.clawPDF.COM
 {
     [ComVisible(true)]
     [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
-    [Guid("3803F46C-F5AA-4B86-8B9C-6EFFAC9CDCFA")]
+    [Guid("B68E141F-2671-4D2F-AA59-73C659AC57B5")]
     public interface IQueue
     {
         void Initialize();
@@ -41,7 +41,7 @@ namespace clawSoft.clawPDF.COM
 
     [ComVisible(true)]
     [ClassInterface(ClassInterfaceType.None)]
-    [Guid("66A9CAB1-404A-4918-8DE2-29C26B9B271E")]
+    [Guid("4655FAF4-5973-47C7-A7FC-417D105DDEA0")]
     [ProgId("clawPDF.JobQueue")]
     public class Queue : IQueue
     {

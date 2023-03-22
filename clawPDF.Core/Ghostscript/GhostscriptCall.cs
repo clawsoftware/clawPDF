@@ -22,7 +22,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript
             lock (resourceLock)
             {
                 GhostscriptAPI._putenv_s_14("TESSDATA_PREFIX", Directory.GetCurrentDirectory() + @"\tessdata");
-                if (Environment.Is64BitOperatingSystem)
+                if (IntPtr.Size == 8)
                 {
                     GhostscriptAPI.CreateAPIInstance64(out gsInstancePtr, IntPtr.Zero);
                     try
@@ -90,7 +90,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript
         /// </summary>
         private static void Cleanup(IntPtr gsInstancePtr)
         {
-            if (Environment.Is64BitOperatingSystem)
+            if (IntPtr.Size == 8)
             {
                 GhostscriptAPI.ExitAPI64(gsInstancePtr);
                 GhostscriptAPI.DeleteAPIInstance64(gsInstancePtr);

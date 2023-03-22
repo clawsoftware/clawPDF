@@ -5,7 +5,7 @@ namespace clawSoft.clawPDF.COM
 {
     [ComVisible(true)]
     [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
-    [Guid("E0F6B8E7-8E89-400C-B623-67EFB0A7A9A0")]
+    [Guid("43534005-B9D0-40BA-AB46-A7975CCC7B18")]
     public interface IPrintJobInfo
     {
         string PrintJobName { get; set; }

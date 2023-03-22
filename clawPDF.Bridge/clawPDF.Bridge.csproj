@@ -36,6 +36,12 @@
   <PropertyGroup>
     <StartupObject>clawPDF.Bridge.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>signClawPDF.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DataStorage">
       <HintPath>..\lib\DataStorage.dll</HintPath>
@@ -57,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="signClawPDF.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\clawPDF.Core\clawPDF.Core.csproj">

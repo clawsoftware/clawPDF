@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemInterface", "SystemWr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemWrapper", "SystemWrapper\SystemWrapper\SystemWrapper.csproj", "{B8DEECE0-6074-47C2-9AF4-123EE324D212}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PrinterMonitor", "PrinterMonitor", "{59DE0A31-E895-49BD-8455-C9117E727177}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -221,6 +223,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BAF9FBEC-17EC-4130-ACF4-DCC99F0A0B75} = {59DE0A31-E895-49BD-8455-C9117E727177}
+		{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC} = {59DE0A31-E895-49BD-8455-C9117E727177}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E1EDC79-B996-4708-828F-773DA0A7AD09}
