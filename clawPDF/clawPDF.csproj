@@ -331,16 +331,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="signClawPDF.pfx" />
-    <Resource Include="docs\images\clawpdf1.png" />
-    <Resource Include="docs\images\clawpdf2.png" />
-    <Resource Include="docs\images\clawpdf3.png" />
-    <Resource Include="docs\images\clawpdf4.png" />
-    <Resource Include="docs\images\clawpdf5.png" />
-    <Resource Include="docs\images\clawpdf6.png" />
     <Content Include="docs\licenses\MIT License.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="README.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="clawPDF.ico" />

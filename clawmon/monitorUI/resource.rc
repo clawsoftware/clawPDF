@@ -78,8 +78,8 @@ END
 //
 
 1 VERSIONINFO
- FILEVERSION 1,0,0,5
- PRODUCTVERSION 1,0,0,5
+ FILEVERSION 1,0,0,6
+ PRODUCTVERSION 1,0,0,6
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -97,12 +97,12 @@ BEGIN
             VALUE "Comments", "Released under the terms of the GNU General Public License"
             VALUE "CompanyName", "Andrew Hess // clawSoft"
             VALUE "FileDescription", "Printer port monitor UI"
-            VALUE "FileVersion", "1.0.0.5"
+            VALUE "FileVersion", "1.0.0.6"
             VALUE "InternalName", "clawmonui"
             VALUE "LegalCopyright", "Copyright © 2023 // Andrew Hess // clawSoft"
             VALUE "OriginalFilename", "clawmonui.dll"
             VALUE "ProductName", "clawmon"
-            VALUE "ProductVersion", "1.0.0.5"
+            VALUE "ProductVersion", "1.0.0.6"
         END
     END
     BLOCK "VarFileInfo"

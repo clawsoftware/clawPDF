@@ -79,11 +79,11 @@ namespace clawSoft.clawPDF.SetupHelper
                     switch (clp.GetArgument("FileExtensions"))
                     {
                         case "Add":
-                            MaybeInvokeWow6432(AddExplorerIntegration);
+                            AddExplorerIntegration();
                             break;
 
                         case "Remove":
-                            MaybeInvokeWow6432(RemoveExplorerIntegration);
+                            RemoveExplorerIntegration();
                             break;
 
                         default:
@@ -106,11 +106,11 @@ namespace clawSoft.clawPDF.SetupHelper
                     switch (clp.GetArgument("ComInterface"))
                     {
                         case "Register":
-                            MaybeInvokeWow6432(RegisterComInterface);
+                            RegisterComInterface();
                             break;
 
                         case "Unregister":
-                            MaybeInvokeWow6432(UnregisterComInterface);
+                            UnregisterComInterface();
                             break;
 
                         default:
@@ -138,7 +138,7 @@ namespace clawSoft.clawPDF.SetupHelper
                               "             © clawSoft");
             Console.WriteLine();
             Console.WriteLine("usage:");
-            Console.WriteLine("SetupHelper.exe [/FileExtensions=Add|Remove] [/ComInterface=Register|Unregister]");
+            Console.WriteLine("SetupHelper.exe [/Printer=Add|Remove /Name=Printer] [/FileExtensions=Add|Remove] [/ComInterface=Register|Unregister]");
         }
 
         private static bool Is64Bit()
@@ -158,29 +158,61 @@ namespace clawSoft.clawPDF.SetupHelper
                 wowAwareAction(true);
         }
 
-        private static void AddExplorerIntegration(bool wow6432)
+        private static void AddExplorerIntegration()
         {
-            CallRegAsmForShell(wow6432, "clawPDFShell.dll", "/codebase");
+            if (Environment.Is64BitOperatingSystem)
+            {
+                CallRegAsmForShellWow6432("clawPDFShell.dll", "/codebase");
+            }
+            CallRegAsmForShell("clawPDFShell.dll", "/codebase");
         }
 
-        private static void RemoveExplorerIntegration(bool wow6432)
+        private static void RemoveExplorerIntegration()
         {
-            CallRegAsmForShell(wow6432, "clawPDFShell.dll", "/unregister");
+            if (Environment.Is64BitOperatingSystem)
+            {
+                CallRegAsmForShellWow6432("clawPDFShell.dll", "/unregister");
+            }
+            CallRegAsmForShell("clawPDFShell.dll", "/unregister");
         }
 
-        private static void RegisterComInterface(bool wow6432)
+        private static void RegisterComInterface()
         {
-            CallRegAsmForShell(wow6432, "clawPDF.exe", "/codebase /tlb");
+            if(Environment.Is64BitOperatingSystem)
+            {
+                CallRegAsmForShellWow6432("clawPDF.exe", "/codebase /tlb");
+            }
+            CallRegAsmForShell("clawPDF.exe", "/codebase /tlb");
         }
 
-        private static void UnregisterComInterface(bool wow6432)
+        private static void UnregisterComInterface()
         {
-            CallRegAsmForShell(wow6432, "clawPDF.exe", "/unregister");
+            if (Environment.Is64BitOperatingSystem)
+            {
+                CallRegAsmForShellWow6432("clawPDF.exe", "/unregister");
+            }
+            CallRegAsmForShell("clawPDF.exe", "/unregister");
         }
 
-        private static void CallRegAsmForShell(bool wow6432, string fileName, string parameters)
+        private static void CallRegAsmForShellWow6432(string fileName, string parameters)
         {
-            var regAsmPath = GetRegAsmPath(wow6432);
+            var regAsmPathWow6432 = GetRegAsmPathWow6432();
+
+            var appDir = GetApplicationDirectory();
+            var shellDll = Path.Combine(appDir, fileName);
+
+            var shellExecuteHelper = new ShellExecuteHelper();
+
+            var paramString = $"\"{shellDll}\" {parameters}";
+            Console.WriteLine(regAsmPathWow6432 + " " + paramString);
+
+            var result = shellExecuteHelper.RunAsAdmin(regAsmPathWow6432, paramString);
+            Console.WriteLine(result.ToString());
+        }
+
+        private static void CallRegAsmForShell(string fileName, string parameters)
+        {
+            var regAsmPath = GetRegAsmPath();
 
             var appDir = GetApplicationDirectory();
             var shellDll = Path.Combine(appDir, fileName);
@@ -194,11 +226,23 @@ namespace clawSoft.clawPDF.SetupHelper
             Console.WriteLine(result.ToString());
         }
 
-        private static string GetRegAsmPath(bool wow6432)
+        private static string GetRegAsmPathWow6432()
         {
-            var regPath = wow6432
-                ? @"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\.NETFramework"
-                : @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework";
+            var regPath = @"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\.NETFramework";
+
+            Console.WriteLine(regPath);
+
+            var dotNetPath = Registry.GetValue(regPath, "InstallRoot", null)?.ToString();
+
+            if (string.IsNullOrEmpty(dotNetPath))
+                throw new InvalidOperationException("Cannot find .Net Framework in HKLM\\" + regPath);
+
+            return Path.Combine(dotNetPath, "v4.0.30319\\RegAsm.exe");
+        }
+
+        private static string GetRegAsmPath()
+        {
+            var regPath = @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework";
 
             Console.WriteLine(regPath);
 

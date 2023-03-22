@@ -6,7 +6,7 @@ Print to PDF, PDF/A-1b, PDF/A-2b, PDF/A-3b, OCR, PDF/X, PDF/Image, PNG, JPEG, TI
 
 # Download
 
-https://github.com/clawsoftware/clawPDF/releases/download/0.8.7/clawPDF_0.8.7_setup.msi
+https://github.com/clawsoftware/clawPDF/releases/download/0.8.9/clawPDF_0.8.9_setup.msi
 
 
 # Features
@@ -14,10 +14,12 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.7/clawPDF_0.8.7_se
 - Print to PDF, PDF/A-1b, PDF/A-2b, PDF/A-3b, OCR, PDF/X, PDF/Image, PNG, JPEG, TIF and TXT
 - Print 100% valid [PDF/A-1b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-1b.pdf), [PDF/A-2b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-2b.pdf) and [PDF/A-3b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-3b.pdf)
 - [Optical Character Recognition (OCR)](https://github.com/clawsoftware/clawPDF/wiki/Optical-Character-Recognition-(OCR))
+- [Scripting Interface](https://github.com/clawsoftware/clawPDF/wiki/Scripting-Interface)
 - [Drag and Drop Support](https://github.com/clawsoftware/clawPDF/wiki/Drag-and-Drop)
 - [Merge Files](https://github.com/clawsoftware/clawPDF/wiki/Merge-Files)
 - [Command Line Support](https://github.com/clawsoftware/clawPDF/wiki/Command-Line-Commands)
 - [Silent Printing](https://github.com/clawsoftware/clawPDF/wiki/Silent-Print)
+- [Custom Print Sizes](https://github.com/clawsoftware/clawPDF/wiki/Custom-Print-Sizes)
 - Full Unicode Support
 - Multiple Profiles
 - [Post Actions](https://github.com/clawsoftware/clawPDF/wiki/Post-Actions)
@@ -88,15 +90,9 @@ clawPDF.exe /ManagePrintJobs
 
 # Changelog
 
-## v0.8.7 (2023.03.21)
+## v0.8.9 (2023.03.22)
 
-- [feature] Optical Character Recognition (OCR)
-- [feature] Added PDF/A-3b
-- [feature] Added PDF/Image
-- [feature] Added more settings to the Print Job window
-- [feature] Application Settings -> General -> Print Job Window -> Stay on top
-- [feature] OutputPath Parameter
-- [misc]    Optimizations
+- [feature] Scripting Interface
 
 [more](https://github.com/clawsoftware/clawPDF/wiki/Changlog)
 
@@ -104,16 +100,6 @@ clawPDF.exe /ManagePrintJobs
 # Requirements
 
 - .Net Framework 4.6.2+
-
-
-# Screenshot
-
-![clawpdf1](clawPDF/docs/images/clawpdf1.png?raw=true "clawpdf1")
-![clawpdf2](clawPDF/docs/images/clawpdf2.png?raw=true "clawpdf2")
-![clawpdf3](clawPDF/docs/images/clawpdf3.png?raw=true "clawpdf3")
-![clawpdf4](clawPDF/docs/images/clawpdf4.png?raw=true "clawpdf4")
-![clawpdf5](clawPDF/docs/images/clawpdf5.png?raw=true "clawpdf5")
-![clawpdf6](clawPDF/docs/images/clawpdf6.png?raw=true "clawpdf6")
 
 
 # Build

@@ -54,5 +54,3 @@ end if
 
 MsgBox "Releasing the object"
 clawPDFQueue.ReleaseCom
-
-Read-Host "Press Enter to exit"

@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_0659F71A4DE745F2BE94B2D42B69E88F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_11AADFAB1C7948E8A6741DD02ED1A690"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -22,6 +28,12 @@
         "Entry"
         {
         "MsmKey" = "8:_13D11B1B7876454792671CAE60C1FA8C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_159FC79EC89F43B8B40D7FD55D3A7A30"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,6 +63,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1B877EB42A194D8C9657ACD7027E3C2A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1B94E441495D45D1BAB3C200B1E96862"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -71,6 +89,18 @@
         {
         "MsmKey" = "8:_1E98B109B64940D498163D60F3DDAA6C"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_22A06C1B51E64AF6980547F53094FB20"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_23F75528EAFF9C197EC14EC25B105E6B"
+        "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -129,6 +159,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_3A6AB9BF43AC43AABA80C0429D2E897A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3D3F7545B955471CB0AAC0B754F55756"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -142,7 +178,7 @@
         "Entry"
         {
         "MsmKey" = "8:_405DFFF14F4F7AA1779D3F5A6F967F21"
-        "OwnerKey" = "8:_FF9309FE09FF412514F3C56730D1F0CF"
+        "OwnerKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -166,7 +202,7 @@
         "Entry"
         {
         "MsmKey" = "8:_405DFFF14F4F7AA1779D3F5A6F967F21"
-        "OwnerKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
+        "OwnerKey" = "8:_FF9309FE09FF412514F3C56730D1F0CF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -226,7 +262,7 @@
         "Entry"
         {
         "MsmKey" = "8:_712A2A86AC9FFEC569B83D51A9B98536"
-        "OwnerKey" = "8:_FF9309FE09FF412514F3C56730D1F0CF"
+        "OwnerKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -250,7 +286,7 @@
         "Entry"
         {
         "MsmKey" = "8:_712A2A86AC9FFEC569B83D51A9B98536"
-        "OwnerKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
+        "OwnerKey" = "8:_FF9309FE09FF412514F3C56730D1F0CF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -322,6 +358,12 @@
         "Entry"
         {
         "MsmKey" = "8:_84525F880E7E471B77AFBA088656DE14"
+        "OwnerKey" = "8:_405DFFF14F4F7AA1779D3F5A6F967F21"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_84525F880E7E471B77AFBA088656DE14"
         "OwnerKey" = "8:_77223A17A9196A9A0A92926864DF82E7"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -339,19 +381,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_84525F880E7E471B77AFBA088656DE14"
-        "OwnerKey" = "8:_405DFFF14F4F7AA1779D3F5A6F967F21"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_87D610AB7F254F23A27B711F20692D18"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_87F7537A677044F19D07859F82D1CBCD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -435,6 +465,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B12ADCE9EA55432A85EFAB2B4C72791A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B1FFBD8C699F4A4491BC013234817466"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -478,12 +514,6 @@
         "Entry"
         {
         "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
-        "OwnerKey" = "8:_5479D0BF191E1CE46357774BB693901D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
         "OwnerKey" = "8:_7F78C114226A455AA68D0A82851D76E8"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -497,6 +527,12 @@
         {
         "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
         "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
+        "OwnerKey" = "8:_5479D0BF191E1CE46357774BB693901D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -562,6 +598,12 @@
         "Entry"
         {
         "MsmKey" = "8:_E0BA660CA4DD4DA69E35FB27AD4A569C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E767B0E3A3584840BEA77239B5BDA6D3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -664,12 +706,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4E05DB632D024749BCF6ECFC7F09AB29"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -706,12 +742,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_2DE9273C4C3B209CE272E7F7E125CCA9"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -742,6 +772,18 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_77223A17A9196A9A0A92926864DF82E7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_712A2A86AC9FFEC569B83D51A9B98536"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -760,13 +802,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_77223A17A9196A9A0A92926864DF82E7"
+        "OwnerKey" = "8:_84525F880E7E471B77AFBA088656DE14"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_84525F880E7E471B77AFBA088656DE14"
+        "OwnerKey" = "8:_4E05DB632D024749BCF6ECFC7F09AB29"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -851,6 +893,34 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_04B6FED1A8D3452D94E123A5456EC5E6"
+            {
+            "Name" = "8:UnregisterComInterface"
+            "Condition" = "8:"
+            "Object" = "8:_7F78C114226A455AA68D0A82851D76E8"
+            "FileType" = "3:2"
+            "InstallAction" = "3:4"
+            "Arguments" = "8:/ComInterface=Unregister"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:2"
+            "Identifier" = "8:_1C390082_6427_41E9_BA3C_DA344C38B34C"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_34FB395B86CB4526B6E48597F373FB70"
+            {
+            "Name" = "8:UnregisterComInterface"
+            "Condition" = "8:"
+            "Object" = "8:_7F78C114226A455AA68D0A82851D76E8"
+            "FileType" = "3:2"
+            "InstallAction" = "3:3"
+            "Arguments" = "8:/ComInterface=Unregister"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:2"
+            "Identifier" = "8:_3B3D22C5_CF03_4369_9ABA_30E576F483D9"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_70EEECC25B44484B98D6ED7B7D5F6CEA"
             {
             "Name" = "8:RemoveDriver"
@@ -862,6 +932,20 @@
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
             "Identifier" = "8:_2C937D3C_F478_4374_9DDA_DF057CCCA855"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_92727C325C49459A87E4F58CCF21D0C6"
+            {
+            "Name" = "8:RegisterComInterface"
+            "Condition" = "8:"
+            "Object" = "8:_7F78C114226A455AA68D0A82851D76E8"
+            "FileType" = "3:2"
+            "InstallAction" = "3:1"
+            "Arguments" = "8:/ComInterface=Register"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:3"
+            "Identifier" = "8:_4EF33266_A87A_406E_8076_F8B91137D616"
             "InstallerClass" = "11:FALSE"
             "CustomActionData" = "8:"
             }
@@ -930,6 +1014,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0659F71A4DE745F2BE94B2D42B69E88F"
+            {
+            "SourcePath" = "8:..\\README.md"
+            "TargetName" = "8:README.md"
+            "Tag" = "8:"
+            "Folder" = "8:_6D653F6EE3324579B145A191268F8DEA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_11AADFAB1C7948E8A6741DD02ED1A690"
             {
             "SourcePath" = "8:..\\_Build\\Release\\license.rtf"
@@ -956,6 +1060,26 @@
             "TargetName" = "8:Corsican (France).ini"
             "Tag" = "8:"
             "Folder" = "8:_25DCCE0FB86246B0BAA4F57F940E53E1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_159FC79EC89F43B8B40D7FD55D3A7A30"
+            {
+            "SourcePath" = "8:..\\docs\\com_examples\\Powershell\\WinTestPage2PDF.ps1"
+            "TargetName" = "8:WinTestPage2PDF.ps1"
+            "Tag" = "8:"
+            "Folder" = "8:_00EC7BD6F96C475BB93C2147C180EA60"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1061,6 +1185,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1B877EB42A194D8C9657ACD7027E3C2A"
+            {
+            "SourcePath" = "8:..\\docs\\com_examples\\VBScript\\CreatePDFwithPassword.vbs"
+            "TargetName" = "8:CreatePDFwithPassword.vbs"
+            "Tag" = "8:"
+            "Folder" = "8:_01EE3A101657408985F0DE4F21056C07"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1B94E441495D45D1BAB3C200B1E96862"
             {
             "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\pscript.ntf"
@@ -1141,6 +1285,46 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_22A06C1B51E64AF6980547F53094FB20"
+            {
+            "SourcePath" = "8:..\\docs\\com_examples\\Powershell\\GetAllclawPDFprinters.ps1"
+            "TargetName" = "8:GetAllclawPDFprinters.ps1"
+            "Tag" = "8:"
+            "Folder" = "8:_00EC7BD6F96C475BB93C2147C180EA60"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_23F75528EAFF9C197EC14EC25B105E6B"
+            {
+            "SourcePath" = "8:clawPDF.tlb"
+            "TargetName" = "8:clawPDF.tlb"
+            "Tag" = "8:"
+            "Folder" = "8:_6D653F6EE3324579B145A191268F8DEA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:2"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_241B4BD74B6E4FD6ABB8D92C628FD4B0"
             {
             "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\pscript.hlp"
@@ -1165,7 +1349,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_2ADCA95456CE47B9A8F7651A167A03F4"
@@ -1216,7 +1400,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.PDFProcessing, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.PDFProcessing, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_2DE9273C4C3B209CE272E7F7E125CCA9"
@@ -1247,7 +1431,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.Shared, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.Shared, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_2E6513C97F7A08611FDD3F399BAE12C7"
@@ -1314,6 +1498,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3A6AB9BF43AC43AABA80C0429D2E897A"
+            {
+            "SourcePath" = "8:..\\docs\\com_examples\\Powershell\\CreatePDFwithPassword.ps1"
+            "TargetName" = "8:CreatePDFwithPassword.ps1"
+            "Tag" = "8:"
+            "Folder" = "8:_00EC7BD6F96C475BB93C2147C180EA60"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3D3F7545B955471CB0AAC0B754F55756"
             {
             "SourcePath" = "8:..\\_Build\\Release\\languages\\Gaelic (Scotland).ini"
@@ -1358,7 +1562,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SystemInterface, Version=0.26.0.0, Culture=neutral, PublicKeyToken=fbc3a63dd3cf8960, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SystemInterface, Version=0.28.0.0, Culture=neutral, PublicKeyToken=fbc3a63dd3cf8960, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_405DFFF14F4F7AA1779D3F5A6F967F21"
@@ -1449,7 +1653,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.Bridge, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.Bridge, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_4E05DB632D024749BCF6ECFC7F09AB29"
@@ -1500,7 +1704,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.Core, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.Core, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_5479D0BF191E1CE46357774BB693901D"
@@ -1551,7 +1755,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SystemWrapper, Version=0.26.0.0, Culture=neutral, PublicKeyToken=fbc3a63dd3cf8960, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SystemWrapper, Version=0.28.0.0, Culture=neutral, PublicKeyToken=fbc3a63dd3cf8960, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_712A2A86AC9FFEC569B83D51A9B98536"
@@ -1653,7 +1857,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SetupHelper, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SetupHelper, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_7F78C114226A455AA68D0A82851D76E8"
@@ -1777,26 +1981,6 @@
             "TargetName" = "8:GNU AFFERO GENERAL PUBLIC LICENSE.txt"
             "Tag" = "8:"
             "Folder" = "8:_78A970EA378C4F55887D381C883EA42F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_87F7537A677044F19D07859F82D1CBCD"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\README.md"
-            "TargetName" = "8:README.md"
-            "Tag" = "8:"
-            "Folder" = "8:_6D653F6EE3324579B145A191268F8DEA"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2084,6 +2268,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B12ADCE9EA55432A85EFAB2B4C72791A"
+            {
+            "SourcePath" = "8:..\\docs\\com_examples\\VBScript\\GetAllclawPDFprinters.vbs"
+            "TargetName" = "8:GetAllclawPDFprinters.vbs"
+            "Tag" = "8:"
+            "Folder" = "8:_01EE3A101657408985F0DE4F21056C07"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B1FFBD8C699F4A4491BC013234817466"
             {
             "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x86\\pscript.hlp"
@@ -2228,7 +2432,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.Utilities, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.Utilities, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_BFCF777D72218B58DF0CBD20D7F6247C"
@@ -2379,7 +2583,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.Settings, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.Settings, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_DEC868D28729B9DC2D2BC75411C63EAF"
@@ -2412,6 +2616,26 @@
             "TargetName" = "8:GNU GENERAL PUBLIC LICENSE Version 2.txt"
             "Tag" = "8:"
             "Folder" = "8:_78A970EA378C4F55887D381C883EA42F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E767B0E3A3584840BEA77239B5BDA6D3"
+            {
+            "SourcePath" = "8:..\\docs\\com_examples\\VBScript\\WinTestPage2PDF.vbs"
+            "TargetName" = "8:WinTestPage2PDF.vbs"
+            "Tag" = "8:"
+            "Folder" = "8:_01EE3A101657408985F0DE4F21056C07"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2581,7 +2805,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawSoft.ftplib, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawSoft.ftplib, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_FA13F4A136588B2E114BD9C283189E31"
@@ -2632,7 +2856,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:clawPDF.Mail, Version=0.8.7.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:clawPDF.Mail, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_FF9309FE09FF412514F3C56730D1F0CF"
@@ -2750,6 +2974,39 @@
                                 {
                                 }
                             }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_CAA89BDA08334D97B3FD64B4318F30CF"
+                            {
+                            "Name" = "8:com_examples"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_C009F608A39F4A8193BB9D73B8BCA6C3"
+                                "Folders"
+                                {
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_00EC7BD6F96C475BB93C2147C180EA60"
+                                    {
+                                    "Name" = "8:Powershell"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_74493AC0C6CF4BF8B8712E708A8B10FA"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_01EE3A101657408985F0DE4F21056C07"
+                                    {
+                                    "Name" = "8:VBScript"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_B66933E867724759A5E53C2830228AE5"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_CCCC55184D6D412FA13E5383B18703C9"
@@ -2791,20 +3048,20 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:clawPDF 0.8.7"
-        "ProductCode" = "8:{ED56E7A4-BE5E-4D4C-BCDE-33B9E63B1A9C}"
-        "PackageCode" = "8:{EFA286A4-BB85-4938-AE89-FA666BE10519}"
+        "ProductName" = "8:clawPDF 0.8.9"
+        "ProductCode" = "8:{D4033BCD-8059-4A6D-98FA-C6D8D9140053}"
+        "PackageCode" = "8:{0195FCB7-9979-49DC-81C3-A1262F455A3E}"
         "UpgradeCode" = "8:{7D6DE248-9C3E-416C-8141-8178A480E45A}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:0.8.7"
+        "ProductVersion" = "8:0.8.9"
         "Manufacturer" = "8:Andrew Hess // clawSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/clawsoftware/clawPDF/"
-        "Title" = "8:clawPDF 0.8.7"
+        "Title" = "8:clawPDF 0.8.9"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Andrew Hess // clawSoft"
         "Keywords" = "8:"
