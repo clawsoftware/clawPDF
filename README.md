@@ -19,7 +19,7 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.9/clawPDF_0.8.9_se
 - [Merge Files](https://github.com/clawsoftware/clawPDF/wiki/Merge-Files)
 - [Command Line Support](https://github.com/clawsoftware/clawPDF/wiki/Command-Line-Commands)
 - [Silent Printing](https://github.com/clawsoftware/clawPDF/wiki/Silent-Print)
-- [Custom Print Sizes](https://github.com/clawsoftware/clawPDF/wiki/Custom-Print-Sizes)
+- [Custom Paper Sizes / Standard Paper Sizes](https://github.com/clawsoftware/clawPDF/wiki/Custom-Paper-Sizes---Standard-Paper-Sizes)
 - Full Unicode Support
 - Multiple Profiles
 - [Post Actions](https://github.com/clawsoftware/clawPDF/wiki/Post-Actions)
