@@ -1,5 +1,5 @@
 $clawPDFObj = New-Object -ComObject clawPDF.clawPDFObj
-$printers = $clawPDFObj.GetclawPDFPrinters()
+$printers = $clawPDFObj.GetclawPDFPrinters
 $i = 0
 $allPrinters = ""
 
