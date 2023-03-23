@@ -1,3 +1,9 @@
+# Using the Windows application clawPDF, this script prints a Windows test page and converts it into a password-protected PDF file.
+# It initializes the clawPDF queue and creates a "Results" folder to store the converted PDF. After the Windows test page is printed and added to the queue,
+# the script sets the profile to "DefaultGuid" and enables security settings with 128-bit AES encryption.
+# It also specifies the owner and user passwords as "test" and converts the file to PDF.
+# Upon successful conversion, the script confirms the completion of the job. In case of an error, an error message is displayed.
+
 import os
 import win32com.client as win32
 

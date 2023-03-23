@@ -1,3 +1,5 @@
+# This script uses the Windows application clawPDF to retrieve all installed clawPDF printers and display them.
+
 import win32com.client as win32
 
 clawPDFObj = win32.Dispatch("clawPDF.clawPdfObj")

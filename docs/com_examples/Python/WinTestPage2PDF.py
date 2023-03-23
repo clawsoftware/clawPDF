@@ -1,3 +1,8 @@
+# This script uses the Windows application clawPDF and the Shell.Application COM object to print a Windows test page and convert it to a PDF file. 
+# It creates a Results folder to store the converted PDF file and initializes the clawPDF queue. Once the Windows test page is printed and arrives at the queue,
+# the script sets the profile to "DefaultGuid" and converts the file to a PDF file. If the conversion is successful, the script indicates that the job finished successfully.
+# Otherwise, the script displays an error message.
+
 import os
 import subprocess
 import win32com.client

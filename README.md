@@ -36,6 +36,10 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.9/clawPDF_0.8.9_se
 
 ![OCR](docs/images/ImageOCR.gif?raw=true "OCR")
 
+## [Scripting Interface](https://github.com/clawsoftware/clawPDF/blob/master/docs/com_examples/Powershell/CreatePDFwithPassword.ps1)
+
+![ScriptingInterface](docs/images/ScriptingInterface.gif?raw=true "Scripting Interface")
+
 ## Print a PDF/A and protect it with a password
 
 ![PrintPDFAwithPassword](docs/images/PrintPDFAwithPassword.gif?raw=true "PrintPDFAwithPassword")

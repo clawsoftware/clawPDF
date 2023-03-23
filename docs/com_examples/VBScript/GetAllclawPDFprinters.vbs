@@ -1,3 +1,5 @@
+' This script uses the Windows application clawPDF to retrieve all installed clawPDF printers and display them.
+
 Dim clawPDFObj
 Set clawPDFObj = CreateObject("clawPDF.clawPdfObj")
 Dim printers

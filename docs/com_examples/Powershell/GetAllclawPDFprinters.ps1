@@ -1,3 +1,9 @@
+<#
+
+This script uses the Windows application clawPDF to retrieve all installed clawPDF printers and display them.
+
+#>
+
 $clawPDFObj = New-Object -ComObject clawPDF.clawPDFObj
 $printers = $clawPDFObj.GetclawPDFPrinters
 $i = 0
