@@ -368,7 +368,7 @@
 							<comment>Password for the time server</comment>
 						</value>
 						<value name="TimeServerUrl" type="value" datatype="String" enumname=""
-							   defaultvalue="http://timestamp.globalsign.com/scripts/timstamp.dll">
+							   defaultvalue="http://timestamp.digicert.com">
 							<comment>URL of a time server that provides a signed timestamp</comment>
 						</value>
 					</class>

@@ -167,7 +167,7 @@ namespace clawSoft.clawPDF.Core.Settings
             TimeServerIsSecured = false;
             TimeServerLoginName = "";
             TimeServerPassword = "";
-            TimeServerUrl = "http://timestamp.globalsign.com/scripts/timstamp.dll";
+            TimeServerUrl = "http://timestamp.digicert.com";
         }
 
         public void ReadValues(Data data, string path)
@@ -317,7 +317,7 @@ namespace clawSoft.clawPDF.Core.Settings
             }
             catch
             {
-                TimeServerUrl = "http://timestamp.globalsign.com/scripts/timstamp.dll";
+                TimeServerUrl = "http://timestamp.digicert.com";
             }
         }
 

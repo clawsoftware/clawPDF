@@ -94,6 +94,10 @@ clawPDF.exe /ManagePrintJobs
 
 # Changelog
 
+## v0.9.0 ()
+
+- [update] Changed default time server
+
 ## v0.8.9 (2023.03.22)
 
 - [feature] Scripting Interface

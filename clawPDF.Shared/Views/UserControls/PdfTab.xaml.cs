@@ -35,7 +35,7 @@ namespace clawSoft.clawPDF.Shared.Views.UserControls
 
         private void DefaultTimeServerButton_OnClick(object sender, RoutedEventArgs e)
         {
-            TextBoxHelper.SetText(TimeServerUrlTextBox, @"http://timestamp.globalsign.com/scripts/timstamp.dll");
+            TextBoxHelper.SetText(TimeServerUrlTextBox, @"http://timestamp.digicert.com");
             SecuredTimeserverCheckBox.IsChecked = false;
         }
 

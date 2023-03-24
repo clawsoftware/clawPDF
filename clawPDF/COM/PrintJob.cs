@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
 using clawSoft.clawPDF.Core.Jobs;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Helper;
@@ -35,8 +36,9 @@ namespace clawSoft.clawPDF.COM
         void SetProfileByGuid(string profileGuid);
 
         OutputFiles GetOutputFiles { get; }
-
         void ConvertTo(string fullFileName);
+
+        FileStream ConvertToFileStream(string fileName);
 
         void ConvertToAsync(string fullFileName);
 
@@ -145,6 +147,42 @@ namespace clawSoft.clawPDF.COM
         }
 
         /// <summary>
+        ///     Converts the job to a FileStram
+        /// </summary>
+        /// <param name="fileName">Specifies the file name (example.pdf)</param>
+        public FileStream ConvertToFileStream(string fileName)
+        {
+            string tempPath = Path.GetTempPath();
+            string filePath = Path.Combine(tempPath, fileName);
+            LocationSetUp(filePath);
+
+            Logger.Trace("COM: Starting the conversion process.");
+            DoConversion();
+
+            if (OnJobFinished != null)
+                OnJobFinished(this, new EventArgs());
+
+            if (JobFinished != null)
+                JobFinished();
+
+            Logger.Trace("COM: Removing jobinfo from the queue.");
+            _comJobInfoQueue.Remove(JobInfo);
+
+            try
+            {
+                return SendToFileStream(filePath);
+            }
+            catch (Exception ex)
+            {
+                throw new COMException(ex.ToString());
+            }
+            finally
+            {
+                File.Delete(filePath);
+            }
+        }
+
+        /// <summary>
         ///     Converts the job to the specified location asynchronously
         /// </summary>
         /// <param name="fullFileName">Specifies the location and the file's name</param>
@@ -221,6 +259,26 @@ namespace clawSoft.clawPDF.COM
             {
                 throw new COMException("Invalid path. Please check if the directory exists.");
             }
+        }
+
+        public FileStream SendToFileStream(string filePath)
+        {
+            FileStream fileStream = null;
+
+            try
+            {
+                fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            }
+            catch (Exception ex)
+            {
+                throw new COMException(ex.ToString());
+            }
+            finally
+            {
+                fileStream.Close();
+            }
+
+            return fileStream;
         }
 
         /// <summary>
