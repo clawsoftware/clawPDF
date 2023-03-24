@@ -21,12 +21,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_11AADFAB1C7948E8A6741DD02ED1A690"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_13D11B1B7876454792671CAE60C1FA8C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -95,12 +89,6 @@
         {
         "MsmKey" = "8:_22A06C1B51E64AF6980547F53094FB20"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_23F75528EAFF9C197EC14EC25B105E6B"
-        "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -269,6 +257,12 @@
         {
         "MsmKey" = "8:_5479D0BF191E1CE46357774BB693901D"
         "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_54B26D0C6496648DA7E2064743E048C9"
+        "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1064,26 +1058,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_11AADFAB1C7948E8A6741DD02ED1A690"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\license.rtf"
-            "TargetName" = "8:license.rtf"
-            "Tag" = "8:"
-            "Folder" = "8:_6D653F6EE3324579B145A191268F8DEA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_13D11B1B7876454792671CAE60C1FA8C"
             {
             "SourcePath" = "8:..\\_Build\\Release\\languages\\Corsican (France).ini"
@@ -1151,6 +1125,11 @@
             "AssemblyAsmDisplayName" = "8:TrueTypeFontInfo, Version=1.0.5800.19178, Culture=neutral, PublicKeyToken=27b74675d93a956c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_176C480960ABD9AAB76F8BAAE9507A1B"
+                    {
+                    "Name" = "8:TrueTypeFontInfo.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:TrueTypeFontInfo.dll"
             "TargetName" = "8:"
@@ -1328,26 +1307,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_23F75528EAFF9C197EC14EC25B105E6B"
-            {
-            "SourcePath" = "8:clawPDF.tlb"
-            "TargetName" = "8:clawPDF.tlb"
-            "Tag" = "8:"
-            "Folder" = "8:_6D653F6EE3324579B145A191268F8DEA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:2"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_241B4BD74B6E4FD6ABB8D92C628FD4B0"
@@ -1615,6 +1574,11 @@
             "AssemblyAsmDisplayName" = "8:SystemInterface, Version=0.28.0.0, Culture=neutral, PublicKeyToken=fbc3a63dd3cf8960, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_405DFFF14F4F7AA1779D3F5A6F967F21"
+                    {
+                    "Name" = "8:SystemInterface.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:SystemInterface.dll"
             "TargetName" = "8:"
@@ -1721,6 +1685,11 @@
             "AssemblyAsmDisplayName" = "8:clawPDF.Bridge, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_4E05DB632D024749BCF6ECFC7F09AB29"
+                    {
+                    "Name" = "8:clawPDF.Bridge.exe"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:..\\_Build\\Release\\clawPDF.Bridge.exe"
             "TargetName" = "8:"
@@ -1786,6 +1755,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_54B26D0C6496648DA7E2064743E048C9"
+            {
+            "SourcePath" = "8:clawPDF.tlb"
+            "TargetName" = "8:clawPDF.tlb"
+            "Tag" = "8:"
+            "Folder" = "8:_6D653F6EE3324579B145A191268F8DEA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:2"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6EF0E697D1AD4E33AD25EFC790F88B02"
             {
             "SourcePath" = "8:..\\_Build\\Release\\languages\\Chinese (Simplified).ini"
@@ -1833,6 +1822,11 @@
             "AssemblyAsmDisplayName" = "8:SystemWrapper, Version=0.28.0.0, Culture=neutral, PublicKeyToken=fbc3a63dd3cf8960, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_712A2A86AC9FFEC569B83D51A9B98536"
+                    {
+                    "Name" = "8:SystemWrapper.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:SystemWrapper.dll"
             "TargetName" = "8:"
@@ -1879,6 +1873,11 @@
             "AssemblyAsmDisplayName" = "8:NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_77223A17A9196A9A0A92926864DF82E7"
+                    {
+                    "Name" = "8:NLog.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:NLog.dll"
             "TargetName" = "8:"
@@ -1925,6 +1924,11 @@
             "AssemblyAsmDisplayName" = "8:SetupHelper, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_7F78C114226A455AA68D0A82851D76E8"
+                    {
+                    "Name" = "8:SetupHelper.exe"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:..\\_Build\\Release\\SetupHelper.exe"
             "TargetName" = "8:"
@@ -2213,6 +2217,11 @@
             "AssemblyAsmDisplayName" = "8:DynamicTranslator, Version=0.7.5886.35553, Culture=neutral, PublicKeyToken=fc6825f92a0342e2, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_A4A9F26FDBF9AD6E0AD81AE473D57004"
+                    {
+                    "Name" = "8:DynamicTranslator.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:DynamicTranslator.dll"
             "TargetName" = "8:"
@@ -2299,6 +2308,11 @@
             "AssemblyAsmDisplayName" = "8:itextsharp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_AED8BBC389DA83C3FD9B136EE7383FE9"
+                    {
+                    "Name" = "8:itextsharp.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:itextsharp.dll"
             "TargetName" = "8:"
@@ -2651,6 +2665,11 @@
             "AssemblyAsmDisplayName" = "8:clawPDF.Settings, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_DEC868D28729B9DC2D2BC75411C63EAF"
+                    {
+                    "Name" = "8:clawPDF.Settings.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:clawPDF.Settings.dll"
             "TargetName" = "8:"
@@ -2737,6 +2756,11 @@
             "AssemblyAsmDisplayName" = "8:DataStorage, Version=0.8.5886.35490, Culture=neutral, PublicKeyToken=fc6825f92a0342e2, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_ECDACE12FBA9D6468759660592A13D18"
+                    {
+                    "Name" = "8:DataStorage.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:DataStorage.dll"
             "TargetName" = "8:"
@@ -2863,6 +2887,11 @@
             "AssemblyAsmDisplayName" = "8:clawSoft.ftplib, Version=0.8.9.0, Culture=neutral, PublicKeyToken=568eec0b104690a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_FA13F4A136588B2E114BD9C283189E31"
+                    {
+                    "Name" = "8:clawSoft.ftplib.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:clawSoft.ftplib.dll"
             "TargetName" = "8:"
@@ -3106,7 +3135,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:clawPDF 0.8.9"
         "ProductCode" = "8:{D4033BCD-8059-4A6D-98FA-C6D8D9140053}"
-        "PackageCode" = "8:{F99031A2-AA9C-4648-AC5D-3835343749A6}"
+        "PackageCode" = "8:{9E5BB4DD-FE9B-498A-8BD8-34A19F06C0F3}"
         "UpgradeCode" = "8:{7D6DE248-9C3E-416C-8141-8178A480E45A}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
