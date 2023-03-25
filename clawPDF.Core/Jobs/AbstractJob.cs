@@ -473,18 +473,15 @@ namespace clawSoft.clawPDF.Core.Jobs
 
                             foreach (var page in doc.Pages)
                             {
-                                page.SaveAsSvg(Path.GetDirectoryName(tempOutputFile) + "-" + pageNo++ + ".svg");
+                                page.SaveAsSvg(Path.GetDirectoryName(tempOutputFile) + "\\output-" + pageNo++ + ".svg");
                             }
                         }
                     }
                 }
 
                 DeleteFile(tempOutputFile);
-                //OutputFiles.Add(_currentOutputFile);
                 isFirstFile = false;
             }
-
-            //OutputFiles = OutputFiles.OrderBy(x => x).ToList();
         }
 
         public void MoveOutputFiles()
