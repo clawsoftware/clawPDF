@@ -6,7 +6,7 @@ using NLog;
 using SystemInterface.IO;
 using SystemWrapper.IO;
 
-namespace clawSoft.clawPDF.Core.Xps.OutputFileMover
+namespace clawSoft.clawPDF.Core.oxps.OutputFileMover
 {
     public class SingleFileMover
     {

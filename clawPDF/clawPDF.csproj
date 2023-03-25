@@ -555,9 +555,12 @@
   <PropertyGroup>
     <PostBuildEvent>mkdir "$(TargetDir)clawmon\x86"
 mkdir "$(TargetDir)clawmon\x64"
+mkdir "$(TargetDir)fonts"
+echo Additional font folder &gt; "$(TargetDir)fonts\_info.txt"
 mkdir "$(TargetDir)tessdata"
 xcopy "$(SolutionDir)lib\clawmon\win32\" "$(TargetDir)clawmon\x86\" /Y
 xcopy "$(SolutionDir)lib\clawmon\win64\" "$(TargetDir)clawmon\x64\" /Y
-xcopy "$(SolutionDir)lib\tessdata\" "$(TargetDir)tessdata\" /Y</PostBuildEvent>
+xcopy "$(SolutionDir)lib\tessdata\" "$(TargetDir)tessdata\" /Y
+echo dummy &gt; "$(TargetDir)clawPDF.tlb"</PostBuildEvent>
   </PropertyGroup>
 </Project>

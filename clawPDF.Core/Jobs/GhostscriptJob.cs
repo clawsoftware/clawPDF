@@ -192,6 +192,18 @@ namespace clawSoft.clawPDF.Core.Jobs
                         device = new TiffDevice(this);
                         break;
 
+                    case OutputFormat.SVG:
+                        device = new SvgDevice(this);
+                        break;
+
+                    //case OutputFormat.DOCX:
+                    //    device = new DocxDevice(this);
+                    //    break;
+
+                    //case OutputFormat.XPS:
+                    //    device = new XpsDevice(this);
+                    //    break;
+
                     case OutputFormat.OCRTxt:
                         device = new OCRDevice(this);
                         break;
@@ -225,6 +237,11 @@ namespace clawSoft.clawPDF.Core.Jobs
                 ProcessOutput();
 
                 Logger.Trace("Moving output files to final location");
+
+                if (Profile.OutputFormat == OutputFormat.SVG)
+                {
+                    SvgOutputFiles();
+                }
                 MoveOutputFiles();
 
                 Logger.Trace("Finished Ghostscript Job");

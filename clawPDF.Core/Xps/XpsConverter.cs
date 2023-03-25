@@ -1,7 +1,7 @@
 ﻿using System;
 using clawSoft.clawPDF.Core.Jobs;
 
-namespace clawSoft.clawPDF.Core.Xps
+namespace clawSoft.clawPDF.Core.oxps
 {
     public class XpsConverter
     {
@@ -15,7 +15,7 @@ namespace clawSoft.clawPDF.Core.Xps
         public bool Convert(string path)
         {
             //var pdfXpsDoc = LoadPdfSharpXpsFromSourceFiles();
-            //PdfSharp.Xps.XpsConverter.Convert(pdfXpsDoc, path, 0);
+            //PdfSharp.oxps.oxpsConverter.Convert(pdfXpsDoc, path, 0);
             //return true;
             throw new NotImplementedException();
         }
@@ -25,7 +25,7 @@ namespace clawSoft.clawPDF.Core.Xps
             //Create new xps package
             var memoryStream = new MemoryStream();
             var combinedXPS = Package.Open(memoryStream, FileMode.Create);
-            var xpsWriter = System.Windows.Xps.Packaging.XpsDocument.CreateXpsDocumentWriter(new System.Windows.Xps.Packaging.XpsDocument(combinedXPS));
+            var xpsWriter = System.Windows.oxps.Packaging.oxpsDocument.CreateXpsDocumentWriter(new System.Windows.oxps.Packaging.oxpsDocument(combinedXPS));
 
             var combinedSequence = new FixedDocumentSequence();
 
@@ -37,7 +37,7 @@ namespace clawSoft.clawPDF.Core.Xps
                 var file = sourceFileInfo.Filename;
 
                 //Load Xps Package
-                var singleXPS = new System.Windows.Xps.Packaging.XpsDocument(file, FileAccess.Read);
+                var singleXPS = new System.Windows.oxps.Packaging.oxpsDocument(file, FileAccess.Read);
                 var singleSequence = singleXPS.GetFixedDocumentSequence();
 
                 //Go through each document in the file

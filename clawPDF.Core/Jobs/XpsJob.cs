@@ -2,8 +2,8 @@
 using System.IO;
 using System.Threading;
 using clawSoft.clawPDF.Core.Settings;
-using clawSoft.clawPDF.Core.Xps;
-using clawSoft.clawPDF.Core.Xps.OutputFileMover;
+using clawSoft.clawPDF.Core.oxps;
+using clawSoft.clawPDF.Core.oxps.OutputFileMover;
 
 namespace clawSoft.clawPDF.Core.Jobs
 {

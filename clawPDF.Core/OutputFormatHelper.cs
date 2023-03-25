@@ -39,6 +39,15 @@ namespace clawSoft.clawPDF.Core
                     return extension.Equals(".tif", StringComparison.OrdinalIgnoreCase) ||
                            extension.Equals(".tiff", StringComparison.OrdinalIgnoreCase);
 
+                case OutputFormat.SVG:
+                    return extension.Equals(".svg", StringComparison.OrdinalIgnoreCase);
+
+                //case OutputFormat.DOCX:
+                //    return extension.Equals(".docx", StringComparison.OrdinalIgnoreCase);
+
+                //case OutputFormat.XPS:
+                //    return extension.Equals(".oxps", StringComparison.OrdinalIgnoreCase);
+
                 case OutputFormat.OCRTxt:
                     return extension.Equals(".txt", StringComparison.OrdinalIgnoreCase);
 
@@ -77,6 +86,15 @@ namespace clawSoft.clawPDF.Core
 
                 case OutputFormat.Tif:
                     return Path.ChangeExtension(file, ".tif");
+
+                case OutputFormat.SVG:
+                    return Path.ChangeExtension(file, ".svg");
+
+                //case OutputFormat.DOCX:
+                //    return Path.ChangeExtension(file, ".docx");
+
+                //case OutputFormat.XPS:
+                //    return Path.ChangeExtension(file, ".oxps");
 
                 case OutputFormat.OCRTxt:
                 case OutputFormat.Txt:

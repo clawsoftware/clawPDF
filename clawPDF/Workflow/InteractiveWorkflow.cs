@@ -142,6 +142,15 @@ namespace clawSoft.clawPDF.Workflow
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "TiffFile", "TIFF file") +
                     @" (*.tif)|*.tif;*.tiff";
                 saveFileDialog.Filter +=
+                    @"|" + _translator.GetTranslation("InteractiveWorkflow", "SvgFile", "SVG file") +
+                    @" (*.svg)|*.svg;";
+                //saveFileDialog.Filter +=
+                //    @"|" + _translator.GetTranslation("InteractiveWorkflow", "DocxFile", "DOCX file") +
+                //    @" (*.docx)|*.docx;";
+                //saveFileDialog.Filter +=
+                //    @"|" + _translator.GetTranslation("InteractiveWorkflow", "XpsFile", "XPS file") +
+                //    @" (*.oxps)|*.oxps;";
+                saveFileDialog.Filter +=
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "OCRTextFile", "OCR Text file") +
                     @" (*.txt)|*.txt;";
                 saveFileDialog.Filter +=
@@ -516,6 +525,21 @@ namespace clawSoft.clawPDF.Workflow
                     saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "TiffFile", "TIFF file") +
                                             @" (*.tif)|*.tif;*.tiff";
                     break;
+
+                case OutputFormat.SVG:
+                    saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "SvgFile", "SVG file") +
+                                            @" (*.svg)|*.svg;";
+                    break;
+
+                //case OutputFormat.DOCX:
+                //    saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "DocxFile", "Docx file") +
+                //                            @" (*.docx)|*.docx;";
+                //    break;
+
+                //case OutputFormat.XPS:
+                //    saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "XpsFile", "XPS file") +
+                //                            @" (*.oxps)|*.oxps;";
+                //    break;
 
                 case OutputFormat.OCRTxt:
                     saveFileDialog.Filter = _translator.GetTranslation("InteractiveWorkflow", "OCRTextFile", "OCR Text file") +

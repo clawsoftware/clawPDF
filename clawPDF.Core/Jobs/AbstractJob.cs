@@ -11,6 +11,7 @@ using clawSoft.clawPDF.Utilities;
 using clawSoft.clawPDF.Utilities.IO;
 using clawSoft.clawPDF.Utilities.Tokens;
 using NLog;
+using PdfToSvg;
 using SystemInterface.IO;
 using SystemWrapper.IO;
 
@@ -280,6 +281,18 @@ namespace clawSoft.clawPDF.Core.Jobs
                     outputFilename += ".tif";
                     break;
 
+                case OutputFormat.SVG:
+                    outputFilename += ".svg";
+                    break;
+
+                //case OutputFormat.DOCX:
+                //    outputFilename += ".docx";
+                //    break;
+
+                //case OutputFormat.XPS:
+                //    outputFilename += ".oxps";
+                //    break;
+
                 case OutputFormat.OCRTxt:
                     outputFilename += ".txt";
                     break;
@@ -418,10 +431,76 @@ namespace clawSoft.clawPDF.Core.Jobs
             foreach (var file in files) TempOutputFiles.Add(file);
         }
 
-        public void MoveOutputFiles()
+        public void SvgOutputFiles()
         {
             //Ensure the the first file is the first in TempOutputFiles
             TempOutputFiles = TempOutputFiles.OrderBy(x => x).ToList();
+
+            _outfilebody = DetermineOutfileBody();
+
+            var isFirstFile = true;
+            foreach (var tempOutputFile in TempOutputFiles)
+            {
+                var extension = PathSafe.GetExtension(tempOutputFile);
+                var num = DetermineNumWithDigits(tempOutputFile);
+
+                _currentOutputFile = _outfilebody + num + extension;
+
+                //first file in interactive workflow
+                if (isFirstFile && !Profile.AutoSave.Enabled && OnRetypeOutputFilename != null)
+                {
+                    using (var doc = PdfDocument.Open(tempOutputFile))
+                    {
+                        var pageNo = 1;
+
+                        foreach (var page in doc.Pages)
+                        {
+                            page.SaveAsSvg(Path.GetDirectoryName(tempOutputFile) + "\\output-" + pageNo++ + ".svg");
+                        }
+                    }
+                }
+                else
+                {
+                    lock (LockObject)
+                    {
+                        var uniqueFilename = new UniqueFilename(_currentOutputFile, DirectoryWrap, FileWrap);
+                        if (Profile.AutoSave.Enabled && Profile.AutoSave.EnsureUniqueFilenames)
+                            _currentOutputFile = EnsureUniqueFilename(uniqueFilename);
+
+                        using (var doc = PdfDocument.Open(tempOutputFile))
+                        {
+                            var pageNo = 1;
+
+                            foreach (var page in doc.Pages)
+                            {
+                                page.SaveAsSvg(Path.GetDirectoryName(tempOutputFile) + "-" + pageNo++ + ".svg");
+                            }
+                        }
+                    }
+                }
+
+                DeleteFile(tempOutputFile);
+                //OutputFiles.Add(_currentOutputFile);
+                isFirstFile = false;
+            }
+
+            //OutputFiles = OutputFiles.OrderBy(x => x).ToList();
+        }
+
+        public void MoveOutputFiles()
+        {
+            //Ensure the the first file is the first in TempOutputFiles
+
+            if(Profile.OutputFormat == OutputFormat.SVG)
+            {
+                TempOutputFiles = Directory.GetFiles(Path.GetDirectoryName(TempOutputFiles[0]));
+            }
+            else
+            {
+                TempOutputFiles = TempOutputFiles.OrderBy(x => x).ToList();
+            }
+
+
 
             _outfilebody = DetermineOutfileBody();
 

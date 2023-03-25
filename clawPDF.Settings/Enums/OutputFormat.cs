@@ -14,10 +14,13 @@ namespace clawSoft.clawPDF.Core.Settings.Enums
         [Description("PDF/CMYK-Image")] PdfImage32,
         [Description("PDF/Gray-OCR")] PdfOCR8,
         [Description("PDF/RGB-OCR")] PdfOCR24,
-        [Description("PDF/CMYK-OCR")] PdfOCR32,
+        [Description("PDF/CMYK-OCR")] PdfOCR32,        
         [Description("JPEG")] Jpeg,
         [Description("PNG")] Png,
         [Description("TIFF")] Tif,
+        [Description("SVG")] SVG,
+        //[Description("DOCX")] DOCX,
+        //[Description("XPS")] XPS,
         [Description("OCRText")] OCRTxt,
         [Description("Text")] Txt
     }

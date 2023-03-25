@@ -345,6 +345,36 @@ namespace clawSoft.clawPDF.Helper
             SetDefaultProperties(ocrTextProfile, true);
             settings.ConversionProfiles.Add(ocrTextProfile);
 
+            //DocxProfile
+            //var docxProfile = new ConversionProfile();
+            //docxProfile.Name = "DOCX (Office Open XML)";
+            //docxProfile.Guid = ProfileGuids.DOCX_PROFILE_GUID;
+
+            //docxProfile.OutputFormat = OutputFormat.DOCX;
+
+            //SetDefaultProperties(docxProfile, true);
+            //settings.ConversionProfiles.Add(docxProfile);
+
+            //XPSProfile
+            //var xpsProfile = new ConversionProfile();
+            //xpsProfile.Name = "XPS (Open XML Paper)";
+            //xpsProfile.Guid = ProfileGuids.XPS_PROFILE_GUID;
+
+            //xpsProfile.OutputFormat = OutputFormat.XPS;
+
+            //SetDefaultProperties(xpsProfile, true);
+            //settings.ConversionProfiles.Add(xpsProfile);
+
+            //svgProfile
+            var svgProfile = new ConversionProfile();
+            svgProfile.Name = "SVG (Scalable Vector Graphics)";
+            svgProfile.Guid = ProfileGuids.SVG_PROFILE_GUID;
+
+            svgProfile.OutputFormat = OutputFormat.SVG;
+
+            SetDefaultProperties(svgProfile, true);
+            settings.ConversionProfiles.Add(svgProfile);
+
             //PngProfile
             var pngProfile = new ConversionProfile();
             pngProfile.Name = "PNG (graphic file)";
@@ -391,7 +421,7 @@ namespace clawSoft.clawPDF.Helper
 
             var endReplacements = new[]
             {
-                ".xps",
+                ".oxps",
                 ".xml",
                 ".xltx",
                 ".xltm",

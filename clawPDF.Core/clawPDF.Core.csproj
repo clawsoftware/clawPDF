@@ -71,6 +71,9 @@
     <Compile Include="Ghostscript\GhostscriptCall.cs" />
     <Compile Include="Ghostscript\GhostscriptAPI.cs" />
     <Compile Include="Ghostscript\OutputDevices\OCRDevice.cs" />
+    <Compile Include="Ghostscript\OutputDevices\DocxDevice.cs" />
+    <Compile Include="Ghostscript\OutputDevices\XpsDevice.cs" />
+    <Compile Include="Ghostscript\OutputDevices\SvgDevice.cs" />
     <Compile Include="Ghostscript\OutputDevices\TextDevice.cs" />
     <Compile Include="Helper\EncodingHelper.cs" />
     <Compile Include="Jobs\ITempPathProvider.cs" />
@@ -158,6 +161,9 @@
   <ItemGroup>
     <PackageReference Include="NLog">
       <Version>5.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="PdfToSvg.NET">
+      <Version>0.8.2</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

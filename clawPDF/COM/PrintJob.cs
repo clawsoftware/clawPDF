@@ -40,6 +40,8 @@ namespace clawSoft.clawPDF.COM
 
         FileStream ConvertToFileStream(string fileName);
 
+        bool ConvertToFileStream([Out, MarshalAs(UnmanagedType.AsAny)] object COMStream, string fileName);
+
         void ConvertToAsync(string fullFileName);
 
         void SetProfileSetting(string name, string value);
@@ -183,6 +185,96 @@ namespace clawSoft.clawPDF.COM
         }
 
         /// <summary>
+        ///     Converts the job to a FileStram
+        /// </summary>
+        /// <param name="fileName">Specifies the file name (example.pdf)</param>
+        public bool ConvertToFileStream([Out, MarshalAs(UnmanagedType.AsAny)] object COMStream, string fileName)
+        {
+            string tempPath = Path.GetTempPath();
+            string filePath = Path.Combine(tempPath, fileName);
+            LocationSetUp(filePath);
+
+            Logger.Trace("COM: Starting the conversion process.");
+            DoConversion();
+
+            if (OnJobFinished != null)
+                OnJobFinished(this, new EventArgs());
+
+            if (JobFinished != null)
+                JobFinished();
+
+            Logger.Trace("COM: Removing jobinfo from the queue.");
+            _comJobInfoQueue.Remove(JobInfo);
+
+            try
+            {
+                return SendToFileStream(COMStream, filePath);
+            }
+            catch (Exception ex)
+            {
+                throw new COMException(ex.ToString());
+            }
+            finally
+            {
+                File.Delete(filePath);
+            }
+        }
+
+        /// <summary>
+        ///     Converts the job to a FileStram
+        /// </summary>
+        /// <param name="fileName">Specifies the file name (example.pdf)</param>
+        public bool SendToFileStream([Out, MarshalAs(UnmanagedType.AsAny)] object COMStream, string fileName)
+        {
+            IntPtr rwBytes = IntPtr.Zero;
+            IStream COMStream1 = COMStream as IStream;
+            rwBytes = Marshal.AllocHGlobal(4);
+            int bytes = 0;
+            byte[] buffer1 = new byte[0xafc8];
+            FileStream reader = new FileStream(fileName, FileMode.Open);
+            //IStream COMStream = new IStream();
+            int _rwBytes = 0xafc8;
+            bool result = true;
+            int bytesRead = 0;
+            do
+            {
+                bytesRead = reader.Read(buffer1, 0, _rwBytes);
+                Marshal.WriteInt32(rwBytes, bytesRead);
+                COMStream1.Write(buffer1, bytesRead, rwBytes);
+            }
+            while (bytesRead > 0);
+            //COMStream1.Commit(0);
+            reader.Close();
+            reader.Dispose();
+            Marshal.FreeHGlobal(rwBytes);
+            return result;
+        }
+
+        /// <summary>
+        ///     Converts the job to a FileStram
+        /// </summary>
+        /// <param name="filePath">Specifies the file name (example.pdf)</param>
+        public FileStream SendToFileStream(string filePath)
+        {
+            FileStream fileStream = null;
+
+            try
+            {
+                fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            }
+            catch (Exception ex)
+            {
+                throw new COMException(ex.ToString());
+            }
+            finally
+            {
+                fileStream.Close();
+            }
+
+            return fileStream;
+        }
+
+        /// <summary>
         ///     Converts the job to the specified location asynchronously
         /// </summary>
         /// <param name="fullFileName">Specifies the location and the file's name</param>
@@ -259,26 +351,6 @@ namespace clawSoft.clawPDF.COM
             {
                 throw new COMException("Invalid path. Please check if the directory exists.");
             }
-        }
-
-        public FileStream SendToFileStream(string filePath)
-        {
-            FileStream fileStream = null;
-
-            try
-            {
-                fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-            }
-            catch (Exception ex)
-            {
-                throw new COMException(ex.ToString());
-            }
-            finally
-            {
-                fileStream.Close();
-            }
-
-            return fileStream;
         }
 
         /// <summary>

@@ -9,225 +9,30 @@ using SystemInterface.IO;
 namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 {
     /// <summary>
-    ///     Extends OutputDevice to create PDF files
+    ///     Extends OutputDevice to create XPS files
     /// </summary>
-    public class PdfDevice : OutputDevice
+    public class XpsDevice : OutputDevice
     {
         private const int DpiMin = 4;
         private const int DpiMax = 2400;
 
-        public PdfDevice(IJob job) : base(job)
+        public XpsDevice(IJob job) : base(job)
         {
         }
 
-        public PdfDevice(IJob job, IFile file, IOsHelper osHelper) : base(job, file, osHelper)
+        public XpsDevice(IJob job, IFile file, IOsHelper osHelper) : base(job, file, osHelper)
         {
         }
 
         protected override void AddDeviceSpecificParameters(IList<string> parameters)
         {
-            parameters.Add("-sDEVICE=pdfwrite");
-            parameters.Add("-dCompatibilityLevel=1.4");
-            parameters.Add("-dPDFSETTINGS=/default");
+            parameters.Add("-sDEVICE=xpswrite");
             parameters.Add("-dEmbedAllFonts=true");
 
             SetPageOrientation(parameters, DistillerDictonaries);
-
-            if (Job.Profile.OutputFormat != OutputFormat.PdfImage32
-                && Job.Profile.OutputFormat != OutputFormat.PdfImage24
-                && Job.Profile.OutputFormat != OutputFormat.PdfImage8
-                && Job.Profile.OutputFormat != OutputFormat.PdfOCR32
-                && Job.Profile.OutputFormat != OutputFormat.PdfOCR24
-                && Job.Profile.OutputFormat != OutputFormat.PdfOCR8)
-            {
-                SetColorSchemeParameters(parameters);
-            }
-
-            //ColorSheme must be defined before adding def files of PdfA/X
-            if (Job.Profile.OutputFormat == OutputFormat.PdfX)
-                SetPdfXParameters(parameters);
-            else if (Job.Profile.OutputFormat == OutputFormat.PdfImage32)
-                SetPdfImage32Parameters(parameters);
-            else if (Job.Profile.OutputFormat == OutputFormat.PdfImage24)
-                SetPdfImage24Parameters(parameters);
-            else if (Job.Profile.OutputFormat == OutputFormat.PdfImage8)
-                SetPdfImage8Parameters(parameters);
-            else if (Job.Profile.OutputFormat == OutputFormat.PdfOCR32)
-                SetPdfOCR32Parameters(parameters);
-            else if (Job.Profile.OutputFormat == OutputFormat.PdfOCR24)
-                SetPdfOCR24Parameters(parameters);
-            else if (Job.Profile.OutputFormat == OutputFormat.PdfOCR8)
-                SetPdfOCR8Parameters(parameters);
-            else if (Job.Profile.OutputFormat == OutputFormat.PdfA1B
-                     || Job.Profile.OutputFormat == OutputFormat.PdfA2B
-                     || Job.Profile.OutputFormat == OutputFormat.PdfA3B)
-                SetPdfAParameters(parameters);
-
-                GrayAndColorImagesCompressionAndResample(parameters, DistillerDictonaries);
-                MonoImagesCompression(parameters);
-        }
-
-        private void SetPdfAParameters(IList<string> parameters)
-        {
-            var shortenedTempPath = Job.JobTempFolder;
-
-            switch (Job.Profile.OutputFormat)
-            {
-                case OutputFormat.PdfA1B:
-                    parameters.Add("-dPDFA=1");
-                    break;
-
-                case OutputFormat.PdfA2B:
-                    parameters.Add("-dPDFA=2");
-                    break;
-
-                case OutputFormat.PdfA3B:
-                    parameters.Add("-dPDFA=3");
-                    break;
-            }
-
-            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath + "\"");
-
-            //Add ICC profile
-            var iccFile = PathSafe.Combine(shortenedTempPath, "profile.icc");
-
-            //Set ICC Profile according to the color model
-            switch (Job.Profile.PdfSettings.ColorModel)
-            {
-                case ColorModel.Cmyk:
-                    FileWrap.WriteAllBytes(iccFile, CoreResources.WebCoatedFOGRA28);
-                    break;
-
-                case ColorModel.Gray:
-                    FileWrap.WriteAllBytes(iccFile, CoreResources.ISOcoated_v2_grey1c_bas);
-                    break;
-
-                default:
-                    FileWrap.WriteAllBytes(iccFile, CoreResources.eciRGB_v2);
-                    break;
-            }
-
-            parameters.Add("-sPDFACompatibilityPolicy=1");
-
-            parameters.Add("-sOutputICCProfile=" + iccFile);
-
-            var defFile = PathSafe.Combine(Job.JobTempFolder, "pdfa_def.ps");
-            var sb = new StringBuilder(CoreResources.PdfaDefinition);
-            sb.Replace("[ICC_PROFILE]", "(" + EncodeGhostscriptParametersOctal(iccFile.Replace('\\', '/')) + ")");
-            FileWrap.WriteAllText(defFile, sb.ToString());
-            parameters.Add(defFile);
-        }
-
-        private void SetPdfXParameters(IList<string> parameters)
-        {
-            var shortenedTempPath = Job.JobTempFolder;
-
-            parameters.Add("-dPDFX");
-
-            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
-                         "\"");
-
-            //Add ICC profile
-            var iccFile = PathSafe.Combine(shortenedTempPath, "profile.icc");
-            FileWrap.WriteAllBytes(iccFile, CoreResources.ISOcoated_v2_300_eci);
-            parameters.Add("-sOutputICCProfile=" + iccFile);
-
-            var defFile = PathSafe.Combine(shortenedTempPath, "pdfx_def.ps");
-            var sb = new StringBuilder(CoreResources.PdfxDefinition);
-            sb.Replace("/ICCProfile (ISO Coated sb.icc)",
-                "/ICCProfile (" + EncodeGhostscriptParametersOctal(iccFile.Replace('\\', '/')) + ")");
-            FileWrap.WriteAllText(defFile, sb.ToString());
-            parameters.Add(defFile);
-        }
-
-        private void SetPdfImage32Parameters(IList<string> parameters)
-        {
-            var shortenedTempPath = Job.JobTempFolder;
-
-            int replaceDevice = parameters.IndexOf("-sDEVICE=pdfwrite");
-            if (replaceDevice != -1)
-            {
-                parameters[replaceDevice] = "-sDEVICE=pdfimage32";
-            }
-
-            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
-                         "\"");
-        }
-
-        private void SetPdfImage24Parameters(IList<string> parameters)
-        {
-            var shortenedTempPath = Job.JobTempFolder;
-
-            int replaceDevice = parameters.IndexOf("-sDEVICE=pdfwrite");
-            if (replaceDevice != -1)
-            {
-                parameters[replaceDevice] = "-sDEVICE=pdfimage24";
-            }
-
-            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
-                         "\"");
-        }
-
-        private void SetPdfImage8Parameters(IList<string> parameters)
-        {
-            var shortenedTempPath = Job.JobTempFolder;
-
-            int replaceDevice = parameters.IndexOf("-sDEVICE=pdfwrite");
-            if (replaceDevice != -1)
-            {
-                parameters[replaceDevice] = "-sDEVICE=pdfimage8";
-            }
-
-            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
-                         "\"");
-        }
-
-        private void SetPdfOCR32Parameters(IList<string> parameters)
-        {
-            var shortenedTempPath = Job.JobTempFolder;
-
-            int replaceDevice = parameters.IndexOf("-sDEVICE=pdfwrite");
-            if (replaceDevice != -1)
-            {
-                parameters[replaceDevice] = "-sDEVICE=pdfocr32";
-            }
-            parameters.Add("-r200");
-            parameters.Add("-sOCRLanguage=" + Job.Profile.OCRSettings.OCRLanguage);
-
-            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
-                         "\"");
-        }
-
-        private void SetPdfOCR24Parameters(IList<string> parameters)
-        {
-            var shortenedTempPath = Job.JobTempFolder;
-
-            int replaceDevice = parameters.IndexOf("-sDEVICE=pdfwrite");
-            if (replaceDevice != -1)
-            {
-                parameters[replaceDevice] = "-sDEVICE=pdfocr24";
-            }
-            parameters.Add("-r200");
-            parameters.Add("-sOCRLanguage=" + Job.Profile.OCRSettings.OCRLanguage);
-
-            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
-                         "\"");
-        }
-
-        private void SetPdfOCR8Parameters(IList<string> parameters)
-        {
-            var shortenedTempPath = Job.JobTempFolder;
-
-            int replaceDevice = parameters.IndexOf("-sDEVICE=pdfwrite");
-            if (replaceDevice != -1)
-            {
-                parameters[replaceDevice] = "-sDEVICE=pdfocr8";
-            }
-            parameters.Add("-r200");
-            parameters.Add("-sOCRLanguage=" + Job.Profile.OCRSettings.OCRLanguage);
-
-            Logger.Debug("Shortened Temppath from\r\n\"" + Job.JobTempFolder + "\"\r\nto\r\n\"" + shortenedTempPath +
-                         "\"");
+            SetColorSchemeParameters(parameters);           
+            GrayAndColorImagesCompressionAndResample(parameters, DistillerDictonaries);
+            MonoImagesCompression(parameters);
         }
 
         private void GrayAndColorImagesCompressionAndResample(IList<string> parameters,
@@ -411,11 +216,6 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 
         private void SetColorSchemeParameters(IList<string> parameters)
         {
-            // PDF/X only supports CMYK Colors
-            if (Job.Profile.OutputFormat == OutputFormat.PdfX)
-                if (Job.Profile.PdfSettings.ColorModel == ColorModel.Rgb)
-                    Job.Profile.PdfSettings.ColorModel = ColorModel.Cmyk;
-
             switch (Job.Profile.PdfSettings.ColorModel)
             {
                 case ColorModel.Cmyk:
@@ -463,7 +263,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
 
         protected override string ComposeOutputFilename()
         {
-            return Job.JobTempFileName + ".pdf";
+            return Job.JobTempFileName + ".oxps";
         }
     }
 }

@@ -1,7 +1,7 @@
 # clawPDF - Virtual PDF/OCR/Image Printer
 
 Yet another PDF/OCR/Image Printer? Yes! This PDF/OCR/Image Printer has the intention to be completely open source.<br><br>
-Open Source virtual PDF printer for Windows 7 / 8 / 10 / 11 / Windows Server RDS<br>
+Open Source virtual PDF printer for Windows 7 / 8 / 10 / 11 / Windows Server RDS.<br><br>
 Print to PDF, PDF/A-1b, PDF/A-2b, PDF/A-3b, OCR, PDF/X, PDF/Image, PNG, JPEG, TIF and TXT.
 
 # Download
@@ -25,10 +25,10 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.9/clawPDF_0.8.9_se
 - [Post Actions](https://github.com/clawsoftware/clawPDF/wiki/Post-Actions)
 - Create additional printers with assigned profile
 - [24 translations. Add yours!](https://github.com/clawsoftware/clawPDF/wiki/Translations)
+- Easy to deploy (MSI-Installer & Config)
 - Many settings
 - Easy to use
-- Easy to deploy (MSI-Installer & Config)
-- No adware, spyware, nagware
+- No adware, spyware and nagware
 
 # Demo
 
@@ -58,7 +58,7 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.9/clawPDF_0.8.9_se
 - Windows 8 x32/x64
 - Windows 7 x32/x64
 
-# Commandline
+# Command Line
 
 ## Batch Printing
 ```
@@ -96,7 +96,9 @@ clawPDF.exe /ManagePrintJobs
 
 ## v0.9.0 (TBA)
 
+- [feature] SVG file support
 - [update] Changed default time server
+- [bugfix] PDF/X code regression
 
 ## v0.8.9 (2023.03.22)
 

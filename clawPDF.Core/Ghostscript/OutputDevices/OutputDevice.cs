@@ -74,7 +74,7 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
             IList<string> parameters = new List<string>();
 
             parameters.Add("gs");
-            parameters.Add("-sFONTPATH=" + OsHelper.WindowsFontsFolder);
+            parameters.Add("-sFONTPATH=" + OsHelper.WindowsFontsFolder + ";" + Directory.GetCurrentDirectory() + @"\fonts");
 
             parameters.Add("-dNOPAUSE");
             parameters.Add("-dBATCH");
@@ -393,12 +393,24 @@ namespace clawSoft.clawPDF.Core.Ghostscript.OutputDevices
                     validExtensions = new[] { ".pdf" };
                     break;
 
+                //case OutputFormat.DOCX:
+                //    validExtensions = new[] { ".docx" };
+                //    break;
+
+                //case OutputFormat.XPS:
+                //    validExtensions = new[] { ".oxps" };
+                //    break;
+
                 case OutputFormat.OCRTxt:
                     validExtensions = new[] { ".txt" };
                     break;
 
                 case OutputFormat.Txt:
                     validExtensions = new[] { ".txt" };
+                    break;
+
+                case OutputFormat.SVG:
+                    validExtensions = new[] { ".svg" };
                     break;
 
                 default:
