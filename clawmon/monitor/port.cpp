@@ -1341,6 +1341,7 @@ void CPort::SetHomeDirectory(HANDLE hToken)
 {
 	wchar_t hostname[256];
 	DWORD hostnameLength = sizeof(hostname) / sizeof(wchar_t);
+	GetComputerNameW(hostname, &hostnameLength);
 
 	for (wchar_t* p = hostname; *p; ++p)
 	{
@@ -1362,7 +1363,7 @@ void CPort::SetHomeDirectory(HANDLE hToken)
 		HRESULT hr = SHGetFolderPath(NULL, CSIDL_PROFILE, hToken, 0, szHomeDirBuf);
 		if (hr == S_OK)
 		{
-			g_pLog->Log(LOGLEVEL_ALL, L" Local print job");
+			g_pLog->Log(LOGLEVEL_ALL, L" Local Print Job");
 			WCHAR szTempDir[MAX_PATH] = { 0 };
 			wcsncpy_s(szTempDir, MAX_PATH, szHomeDirBuf, _TRUNCATE);
 			wcsncat_s(szTempDir, MAX_PATH, L"\\AppData\\Local\\Temp\\clawPDF\\Spool", _TRUNCATE);
@@ -1372,7 +1373,7 @@ void CPort::SetHomeDirectory(HANDLE hToken)
 		}
 		else
 		{
-			g_pLog->Log(LOGLEVEL_ALL, L" Network print job");
+			g_pLog->Log(LOGLEVEL_ALL, L" Fallback Temp Folder");
 			WCHAR szTempDir[MAX_PATH] = { 0 };
 			WCHAR temp[MAX_PATH] = { 0 };
 			GetEnvironmentVariableW(L"TEMP", temp, MAX_PATH);
@@ -1383,5 +1384,18 @@ void CPort::SetHomeDirectory(HANDLE hToken)
 			wcsncpy_s(m_nszOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
 			g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szTempDir);
 		}
+	}
+	else
+	{
+		g_pLog->Log(LOGLEVEL_ALL, L" Network Print Job");
+		WCHAR szTempDir[MAX_PATH] = { 0 };
+		WCHAR temp[MAX_PATH] = { 0 };
+		GetEnvironmentVariableW(L"TEMP", temp, MAX_PATH);
+		wcsncpy_s(szTempDir, MAX_PATH, temp, _TRUNCATE);
+		wcsncat_s(szTempDir, MAX_PATH, L"\\clawPDF\\Spool\\", _TRUNCATE);
+		wcsncat_s(szTempDir, MAX_PATH, UserName(), _TRUNCATE);
+		wcsncpy_s(m_szOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
+		wcsncpy_s(m_nszOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
+		g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szTempDir);
 	}
 }
