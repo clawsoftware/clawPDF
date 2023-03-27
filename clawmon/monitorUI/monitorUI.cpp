@@ -402,32 +402,32 @@ BOOL CALLBACK MonitorUIDlgProc(HWND hDlg, UINT uMessage, WPARAM wParam, LPARAM l
 				GetDlgItemTextW(hDlg, ID_EDTPASSWORD, ppc->szPassword, LENGTHOF(ppc->szPassword));
 
 			//check nome file
-			if (*ppc->szFilePattern == L'\0')
-			{
-				MessageBoxW(hDlg, szMsgProvideFileName, szAppTitle, MB_OK);
-				SetFocus(GetDlgItem(hDlg, ID_EDTFILEPATTERN));
-				return TRUE;
-			}
-			/*
-							else if (wcspbrk(ppc->szFilePattern, szInvalidCharacters) != NULL)
-							{
-								WCHAR szBuf[512];
-								swprintf_s(szBuf, LENGTHOF(szBuf), szMsgProvideFileName,
-									szMsgInvalidFileName, szInvalidCharacters);
-								MessageBoxW(hDlg, szBuf, szAppTitle, MB_OK);
-								SetFocus(GetDlgItem(hDlg, ID_EDTFILEPATTERN));
-								return TRUE;
-							}
-			*/
-			else if (!CheckPattern(ppc->szFilePattern))
-			{
-				WCHAR szBuf[512];
-				swprintf_s(szBuf, LENGTHOF(szBuf), L"%s\r\n%s", szMsgProvideFileName,
-					szMsgInvalidFileName);
-				MessageBoxW(hDlg, szBuf, szAppTitle, MB_OK);
-				SetFocus(GetDlgItem(hDlg, ID_EDTFILEPATTERN));
-				return TRUE;
-			}
+			//if (*ppc->szFilePattern == L'\0')
+			//{
+			//	MessageBoxW(hDlg, szMsgProvideFileName, szAppTitle, MB_OK);
+			//	SetFocus(GetDlgItem(hDlg, ID_EDTFILEPATTERN));
+			//	return TRUE;
+			//}
+			///*
+			//				else if (wcspbrk(ppc->szFilePattern, szInvalidCharacters) != NULL)
+			//				{
+			//					WCHAR szBuf[512];
+			//					swprintf_s(szBuf, LENGTHOF(szBuf), szMsgProvideFileName,
+			//						szMsgInvalidFileName, szInvalidCharacters);
+			//					MessageBoxW(hDlg, szBuf, szAppTitle, MB_OK);
+			//					SetFocus(GetDlgItem(hDlg, ID_EDTFILEPATTERN));
+			//					return TRUE;
+			//				}
+			//*/
+			//else if (!CheckPattern(ppc->szFilePattern))
+			//{
+			//	WCHAR szBuf[512];
+			//	swprintf_s(szBuf, LENGTHOF(szBuf), L"%s\r\n%s", szMsgProvideFileName,
+			//		szMsgInvalidFileName);
+			//	MessageBoxW(hDlg, szBuf, szAppTitle, MB_OK);
+			//	SetFocus(GetDlgItem(hDlg, ID_EDTFILEPATTERN));
+			//	return TRUE;
+			//}
 
 			EndDialog(hDlg, IDOK);
 			return TRUE;

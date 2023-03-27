@@ -96,6 +96,7 @@ clawPDF.exe /ManagePrintJobs
 
 ## v0.9.0 (TBA)
 
+- [feature] Network printing support
 - [feature] SVG file support
 - [update] Changed default time server
 - [bugfix] PDF/X code regression

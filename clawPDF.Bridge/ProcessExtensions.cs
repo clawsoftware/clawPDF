@@ -12,6 +12,35 @@ namespace clawPDF.Bridge
         private const uint INVALID_SESSION_ID = 0xFFFFFFFF;
         private static readonly IntPtr WTS_CURRENT_SERVER_HANDLE = IntPtr.Zero;
 
+        public enum LOGON_TYPE
+        {
+            LOGON32_LOGON_INTERACTIVE = 2,
+            LOGON32_LOGON_NETWORK,
+            LOGON32_LOGON_BATCH,
+            LOGON32_LOGON_SERVICE,
+            LOGON32_LOGON_UNLOCK = 7,
+            LOGON32_LOGON_NETWORK_CLEARTEXT,
+            LOGON32_LOGON_NEW_CREDENTIALS
+        }
+
+        public enum LOGON_PROVIDER
+        {
+            LOGON32_PROVIDER_DEFAULT,
+            LOGON32_PROVIDER_WINNT35,
+            LOGON32_PROVIDER_WINNT40,
+            LOGON32_PROVIDER_WINNT50
+        }
+
+        [DllImport("advapi32.dll", SetLastError = true)]
+        public static extern bool LogonUserW(
+            string lpszUsername,
+            string lpszDomain,
+            string lpszPassword,
+            int dwLogonType,
+            int dwLogonProvider,
+            out IntPtr phToken
+            );
+
         [DllImport("wtsapi32.dll")]
         private static extern IntPtr WTSOpenServer([MarshalAs(UnmanagedType.LPStr)] String pServerName);
 

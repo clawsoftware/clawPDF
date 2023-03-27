@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.ServiceProcess;
 using System.Threading;
 using clawSoft.clawPDF.Shared.Helper;
 using clawSoft.clawPDF.Shared.ViewModels;
@@ -58,7 +60,7 @@ namespace clawSoft.clawPDF.Assistants
                 Logger.Debug("Done: {0}", installResult);
             }
 
-            Thread.Sleep(10000);
+            WaitForPrintSpooler();
 
             Logger.Debug("Now we'll check again, if the printer is installed");
             if (IsRepairRequired())
@@ -113,6 +115,25 @@ namespace clawSoft.clawPDF.Assistants
         {
             var printerHelper = new PrinterHelper();
             return !printerHelper.GetclawPDFPrinters().Any();
+        }
+
+        public void WaitForPrintSpooler()
+        {
+            ServiceController printSpooler = new ServiceController("Spooler");
+
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
+            while (printSpooler.Status != ServiceControllerStatus.Running && stopwatch.ElapsedMilliseconds < 120000)
+            {
+                printSpooler.Refresh();
+                Thread.Sleep(3000);
+            }
+
+            stopwatch.Stop();
+
+            if (printSpooler.Status != ServiceControllerStatus.Running)
+            {
+            }
         }
     }
 }

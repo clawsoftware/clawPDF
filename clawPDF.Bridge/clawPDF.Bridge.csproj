@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -69,6 +70,10 @@
     <ProjectReference Include="..\clawPDF.Core\clawPDF.Core.csproj">
       <Project>{18354054-45f6-4f51-8730-d05643a400a3}</Project>
       <Name>clawPDF.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\clawPDF.Utilities\clawPDF.Utilities.csproj">
+      <Project>{EA29538B-89A5-4FB3-AE0F-5E2370E852F8}</Project>
+      <Name>clawPDF.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

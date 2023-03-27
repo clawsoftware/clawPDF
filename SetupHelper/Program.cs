@@ -21,13 +21,13 @@ namespace clawSoft.clawPDF.SetupHelper
                 showUsage = false;
                 try
                 {
-                    switch (clp.GetArgument("Driver"))
+                    switch (clp.GetArgument("Driver").ToLower())
                     {
-                        case "Add":
+                        case "add":
                             Actions.InstallclawPDFPrinter();
                             break;
 
-                        case "Remove":
+                        case "remove":
                             Actions.UninstallclawPDFPrinter();
                             break;
 
@@ -49,13 +49,13 @@ namespace clawSoft.clawPDF.SetupHelper
                 try
                 {
                     string name = clp.GetArgument("Name");
-                    switch (clp.GetArgument("Printer"))
+                    switch (clp.GetArgument("Printer").ToLower())
                     {
-                        case "Add":
+                        case "add":
                             Actions.AddPrinter(name);
                             break;
 
-                        case "Remove":
+                        case "remove":
                             Actions.RemovePrinter(name);
                             break;
 
@@ -76,13 +76,13 @@ namespace clawSoft.clawPDF.SetupHelper
                 showUsage = false;
                 try
                 {
-                    switch (clp.GetArgument("FileExtensions"))
+                    switch (clp.GetArgument("FileExtensions").ToLower())
                     {
-                        case "Add":
+                        case "add":
                             AddExplorerIntegration();
                             break;
 
-                        case "Remove":
+                        case "remove":
                             RemoveExplorerIntegration();
                             break;
 
@@ -103,13 +103,13 @@ namespace clawSoft.clawPDF.SetupHelper
                 showUsage = false;
                 try
                 {
-                    switch (clp.GetArgument("ComInterface"))
+                    switch (clp.GetArgument("ComInterface").ToLower())
                     {
-                        case "Register":
+                        case "register":
                             RegisterComInterface();
                             break;
 
-                        case "Unregister":
+                        case "unregister":
                             UnregisterComInterface();
                             break;
 

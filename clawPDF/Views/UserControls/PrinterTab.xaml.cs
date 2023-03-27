@@ -1,4 +1,6 @@
-﻿using System.Threading;
+﻿using System.Diagnostics;
+using System.ServiceProcess;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using clawSoft.clawPDF.Shared.Assistants;
@@ -50,7 +52,7 @@ namespace clawSoft.clawPDF.Views.UserControls
 
             string printerName;
             helper.AddPrinter(out printerName);
-            Thread.Sleep(10000);
+            WaitForPrintSpooler();
 
             return printerName;
         }
@@ -59,7 +61,7 @@ namespace clawSoft.clawPDF.Views.UserControls
         {
             var helper = new PrinterActionsAssistant();
             var success = helper.DeletePrinter(printerMapping.PrinterName, ViewModel.ClawPdfPrinters.Count);
-            Thread.Sleep(10000);
+            WaitForPrintSpooler();
 
             if (success)
             {
@@ -72,6 +74,25 @@ namespace clawSoft.clawPDF.Views.UserControls
         public void UpdateProfilesList()
         {
             ViewModel.RefreshPrinterMappings();
+        }
+
+        public void WaitForPrintSpooler()
+        {
+            ServiceController printSpooler = new ServiceController("Spooler");
+
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
+            while (printSpooler.Status != ServiceControllerStatus.Running && stopwatch.ElapsedMilliseconds < 120000)
+            {
+                printSpooler.Refresh();
+                Thread.Sleep(3000);
+            }
+
+            stopwatch.Stop();
+
+            if (printSpooler.Status != ServiceControllerStatus.Running)
+            {
+            }
         }
     }
 }

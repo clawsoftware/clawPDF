@@ -28,6 +28,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "..\common\monutils.h"
 #include <string>
 #include <Shlobj.h>
+#include <limits.h>
 
 //-------------------------------------------------------------------------------------
 static BOOL EnablePrivilege(
@@ -1338,22 +1339,49 @@ void CPort::WriteControlFile()
 
 void CPort::SetHomeDirectory(HANDLE hToken)
 {
-	WCHAR szHomeDirBuf[MAX_PATH] = { 0 };
-	HRESULT hr = SHGetFolderPath(NULL, CSIDL_PROFILE, hToken, 0, szHomeDirBuf);
-	if (hr == S_OK)
+	wchar_t hostname[256];
+	DWORD hostnameLength = sizeof(hostname) / sizeof(wchar_t);
+
+	for (wchar_t* p = hostname; *p; ++p)
 	{
-		WCHAR szTempDir[MAX_PATH] = { 0 };
-		wcsncpy_s(szTempDir, MAX_PATH, szHomeDirBuf, _TRUNCATE);
-		wcsncat_s(szTempDir, MAX_PATH, L"\\AppData\\Local\\Temp\\clawPDF\\Spool", _TRUNCATE);
-		wcsncpy_s(m_szOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
-		wcsncpy_s(m_nszOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
-		g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szTempDir);
+		*p = towlower(*p);
 	}
-	else
+
+	wchar_t jobhostname[256];
+	wcscpy(jobhostname, ComputerName());
+	for (wchar_t* p = jobhostname; *p; ++p)
 	{
-		g_pLog->Log(LOGLEVEL_ALL, L" Fallback to Windows Temp");
-		WCHAR szTempDir[MAX_PATH] = { 0 };
-		wcsncat_s(szTempDir, MAX_PATH, L"\\Windows\\Temp\\clawPDF\\Spool", _TRUNCATE);
-		g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szTempDir);
+		*p = towlower(*p);
+	}
+
+	int result = wcscmp(jobhostname, hostname);
+
+	if (result == 0)
+	{
+		WCHAR szHomeDirBuf[MAX_PATH] = { 0 };
+		HRESULT hr = SHGetFolderPath(NULL, CSIDL_PROFILE, hToken, 0, szHomeDirBuf);
+		if (hr == S_OK)
+		{
+			g_pLog->Log(LOGLEVEL_ALL, L" Local print job");
+			WCHAR szTempDir[MAX_PATH] = { 0 };
+			wcsncpy_s(szTempDir, MAX_PATH, szHomeDirBuf, _TRUNCATE);
+			wcsncat_s(szTempDir, MAX_PATH, L"\\AppData\\Local\\Temp\\clawPDF\\Spool", _TRUNCATE);
+			wcsncpy_s(m_szOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
+			wcsncpy_s(m_nszOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
+			g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szTempDir);
+		}
+		else
+		{
+			g_pLog->Log(LOGLEVEL_ALL, L" Network print job");
+			WCHAR szTempDir[MAX_PATH] = { 0 };
+			WCHAR temp[MAX_PATH] = { 0 };
+			GetEnvironmentVariableW(L"TEMP", temp, MAX_PATH);
+			wcsncpy_s(szTempDir, MAX_PATH, temp, _TRUNCATE);
+			wcsncat_s(szTempDir, MAX_PATH, L"\\clawPDF\\Spool\\", _TRUNCATE);
+			wcsncat_s(szTempDir, MAX_PATH, UserName(), _TRUNCATE);
+			wcsncpy_s(m_szOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
+			wcsncpy_s(m_nszOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
+			g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szTempDir);
+		}
 	}
 }
