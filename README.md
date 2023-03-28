@@ -6,7 +6,7 @@ Print to PDF, PDF/A-1b, PDF/A-2b, PDF/A-3b, OCR, PDF/X, PDF/Image, PNG, JPEG, TI
 
 # Download
 
-https://github.com/clawsoftware/clawPDF/releases/download/0.8.9/clawPDF_0.8.9_setup.msi
+https://github.com/clawsoftware/clawPDF/releases/download/0.9.0/clawPDF_0.9.0_setup.msi
 
 
 # Features
