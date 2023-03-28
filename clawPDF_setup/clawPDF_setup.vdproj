@@ -124,13 +124,13 @@
         "Entry"
         {
         "MsmKey" = "8:_2DE9273C4C3B209CE272E7F7E125CCA9"
-        "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
+        "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_2DE9273C4C3B209CE272E7F7E125CCA9"
-        "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
+        "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -519,6 +519,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B5137E67E4A24F3FB07B76185C0969D7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_BA871D271E8149C4961B234AF1EBE071"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -550,13 +556,7 @@
         "Entry"
         {
         "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
-        "OwnerKey" = "8:_4E05DB632D024749BCF6ECFC7F09AB29"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
-        "OwnerKey" = "8:_7F78C114226A455AA68D0A82851D76E8"
+        "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -568,12 +568,24 @@
         "Entry"
         {
         "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
-        "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
+        "OwnerKey" = "8:_7F78C114226A455AA68D0A82851D76E8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
+        "OwnerKey" = "8:_4E05DB632D024749BCF6ECFC7F09AB29"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_C0876E25984B43DCB1E08C3855BCA3E0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C38385C5916D403DB8EE1707D3BAB271"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -628,7 +640,7 @@
         "Entry"
         {
         "MsmKey" = "8:_DEC868D28729B9DC2D2BC75411C63EAF"
-        "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
+        "OwnerKey" = "8:_5479D0BF191E1CE46357774BB693901D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -640,7 +652,7 @@
         "Entry"
         {
         "MsmKey" = "8:_DEC868D28729B9DC2D2BC75411C63EAF"
-        "OwnerKey" = "8:_5479D0BF191E1CE46357774BB693901D"
+        "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -958,7 +970,7 @@
             "EntryPoint" = "8:"
             "Sequence" = "3:2"
             "Identifier" = "8:_1C390082_6427_41E9_BA3C_DA344C38B34C"
-            "InstallerClass" = "11:TRUE"
+            "InstallerClass" = "11:FALSE"
             "CustomActionData" = "8:"
             }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_34FB395B86CB4526B6E48597F373FB70"
@@ -972,7 +984,7 @@
             "EntryPoint" = "8:"
             "Sequence" = "3:2"
             "Identifier" = "8:_3B3D22C5_CF03_4369_9ABA_30E576F483D9"
-            "InstallerClass" = "11:TRUE"
+            "InstallerClass" = "11:FALSE"
             "CustomActionData" = "8:"
             }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_70EEECC25B44484B98D6ED7B7D5F6CEA"
@@ -1000,6 +1012,20 @@
             "EntryPoint" = "8:"
             "Sequence" = "3:3"
             "Identifier" = "8:_4EF33266_A87A_406E_8076_F8B91137D616"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_9F754F234D1A479784E7D49CB9EE38DB"
+            {
+            "Name" = "8:VCInstall"
+            "Condition" = "8:"
+            "Object" = "8:_7F78C114226A455AA68D0A82851D76E8"
+            "FileType" = "3:2"
+            "InstallAction" = "3:1"
+            "Arguments" = "8:/VCInstall"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:4"
+            "Identifier" = "8:_305B5699_E3B9_4693_BE79_6EC292475E7D"
             "InstallerClass" = "11:FALSE"
             "CustomActionData" = "8:"
             }
@@ -2513,6 +2539,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B5137E67E4A24F3FB07B76185C0969D7"
+            {
+            "SourcePath" = "8:..\\docs\\vcredist\\VC_redist.x86.exe"
+            "TargetName" = "8:VC_redist.x86.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_62F29F8115594DF38DED97F49B729028"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BA871D271E8149C4961B234AF1EBE071"
             {
             "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x86\\ps5ui.dll"
@@ -2630,6 +2676,26 @@
             "TargetName" = "8:Finnish.ini"
             "Tag" = "8:"
             "Folder" = "8:_25DCCE0FB86246B0BAA4F57F940E53E1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C38385C5916D403DB8EE1707D3BAB271"
+            {
+            "SourcePath" = "8:..\\docs\\vcredist\\VC_redist.x64.exe"
+            "TargetName" = "8:VC_redist.x64.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_62F29F8115594DF38DED97F49B729028"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3179,6 +3245,17 @@
                     "Property" = "8:_694F9FE83CAE456D8D7C0863FF87CB62"
                         "Folders"
                         {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_62F29F8115594DF38DED97F49B729028"
+                            {
+                            "Name" = "8:vcredist"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_B9501011310441BF83404823BC784FDD"
+                                "Folders"
+                                {
+                                }
+                            }
                             "{9EF0B969-E518-4E46-987F-47570745A589}:_78A970EA378C4F55887D381C883EA42F"
                             {
                             "Name" = "8:licenses"
@@ -3277,7 +3354,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:clawPDF 0.9.0"
         "ProductCode" = "8:{4D10169F-0F8F-4A2E-9729-2393FF9E05FB}"
-        "PackageCode" = "8:{E8877984-42EA-414D-9DAA-67C0F6CE3A44}"
+        "PackageCode" = "8:{363B327C-ED74-4E1C-91E5-F3A27F9647F8}"
         "UpgradeCode" = "8:{7D6DE248-9C3E-416C-8141-8178A480E45A}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

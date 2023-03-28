@@ -101,6 +101,7 @@ clawPDF.exe /ManagePrintJobs
 - [update] Ghostscript 10.01.1
 - [update] Changed default time server
 - [bugfix] PDF/X code regression
+- [setup] Added Visual C++ Redistributable dependencies
 
 ## v0.8.9 (2023.03.22)
 
@@ -112,6 +113,7 @@ clawPDF.exe /ManagePrintJobs
 # Requirements
 
 - .Net Framework 4.6.2+
+- Visual C++ Redistributable 14
 
 
 # Build
