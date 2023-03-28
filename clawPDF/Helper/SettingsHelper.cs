@@ -61,10 +61,10 @@ namespace clawSoft.clawPDF.Helper
 
             CheckAndAddMissingDefaultProfile(_settings);
 
-            if(string.IsNullOrEmpty(_settings.ApplicationProperties.ApplicationVersion.ToString()) || _settings.ApplicationProperties.ApplicationVersion < 87)
+            if(string.IsNullOrEmpty(_settings.ApplicationProperties.ApplicationVersion.ToString()) || _settings.ApplicationProperties.ApplicationVersion < 90)
             {
                 _settings = CreateDefaultSettings();
-                _settings.ApplicationProperties.ApplicationVersion = 87;
+                _settings.ApplicationProperties.ApplicationVersion = 90;
             }
 
             CheckPrinterMappings();
