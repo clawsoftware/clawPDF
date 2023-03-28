@@ -119,8 +119,7 @@ namespace clawPDF.Bridge
 
         private static void Usage()
         {
-            Console.WriteLine("clawPDF.Bridge " + Assembly.GetExecutingAssembly().GetName().Version +
-                              "             © clawSoft");
+            Console.WriteLine("clawPDF.Bridge " + Assembly.GetExecutingAssembly().GetName().Version);
             Console.WriteLine();
             Console.WriteLine("usage:");
             Console.WriteLine("clawPDF.Bridge.exe [/Networkprinter=Enable|Disable /Username=user [/Domain=domain]]");

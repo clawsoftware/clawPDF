@@ -134,8 +134,7 @@ namespace clawSoft.clawPDF.SetupHelper
 
         private static void Usage()
         {
-            Console.WriteLine("SetupHelper " + Assembly.GetExecutingAssembly().GetName().Version +
-                              "             © clawSoft");
+            Console.WriteLine("SetupHelper " + Assembly.GetExecutingAssembly().GetName().Version);
             Console.WriteLine();
             Console.WriteLine("usage:");
             Console.WriteLine("SetupHelper.exe [/Printer=Add|Remove /Name=Printer] [/FileExtensions=Add|Remove] [/ComInterface=Register|Unregister]");
