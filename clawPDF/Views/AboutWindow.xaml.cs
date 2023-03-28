@@ -17,6 +17,7 @@ namespace clawSoft.clawPDF.Views
             this.rt_license.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
             this.rt_license.Selection.Text =
             "- PDFCreator (https://github.com/pdfforge/PDFCreator), licensed under AGPL v3 license." + Environment.NewLine +
+            "- Pdftosvg.net (https://github.com/dmester/pdftosvg.net), licensed under MIT license." + Environment.NewLine +
             "- PDF library: iTextSharp (https://github.com/itext/itextsharp), licensed under AGPL v3 license." + Environment.NewLine +
             "- Logging: Nlog (https://github.com/NLog/NLog), licensed under BSD 3-Clause." + Environment.NewLine +
             "- Parts of the ghostscript control: PdfScribe (https://github.com/stchan/PdfScribe), licensed under AGPL v3 license." + Environment.NewLine +
@@ -28,9 +29,9 @@ namespace clawSoft.clawPDF.Views
             "- DataStorage.dll, licensed under pdfforge Freeware License." + Environment.NewLine +
             "- DynamicTranslator.dll, licensed under pdfforge Freeware License." + Environment.NewLine +
             "- TrueTypeFontInfo.dll, licensed under pdfforge Freeware License." + Environment.NewLine +
-            "- Appbar_save(http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported." + Environment.NewLine +
-            "- Appbar_cogs(http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported." + Environment.NewLine +
-            "- Appbar_page_file_pdf(http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported";
+            "- Appbar_save (http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported." + Environment.NewLine +
+            "- Appbar_cogs (http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported." + Environment.NewLine +
+            "- Appbar_page_file_pdf (http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported";
         }
 
         private void ShowUrlInBrowser(string url)

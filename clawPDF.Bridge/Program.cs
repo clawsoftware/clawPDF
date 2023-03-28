@@ -7,6 +7,7 @@ using System.IO;
 using System.Reflection;
 using System.Security.AccessControl;
 using System.Security.Cryptography;
+using System.Security.Principal;
 using System.Text;
 using System.Windows.Forms;
 using static clawPDF.Bridge.ProcessExtensions;
@@ -32,12 +33,39 @@ namespace clawPDF.Bridge
                     switch (clp.GetArgument("Networkprinter").ToLower())
                     {
                         case "enable":
+                            Console.WriteLine("");
+                            Console.WriteLine("> Use only an account with the minimum required permissions");
+                            Console.WriteLine("");
                             string username = clp.GetArgument("Username");
                             string domain = ".";
                             if (clp.HasArgument("Domain")) domain = !string.IsNullOrEmpty(clp.GetArgument("Domain")) ? clp.GetArgument("Domain") : ".";
                             Console.Write("Enter the password of the user '" + username + "': ");
                             string password = GetPassword();
-                            SaveLogon(username, domain, password);
+                            Console.Write("Repeat the password of the user '" + username + "': ");
+                            string repeat = GetPassword();
+                            if (password == repeat)
+                            {
+                                SaveLogon(username, domain, password);
+                                Console.WriteLine("");
+                                Console.WriteLine("> Authentication validation");
+                                IntPtr token = IntPtr.Zero;
+
+                                if (LogonUserW(username, domain, password, (int)LOGON_TYPE.LOGON32_LOGON_NETWORK, (int)LOGON_PROVIDER.LOGON32_PROVIDER_DEFAULT, out token))
+                                {
+                                    Console.WriteLine("");
+                                    Console.WriteLine("Network printing was set up successfully");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("");
+                                    Console.WriteLine("Incorrect credentials");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("");
+                                Console.Write("Error: Password doesn't match");
+                            }
                             break;
 
                         case "disable":
@@ -101,20 +129,31 @@ namespace clawPDF.Bridge
         private static string GetPassword()
         {
             string password = "";
-            while (true)
+            ConsoleKeyInfo key;
+
+            while ((key = Console.ReadKey(true)).Key != ConsoleKey.Enter)
             {
-                ConsoleKeyInfo key = Console.ReadKey(true);
-                if (key.Key == ConsoleKey.Enter)
-                    break;
-                password += key.KeyChar;
-                Console.Write("*");
+                if (key.Key == ConsoleKey.Backspace && password.Length > 0)
+                {
+                    password = password.Remove(password.Length - 1);
+                    Console.Write("\b \b");
+                }
+                else if (!char.IsControl(key.KeyChar))
+                {
+                    password += key.KeyChar;
+                    Console.Write("*");
+                }
             }
+
             if (string.IsNullOrEmpty(password))
             {
                 Console.WriteLine("");
                 Console.WriteLine("Password cannot be empty.");
                 Environment.Exit(1);
             }
+
+            Console.WriteLine("");
+
             return password;
         }
 
@@ -123,8 +162,21 @@ namespace clawPDF.Bridge
             byte[] data = Encoding.UTF8.GetBytes($"{domain},{username},{password}");
             byte[] encryptedData = ProtectedData.Protect(data, null, DataProtectionScope.LocalMachine);
             File.WriteAllBytes(filePath, encryptedData);
-            Console.WriteLine("");
-            Console.WriteLine("Network printing was set up successfully.");
+
+            FileInfo fileInfo = new FileInfo(filePath);
+            FileSecurity fileSecurity = fileInfo.GetAccessControl();
+            SecurityIdentifier builtinUsersSid = new SecurityIdentifier(WellKnownSidType.BuiltinUsersSid, null);
+
+            AuthorizationRuleCollection accessRules = fileSecurity.GetAccessRules(true, true, typeof(SecurityIdentifier));
+            foreach (FileSystemAccessRule accessRule in accessRules)
+            {
+                if (accessRule.IdentityReference.Equals(builtinUsersSid))
+                {
+                    fileSecurity.RemoveAccessRuleSpecific(accessRule);
+                }
+            }
+
+            fileInfo.SetAccessControl(fileSecurity);
         }
 
         private static void DeleteLogon()
@@ -132,6 +184,7 @@ namespace clawPDF.Bridge
             if (File.Exists(filePath))
             {
                 File.Delete(filePath);
+                Console.WriteLine("");
                 Console.WriteLine("Network printing was deleted successfully.");
             }
         }

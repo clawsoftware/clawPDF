@@ -31,15 +31,26 @@ namespace clawPDF.Bridge
             LOGON32_PROVIDER_WINNT50
         }
 
-        [DllImport("advapi32.dll", SetLastError = true)]
+        [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         public static extern bool LogonUserW(
+            [MarshalAs(UnmanagedType.LPWStr)] string lpszUsername,
+            [MarshalAs(UnmanagedType.LPWStr)] string lpszDomain,
+            [MarshalAs(UnmanagedType.LPWStr)] string lpszPassword,
+            int dwLogonType,
+            int dwLogonProvider,
+            out IntPtr phToken
+        );
+
+        [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+        public static extern bool LogonUser(
             string lpszUsername,
             string lpszDomain,
             string lpszPassword,
             int dwLogonType,
             int dwLogonProvider,
             out IntPtr phToken
-            );
+        );
+
 
         [DllImport("wtsapi32.dll")]
         private static extern IntPtr WTSOpenServer([MarshalAs(UnmanagedType.LPStr)] String pServerName);
@@ -250,8 +261,6 @@ namespace clawPDF.Bridge
 
                         if (Marshal.PtrToStringUni(userPtr).Equals(username))
                         {
-                            Console.WriteLine(username);
-                            Console.WriteLine(si.SessionID);
                             sessionid = (uint)si.SessionID;
                             break;
                         }

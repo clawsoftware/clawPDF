@@ -124,6 +124,7 @@ clawPDF.exe /ManagePrintJobs
 ## clawPDF uses the following licensed software or parts of the source code:
 
 - PDFCreator (https://github.com/pdfforge/PDFCreator), licensed under AGPL v3 license.
+- Pdftosvg.net (https://github.com/dmester/pdftosvg.net), licensed under MIT license.
 - PDF library: iTextSharp (https://github.com/itext/itextsharp), licensed under AGPL v3 license.
 - Logging: Nlog (https://github.com/NLog/NLog), licensed under BSD 3-Clause.
 - Parts of the ghostscript control: PdfScribe (https://github.com/stchan/PdfScribe), licensed under AGPL v3 license.
