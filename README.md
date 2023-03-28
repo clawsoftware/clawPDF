@@ -96,18 +96,14 @@ clawPDF.exe /ManagePrintJobs
 
 # Changelog
 
-## v0.9.0 (TBA)
+## v0.9.0 (28.03.2023)
 
 - [feature] Network printing support
 - [feature] SVG file support
 - [update] Ghostscript 10.01.1
 - [update] Changed default time server
 - [bugfix] PDF/X code regression
-- [setup] Added Visual C++ Redistributable dependencies
-
-## v0.8.9 (2023.03.22)
-
-- [feature] Scripting Interface
+- [setup] Visual C++ Redistributable 14 dependency check
 
 [more](https://github.com/clawsoftware/clawPDF/wiki/Changlog)
 
