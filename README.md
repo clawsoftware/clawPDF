@@ -98,6 +98,7 @@ clawPDF.exe /ManagePrintJobs
 
 - [feature] Network printing support
 - [feature] SVG file support
+- [update] Ghostscript 10.01.1
 - [update] Changed default time server
 - [bugfix] PDF/X code regression
 
