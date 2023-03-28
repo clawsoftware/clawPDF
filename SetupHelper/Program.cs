@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using clawSoft.clawPDF.SetupHelper.Driver;
@@ -125,25 +124,8 @@ namespace clawSoft.clawPDF.SetupHelper
                 }
             }
 
-            if (clp.HasArgument("VCInstall"))
-            {
-                showUsage = false;
-                try
-                {
-                    VCInstall();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                    Environment.ExitCode = 1;
-                }
-            }
-
             if (showUsage)
                 Usage();
-
-            if (Debugger.IsAttached)
-                Console.Read();
         }
 
         private static void Usage()
@@ -191,7 +173,7 @@ namespace clawSoft.clawPDF.SetupHelper
 
         private static void RegisterComInterface()
         {
-            if(Environment.Is64BitOperatingSystem)
+            if (Environment.Is64BitOperatingSystem)
             {
                 CallRegAsmForShellWow6432("clawPDF.exe", "/codebase /tlb");
             }
@@ -270,25 +252,6 @@ namespace clawSoft.clawPDF.SetupHelper
         private static string GetApplicationDirectory()
         {
             return new AssemblyHelper().GetCurrentAssemblyDirectory();
-        }
-
-        private static void VCInstall()
-        {
-                var appDir = GetApplicationDirectory();
-                var setupX86 = Path.Combine(appDir, "docs/vcredist/VC_redist.x86.exe");
-                var setupX64 = Path.Combine(appDir, "docs/vcredist/VC_redist.x64.exe");
-
-            try
-            {
-                Process.Start(setupX86, "/install /quiet").WaitForExit(60000);
-            }
-            catch { }
-
-            try
-            {
-                Process.Start(setupX64, "/install /quiet").WaitForExit(60000);
-            }
-            catch { }
         }
     }
 }

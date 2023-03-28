@@ -15,10 +15,12 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.8.9/clawPDF_0.8.9_se
 - Print 100% valid [PDF/A-1b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-1b.pdf), [PDF/A-2b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-2b.pdf) and [PDF/A-3b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-3b.pdf)
 - [Optical Character Recognition (OCR)](https://github.com/clawsoftware/clawPDF/wiki/Optical-Character-Recognition-(OCR))
 - [Scripting Interface (Python, Powershell, VBScript...)](https://github.com/clawsoftware/clawPDF/wiki/Scripting-Interface)
+- [Network Printing](https://github.com/clawsoftware/clawPDF/wiki/Install-as-Network-Printer)
+- [SVG Export](https://github.com/clawsoftware/clawPDF/wiki/SVG-Export)
 - [Drag and Drop Support](https://github.com/clawsoftware/clawPDF/wiki/Drag-and-Drop)
 - [Merge Files](https://github.com/clawsoftware/clawPDF/wiki/Merge-Files)
 - [Command Line Support](https://github.com/clawsoftware/clawPDF/wiki/Command-Line-Commands)
-- [Silent Printing](https://github.com/clawsoftware/clawPDF/wiki/Silent-Print)
+- [Silent Printing](https://github.com/clawsoftware/clawPDF/wiki/Silent-Printing)
 - [Custom Paper Sizes / Standard Paper Sizes](https://github.com/clawsoftware/clawPDF/wiki/(Custom)-Paper-Sizes)
 - Full Unicode Support
 - Multiple Profiles
@@ -113,7 +115,7 @@ clawPDF.exe /ManagePrintJobs
 # Requirements
 
 - .Net Framework 4.6.2+
-- Visual C++ Redistributable 14
+- [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist#visual-studio-2015-2017-2019-and-2022) [x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)/[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)
 
 
 # Build

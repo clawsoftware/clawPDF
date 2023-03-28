@@ -519,12 +519,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B5137E67E4A24F3FB07B76185C0969D7"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_BA871D271E8149C4961B234AF1EBE071"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -580,12 +574,6 @@
         "Entry"
         {
         "MsmKey" = "8:_C0876E25984B43DCB1E08C3855BCA3E0"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C38385C5916D403DB8EE1707D3BAB271"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1012,20 +1000,6 @@
             "EntryPoint" = "8:"
             "Sequence" = "3:3"
             "Identifier" = "8:_4EF33266_A87A_406E_8076_F8B91137D616"
-            "InstallerClass" = "11:FALSE"
-            "CustomActionData" = "8:"
-            }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_9F754F234D1A479784E7D49CB9EE38DB"
-            {
-            "Name" = "8:VCInstall"
-            "Condition" = "8:"
-            "Object" = "8:_7F78C114226A455AA68D0A82851D76E8"
-            "FileType" = "3:2"
-            "InstallAction" = "3:1"
-            "Arguments" = "8:/VCInstall"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:4"
-            "Identifier" = "8:_305B5699_E3B9_4693_BE79_6EC292475E7D"
             "InstallerClass" = "11:FALSE"
             "CustomActionData" = "8:"
             }
@@ -2539,26 +2513,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B5137E67E4A24F3FB07B76185C0969D7"
-            {
-            "SourcePath" = "8:..\\docs\\vcredist\\VC_redist.x86.exe"
-            "TargetName" = "8:VC_redist.x86.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_62F29F8115594DF38DED97F49B729028"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BA871D271E8149C4961B234AF1EBE071"
             {
             "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x86\\ps5ui.dll"
@@ -2676,26 +2630,6 @@
             "TargetName" = "8:Finnish.ini"
             "Tag" = "8:"
             "Folder" = "8:_25DCCE0FB86246B0BAA4F57F940E53E1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C38385C5916D403DB8EE1707D3BAB271"
-            {
-            "SourcePath" = "8:..\\docs\\vcredist\\VC_redist.x64.exe"
-            "TargetName" = "8:VC_redist.x64.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_62F29F8115594DF38DED97F49B729028"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3245,17 +3179,6 @@
                     "Property" = "8:_694F9FE83CAE456D8D7C0863FF87CB62"
                         "Folders"
                         {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_62F29F8115594DF38DED97F49B729028"
-                            {
-                            "Name" = "8:vcredist"
-                            "AlwaysCreate" = "11:FALSE"
-                            "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
-                            "Property" = "8:_B9501011310441BF83404823BC784FDD"
-                                "Folders"
-                                {
-                                }
-                            }
                             "{9EF0B969-E518-4E46-987F-47570745A589}:_78A970EA378C4F55887D381C883EA42F"
                             {
                             "Name" = "8:licenses"
@@ -3340,9 +3263,31 @@
         }
         "LaunchCondition"
         {
+            "{836E08B8-0285-4809-BA42-01DB6754A45D}:_277BE03CC80F4A0DA96D34CDCF784746"
+            {
+            "Name" = "8:VC14"
+            "Condition" = "8:VC14EXISTS"
+            "Message" = "8:Visual C++ Redistributable is not installed. To run this program, please install the following redistributables: vc_redist.x86.exe for 32-bit Windows or vc_redist.x64.exe for 64-bit Windows."
+            "InstallUrl" = "8:https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist#visual-studio-2015-2017-2019-and-2022"
+            }
         }
         "Locator"
         {
+            "{39E1837C-0DB9-45A2-89C8-438377A77565}:_1B750CFBEBC944D4B92C00686C7F9FAB"
+            {
+            "Name" = "8:VC14"
+            "Folder" = "8:[SystemFolder]"
+            "Depth" = "2:0"
+            "FileName" = "8:vcruntime140.dll"
+            "MinVesion" = "8:"
+            "MaxVersion" = "8:"
+            "MinSize" = "8:"
+            "MaxSize" = "8:"
+            "MinDate" = "8:"
+            "MaxDate" = "8:"
+            "Languages" = "8:"
+            "Property" = "8:VC14EXISTS"
+            }
         }
         "MsiBootstrapper"
         {
@@ -3354,7 +3299,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:clawPDF 0.9.0"
         "ProductCode" = "8:{4D10169F-0F8F-4A2E-9729-2393FF9E05FB}"
-        "PackageCode" = "8:{363B327C-ED74-4E1C-91E5-F3A27F9647F8}"
+        "PackageCode" = "8:{37B4776E-962E-4C2B-8F3B-B104F3BA9631}"
         "UpgradeCode" = "8:{7D6DE248-9C3E-416C-8141-8178A480E45A}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
