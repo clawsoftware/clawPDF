@@ -56,9 +56,9 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.9.0/clawPDF_0.9.0_se
 - Windows Server 2019 RDS
 - Windows Server 2016 RDS
 - Windows 11 x64
-- Windows 10 x32/x64
-- Windows 8 x32/x64
-- Windows 7 x32/x64
+- Windows 10 x86/x64
+- Windows 8 x86/x64
+- Windows 7 x86/x64
 
 # Command Line
 
