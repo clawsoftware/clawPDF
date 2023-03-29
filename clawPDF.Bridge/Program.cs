@@ -162,20 +162,28 @@ namespace clawPDF.Bridge
             byte[] encryptedData = ProtectedData.Protect(data, null, DataProtectionScope.LocalMachine);
             File.WriteAllBytes(filePath, encryptedData);
 
-            FileInfo fileInfo = new FileInfo(filePath);
-            FileSecurity fileSecurity = fileInfo.GetAccessControl();
-            SecurityIdentifier builtinUsersSid = new SecurityIdentifier(WellKnownSidType.BuiltinUsersSid, null);
 
-            AuthorizationRuleCollection accessRules = fileSecurity.GetAccessRules(true, true, typeof(SecurityIdentifier));
-            foreach (FileSystemAccessRule accessRule in accessRules)
+            FileSecurity fileSecurity = new FileSecurity(filePath, AccessControlSections.None);
+            fileSecurity.SetAccessRuleProtection(true, false);
+
+            AuthorizationRuleCollection rules = fileSecurity.GetAccessRules(true, true, typeof(SecurityIdentifier));
+            foreach (AuthorizationRule rule in rules)
             {
-                if (accessRule.IdentityReference.Equals(builtinUsersSid))
+                if (rule is FileSystemAccessRule fsRule)
                 {
-                    fileSecurity.RemoveAccessRuleSpecific(accessRule);
+                    fileSecurity.RemoveAccessRule(fsRule);
                 }
             }
 
-            fileInfo.SetAccessControl(fileSecurity);
+            IdentityReference builtinAdministrators = new SecurityIdentifier(WellKnownSidType.BuiltinAdministratorsSid, null);
+            FileSystemAccessRule builtinAdministratorsRule = new FileSystemAccessRule(
+                builtinAdministrators,
+                FileSystemRights.FullControl,
+                AccessControlType.Allow);
+
+            fileSecurity.AddAccessRule(builtinAdministratorsRule);
+
+            File.SetAccessControl(filePath, fileSecurity);
         }
 
         private static void DeleteLogon()

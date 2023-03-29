@@ -105,13 +105,13 @@ clawPDF.exe /ManagePrintJobs
 - [bugfix] PDF/X code regression
 - [setup] Visual C++ Redistributable 14 dependency check
 
-[more](https://github.com/clawsoftware/clawPDF/wiki/Changlog)
+[more](https://github.com/clawsoftware/clawPDF/wiki/Changelog)
 
 
 # Requirements
 
 - .Net Framework 4.6.2+
-- [Visual C++ Redistributable 14](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist#visual-studio-2015-2017-2019-and-2022) [x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)/[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)
+- [Visual C++ Redistributable 14](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist#visual-studio-2015-2017-2019-and-2022) Download: [x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)/[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)
 
 
 # Build
