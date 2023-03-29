@@ -2,7 +2,7 @@
 
 Yet another PDF/OCR/Image Printer? Yes! This PDF/OCR/Image Printer has the intention to be completely open source.<br><br>
 Open Source virtual PDF printer for Windows 7 / 8 / 10 / 11 / Windows Server RDS.<br><br>
-Print to PDF, PDF/A-1b, PDF/A-2b, PDF/A-3b, OCR, PDF/X, PDF/Image, PNG, JPEG, TIF and TXT.
+Print to PDF, PDF/A-1b, PDF/A-2b, PDF/A-3b, PDF/X, PDF/Image, OCR, SVG, PNG, JPEG, TIF and TXT.
 
 # Download
 
@@ -11,7 +11,7 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.9.0/clawPDF_0.9.0_se
 
 # Features
 
-- Print to PDF, PDF/A-1b, PDF/A-2b, PDF/A-3b, OCR, PDF/X, PDF/Image, PNG, JPEG, TIF and TXT
+- Print to PDF, PDF/A-1b, PDF/A-2b, PDF/A-3b, PDF/X, PDF/Image, OCR, SVG, PNG, JPEG, TIF and TXT
 - Print 100% valid [PDF/A-1b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-1b.pdf), [PDF/A-2b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-2b.pdf) and [PDF/A-3b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-3b.pdf)
 - [Optical Character Recognition (OCR)](https://github.com/clawsoftware/clawPDF/wiki/Optical-Character-Recognition-(OCR))
 - [Scripting Interface (Python, Powershell, VBScript...)](https://github.com/clawsoftware/clawPDF/wiki/Scripting-Interface)
