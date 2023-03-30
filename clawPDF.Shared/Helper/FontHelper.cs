@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Net;
-using System.Text;
-using Microsoft.Win32;
 
 namespace clawSoft.clawPDF.Shared.Helper
 {
@@ -39,7 +36,6 @@ namespace clawSoft.clawPDF.Shared.Helper
 
             string[] files = Directory.GetFiles(strFontsFolder);
 
-            // Iterieren Sie über die Liste der Dateien und geben Sie den Dateinamen aus
             foreach (string file in files)
             {
                 if (Path.GetExtension(file).Equals(".ttf", StringComparison.OrdinalIgnoreCase))
