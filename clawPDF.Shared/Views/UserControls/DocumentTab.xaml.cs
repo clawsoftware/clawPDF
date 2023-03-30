@@ -7,6 +7,7 @@ using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Shared.Converter;
 using clawSoft.clawPDF.Shared.Helper;
 using clawSoft.clawPDF.Shared.ViewModels.UserControls;
+using clawSoft.clawPDF.Utilities.IO;
 using clawSoft.clawPDF.Utilities.Tokens;
 using ComboBox = System.Windows.Controls.ComboBox;
 using TextBox = System.Windows.Controls.TextBox;
