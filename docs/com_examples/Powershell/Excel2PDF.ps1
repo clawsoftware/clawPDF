@@ -18,7 +18,11 @@ $openViewer = "false"
 
 <#
 
-This script performs the task of printing Excel worksheets as PDF files using the clawPDF software. It first prompts the user to select an Excel file and an output folder using dialogs. It then opens the Excel file and loops through each worksheet, printing the worksheet to the clawPDF job queue and converting it to a PDF file. The PDF file is saved in the specified output folder with the name of the first cell of the printed range as the filename. The script also allows the user to set metadata such as the print job author, subject, and print job name. Finally, it closes the Excel file and exits the Excel application.
+This script performs the task of printing Excel worksheets as PDF files using the clawPDF software. 
+It first prompts the user to select an Excel file and an output folder using dialogs. 
+It then opens the Excel file and loops through each worksheet, printing the worksheet to the clawPDF job queue and converting it to a PDF file. 
+The PDF file is saved in the specified output folder with the value of the $rangeSheet cell as the filename. 
+The script also allows the user to set metadata such as the print job author, subject, and print job name.
 
 #>
 
