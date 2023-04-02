@@ -22,24 +22,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #define ISSLASH(a) ((a) == L'\\')
 
-//BOOL Is_CorrectProcessorArchitecture();
-
-BOOL Is_Win2000();
-
-BOOL Is_WinXP();
-
-BOOL Is_WinXPOrAbove();
-
-BOOL Is_Win2003();
-
-BOOL Is_WinVista();
-
-BOOL Is_WinVistaOrAbove();
-
-BOOL Is_Win2008();
-
-BOOL Is_Win7();
-
 BOOL FileExists(LPCWSTR szFileName);
 
 BOOL FilePatternExists(LPCWSTR szFileName);

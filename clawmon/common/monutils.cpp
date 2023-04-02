@@ -42,129 +42,6 @@ BOOL Is_CorrectProcessorArchitecture()
 */
 
 //-------------------------------------------------------------------------------------
-BOOL Is_Win2000()
-{
-	OSVERSIONINFOEXW osvi = { 0 };
-
-	osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEXW);
-
-	GetVersionExW((LPOSVERSIONINFOW)&osvi);
-
-	return (
-		osvi.dwMajorVersion == 5 &&
-		osvi.dwMinorVersion == 0
-		);
-}
-
-//-------------------------------------------------------------------------------------
-BOOL Is_WinXP()
-{
-	OSVERSIONINFOEXW osvi = { 0 };
-
-	osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEXW);
-
-	GetVersionExW((LPOSVERSIONINFOW)&osvi);
-
-	return (
-		osvi.dwMajorVersion == 5 && (
-			osvi.dwMinorVersion == 1 ||
-			(osvi.dwMinorVersion == 2 && osvi.wProductType == VER_NT_WORKSTATION))
-		);
-}
-
-//-------------------------------------------------------------------------------------
-BOOL Is_WinXPOrAbove()
-{
-	OSVERSIONINFOEXW osvi = { 0 };
-
-	osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEXW);
-
-	GetVersionExW((LPOSVERSIONINFOW)&osvi);
-
-	return (
-		osvi.dwMajorVersion > 5 || (
-			osvi.dwMajorVersion == 5 &&
-			osvi.dwMinorVersion >= 1)
-		);
-}
-
-//-------------------------------------------------------------------------------------
-BOOL Is_Win2003()
-{
-	OSVERSIONINFOEXW osvi = { 0 };
-
-	osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEXW);
-
-	GetVersionExW((LPOSVERSIONINFOW)&osvi);
-
-	return (
-		osvi.dwMajorVersion == 5 &&
-		osvi.dwMinorVersion == 2 &&
-		osvi.wProductType != VER_NT_WORKSTATION
-		);
-}
-
-//-------------------------------------------------------------------------------------
-BOOL Is_WinVista()
-{
-	OSVERSIONINFOEXW osvi = { 0 };
-
-	osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEXW);
-
-	GetVersionExW((LPOSVERSIONINFOW)&osvi);
-
-	return (
-		osvi.dwMajorVersion == 6 &&
-		osvi.dwMinorVersion == 0 &&
-		osvi.wProductType == VER_NT_WORKSTATION
-		);
-}
-
-//-------------------------------------------------------------------------------------
-BOOL Is_WinVistaOrAbove()
-{
-	OSVERSIONINFOEXW osvi = { 0 };
-
-	osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEXW);
-
-	GetVersionExW((LPOSVERSIONINFOW)&osvi);
-
-	return (osvi.dwMajorVersion >= 6);
-}
-
-//-------------------------------------------------------------------------------------
-BOOL Is_Win2008()
-{
-	OSVERSIONINFOEXW osvi = { 0 };
-
-	osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEXW);
-
-	GetVersionExW((LPOSVERSIONINFOW)&osvi);
-
-	return (
-		osvi.dwMajorVersion == 6 &&
-		(osvi.dwMinorVersion == 0 || osvi.dwMinorVersion == 1) &&
-		osvi.wProductType != VER_NT_WORKSTATION
-		);
-}
-
-//-------------------------------------------------------------------------------------
-BOOL Is_Win7()
-{
-	OSVERSIONINFOEXW osvi = { 0 };
-
-	osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEXW);
-
-	GetVersionExW((LPOSVERSIONINFOW)&osvi);
-
-	return (
-		osvi.dwMajorVersion == 6 &&
-		osvi.dwMinorVersion == 1 &&
-		osvi.wProductType == VER_NT_WORKSTATION
-		);
-}
-
-//-------------------------------------------------------------------------------------
 BOOL FileExists(LPCWSTR szFileName)
 {
 	if (wcspbrk(szFileName, L"?*") != NULL)
@@ -283,23 +160,20 @@ BOOL IsUACEnabled()
 {
 	BOOL bRet = FALSE;
 
-	if (Is_WinVistaOrAbove() /*Is_WinVista() || Is_Win7() || Is_Win2008()*/)
+	HKEY hKey;
+	LONG rc;
+	rc = RegOpenKeyExW(HKEY_LOCAL_MACHINE,
+		L"Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
+		0, KEY_QUERY_VALUE, &hKey);
+	if (rc == ERROR_SUCCESS)
 	{
-		HKEY hKey;
-		LONG rc;
-		rc = RegOpenKeyExW(HKEY_LOCAL_MACHINE,
-			L"Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
-			0, KEY_QUERY_VALUE, &hKey);
+		DWORD dwType;
+		DWORD data;
+		DWORD cbData = sizeof(data);
+		rc = RegQueryValueExW(hKey, L"EnableLUA", NULL, &dwType, (LPBYTE)&data, &cbData);
 		if (rc == ERROR_SUCCESS)
-		{
-			DWORD dwType;
-			DWORD data;
-			DWORD cbData = sizeof(data);
-			rc = RegQueryValueExW(hKey, L"EnableLUA", NULL, &dwType, (LPBYTE)&data, &cbData);
-			if (rc == ERROR_SUCCESS)
-				bRet = (data == 0x00000001);
-			RegCloseKey(hKey);
-		}
+			bRet = (data == 0x00000001);
+		RegCloseKey(hKey);
 	}
 
 	return bRet;

@@ -63,16 +63,21 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
         {
             bool printerInstalled;
             string clawmonpath;
+            Utilities.OsHelper osHelper = new Utilities.OsHelper();
             clawPDFInstaller installer = new clawPDFInstaller();
             try
             {
-                if (Environment.Is64BitOperatingSystem)
+                if (Environment.Is64BitOperatingSystem && !osHelper.IsArm64())
                 {
                     clawmonpath = Path.GetDirectoryName(Application.ExecutablePath) + @"\clawmon\x64\";
                 }
-                else
+                else if(!Environment.Is64BitOperatingSystem && !osHelper.IsArm64())
                 {
                     clawmonpath = Path.GetDirectoryName(Application.ExecutablePath) + @"\clawmon\x86\";
+                }
+                else
+                {
+                    clawmonpath = Path.GetDirectoryName(Application.ExecutablePath) + @"\clawmon\arm64\";
                 }
 
                 if (installer.InstallclawPDFPrinter(clawmonpath, "clawPDF.exe"))

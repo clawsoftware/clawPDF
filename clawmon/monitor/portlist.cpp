@@ -26,7 +26,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "log.h"
 #include "..\common\autoclean.h"
 #include "..\common\monutils.h"
-#include <openssl\evp.h>
+#include <ctime>
 
 CPortList* g_pPortList = NULL;
 LPCWSTR CPortList::szOutputPathKey = L"OutputPath";
@@ -167,34 +167,33 @@ LPBYTE CPortList::CopyPortToBuffer(CPort* pPort, DWORD dwLevel, LPBYTE pStart, L
 BOOL CPortList::EnumMultiFilePorts(HANDLE hMonitor, LPCWSTR pName, DWORD Level, LPBYTE pPorts,
 	DWORD cbBuf, LPDWORD pcbNeeded, LPDWORD pcReturned)
 {
-	UNREFERENCED_PARAMETER(pName);
 	UNREFERENCED_PARAMETER(hMonitor);
+	UNREFERENCED_PARAMETER(pName);
 
 	CAutoCriticalSection acs(CriticalSection());
 
+	DWORD cbNeeded = 0;
 	LPPORTREC pPortRec = m_pFirstPortRec;
-
-	DWORD cb = 0;
 	while (pPortRec)
 	{
-		cb += GetPortSize(pPortRec->m_pPort->PortName(), Level);
+		cbNeeded += GetPortSize(pPortRec->m_pPort->PortName(), Level);
 		pPortRec = pPortRec->m_pNext;
 	}
 
-	*pcbNeeded = cb;
+	*pcbNeeded = cbNeeded;
 
-	if (cbBuf < *pcbNeeded)
+	if (cbBuf < cbNeeded)
 	{
 		SetLastError(ERROR_INSUFFICIENT_BUFFER);
 		return FALSE;
 	}
 
-	LPBYTE pEnd = pPorts + cbBuf;
+	LPBYTE pBufferEnd = pPorts + cbBuf;
 	*pcReturned = 0;
 	pPortRec = m_pFirstPortRec;
 	while (pPortRec)
 	{
-		pEnd = CopyPortToBuffer(pPortRec->m_pPort, Level, pPorts, pEnd);
+		pBufferEnd = CopyPortToBuffer(pPortRec->m_pPort, Level, pPorts, pBufferEnd);
 		switch (Level)
 		{
 		case 1:
@@ -204,13 +203,10 @@ BOOL CPortList::EnumMultiFilePorts(HANDLE hMonitor, LPCWSTR pName, DWORD Level, 
 			pPorts += sizeof(PORT_INFO_2W);
 			break;
 		default:
-		{
 			SetLastError(ERROR_INVALID_LEVEL);
 			return FALSE;
 		}
-		}
 		(*pcReturned)++;
-
 		pPortRec = pPortRec->m_pNext;
 	}
 
@@ -445,37 +441,6 @@ void CPortList::LoadFromRegistry()
 
 		Trim(pConfig->szDomain);
 
-		//read Password
-		cbData = MAX_PWBLOB;
-		if (pReg->fpQueryValue(hKey, szPasswordKey, NULL, (LPBYTE)pwBlob, &cbData,
-			g_pMonitorInit->hSpooler) != ERROR_SUCCESS || cbData < 32)
-			*pConfig->szPassword = L'\0';
-		else
-		{
-			LPBYTE iv = pwBlob;
-			LPBYTE pwData = pwBlob + 16;
-			EVP_CIPHER_CTX ctx;
-			int outlen1, outlen2;
-
-			if (EVP_DecryptInit(&ctx, EVP_aes_256_cbc(), aeskey, iv) &&
-				EVP_DecryptUpdate(&ctx, (LPBYTE)pConfig->szPassword, &outlen1, pwData, cbData - 16) &&
-				EVP_DecryptFinal(&ctx, (LPBYTE)pConfig->szPassword + outlen1, &outlen2))
-			{
-				EVP_CIPHER_CTX_cleanup(&ctx);
-
-				int len = (outlen1 + outlen2) / sizeof(WCHAR);
-
-				if (len == 0)
-					len = 1;
-
-				pConfig->szPassword[len - 1] = L'\0';
-			}
-			else
-			{
-				*pConfig->szPassword = L'\0';
-			}
-		}
-
 		//close registry
 		pReg->fpCloseKey(hKey, g_pMonitorInit->hSpooler);
 
@@ -585,29 +550,6 @@ void CPortList::SaveToRegistry()
 			szBuf = pPortRec->m_pPort->Domain();
 			pReg->fpSetValue(hKey, szDomainKey, REG_SZ, (LPBYTE)szBuf,
 				(DWORD)wcslen(szBuf) * sizeof(WCHAR), g_pMonitorInit->hSpooler);
-
-			//Password
-			LPBYTE iv = pwBlob;
-			LPBYTE pData = pwBlob + 16;
-			EVP_CIPHER_CTX ctx;
-			int outlen1 = 0, outlen2 = 0;
-			int len = (int)(wcslen(pPortRec->m_pPort->Password()) + 1) * sizeof(WCHAR);
-
-			for (int n = 0; n < 16; n++)
-				iv[n] = rand() % 256;
-
-			if (EVP_EncryptInit(&ctx, EVP_aes_256_cbc(), aeskey, iv) &&
-				EVP_EncryptUpdate(&ctx, pData, &outlen1, (LPBYTE)pPortRec->m_pPort->Password(), len) &&
-				EVP_EncryptFinal(&ctx, pData + outlen1, &outlen2))
-			{
-				EVP_CIPHER_CTX_cleanup(&ctx);
-
-				int len = 16 + outlen1 + outlen2;
-
-				pReg->fpSetValue(hKey, szPasswordKey, REG_BINARY, pwBlob, len, g_pMonitorInit->hSpooler);
-			}
-			else
-				pReg->fpSetValue(hKey, szPasswordKey, REG_BINARY, pwBlob, 0, g_pMonitorInit->hSpooler);
 
 			//close registry
 			pReg->fpCloseKey(hKey, g_pMonitorInit->hSpooler);

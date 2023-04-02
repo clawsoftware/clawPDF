@@ -1,1 +1,0 @@
-put libeay32MT.lib and libeay32MTd.lib here from OpenSSL binary distribution.

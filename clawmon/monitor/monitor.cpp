@@ -29,6 +29,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "..\common\monutils.h"
 #include "..\common\config.h"
 #include "..\common\defs.h"
+#include <memory>
 
 //-------------------------------------------------------------------------------------
 typedef struct tagXCVDATA
@@ -420,15 +421,14 @@ DWORD WINAPI MfmXcvDataPort(HANDLE hXcv, LPCWSTR pszDataName, PBYTE pInputData,
 //-------------------------------------------------------------------------------------
 BOOL WINAPI MfmXcvClosePort(HANDLE hXcv)
 {
-	LPXCVDATA pXCVDATA = (LPXCVDATA)hXcv;
+	std::unique_ptr<XCVDATA> pXCVDATA(reinterpret_cast<XCVDATA*>(hXcv));
 
 	g_pLog->Log(LOGLEVEL_ALL, L"MfmXcvClosePort called");
 
-	//in caso di chiamata a XcvDataPort con metodo "DeletePort", si passa di qui 2 volte!
-	//la prima volta, imposto, bDeleting = TRUE, così la memoria non viene liberata
-	//poi, chiamo di nuovo XcvDataPort con metodo "PortDeleted", che imposta bDeleting = FALSE
 	if (pXCVDATA && !pXCVDATA->bDeleting)
-		delete pXCVDATA;
+	{
+		pXCVDATA.release();
+	}
 
 	g_pLog->Log(LOGLEVEL_ALL, L"MfmXcvClosePort returning TRUE");
 
@@ -456,31 +456,9 @@ LPMONITOR2 WINAPI InitializePrintMonitor2(PMONITORINIT pMonitorInit, PHANDLE phM
 
 	ZeroMemory(&themon, sizeof(MONITOR2));
 
-	//this is completely useless.
-	//if we were on the wrong processor, spooler wouldn't have loaded us
-	/*
-	if (!Is_CorrectProcessorArchitecture())
-	{
-		g_pLog->Log(LOGLEVEL_ERRORS, L"InitializePrintMonitor2: running on wrong processor");
-		return NULL;
-	}
-	*/
+	g_pLog->Log(LOGLEVEL_ALL, L"clawmon is running");
+	themon.cbSize = sizeof(MONITOR2);
 
-	if (Is_Win2000())
-	{
-		g_pLog->Log(LOGLEVEL_ALL, L"clawmon is running on Windows 2000");
-		themon.cbSize = MONITOR2_SIZE_WIN2K;
-	}
-	else if (Is_WinXPOrAbove() /*Is_WinXP() || Is_Win2003() || Is_WinVista() || Is_Win2008() || Is_Win7()*/)
-	{
-		g_pLog->Log(LOGLEVEL_ALL, L"clawmon is running on Windows XP or above");
-		themon.cbSize = sizeof(MONITOR2);
-	}
-	else
-	{
-		g_pLog->Log(LOGLEVEL_ERRORS, L"InitializePrintMonitor2: can't determine OS version");
-		return NULL;
-	}
 
 	themon.pfnEnumPorts = MfmEnumPorts;
 	themon.pfnOpenPort = MfmOpenPort;

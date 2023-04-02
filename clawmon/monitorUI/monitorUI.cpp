@@ -32,11 +32,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 HINSTANCE g_hInstance = NULL;
 static BOOL bPasswordChanged = FALSE;
-//2009-08-04 the introduction of "search fields" requires a more complex
-//check on the "pattern"
-//static LPWSTR szInvalidCharacters = L"/:*?\"<>|";
 
-static LPWSTR szHelpText =
+static const wchar_t* szHelpText =
 #if (!defined(CLAWMONLANG) || CLAWMONLANG == 0x0409)
 L"\
 Field format: %[width][.start]type\n\
@@ -80,10 +77,11 @@ file%i-page|%d|*|.jpg -> will examine any file in the form file%i-page*.jpg\n\
                          and then use the name file%i-page%d.jpg. Note that\n\
                          %i will be substituted with the first available integer,\n\
                          while %d will be used literally.";
-static LPWSTR szLogLevelNone = L"None";
-static LPWSTR szLogLevelErrors = L"Errors";
-static LPWSTR szLogLevelWarnings = L"Warnings";
-static LPWSTR szLogLevelAll = L"All";
+static const wchar_t* szLogLevelNone = L"None";
+static const wchar_t* szLogLevelErrors = L"Errors";
+static const wchar_t* szLogLevelWarnings = L"Warnings";
+static const wchar_t* szLogLevelAll = L"All";
+
 #endif
 
 //-------------------------------------------------------------------------------------

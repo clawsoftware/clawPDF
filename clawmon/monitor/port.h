@@ -27,7 +27,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <LMCons.h>
 #include <wchar.h>
 #include "pattern.h"
-#include "md5.h"
 #include "..\common\config.h"
 #include "..\common\defs.h"
 
@@ -60,7 +59,7 @@ public:
 	wchar_t* convertCharArrayToLPCWSTR(const char* charArray);
 	void WriteControlFile();
 	char* CTime();
-	void GenerateHash();
+	void GenerateGuid();
 	void SetInfPath();
 	void SetPsPath();
 	void SetFileName();

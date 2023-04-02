@@ -96,6 +96,10 @@ clawPDF.exe /ManagePrintJobs
 
 # Changelog
 
+## v0.9.1 (TBA)
+
+- [feature] Windows ARM64 support (Surface, Windows on Apple M1/M2/M3, ...)
+
 ## v0.9.0 (28.03.2023)
 
 - [feature] Network printing support

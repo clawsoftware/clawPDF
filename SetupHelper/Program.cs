@@ -136,23 +136,6 @@ namespace clawSoft.clawPDF.SetupHelper
             Console.WriteLine("SetupHelper.exe [/Printer=Add|Remove /Name=Printer] [/FileExtensions=Add|Remove] [/ComInterface=Register|Unregister]");
         }
 
-        private static bool Is64Bit()
-        {
-            var is64BitOs = Environment.Is64BitOperatingSystem;
-            var is64BitProcess = Environment.Is64BitOperatingSystem;
-            Console.WriteLine($"x64 platform: {is64BitOs}, x64 process: {is64BitProcess}");
-
-            return is64BitOs;
-        }
-
-        private static void MaybeInvokeWow6432(Action<bool> wowAwareAction)
-        {
-            wowAwareAction(false);
-
-            if (Is64Bit())
-                wowAwareAction(true);
-        }
-
         private static void AddExplorerIntegration()
         {
             if (Environment.Is64BitOperatingSystem)

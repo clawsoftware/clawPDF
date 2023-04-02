@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0B02AE3879F043A99518E8E7DA4BD515"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_103542820DA74939B8DBAAB819F03FB9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -28,6 +34,12 @@
         "Entry"
         {
         "MsmKey" = "8:_13D11B1B7876454792671CAE60C1FA8C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_153E49C0333C466AAC075D54E75A5F28"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -45,18 +57,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_176C480960ABD9AAB76F8BAAE9507A1B"
-        "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_17A0D971C06C4992A7F358E216C052E5"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_191D098448EE4FF89292EEF2F2816A41"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -69,7 +69,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1B94E441495D45D1BAB3C200B1E96862"
+        "MsmKey" = "8:_1C4B1B7F82D34010A8E84B83FEE6DEB6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -99,7 +99,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_241B4BD74B6E4FD6ABB8D92C628FD4B0"
+        "MsmKey" = "8:_29EA5AAFA072499BA56A73F63B86432C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -124,13 +124,13 @@
         "Entry"
         {
         "MsmKey" = "8:_2DE9273C4C3B209CE272E7F7E125CCA9"
-        "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
+        "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_2DE9273C4C3B209CE272E7F7E125CCA9"
-        "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
+        "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -141,13 +141,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_3212D71EE7F44346A230A43E5D87E0B5"
+        "MsmKey" = "8:_3004EB430D904017A86B13C52E38D547"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_36BDE324BB234487B8038CD3C905C35D"
+        "MsmKey" = "8:_3212D71EE7F44346A230A43E5D87E0B5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -166,6 +166,12 @@
         "Entry"
         {
         "MsmKey" = "8:_3BAC4A85C3904F0CB9E1CDA6B64751D2"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3D398B1F0365429E8A39C86B749DC7D9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -249,6 +255,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_5126B2335D5C458984501F7EE3ADE899"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_532DC3F3B76C46A18C177502FE108588"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -269,6 +281,24 @@
         {
         "MsmKey" = "8:_54B26D0C6496648DA7E2064743E048C9"
         "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_54DB6AC13F9640E994960EFF77351A16"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_66097074407A4F66A2A8C954A4BEA384"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6B26FFE28A3A431E89914F1A5ED54F49"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -315,7 +345,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_7266A3EEEBEA4CBE945276C659907636"
+        "MsmKey" = "8:_74928B6B93694850B6CA7726C1DDA90A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -357,7 +387,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_7AB2AE60EC0E469A8B82517FA63CD9AF"
+        "MsmKey" = "8:_786A8DDDB466495E90D020A0703DF1F5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -376,6 +406,12 @@
         "Entry"
         {
         "MsmKey" = "8:_813B2B53728848139712FBC3EEFD6734"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_82C16308F83F4B88AED2108481F6AC91"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -411,7 +447,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_85BA61A4BCD6497ABDD6FE7E72FDA477"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_87D610AB7F254F23A27B711F20692D18"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_87F4CC9C7828480CAB205C69356A47A9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -435,12 +483,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8EF5D9332DFE4D0ABEE7B4EA4C725326"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_8F6CFA3F90EA4176872CFAFBCF2454F4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -455,6 +497,12 @@
         {
         "MsmKey" = "8:_994AE4B9F0BBA32D34A5993A613C6102"
         "OwnerKey" = "8:_712A2A86AC9FFEC569B83D51A9B98536"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9EB1BEC747E048B19DE6B90F8F946CBF"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -483,12 +531,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_AB9014571CEF4BB99B19B571946C34E9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_AED8BBC389DA83C3FD9B136EE7383FE9"
         "OwnerKey" = "8:_2DE9273C4C3B209CE272E7F7E125CCA9"
         "MsmSig" = "8:_UNDEFINED"
@@ -501,25 +543,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B1FFBD8C699F4A4491BC013234817466"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B455F3B64C314DFDA017FFCFCE20F8C3"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B4C159AECF064AF2BAF89AD9C8CF65D3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_BA871D271E8149C4961B234AF1EBE071"
+        "MsmKey" = "8:_BC0AABDECCBF4D39B0702558506EDCEF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -550,18 +580,6 @@
         "Entry"
         {
         "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
-        "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
-        "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
         "OwnerKey" = "8:_7F78C114226A455AA68D0A82851D76E8"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -573,19 +591,31 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
+        "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BFCF777D72218B58DF0CBD20D7F6247C"
+        "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C0876E25984B43DCB1E08C3855BCA3E0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C63A5FEE57F242608F22DAC95B1AA995"
+        "MsmKey" = "8:_C145C01011214F7096CF6BFC6C109BFA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CF91840A82D54852B088C9806ABF1EC1"
+        "MsmKey" = "8:_C63A5FEE57F242608F22DAC95B1AA995"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -628,7 +658,7 @@
         "Entry"
         {
         "MsmKey" = "8:_DEC868D28729B9DC2D2BC75411C63EAF"
-        "OwnerKey" = "8:_5479D0BF191E1CE46357774BB693901D"
+        "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -640,12 +670,18 @@
         "Entry"
         {
         "MsmKey" = "8:_DEC868D28729B9DC2D2BC75411C63EAF"
-        "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
+        "OwnerKey" = "8:_5479D0BF191E1CE46357774BB693901D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_E0BA660CA4DD4DA69E35FB27AD4A569C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E4496282A67F4A2388AE66E5E7068239"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -693,7 +729,25 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_EE01FA16AC1B490EA44E14D5F28DF9C5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F089425CDC3A4C3F8B3F9823BF67F9DF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F0AAE48612E44531AB60F2FFF2103183"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F12545A00AE64135AABB63129864D553"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -706,18 +760,6 @@
         "Entry"
         {
         "MsmKey" = "8:_F60C5C38CEFA4732A2104EE3B462A7F7"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F862447EEFF3450A8C12D586BF869576"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F9E50722150549DCA5D8707601684200"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -754,12 +796,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_778CDABA7FA08A7480652586083408AA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_4E05DB632D024749BCF6ECFC7F09AB29"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -778,12 +814,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_176C480960ABD9AAB76F8BAAE9507A1B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_A4A9F26FDBF9AD6E0AD81AE473D57004"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -791,6 +821,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_5479D0BF191E1CE46357774BB693901D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_778CDABA7FA08A7480652586083408AA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1088,6 +1124,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0B02AE3879F043A99518E8E7DA4BD515"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\Win32\\PSCRIPT.HLP"
+            "TargetName" = "8:PSCRIPT.HLP"
+            "Tag" = "8:"
+            "Folder" = "8:_2656D064B7374F92872867863FF4876A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_103542820DA74939B8DBAAB819F03FB9"
             {
             "SourcePath" = "8:..\\_Build\\Release\\fonts\\_info.txt"
@@ -1114,6 +1170,26 @@
             "TargetName" = "8:Corsican (France).ini"
             "Tag" = "8:"
             "Folder" = "8:_25DCCE0FB86246B0BAA4F57F940E53E1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_153E49C0333C466AAC075D54E75A5F28"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\Win32\\SCPDFPRN.ppd"
+            "TargetName" = "8:SCPDFPRN.ppd"
+            "Tag" = "8:"
+            "Folder" = "8:_2656D064B7374F92872867863FF4876A"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1168,57 +1244,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_176C480960ABD9AAB76F8BAAE9507A1B"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:TrueTypeFontInfo, Version=1.0.5800.19178, Culture=neutral, PublicKeyToken=27b74675d93a956c, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_176C480960ABD9AAB76F8BAAE9507A1B"
-                    {
-                    "Name" = "8:TrueTypeFontInfo.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:TrueTypeFontInfo.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6D653F6EE3324579B145A191268F8DEA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_17A0D971C06C4992A7F358E216C052E5"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\clawmonui.dll"
-            "TargetName" = "8:clawmonui.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_191D098448EE4FF89292EEF2F2816A41"
             {
             "SourcePath" = "8:..\\_Build\\Release\\languages\\Hungarian.ini"
@@ -1259,12 +1284,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1B94E441495D45D1BAB3C200B1E96862"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1C4B1B7F82D34010A8E84B83FEE6DEB6"
             {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\pscript.ntf"
-            "TargetName" = "8:pscript.ntf"
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\Win32\\clawmonui.dll"
+            "TargetName" = "8:clawmonui.dll"
             "Tag" = "8:"
-            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
+            "Folder" = "8:_2656D064B7374F92872867863FF4876A"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1359,12 +1384,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_241B4BD74B6E4FD6ABB8D92C628FD4B0"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_29EA5AAFA072499BA56A73F63B86432C"
             {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\pscript.hlp"
-            "TargetName" = "8:pscript.hlp"
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\Win32\\PSCRIPT5.DLL"
+            "TargetName" = "8:PSCRIPT5.DLL"
             "Tag" = "8:"
-            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
+            "Folder" = "8:_2656D064B7374F92872867863FF4876A"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1492,12 +1517,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3212D71EE7F44346A230A43E5D87E0B5"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3004EB430D904017A86B13C52E38D547"
             {
-            "SourcePath" = "8:..\\docs\\com_examples\\Python\\CollectPrintQueue.py"
-            "TargetName" = "8:CollectPrintQueue.py"
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\ARM64\\PS5UI.DLL"
+            "TargetName" = "8:PS5UI.DLL"
             "Tag" = "8:"
-            "Folder" = "8:_407A5FD9ACBF4DB7B4CBCBD309808008"
+            "Folder" = "8:_E9EC11D44FEC40F4940CC121E3EB8B9C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1512,12 +1537,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_36BDE324BB234487B8038CD3C905C35D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3212D71EE7F44346A230A43E5D87E0B5"
             {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x86\\pscript5.dll"
-            "TargetName" = "8:pscript5.dll"
+            "SourcePath" = "8:..\\docs\\com_examples\\Python\\CollectPrintQueue.py"
+            "TargetName" = "8:CollectPrintQueue.py"
             "Tag" = "8:"
-            "Folder" = "8:_2656D064B7374F92872867863FF4876A"
+            "Folder" = "8:_407A5FD9ACBF4DB7B4CBCBD309808008"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1578,6 +1603,26 @@
             "TargetName" = "8:CollectPrintQueue.ps1"
             "Tag" = "8:"
             "Folder" = "8:_00EC7BD6F96C475BB93C2147C180EA60"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3D398B1F0365429E8A39C86B749DC7D9"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\ARM64\\SCPDFPRN.ppd"
+            "TargetName" = "8:SCPDFPRN.ppd"
+            "Tag" = "8:"
+            "Folder" = "8:_E9EC11D44FEC40F4940CC121E3EB8B9C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1774,6 +1819,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5126B2335D5C458984501F7EE3ADE899"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\PS5UI.DLL"
+            "TargetName" = "8:PS5UI.DLL"
+            "Tag" = "8:"
+            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_532DC3F3B76C46A18C177502FE108588"
             {
             "SourcePath" = "8:..\\_Build\\Release\\docs\\licenses\\Attribution-NoDerivs 3.0 Unported.txt"
@@ -1843,6 +1908,66 @@
             "Register" = "3:2"
             "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_54DB6AC13F9640E994960EFF77351A16"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\PSCRIPT5.DLL"
+            "TargetName" = "8:PSCRIPT5.DLL"
+            "Tag" = "8:"
+            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_66097074407A4F66A2A8C954A4BEA384"
+            {
+            "SourcePath" = "8:..\\docs\\com_examples\\Powershell\\Excel2PDF.ps1"
+            "TargetName" = "8:Excel2PDF.ps1"
+            "Tag" = "8:"
+            "Folder" = "8:_00EC7BD6F96C475BB93C2147C180EA60"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6B26FFE28A3A431E89914F1A5ED54F49"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\clawmon.dll"
+            "TargetName" = "8:clawmon.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6EF0E697D1AD4E33AD25EFC790F88B02"
@@ -1916,10 +2041,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7266A3EEEBEA4CBE945276C659907636"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_74928B6B93694850B6CA7726C1DDA90A"
             {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x86\\pscript.ntf"
-            "TargetName" = "8:pscript.ntf"
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\Win32\\PSCRIPT.NTF"
+            "TargetName" = "8:PSCRIPT.NTF"
             "Tag" = "8:"
             "Folder" = "8:_2656D064B7374F92872867863FF4876A"
             "Condition" = "8:"
@@ -1998,10 +2123,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7AB2AE60EC0E469A8B82517FA63CD9AF"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_786A8DDDB466495E90D020A0703DF1F5"
             {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x86\\SCPDFPRN.ppd"
-            "TargetName" = "8:SCPDFPRN.ppd"
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\Win32\\clawmon.dll"
+            "TargetName" = "8:clawmon.dll"
             "Tag" = "8:"
             "Folder" = "8:_2656D064B7374F92872867863FF4876A"
             "Condition" = "8:"
@@ -2089,6 +2214,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_82C16308F83F4B88AED2108481F6AC91"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\ARM64\\PSCRIPT.NTF"
+            "TargetName" = "8:PSCRIPT.NTF"
+            "Tag" = "8:"
+            "Folder" = "8:_E9EC11D44FEC40F4940CC121E3EB8B9C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_831F4853AE2F442FA6BB84BBC24C38EF"
             {
             "SourcePath" = "8:..\\_Build\\Release\\languages\\Polish.ini"
@@ -2140,12 +2285,52 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_85BA61A4BCD6497ABDD6FE7E72FDA477"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\ARM64\\PSCRIPT5.DLL"
+            "TargetName" = "8:PSCRIPT5.DLL"
+            "Tag" = "8:"
+            "Folder" = "8:_E9EC11D44FEC40F4940CC121E3EB8B9C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_87D610AB7F254F23A27B711F20692D18"
             {
             "SourcePath" = "8:..\\_Build\\Release\\docs\\licenses\\GNU AFFERO GENERAL PUBLIC LICENSE.txt"
             "TargetName" = "8:GNU AFFERO GENERAL PUBLIC LICENSE.txt"
             "Tag" = "8:"
             "Folder" = "8:_78A970EA378C4F55887D381C883EA42F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_87F4CC9C7828480CAB205C69356A47A9"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\ARM64\\clawmon.dll"
+            "TargetName" = "8:clawmon.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_E9EC11D44FEC40F4940CC121E3EB8B9C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2206,26 +2391,6 @@
             "TargetName" = "8:Norwegian, Bokmal (Norway).ini"
             "Tag" = "8:"
             "Folder" = "8:_25DCCE0FB86246B0BAA4F57F940E53E1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8EF5D9332DFE4D0ABEE7B4EA4C725326"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\clawmon.dll"
-            "TargetName" = "8:clawmon.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2311,6 +2476,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9EB1BEC747E048B19DE6B90F8F946CBF"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\SCPDFPRN.ppd"
+            "TargetName" = "8:SCPDFPRN.ppd"
+            "Tag" = "8:"
+            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A4A9F26FDBF9AD6E0AD81AE473D57004"
             {
             "AssemblyRegister" = "3:1"
@@ -2382,26 +2567,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AB9014571CEF4BB99B19B571946C34E9"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\SCPDFPRN.ppd"
-            "TargetName" = "8:SCPDFPRN.ppd"
-            "Tag" = "8:"
-            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AED8BBC389DA83C3FD9B136EE7383FE9"
             {
             "AssemblyRegister" = "3:1"
@@ -2453,46 +2618,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B1FFBD8C699F4A4491BC013234817466"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x86\\pscript.hlp"
-            "TargetName" = "8:pscript.hlp"
-            "Tag" = "8:"
-            "Folder" = "8:_2656D064B7374F92872867863FF4876A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B455F3B64C314DFDA017FFCFCE20F8C3"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x86\\clawmon.dll"
-            "TargetName" = "8:clawmon.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_2656D064B7374F92872867863FF4876A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B4C159AECF064AF2BAF89AD9C8CF65D3"
             {
             "SourcePath" = "8:..\\_Build\\Release\\gsdll32.dll"
@@ -2513,10 +2638,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BA871D271E8149C4961B234AF1EBE071"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC0AABDECCBF4D39B0702558506EDCEF"
             {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x86\\ps5ui.dll"
-            "TargetName" = "8:ps5ui.dll"
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\Win32\\PS5UI.DLL"
+            "TargetName" = "8:PS5UI.DLL"
             "Tag" = "8:"
             "Folder" = "8:_2656D064B7374F92872867863FF4876A"
             "Condition" = "8:"
@@ -2644,12 +2769,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C63A5FEE57F242608F22DAC95B1AA995"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C145C01011214F7096CF6BFC6C109BFA"
             {
-            "SourcePath" = "8:..\\_Build\\Release\\languages\\Swedish.ini"
-            "TargetName" = "8:Swedish.ini"
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\clawmonui.dll"
+            "TargetName" = "8:clawmonui.dll"
             "Tag" = "8:"
-            "Folder" = "8:_25DCCE0FB86246B0BAA4F57F940E53E1"
+            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2664,12 +2789,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CF91840A82D54852B088C9806ABF1EC1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C63A5FEE57F242608F22DAC95B1AA995"
             {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x86\\clawmonui.dll"
-            "TargetName" = "8:clawmonui.dll"
+            "SourcePath" = "8:..\\_Build\\Release\\languages\\Swedish.ini"
+            "TargetName" = "8:Swedish.ini"
             "Tag" = "8:"
-            "Folder" = "8:_2656D064B7374F92872867863FF4876A"
+            "Folder" = "8:_25DCCE0FB86246B0BAA4F57F940E53E1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2835,6 +2960,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E4496282A67F4A2388AE66E5E7068239"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\ARM64\\PSCRIPT.HLP"
+            "TargetName" = "8:PSCRIPT.HLP"
+            "Tag" = "8:"
+            "Folder" = "8:_E9EC11D44FEC40F4940CC121E3EB8B9C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E767B0E3A3584840BEA77239B5BDA6D3"
             {
             "SourcePath" = "8:..\\docs\\com_examples\\VBScript\\WinTestPage2PDF.vbs"
@@ -2906,12 +3051,72 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EE01FA16AC1B490EA44E14D5F28DF9C5"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\PSCRIPT.NTF"
+            "TargetName" = "8:PSCRIPT.NTF"
+            "Tag" = "8:"
+            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F089425CDC3A4C3F8B3F9823BF67F9DF"
             {
             "SourcePath" = "8:..\\_Build\\Release\\languages\\German.ini"
             "TargetName" = "8:German.ini"
             "Tag" = "8:"
             "Folder" = "8:_25DCCE0FB86246B0BAA4F57F940E53E1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F0AAE48612E44531AB60F2FFF2103183"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\ARM64\\clawmonui.dll"
+            "TargetName" = "8:clawmonui.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_E9EC11D44FEC40F4940CC121E3EB8B9C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F12545A00AE64135AABB63129864D553"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\PSCRIPT.HLP"
+            "TargetName" = "8:PSCRIPT.HLP"
+            "Tag" = "8:"
+            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2952,46 +3157,6 @@
             "TargetName" = "8:Portuguese (Brazil).ini"
             "Tag" = "8:"
             "Folder" = "8:_25DCCE0FB86246B0BAA4F57F940E53E1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F862447EEFF3450A8C12D586BF869576"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\ps5ui.dll"
-            "TargetName" = "8:ps5ui.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F9E50722150549DCA5D8707601684200"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\pscript5.dll"
-            "TargetName" = "8:pscript5.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3153,6 +3318,17 @@
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
                             "Property" = "8:_5CF861E5FFC7434CA60DE7A951E46B62"
+                                "Folders"
+                                {
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_E9EC11D44FEC40F4940CC121E3EB8B9C"
+                            {
+                            "Name" = "8:arm64"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_6209F82A71654B938F3D4062A19DDBF5"
                                 "Folders"
                                 {
                                 }

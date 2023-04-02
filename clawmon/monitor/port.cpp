@@ -23,12 +23,12 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "stdafx.h"
 #include "port.h"
 #include "log.h"
-#include "..\common\autoclean.h"
-#include "..\common\defs.h"
-#include "..\common\monutils.h"
 #include <string>
 #include <Shlobj.h>
 #include <limits.h>
+#include "..\common\autoclean.h"
+#include "..\common\defs.h"
+#include "..\common\monutils.h"
 
 //-------------------------------------------------------------------------------------
 static BOOL EnablePrivilege(
@@ -75,147 +75,10 @@ static BOOL GetPrimaryToken(LPWSTR lpszUsername, LPWSTR lpszDomain, LPWSTR lpszP
 {
 	DWORD dwLength;
 	*bRestrictedToken = FALSE;
-	BOOL bIsWindowsVistaOrLater;
-	OSVERSIONINFOW osvi;
-	osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFOW);
-	GetVersionExW(&osvi);
-	bIsWindowsVistaOrLater = (osvi.dwMajorVersion >= 6);
 
-	if (!bIsWindowsVistaOrLater)
-	{
-		return LogonUserW(lpszUsername, lpszDomain, lpszPassword, LOGON32_LOGON_INTERACTIVE,
+	return LogonUserW(lpszUsername, lpszDomain, lpszPassword, LOGON32_LOGON_INTERACTIVE,
 			LOGON32_PROVIDER_DEFAULT, phToken);
-	}
-	else
-	{
-		/*
-		* Assume activated User Account Control.
-		* To retrieve user primary token, it is better to avoid LOGON32_LOGON_INTERACTIVE logon type,
-		* for LogonUser, otherwise we'll get the filtered token with missing privileges.
-		*
-		* Thus I'll try first to logon as batch or service.
-		* If it works, I've got user token with his highest privileges,
-		* done.
-		*
-		* Otherwise,
-		* - logon with interactive logon type and get possibly filtered token.
-		* - Try to enable TCB privilege.
-		* - Retrieve linked token via GetTokenInformation().
-		* If an error or linked token is NULL, then either UAC is not active or we
-		* got a standard user, return logon token, done.
-		* If linked token is not NULL and TCB privilege was enabled,
-		* return linked token (it is primary due to TCB held).
-		*
-		* If linked token is not NULL and TCB was NOT enabled,
-		* returned token is restricted (filtered). This should not happen often,
-		* because there is a fair number of conditions that must hold true,
-		* 1) User is an Admin
-		* 2) User has no batch neither service logon privileges
-		* 3) Caller has no TCB privilege
-		* 4) UAC is enabled.
-		*/
 
-		int i;
-		HANDLE hMyToken;
-		HANDLE hLinkedToken;
-		DWORD logonType = LOGON32_LOGON_BATCH;
-		BOOL bSuccess = FALSE;
-		DWORD dwLastError;
-		BOOL bGotTcbPriv;
-		TOKEN_PRIVILEGES TcbPrevState;
-		DWORD allLogonTypes[] = {
-			LOGON32_LOGON_BATCH,
-			LOGON32_LOGON_SERVICE,
-			LOGON32_LOGON_INTERACTIVE /*intentionally put last, as most restrictive logon*/
-		};
-
-		/* Try all logon types */
-		for (i = 0; i < LENGTHOF(allLogonTypes); i++)
-		{
-			logonType = allLogonTypes[i];
-			bSuccess = LogonUserW(lpszUsername, lpszDomain, lpszPassword, logonType,
-				LOGON32_PROVIDER_DEFAULT, phToken);
-
-			if (bSuccess)
-				break;
-
-			dwLastError = GetLastError();
-
-			if (dwLastError != ERROR_LOGON_TYPE_NOT_GRANTED &&
-				dwLastError != ERROR_LOGON_NOT_GRANTED)
-			{
-				return FALSE;
-			}
-		}
-
-		if (!bSuccess)
-		{
-			/*User could not logon with any logon type?*/
-			return FALSE;
-		}
-
-		if (logonType != LOGON32_LOGON_INTERACTIVE)
-		{
-			/*Non-interactive logon, no UAC, no token restrictions*/
-			return TRUE;
-		}
-
-		/* Try to get the highest privileged token*/
-		if (!OpenProcessToken(GetCurrentProcess(), TOKEN_ALL_ACCESS, &hMyToken))
-		{
-			return FALSE;
-		}
-
-		/* Enable TCB temporarily to get primary "linked" token .
-		* Without TCB GetTokenInformation() would return
-		* Identity token, unusable for CreateProcessAsUser()
-		*/
-
-		bGotTcbPriv = EnablePrivilege(hMyToken, SE_TCB_NAME, TRUE, &TcbPrevState);
-		bSuccess = GetTokenInformation(*phToken, TokenLinkedToken, (VOID*)&hLinkedToken,
-			sizeof(HANDLE), &dwLength);
-
-		if (bGotTcbPriv)
-		{
-			/* Reset TCB privilege, if was set previously*/
-			AdjustTokenPrivileges(hMyToken, FALSE, &TcbPrevState, sizeof(TcbPrevState), NULL, NULL);
-		}
-
-		CloseHandle(hMyToken);
-
-		if (!bSuccess)
-		{
-			if ((dwLastError = GetLastError()) == ERROR_NO_SUCH_LOGON_SESSION)
-			{
-				/* Can happend if we have standard user/UAC switched off*/
-				SetLastError(ERROR_SUCCESS);
-				hLinkedToken = NULL;
-			}
-			else
-			{
-				return FALSE;
-			}
-		}
-
-		if (!hLinkedToken)
-		{
-			/* No UAC or standard user */
-			return TRUE;
-		}
-
-		if (!bGotTcbPriv)
-		{
-			/* Could not enable TCB , *phToken is restricted */
-			*bRestrictedToken = TRUE;
-			return TRUE;
-		}
-
-		CloseHandle(*phToken);
-
-		/* primary linked token*/
-		*phToken = hLinkedToken;
-		return TRUE;
-	}
 }
 
 //-------------------------------------------------------------------------------------
@@ -588,7 +451,7 @@ DWORD CPort::CreateOutputFile()
 			continue;
 
 		CreateOutputPath();
-		GenerateHash();
+		GenerateGuid();
 		SetFileName();
 		SetInfPath();
 		SetPsPath();
@@ -636,7 +499,9 @@ DWORD CPort::CreateOutputFile()
 			else
 			{
 				si.wShowWindow = SW_SHOWNORMAL;
-				si.lpDesktop = TEXT("");
+				const wchar_t* constStr = L"";
+				LPWSTR variable = const_cast<LPWSTR>(constStr);
+				si.lpDesktop = variable;
 			}
 			si.dwFlags |= STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
 
@@ -870,19 +735,13 @@ BOOL CPort::EndJob()
 
 		WriteControlFile();
 
-		wchar_t* t1UserCommand = wcscat(m_pUserCommand->Value(), L" /INFODATAFILE=\"");
-		wchar_t* t2UserCommand = wcscat(t1UserCommand, infpath);
-		wchar_t* UserCommand = wcscat(t2UserCommand, L"\"");
+		wchar_t t1UserCommand[MAX_PATH];
+		wcscpy_s(t1UserCommand, MAX_PATH, m_pUserCommand->Value());
+		wcscat_s(t1UserCommand, MAX_PATH, L" /INFODATAFILE=\"");
+		wcscat_s(t1UserCommand, MAX_PATH, infpath);
+		wcscat_s(t1UserCommand, MAX_PATH, L"\"");
 
-		//we're not going to give up in case of failure
-		//if (m_hToken && !m_bRunAsPUser)
-		//	CreateProcessAsUser(m_hToken, NULL, m_pUserCommand->Value(), NULL, NULL,
-		//		FALSE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
-		//else if (m_bRunAsPUser)
-		//	CreateProcessAsUser(utoken, NULL, UserCommand, NULL, NULL,
-		//		TRUE, CREATE_UNICODE_ENVIRONMENT, environment, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
-		//else
-		CreateProcessW(NULL, UserCommand, NULL, NULL,
+		CreateProcessW(NULL, t1UserCommand, NULL, NULL,
 			FALSE, 0, NULL, (*m_szExecPath) ? m_szExecPath : NULL, &si, &m_procInfo);
 	}
 
@@ -982,56 +841,88 @@ LPWSTR CPort::JobTitle() const
 //-------------------------------------------------------------------------------------
 LPWSTR CPort::Bin() const
 {
-	static WCHAR szBinName[16];
-
+	LPWSTR szBinName = nullptr;
 	if (!m_pJobInfo2 || !m_pJobInfo2->pDevMode || (m_pJobInfo2->pDevMode->dmFields & DM_DEFAULTSOURCE) == 0)
-		return L"";
+	{
+		szBinName = new WCHAR[1];
+		szBinName[0] = L'\0';
+		return szBinName;
+	}
 
 	switch (m_pJobInfo2->pDevMode->dmDefaultSource)
 	{
 	case DMBIN_AUTO:
-		return L"AUTO";
+		szBinName = new WCHAR[5];
+		wcscpy_s(szBinName, 5, L"AUTO");
+		break;
 	case DMBIN_CASSETTE:
-		return L"CASSETTE";
+		szBinName = new WCHAR[9];
+		wcscpy_s(szBinName, 9, L"CASSETTE");
+		break;
 	case DMBIN_ENVELOPE:
-		return L"ENVELOPE";
+		szBinName = new WCHAR[9];
+		wcscpy_s(szBinName, 9, L"ENVELOPE");
+		break;
 	case DMBIN_ENVMANUAL:
-		return L"ENVMANUAL";
-		//case DMBIN_FIRST:
-		//	return L"FIRST";
+		szBinName = new WCHAR[11];
+		wcscpy_s(szBinName, 11, L"ENVMANUAL");
+		break;
 	case DMBIN_FORMSOURCE:
-		return L"FORMSOURCE";
+		szBinName = new WCHAR[11];
+		wcscpy_s(szBinName, 11, L"FORMSOURCE");
+		break;
 	case DMBIN_LARGECAPACITY:
-		return L"LARGECAPACITY";
+		szBinName = new WCHAR[15];
+		wcscpy_s(szBinName, 15, L"LARGECAPACITY");
+		break;
 	case DMBIN_LARGEFMT:
-		return L"LARGEFMT";
-		//case DMBIN_LAST:
-		//	return L"LAST";
+		szBinName = new WCHAR[11];
+		wcscpy_s(szBinName, 11, L"LARGEFMT");
+		break;
 	case DMBIN_LOWER:
-		return L"LOWER";
+		szBinName = new WCHAR[7];
+		wcscpy_s(szBinName, 7, L"LOWER");
+		break;
 	case DMBIN_MANUAL:
-		return L"MANUAL";
+		szBinName = new WCHAR[8];
+		wcscpy_s(szBinName, 8, L"MANUAL");
+		break;
 	case DMBIN_MIDDLE:
-		return L"MIDDLE";
-		//case DMBIN_ONLYONE:
-		//	return L"ONLYONE";
+		szBinName = new WCHAR[8];
+		wcscpy_s(szBinName, 8, L"MIDDLE");
+		break;
 	case DMBIN_TRACTOR:
-		return L"TRACTOR";
+		szBinName = new WCHAR[9];
+		wcscpy_s(szBinName, 9, L"TRACTOR");
+		break;
 	case DMBIN_SMALLFMT:
-		return L"SMALLFMT";
+		szBinName = new WCHAR[11];
+		wcscpy_s(szBinName, 11, L"SMALLFMT");
+		break;
 	case DMBIN_UPPER:
-		return L"UPPER";
+		szBinName = new WCHAR[7];
+		wcscpy_s(szBinName, 7, L"UPPER");
+		break;
 	default:
 		if (m_pJobInfo2->pDevMode->dmDefaultSource >= DMBIN_USER)
 		{
-			swprintf_s(szBinName, LENGTHOF(szBinName), L"USER%hi", m_pJobInfo2->pDevMode->dmDefaultSource);
+			WCHAR szUserBinName[16];
+			swprintf_s(szUserBinName, LENGTHOF(szUserBinName), L"USER%hi", m_pJobInfo2->pDevMode->dmDefaultSource);
+			size_t nLength = wcslen(szUserBinName);
+			szBinName = new WCHAR[nLength + 1];
+			wcscpy_s(szBinName, nLength + 1, szUserBinName);
 		}
 		else
 		{
-			swprintf_s(szBinName, LENGTHOF(szBinName), L"%hi", m_pJobInfo2->pDevMode->dmDefaultSource);
+			WCHAR szBinNumber[4];
+			swprintf_s(szBinNumber, LENGTHOF(szBinNumber), L"%hi", m_pJobInfo2->pDevMode->dmDefaultSource);
+			size_t nLength = wcslen(szBinNumber);
+			szBinName = new WCHAR[nLength + 1];
+			wcscpy_s(szBinName, nLength + 1, szBinNumber);
 		}
-		return szBinName;
 	}
+
+	return szBinName;
 }
 
 //-------------------------------------------------------------------------------------
@@ -1232,34 +1123,15 @@ wchar_t* CPort::convertCharArrayToLPCWSTR(const char* charArray)
 
 #include <random>
 
-void CPort::GenerateHash()
+void CPort::GenerateGuid()
 {
-	MD5 md5;
-	char tJobTitel[500];
-	size_t tJobTitelSize = sizeof(tJobTitel);
-	wcstombs_s(&tJobTitelSize, tJobTitel, sizeof(tJobTitel), JobTitle(), _TRUNCATE);
+	GUID guid;
+	CoCreateGuid(&guid);
 
-	char tUsername[50];
-	size_t tUsernameSize = sizeof(tUsername);
-	wcstombs_s(&tUsernameSize, tUsername, sizeof(tUsername), UserName(), _TRUNCATE);
+	wchar_t uuid_str[39];
+	StringFromGUID2(*(const GUID*)&guid, uuid_str, sizeof(uuid_str) / sizeof(uuid_str[0]));
 
-	wchar_t tJobId[10];
-	_itow_s(JobId(), tJobId, 10);
-
-	char t2JobId[534];
-	size_t t2JobIdSize = sizeof(t2JobId);
-	wcstombs_s(&t2JobIdSize, t2JobId, sizeof(t2JobId), tJobId, _TRUNCATE);
-
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<> dis(1, 100000);
-	int random_num = dis(gen);
-	char tInputString[1084];
-	snprintf(tInputString, sizeof(tInputString), "%s%s%s%d", tJobTitel, t2JobId, tUsername, random_num);
-
-	std::wstring wstr = convertCharArrayToLPCWSTR(md5.digestString(tInputString));
-	wcsncpy(m_uniqFileName, wstr.c_str(), 260);
-	m_uniqFileName[260] = L'\0';
+	wcscpy_s(m_uniqFileName, 260, uuid_str);
 }
 
 
@@ -1349,7 +1221,7 @@ void CPort::SetHomeDirectory(HANDLE hToken)
 	}
 
 	wchar_t jobhostname[256];
-	wcscpy(jobhostname, ComputerName());
+	wcscpy_s(jobhostname, MAX_COMPUTERNAME_LENGTH + 1, ComputerName());
 	for (wchar_t* p = jobhostname; *p; ++p)
 	{
 		*p = towlower(*p);
