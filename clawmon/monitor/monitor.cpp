@@ -25,11 +25,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "pattern.h"
 #include "portlist.h"
 #include "log.h"
+#include <memory>
 #include "..\common\autoclean.h"
 #include "..\common\monutils.h"
 #include "..\common\config.h"
 #include "..\common\defs.h"
-#include <memory>
 
 //-------------------------------------------------------------------------------------
 typedef struct tagXCVDATA

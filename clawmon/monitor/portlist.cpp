@@ -273,19 +273,10 @@ void CPortList::RemoveFromRegistry(CPort* pPort)
 	PMONITORREG pReg = g_pMonitorInit->pMonitorReg;
 	HKEY hRoot = (HKEY)g_pMonitorInit->hckRegistryRoot;
 
-	//If we're on an UAC enabled system, we're running under unprivileged
-	//user account. Let's revert to ourselves for a while...
 	HANDLE hToken = NULL;
-	if (IsUACEnabled())
-	{
-		g_pLog->Log(LOGLEVEL_ALL, L"running on UAC enabled OS, reverting to local system");
-		OpenThreadToken(GetCurrentThread(), TOKEN_IMPERSONATE, TRUE, &hToken);
-		RevertToSelf();
-	}
 
 	pReg->fpDeleteKey(hRoot, pPort->PortName(), g_pMonitorInit->hSpooler);
 
-	//let's revert to unprivileged user
 	if (hToken)
 	{
 		SetThreadToken(NULL, hToken);
@@ -468,15 +459,7 @@ void CPortList::SaveToRegistry()
 
 	LPPORTREC pPortRec = m_pFirstPortRec;
 
-	//If we're on an UAC enabled system, we're running under unprivileged
-	//user account. Let's revert to ourselves for a while...
 	HANDLE hToken = NULL;
-	if (IsUACEnabled())
-	{
-		g_pLog->Log(LOGLEVEL_ALL, L"running on UAC enabled OS, reverting to local system");
-		OpenThreadToken(GetCurrentThread(), TOKEN_IMPERSONATE, TRUE, &hToken);
-		RevertToSelf();
-	}
 
 #ifndef _DEBUG
 	DWORD nLogLevel = g_pLog->GetLogLevel();

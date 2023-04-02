@@ -49,7 +49,7 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
         private const string DRIVERFILE = "PSCRIPT5.DLL";
         private const string DRIVERUIFILE = "PS5UI.DLL";
         private const string DRIVERHELPFILE = "PSCRIPT.HLP";
-        private const string DRIVERDATAFILE = "SCPDFPRN.PPD";
+        private const string DRIVERDATAFILE = "ghostpdf.ppd";
 
         private enum DriverFileIndex
         {

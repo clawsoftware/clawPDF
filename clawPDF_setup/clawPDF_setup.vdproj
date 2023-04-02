@@ -39,12 +39,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_153E49C0333C466AAC075D54E75A5F28"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_159FC79EC89F43B8B40D7FD55D3A7A30"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -82,6 +76,12 @@
         "Entry"
         {
         "MsmKey" = "8:_1CF58548068543109CB50E5C292A1137"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1E28B9E871EE4C24966042691E212033"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -171,12 +171,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_3D398B1F0365429E8A39C86B749DC7D9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_3D3F7545B955471CB0AAC0B754F55756"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -221,6 +215,12 @@
         {
         "MsmKey" = "8:_405DFFF14F4F7AA1779D3F5A6F967F21"
         "OwnerKey" = "8:_712A2A86AC9FFEC569B83D51A9B98536"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_42EC71D9E4CE46638DE556314072FA2D"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -275,12 +275,6 @@
         {
         "MsmKey" = "8:_5479D0BF191E1CE46357774BB693901D"
         "OwnerKey" = "8:_2E6513C97F7A08611FDD3F399BAE12C7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_54B26D0C6496648DA7E2064743E048C9"
-        "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -497,12 +491,6 @@
         {
         "MsmKey" = "8:_994AE4B9F0BBA32D34A5993A613C6102"
         "OwnerKey" = "8:_712A2A86AC9FFEC569B83D51A9B98536"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9EB1BEC747E048B19DE6B90F8F946CBF"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -730,6 +718,12 @@
         "Entry"
         {
         "MsmKey" = "8:_EE01FA16AC1B490EA44E14D5F28DF9C5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EE5E64A3E1B64B7EB95234D3A6742E5B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1184,26 +1178,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_153E49C0333C466AAC075D54E75A5F28"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\Win32\\SCPDFPRN.ppd"
-            "TargetName" = "8:SCPDFPRN.ppd"
-            "Tag" = "8:"
-            "Folder" = "8:_2656D064B7374F92872867863FF4876A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_159FC79EC89F43B8B40D7FD55D3A7A30"
             {
             "SourcePath" = "8:..\\docs\\com_examples\\Powershell\\WinTestPage2PDF.ps1"
@@ -1330,6 +1304,26 @@
             "TargetName" = "8:Dutch.ini"
             "Tag" = "8:"
             "Folder" = "8:_25DCCE0FB86246B0BAA4F57F940E53E1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1E28B9E871EE4C24966042691E212033"
+            {
+            "SourcePath" = "8:..\\lib\\clawmon\\Win64\\ghostpdf.ppd"
+            "TargetName" = "8:ghostpdf.ppd"
+            "Tag" = "8:"
+            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1617,26 +1611,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3D398B1F0365429E8A39C86B749DC7D9"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\ARM64\\SCPDFPRN.ppd"
-            "TargetName" = "8:SCPDFPRN.ppd"
-            "Tag" = "8:"
-            "Folder" = "8:_E9EC11D44FEC40F4940CC121E3EB8B9C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3D3F7545B955471CB0AAC0B754F55756"
             {
             "SourcePath" = "8:..\\_Build\\Release\\languages\\Gaelic (Scotland).ini"
@@ -1706,6 +1680,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_42EC71D9E4CE46638DE556314072FA2D"
+            {
+            "SourcePath" = "8:..\\lib\\clawmon\\ARM64\\ghostpdf.ppd"
+            "TargetName" = "8:ghostpdf.ppd"
+            "Tag" = "8:"
+            "Folder" = "8:_E9EC11D44FEC40F4940CC121E3EB8B9C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_45CCB40F934B4094804E3B420C3A673B"
@@ -1887,26 +1881,6 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_54B26D0C6496648DA7E2064743E048C9"
-            {
-            "SourcePath" = "8:clawPDF.tlb"
-            "TargetName" = "8:clawPDF.tlb"
-            "Tag" = "8:"
-            "Folder" = "8:_6D653F6EE3324579B145A191268F8DEA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:2"
-            "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -2474,26 +2448,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9EB1BEC747E048B19DE6B90F8F946CBF"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\clawmon\\x64\\SCPDFPRN.ppd"
-            "TargetName" = "8:SCPDFPRN.ppd"
-            "Tag" = "8:"
-            "Folder" = "8:_54EA9E4363F54C1E9316773DD35D5F3F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A4A9F26FDBF9AD6E0AD81AE473D57004"
@@ -3071,6 +3025,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EE5E64A3E1B64B7EB95234D3A6742E5B"
+            {
+            "SourcePath" = "8:..\\lib\\clawmon\\Win32\\ghostpdf.ppd"
+            "TargetName" = "8:ghostpdf.ppd"
+            "Tag" = "8:"
+            "Folder" = "8:_2656D064B7374F92872867863FF4876A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F089425CDC3A4C3F8B3F9823BF67F9DF"
             {
             "SourcePath" = "8:..\\_Build\\Release\\languages\\German.ini"
@@ -3475,7 +3449,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:clawPDF 0.9.0"
         "ProductCode" = "8:{4D10169F-0F8F-4A2E-9729-2393FF9E05FB}"
-        "PackageCode" = "8:{864CDCF1-5F6D-4BC4-A0F1-4B46767915CA}"
+        "PackageCode" = "8:{D279F55B-E9F4-4A7B-BBE1-DD3DB9C308DF}"
         "UpgradeCode" = "8:{7D6DE248-9C3E-416C-8141-8178A480E45A}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

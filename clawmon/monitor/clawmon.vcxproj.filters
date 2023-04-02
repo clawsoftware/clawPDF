@@ -36,9 +36,6 @@
     <ClCompile Include="patsegment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pattern.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="port.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -49,6 +46,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pattern.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,9 +74,6 @@
     <ClInclude Include="patsegment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="pattern.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="port.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -95,20 +92,13 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\common\comstrings.en">
-      <Filter>Resource Files</Filter>
-    </None>
+    <ClInclude Include="pattern.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\README.txt">
-      <Filter>Text Files</Filter>
-    </Text>
   </ItemGroup>
 </Project>

@@ -1,4 +1,7 @@
 /*
+clawmon - print to file with automatic filename assignment
+Copyright (C) 2023 // Andrew Hess // clawSoft
+
 MFILEMON - print to file with automatic filename assignment
 Copyright (C) 2007-2015 Monti Lorenzo
 
@@ -22,8 +25,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #define ISSLASH(a) ((a) == L'\\')
 
-BOOL FileExists(LPCWSTR szFileName);
-
 BOOL FilePatternExists(LPCWSTR szFileName);
 
 BOOL DirectoryExists(LPCWSTR szDirName);
@@ -31,7 +32,5 @@ BOOL DirectoryExists(LPCWSTR szDirName);
 void Trim(LPWSTR szString);
 
 void GetFileParent(LPCWSTR szFile, LPWSTR szParent, size_t count);
-
-BOOL IsUACEnabled();
 
 #endif

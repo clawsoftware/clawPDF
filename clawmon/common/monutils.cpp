@@ -23,39 +23,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "stdafx.h"
 #include "monutils.h"
 
-/*
-//-------------------------------------------------------------------------------------
-BOOL Is_CorrectProcessorArchitecture()
-{
-	SYSTEM_INFO si = {0};
-
-	GetSystemInfo(&si);
-
-#if defined(_X86_)
-	return si.wProcessorArchitecture == PROCESSOR_ARCHITECTURE_INTEL;
-#elif defined(_AMD64_)
-	return si.wProcessorArchitecture == PROCESSOR_ARCHITECTURE_AMD64;
-#else
-	return FALSE;
-#endif
-}
-*/
-
-//-------------------------------------------------------------------------------------
-BOOL FileExists(LPCWSTR szFileName)
-{
-	if (wcspbrk(szFileName, L"?*") != NULL)
-		return FALSE;
-	WIN32_FIND_DATAW wfd;
-	HANDLE hFind = FindFirstFileW(szFileName, &wfd);
-	if (hFind != INVALID_HANDLE_VALUE)
-	{
-		FindClose(hFind);
-		return (wfd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == 0;
-	}
-	return FALSE;
-}
-
 //-------------------------------------------------------------------------------------
 BOOL FilePatternExists(LPCWSTR szFileName)
 {
@@ -153,28 +120,4 @@ void GetFileParent(LPCWSTR szFile, LPWSTR szParent, size_t count)
 	}
 	else
 		szParent[0] = L'\0'; //should never occur...
-}
-
-//-------------------------------------------------------------------------------------
-BOOL IsUACEnabled()
-{
-	BOOL bRet = FALSE;
-
-	HKEY hKey;
-	LONG rc;
-	rc = RegOpenKeyExW(HKEY_LOCAL_MACHINE,
-		L"Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
-		0, KEY_QUERY_VALUE, &hKey);
-	if (rc == ERROR_SUCCESS)
-	{
-		DWORD dwType;
-		DWORD data;
-		DWORD cbData = sizeof(data);
-		rc = RegQueryValueExW(hKey, L"EnableLUA", NULL, &dwType, (LPBYTE)&data, &cbData);
-		if (rc == ERROR_SUCCESS)
-			bRet = (data == 0x00000001);
-		RegCloseKey(hKey);
-	}
-
-	return bRet;
 }

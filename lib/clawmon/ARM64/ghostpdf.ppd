@@ -9,8 +9,11 @@
 *NickName: "Ghostscript"
 *% PCFileName should be of the form XXNNNNNN.PPD where XX is an assigned
 *% manufacturer code.
-*PCFileName: "SCPDFPRN.PPD"
-*Product: "(PDF Scribe)"
+*PCFileName: "GHOSTPDF.PPD"
+*Product: "(Ghostscript)"
+*Product: "(AFPL Ghostscript)"
+*Product: "(GNU Ghostscript)"
+*Product: "(GPL Ghostscript)"
 *PSVersion: "(3010) 815"
 
 *% *DefaultImageableArea:
@@ -23,8 +26,6 @@
 *% *PaperDimension:
 
 *% == Above are required
-
-*% This file was adapted from GHOSTPDF.PPD for PDF Scribe
 
 *Copyright: "2004-2006 Ghostgum Software Pty Ltd"
 *%
@@ -333,74 +334,74 @@
 *% == Fonts
 *DefaultFont: Courier
 *% First the standard 35 aliases with the actual fonts commented out.
-*Font Bookman-Demi: Standard "(1.05)" Standard ROM
-*% *Font URWBookmanL-DemiBold: Standard "(1.05)" Standard ROM
-*Font Bookman-DemiItalic: Standard "(1.05)" Standard ROM
-*% *Font URWBookmanL-DemiBoldItal: Standard "(1.05)" Standard ROM
-*Font Bookman-Light: Standard "(1.05)" Standard ROM
-*% *Font URWBookmanL-Ligh: Standard "(1.05)" Standard ROM
-*Font Bookman-LightItalic: Standard "(1.05)" Standard ROM
-*% *Font URWBookmanL-LighItal: Standard "(1.05)" Standard ROM
-*Font Courier: Standard "(1.05)" Standard ROM
-*% *Font NimbusMonL-Regu: Standard "(1.05)" Standard ROM
-*Font Courier-Oblique: Standard "(1.05)" Standard ROM
-*% *Font NimbusMonL-ReguObli: Standard "(1.05)" Standard ROM
-*Font Courier-Bold: Standard "(1.05)" Standard ROM
-*% *Font NimbusMonL-Bold: Standard "(1.05)" Standard ROM
-*Font Courier-BoldOblique: Standard "(1.05)" Standard ROM
-*% *Font NimbusMonL-BoldObli: Standard "(1.05)" Standard ROM
-*Font AvantGarde-Book: Standard "(1.05)" Standard ROM
-*% *Font URWGothicL-Book: Standard "(1.05)" Standard ROM
-*Font AvantGarde-BookOblique: Standard "(1.05)" Standard ROM
-*% *Font URWGothicL-BookObli: Standard "(1.05)" Standard ROM
-*Font AvantGarde-Demi: Standard "(1.05)" Standard ROM
-*% *Font URWGothicL-Demi: Standard "(1.05)" Standard ROM
-*Font AvantGarde-DemiOblique: Standard "(1.05)" Standard ROM
-*% *Font URWGothicL-DemiObli: Standard "(1.05)" Standard ROM
-*Font Helvetica: Standard "(1.05)" Standard ROM
-*% *Font NimbusSanL-Regu: Standard "(1.05)" Standard ROM
-*Font Helvetica-Oblique: Standard "(1.05)" Standard ROM
-*% *Font NimbusSanL-ReguItal: Standard "(1.05)" Standard ROM
-*Font Helvetica-Bold: Standard "(1.05)" Standard ROM
-*% *Font NimbusSanL-Bold: Standard "(1.05)" Standard ROM
-*Font Helvetica-BoldOblique: Standard "(1.05)" Standard ROM
-*% *Font NimbusSanL-BoldItal: Standard "(1.05)" Standard ROM
-*Font Helvetica-Narrow: Standard "(1.05)" Standard ROM
-*% *Font NimbusSanL-ReguCond: Standard "(1.05)" Standard ROM
-*Font Helvetica-Narrow-Oblique: Standard "(1.05)" Standard ROM
-*% *Font NimbusSanL-ReguCondItal: Standard "(1.05)" Standard ROM
-*Font Helvetica-Narrow-Bold: Standard "(1.05)" Standard ROM
-*% *Font NimbusSanL-BoldCond: Standard "(1.05)" Standard ROM
-*Font Helvetica-Narrow-BoldOblique: Standard "(1.05)" Standard ROM
-*% *Font NimbusSanL-BoldCondItal: Standard "(1.05)" Standard ROM
-*Font Palatino-Roman: Standard "(1.05)" Standard ROM
-*% *Font URWPalladioL-Roma: Standard "(1.05)" Standard ROM
-*Font Palatino-Italic: Standard "(1.05)" Standard ROM
-*% *Font URWPalladioL-Ital: Standard "(1.05)" Standard ROM
-*Font Palatino-Bold: Standard "(1.05)" Standard ROM
-*% *Font URWPalladioL-Bold: Standard "(1.05)" Standard ROM
-*Font Palatino-BoldItalic: Standard "(1.05)" Standard ROM
-*% *Font URWPalladioL-BoldItal: Standard "(1.05)" Standard ROM
-*Font NewCenturySchlbk-Roman: Standard "(1.05)" Standard ROM
-*% *Font CenturySchL-Roma: Standard "(1.05)" Standard ROM
-*Font NewCenturySchlbk-Italic: Standard "(1.05)" Standard ROM
-*% *Font CenturySchL-Ital: Standard "(1.05)" Standard ROM
-*Font NewCenturySchlbk-Bold: Standard "(1.05)" Standard ROM
-*% *Font CenturySchL-Bold: Standard "(1.05)" Standard ROM
-*Font NewCenturySchlbk-BoldItalic: Standard "(1.05)" Standard ROM
-*% *Font CenturySchL-BoldItal: Standard "(1.05)" Standard ROM
-*Font Times-Roman: Standard "(1.05)" Standard ROM
-*% *Font NimbusRomNo9L-Regu: Standard "(1.05)" Standard ROM
-*Font Times-Italic: Standard "(1.05)" Standard ROM
-*% *Font NimbusRomNo9L-ReguItal: Standard "(1.05)" Standard ROM
-*Font Times-Bold: Standard "(1.05)" Standard ROM
-*% *Font NimbusRomNo9L-Medi: Standard "(1.05)" Standard ROM
-*Font Times-BoldItalic: Standard "(1.05)" Standard ROM
-*% *Font NimbusRomNo9L-MediItal: Standard "(1.05)" Standard ROM
+*Font Bookman-Demi: Standard "(1.10)" Standard ROM
+*% *Font URWBookmanL-DemiBold: Standard "(1.10)" Standard ROM
+*Font Bookman-DemiItalic: Standard "(1.10)" Standard ROM
+*% *Font URWBookmanL-DemiBoldItal: Standard "(1.10)" Standard ROM
+*Font Bookman-Light: Standard "(1.10)" Standard ROM
+*% *Font URWBookmanL-Ligh: Standard "(1.10)" Standard ROM
+*Font Bookman-LightItalic: Standard "(1.10)" Standard ROM
+*% *Font URWBookmanL-LighItal: Standard "(1.10)" Standard ROM
+*Font Courier: Standard "(1.10)" Standard ROM
+*% *Font NimbusMonL-Regu: Standard "(1.10)" Standard ROM
+*Font Courier-Oblique: Standard "(1.10)" Standard ROM
+*% *Font NimbusMonL-ReguObli: Standard "(1.10)" Standard ROM
+*Font Courier-Bold: Standard "(1.10)" Standard ROM
+*% *Font NimbusMonL-Bold: Standard "(1.10)" Standard ROM
+*Font Courier-BoldOblique: Standard "(1.10)" Standard ROM
+*% *Font NimbusMonL-BoldObli: Standard "(1.10)" Standard ROM
+*Font AvantGarde-Book: Standard "(1.10)" Standard ROM
+*% *Font URWGothicL-Book: Standard "(1.10)" Standard ROM
+*Font AvantGarde-BookOblique: Standard "(1.10)" Standard ROM
+*% *Font URWGothicL-BookObli: Standard "(1.10)" Standard ROM
+*Font AvantGarde-Demi: Standard "(1.10)" Standard ROM
+*% *Font URWGothicL-Demi: Standard "(1.10)" Standard ROM
+*Font AvantGarde-DemiOblique: Standard "(1.10)" Standard ROM
+*% *Font URWGothicL-DemiObli: Standard "(1.10)" Standard ROM
+*Font Helvetica: Standard "(1.10)" Standard ROM
+*% *Font NimbusSanL-Regu: Standard "(1.10)" Standard ROM
+*Font Helvetica-Oblique: Standard "(1.10)" Standard ROM
+*% *Font NimbusSanL-ReguItal: Standard "(1.10)" Standard ROM
+*Font Helvetica-Bold: Standard "(1.10)" Standard ROM
+*% *Font NimbusSanL-Bold: Standard "(1.10)" Standard ROM
+*Font Helvetica-BoldOblique: Standard "(1.10)" Standard ROM
+*% *Font NimbusSanL-BoldItal: Standard "(1.10)" Standard ROM
+*Font Helvetica-Narrow: Standard "(1.10)" Standard ROM
+*% *Font NimbusSanL-ReguCond: Standard "(1.10)" Standard ROM
+*Font Helvetica-Narrow-Oblique: Standard "(1.10)" Standard ROM
+*% *Font NimbusSanL-ReguCondItal: Standard "(1.10)" Standard ROM
+*Font Helvetica-Narrow-Bold: Standard "(1.10)" Standard ROM
+*% *Font NimbusSanL-BoldCond: Standard "(1.10)" Standard ROM
+*Font Helvetica-Narrow-BoldOblique: Standard "(1.10)" Standard ROM
+*% *Font NimbusSanL-BoldCondItal: Standard "(1.10)" Standard ROM
+*Font Palatino-Roman: Standard "(1.10)" Standard ROM
+*% *Font URWPalladioL-Roma: Standard "(1.10)" Standard ROM
+*Font Palatino-Italic: Standard "(1.10)" Standard ROM
+*% *Font URWPalladioL-Ital: Standard "(1.10)" Standard ROM
+*Font Palatino-Bold: Standard "(1.10)" Standard ROM
+*% *Font URWPalladioL-Bold: Standard "(1.10)" Standard ROM
+*Font Palatino-BoldItalic: Standard "(1.10)" Standard ROM
+*% *Font URWPalladioL-BoldItal: Standard "(1.10)" Standard ROM
+*Font NewCenturySchlbk-Roman: Standard "(1.10)" Standard ROM
+*% *Font CenturySchL-Roma: Standard "(1.10)" Standard ROM
+*Font NewCenturySchlbk-Italic: Standard "(1.10)" Standard ROM
+*% *Font CenturySchL-Ital: Standard "(1.10)" Standard ROM
+*Font NewCenturySchlbk-Bold: Standard "(1.10)" Standard ROM
+*% *Font CenturySchL-Bold: Standard "(1.10)" Standard ROM
+*Font NewCenturySchlbk-BoldItalic: Standard "(1.10)" Standard ROM
+*% *Font CenturySchL-BoldItal: Standard "(1.10)" Standard ROM
+*Font Times-Roman: Standard "(1.10)" Standard ROM
+*% *Font NimbusRomNo9L-Regu: Standard "(1.10)" Standard ROM
+*Font Times-Italic: Standard "(1.10)" Standard ROM
+*% *Font NimbusRomNo9L-ReguItal: Standard "(1.10)" Standard ROM
+*Font Times-Bold: Standard "(1.10)" Standard ROM
+*% *Font NimbusRomNo9L-Medi: Standard "(1.10)" Standard ROM
+*Font Times-BoldItalic: Standard "(1.10)" Standard ROM
+*% *Font NimbusRomNo9L-MediItal: Standard "(1.10)" Standard ROM
 *Font Symbol: Special "(001.005)" Special ROM
 *% *Font StandardSymL: Special (001.005)" Special ROM
-*Font ZapfChancery-MediumItalic: Standard "(1.05)" Standard ROM
-*% *Font URWChanceryL-MediItal: Standard "(1.05)" Standard ROM
+*Font ZapfChancery-MediumItalic: Standard "(1.10)" Standard ROM
+*% *Font URWChanceryL-MediItal: Standard "(1.10)" Standard ROM
 *Font ZapfDingbats: Special (001.005)" Special ROM
 *% *Font Dingbats: Special (001.005)" Special ROM
 *% Then a few ghostscript extras
@@ -423,7 +424,7 @@
 *OpenGroup: PDF
 
 *% == The pdfwrite device can select different color spaces
-*OpenUI *ColorModel/PDF color Model: PickOne
+*OpenUI *ColorModel/PDF Colour Model: PickOne
 *DefaultColorModel: Default
 *OrderDependency: 20 AnySetup *ColorModel
 *ColorModel Default: ""
@@ -442,7 +443,7 @@
 *PDFSettings Prepress: ".distillersettings /prepress get setdistillerparams"
 *CloseUI: *PDFSettings
 
-*OpenUI *ColorImageFilter/PDF color Image Compression: PickOne
+*OpenUI *ColorImageFilter/PDF Colour Image Compression: PickOne
 *DefaultColorImageFilter: Default
 *OrderDependency: 40 AnySetup *ColorImageFilter
 *ColorImageFilter Default: ""
