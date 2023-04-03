@@ -44,9 +44,9 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.9.0/clawPDF_0.9.0_se
 
 ![ScriptingInterface](docs/images/ScriptingInterface.gif?raw=true "Scripting Interface")
 
-## Print a PDF/A and protect it with a password
+## Print a PDF and protect it with a password
 
-![PrintPDFAwithPassword](docs/images/PrintPDFAwithPassword.gif?raw=true "PrintPDFAwithPassword")
+![PrintPDFwithPassword](docs/images/PrintPDFAwithPassword.gif?raw=true "PrintPDFwithPassword")
 
 ## Merge multiple documents
 
