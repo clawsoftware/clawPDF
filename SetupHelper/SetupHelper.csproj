@@ -109,6 +109,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +130,10 @@
     <None Include="signClawPDF.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\clawPDF.Shared\clawPDF.Shared.csproj">
+      <Project>{6D3F11F7-2163-40FF-BAB7-9970A297ED47}</Project>
+      <Name>clawPDF.Shared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\clawPDF.Utilities\clawPDF.Utilities.csproj">
       <Project>{EA29538B-89A5-4FB3-AE0F-5E2370E852F8}</Project>
       <Name>clawPDF.Utilities</Name>

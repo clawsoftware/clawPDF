@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using Microsoft.Win32;
 using clawSoft.clawPDF.SetupHelper.Driver;
 using clawSoft.clawPDF.Utilities;
-using Microsoft.Win32;
 
 namespace clawSoft.clawPDF.SetupHelper
 {
@@ -23,7 +23,17 @@ namespace clawSoft.clawPDF.SetupHelper
                     switch (clp.GetArgument("Driver").ToLower())
                     {
                         case "add":
+
                             Actions.InstallclawPDFPrinter();
+                            for (int i = 0; i < 3; i++)
+                            {
+                                if (Actions.IsRepairRequired())
+                                {
+                                    Actions.UninstallclawPDFPrinter();
+                                    Actions.WaitForPrintSpooler();
+                                    Actions.InstallclawPDFPrinter();
+                                }
+                            }
                             break;
 
                         case "remove":

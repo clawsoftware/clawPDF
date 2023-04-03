@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.ServiceProcess;
+using System.Threading;
 using System.Windows.Forms;
 using clawSoft.clawPDF.SetupHelper.Helper;
+using clawSoft.clawPDF.Shared.Helper;
 
 namespace clawSoft.clawPDF.SetupHelper.Driver
 {
@@ -59,6 +64,31 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
             return resultCode;
         }
 
+        public static bool IsRepairRequired()
+        {
+            var printerHelper = new PrinterHelper();
+            return !printerHelper.GetclawPDFPrinters().Any();
+        }
+
+        public static void WaitForPrintSpooler()
+        {
+            ServiceController printSpooler = new ServiceController("Spooler");
+
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
+            while (printSpooler.Status != ServiceControllerStatus.Running && stopwatch.ElapsedMilliseconds < 120000)
+            {
+                printSpooler.Refresh();
+                Thread.Sleep(3000);
+            }
+
+            stopwatch.Stop();
+
+            if (printSpooler.Status != ServiceControllerStatus.Running)
+            {
+            }
+        }
+
         public static bool InstallclawPDFPrinter()
         {
             bool printerInstalled;
@@ -71,13 +101,17 @@ namespace clawSoft.clawPDF.SetupHelper.Driver
                 {
                     clawmonpath = Path.GetDirectoryName(Application.ExecutablePath) + @"\clawmon\x64\";
                 }
-                else if(!Environment.Is64BitOperatingSystem && !osHelper.IsArm64())
+                else if (!Environment.Is64BitOperatingSystem && !osHelper.IsArm64())
                 {
                     clawmonpath = Path.GetDirectoryName(Application.ExecutablePath) + @"\clawmon\x86\";
                 }
-                else
+                else if (osHelper.IsArm64())
                 {
                     clawmonpath = Path.GetDirectoryName(Application.ExecutablePath) + @"\clawmon\arm64\";
+                }
+                else
+                {
+                    clawmonpath = Path.GetDirectoryName(Application.ExecutablePath) + @"\clawmon\x64\";
                 }
 
                 if (installer.InstallclawPDFPrinter(clawmonpath, "clawPDF.exe"))
