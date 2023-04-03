@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="BackgroundAdder.cs" />
     <Compile Include="Encrypter.cs" />
+    <Compile Include="FontPathHelper.cs" />
     <Compile Include="PDFProcessor.cs" />
     <Compile Include="ProcessingException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,10 +83,17 @@
       <Project>{EA29538B-89A5-4FB3-AE0F-5E2370E852F8}</Project>
       <Name>clawPDF.Utilities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SystemWrapper\SystemInterface\SystemInterface.csproj">
+      <Project>{6634E69D-1B08-4D6B-8C2F-5F88EBDE53B4}</Project>
+      <Name>SystemInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="iTextSharp">
-      <Version>5.2.0</Version>
+    <PackageReference Include="itext7">
+      <Version>7.2.5</Version>
+    </PackageReference>
+    <PackageReference Include="itext7.commons">
+      <Version>7.2.5</Version>
     </PackageReference>
     <PackageReference Include="NLog">
       <Version>5.1.2</Version>

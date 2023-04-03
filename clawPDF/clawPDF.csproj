@@ -481,7 +481,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NLog">
-      <Version>5.1.2</Version>
+      <Version>5.1.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

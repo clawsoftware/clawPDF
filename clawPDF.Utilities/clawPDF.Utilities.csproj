@@ -82,6 +82,7 @@
     <Compile Include="Process\ProcessFactory.cs" />
     <Compile Include="Process\ProcessWrapper.cs" />
     <Compile Include="Registry\RegistryUtility.cs" />
+    <Compile Include="Retry.cs" />
     <Compile Include="ShellExecuteHelper.cs" />
     <Compile Include="Threading\ISynchronizedThread.cs" />
     <Compile Include="Threading\SynchronizedThread.cs" />

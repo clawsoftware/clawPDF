@@ -2,8 +2,10 @@
 using System.IO;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Core.Settings.Enums;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
+using iText.Kernel.Geom;
+using iText.Kernel.Pdf;
+using iText.Kernel.Pdf.Canvas;
+using iText.Kernel.Pdf.Xobject;
 using NLog;
 
 namespace clawSoft.clawPDF.PDFProcessing
@@ -23,11 +25,11 @@ namespace clawSoft.clawPDF.PDFProcessing
         /// <param name="stamper">Stamper with document</param>
         /// <param name="profile">Profile with backgroundpage settings</param>
         /// <exception cref="ProcessingException">In case of any error.</exception>
-        public static void AddBackground(PdfStamper stamper, ConversionProfile profile)
+        public static void AddBackground(PdfDocument pdfDocument, ConversionProfile profile)
         {
             try
             {
-                DoAddBackground(stamper, profile);
+                DoAddBackground(pdfDocument, profile);
             }
             catch (ProcessingException)
             {
@@ -40,21 +42,20 @@ namespace clawSoft.clawPDF.PDFProcessing
             }
         }
 
-        private static void DoAddBackground(PdfStamper stamper, ConversionProfile profile)
+        private static void DoAddBackground(PdfDocument pdfDocument, ConversionProfile profile)
         {
             if (!profile.BackgroundPage.Enabled)
                 return;
 
             Logger.Debug("Start adding background.");
 
-            var nFile = stamper.Reader.NumberOfPages;
+            var nFile = pdfDocument.GetNumberOfPages();
 
-            var backgroundPdfReader =
-                new PdfReader(profile.BackgroundPage
-                    .File); //ExtractPages(profile.BackgroundPage.File); //new PdfReader(profile.BackgroundPage.File);
+            var backgroundPdfDoc = new PdfDocument(new PdfReader(profile.BackgroundPage.File));
+            var backgroundPage = backgroundPdfDoc.GetFirstPage().CopyAsFormXObject(pdfDocument);
 
-            Logger.Debug("BackgroundFile: " + Path.GetFullPath(profile.BackgroundPage.File));
-            var nBackground = backgroundPdfReader.NumberOfPages;
+            Logger.Debug("BackgroundFile: " + System.IO.Path.GetFullPath(profile.BackgroundPage.File));
+            var nBackground = backgroundPdfDoc.GetNumberOfPages();
 
             int numberOfFrontPagesWithoutBackground;
             try
@@ -88,93 +89,58 @@ namespace clawSoft.clawPDF.PDFProcessing
                 if (backgroundPageNumber < 1)
                     continue;
 
-                var backgroundPage = stamper.GetImportedPage(backgroundPdfReader, backgroundPageNumber);
-                var backgroundPageSize = backgroundPdfReader.GetPageSize(backgroundPageNumber);
+                var documentPage = pdfDocument.GetPage(i);
+                var documentPageSize = documentPage.GetPageSize();
 
-                var backgroundPageRotation = backgroundPdfReader.GetPageRotation(backgroundPageNumber);
-
-                var documentPage = stamper.GetUnderContent(i);
-                var documentPageSize = stamper.Reader.GetPageSize(i);
-
-                if (stamper.Reader.GetPageRotation(i) == 90 || stamper.Reader.GetPageRotation(i) == 270)
+                if (documentPage.GetRotation() == 90 || documentPage.GetRotation() == 270)
                 {
-                    //Turn with document page...
-                    //*
-                    backgroundPageRotation += 90;
-                    backgroundPageRotation = backgroundPageRotation % 360;
-                    //*/
-                    documentPageSize = new Rectangle(documentPageSize.Height, documentPageSize.Width);
+                    //Swap width and height for landscape pages
+                    documentPageSize = new Rectangle(documentPageSize.GetHeight(), documentPageSize.GetWidth());
                 }
 
-                AddPageWithRotationAndScaling(documentPage, documentPageSize, backgroundPage, backgroundPageSize,
-                    backgroundPageRotation);
+                AddPageWithRotationAndScaling(new PdfCanvas(documentPage), documentPageSize, backgroundPage,
+                    new Rectangle(0, 0, backgroundPage.GetWidth(), backgroundPage.GetHeight()), documentPage.GetRotation());
             }
+
+            backgroundPdfDoc.Close();
         }
 
-        private static void AddPageWithRotationAndScaling(PdfContentByte documentPage, Rectangle documentPageSize,
-            PdfImportedPage backgroundPage, Rectangle backgroundPageSize, int rotation)
+        private static void AddPageWithRotationAndScaling(PdfCanvas canvas, Rectangle canvasSize, PdfFormXObject sourcePage,
+           Rectangle sourcePageSize, int sourceRotation)
         {
-            float scaleWidth;
-            float scaleHeight;
-            float scale;
-            float backgroundHeight;
-            float backgroundWidth;
+            float sourceWidth = sourcePageSize.GetWidth();
+            float sourceHeight = sourcePageSize.GetHeight();
+            float scaleX = canvasSize.GetWidth() / sourceWidth;
+            float scaleY = canvasSize.GetHeight() / sourceHeight;
+            float scale = Math.Max(scaleX, scaleY);
 
-            switch (rotation)
+            float translationX = (canvasSize.GetWidth() - sourceWidth * scale) / 2;
+            float translationY = (canvasSize.GetHeight() - sourceHeight * scale) / 2;
+
+            canvas.SaveState();
+            canvas.ConcatMatrix(scale, 0, 0, scale, translationX, translationY);
+
+            switch (sourceRotation)
             {
                 case 90:
-                    scaleWidth = documentPageSize.Width / backgroundPageSize.Height;
-                    scaleHeight = documentPageSize.Height / backgroundPageSize.Width;
-                    scale = scaleWidth < scaleHeight ? scaleWidth : scaleHeight;
-
-                    backgroundHeight = scale * backgroundPageSize.Height;
-                    backgroundWidth = scale * backgroundPageSize.Width;
-
-                    documentPage.AddTemplate(backgroundPage, 0, -scale, scale, 0,
-                        (documentPageSize.Width - backgroundHeight) / 2,
-                        backgroundWidth + (documentPageSize.Height - backgroundWidth) / 2);
+                    canvas.ConcatMatrix(0, 1, -1, 0, sourceHeight, 0);
                     break;
 
                 case 180:
-                    scaleWidth = documentPageSize.Width / backgroundPageSize.Width;
-                    scaleHeight = documentPageSize.Height / backgroundPageSize.Height;
-                    scale = scaleWidth < scaleHeight ? scaleWidth : scaleHeight;
-
-                    backgroundHeight = scale * backgroundPageSize.Height;
-                    backgroundWidth = scale * backgroundPageSize.Width;
-
-                    documentPage.AddTemplate(backgroundPage, -scale, 0, 0, -scale,
-                        backgroundWidth + (documentPageSize.Width - backgroundWidth) / 2,
-                        backgroundHeight + (documentPageSize.Height - backgroundHeight) / 2);
+                    canvas.ConcatMatrix(-1, 0, 0, -1, sourceWidth, sourceHeight);
                     break;
 
                 case 270:
-                    scaleWidth = documentPageSize.Width / backgroundPageSize.Height;
-                    scaleHeight = documentPageSize.Height / backgroundPageSize.Width;
-                    scale = scaleWidth < scaleHeight ? scaleWidth : scaleHeight;
-
-                    backgroundHeight = scale * backgroundPageSize.Height;
-                    backgroundWidth = scale * backgroundPageSize.Width;
-
-                    documentPage.AddTemplate(backgroundPage, 0, scale, -scale, 0,
-                        backgroundHeight + (documentPageSize.Width - backgroundHeight) / 2,
-                        (documentPageSize.Height - backgroundWidth) / 2);
+                    canvas.ConcatMatrix(0, -1, 1, 0, 0, sourceWidth);
                     break;
 
                 case 0:
                 default:
-                    scaleWidth = documentPageSize.Width / backgroundPageSize.Width;
-                    scaleHeight = documentPageSize.Height / backgroundPageSize.Height;
-                    scale = scaleWidth < scaleHeight ? scaleWidth : scaleHeight;
-
-                    backgroundHeight = scale * backgroundPageSize.Height;
-                    backgroundWidth = scale * backgroundPageSize.Width;
-
-                    documentPage.AddTemplate(backgroundPage, scale, 0, 0, scale,
-                        (documentPageSize.Width - backgroundWidth) / 2,
-                        (documentPageSize.Height - backgroundHeight) / 2);
                     break;
             }
+
+            canvas.AddXObjectAt(sourcePage, 0, 0);
+            canvas.RestoreState();
         }
 
         // -- clockwise --              cos  sin  -sin  cos  dx  dy
@@ -197,7 +163,8 @@ namespace clawSoft.clawPDF.PDFProcessing
                 if (!profile.BackgroundPage.OnCover)
                 {
                     var coverPdfReader = new PdfReader(profile.CoverPage.File);
-                    nCover = coverPdfReader.NumberOfPages;
+                    var coverPdf = new PdfDocument(coverPdfReader);
+                    nCover = coverPdf.GetNumberOfPages();
                 }
 
             return nCover;
@@ -217,7 +184,8 @@ namespace clawSoft.clawPDF.PDFProcessing
                 if (!profile.BackgroundPage.OnAttachment)
                 {
                     var attachmentPdfReader = new PdfReader(profile.AttachmentPage.File);
-                    nAttachment = attachmentPdfReader.NumberOfPages;
+                    var attachmentPdf = new PdfDocument(attachmentPdfReader);
+                    nAttachment = attachmentPdf.GetNumberOfPages();
                 }
 
             return nAttachment;

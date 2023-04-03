@@ -122,6 +122,7 @@ namespace clawSoft.clawPDF.Views
         private void SecurityCheckBoxChecked(object sender, RoutedEventArgs e)
         {
             vm.SelectedProfile.PdfSettings.Security.Enabled = true;
+            vm.SelectedProfile.PdfSettings.Security.RestrictPrintingToLowQuality = false;
             vm.SelectedProfile.PdfSettings.Security.EncryptionLevel = EncryptionLevel.Aes128Bit;
             PasswordTab.Background = new SolidColorBrush(Colors.LightBlue);
         }
