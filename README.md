@@ -1,6 +1,6 @@
 # clawPDF - Virtual PDF/OCR/Image Printer
 
-ClawPDF may seem like yet another PDF/OCR/Image printer, but it actually comes packed with features that are typically found in expensive enterprise solutions. With ClawPDF, you can create documents in various formats, including PDF/A-1b, PDF/A-2b, PDF/A-3b, PDF/X, PDF/Image, OCR, SVG, PNG, JPEG, TIF, and TXT. You also have easy access to metadata and can remove it before sharing a document. In addition, you can protect your documents with a password and encrypt them with up to 128-bit AES.
+ClawPDF may seem like yet another Virtual PDF/OCR/Image Printer, but it actually comes packed with features that are typically found in enterprise solutions. With ClawPDF, you can create documents in various formats, including PDF/A-1b, PDF/A-2b, PDF/A-3b, PDF/X, PDF/Image, OCR, SVG, PNG, JPEG, TIF, and TXT. You also have easy access to metadata and can remove it before sharing a document. In addition, you can protect your documents with a password and encrypt them with up to 128-bit AES.
 
 ClawPDF offers a scripting interface that lets you automate processes and integrate it into your application. Moreover, you can install ClawPDF on a print server and print documents over the network, not just locally.
 
