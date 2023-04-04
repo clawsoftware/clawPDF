@@ -182,11 +182,9 @@
                                             Template="{StaticResource HeaderPanelTemplate}" Header="Encryption Level">
                         <StackPanel Margin="0,5,0,0">
                             <RadioButton Name="LowEncryptionRadioButton" IsChecked="{Binding LowEncryptionEnabled}">Low Encryption (40 Bit)</RadioButton>
-                            <RadioButton Name="MediumEncryptionRadioButton"
-                                         IsChecked="{Binding MediumEncryptionEnabled}">
-                                Medium Encryption (128 Bit)
-                            </RadioButton>
+                            <RadioButton Name="MediumEncryptionRadioButton" IsChecked="{Binding MediumEncryptionEnabled}">Medium Encryption (128 Bit)</RadioButton>
                             <RadioButton Name="HighEncryptionRadioButton" IsChecked="{Binding HighEncryptionEnabled}">High Encryption (128 Bit AES)</RadioButton>
+                            <RadioButton Name="VeryHighEncryptionRadioButton" IsChecked="{Binding VeryHighEncryptionEnabled}">Very High Encryption (256 Bit AES)</RadioButton>
                         </StackPanel>
                     </HeaderedContentControl>
 

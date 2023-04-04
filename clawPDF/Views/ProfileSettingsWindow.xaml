@@ -8,10 +8,10 @@
         WindowStartupLocation="CenterScreen"
         Loaded="ProfileSettingsWindow_OnLoaded"
         Closing="ProfileSettingsWindow_OnClosing"
-        MinHeight="611"
-        MinWidth="670"
+        MinHeight="700"
+        MinWidth="800"
         Icon="../clawPDF.ico"
-        x:Name="This" Width="771" Height="611" x:ClassModifier="internal">
+        x:Name="This" Width="800" Height="700" x:ClassModifier="internal">
     <Window.Resources>
         <Style x:Key="DisabledGrey" TargetType="{x:Type Shape}">
             <Style.Triggers>
@@ -44,7 +44,7 @@
             <TextBlock x:Name="TitleText" Text="Profile Settings" HorizontalAlignment="Left" VerticalAlignment="Center"
                        FontWeight="Bold" FontSize="24" Foreground="#FFFAFAFA" FontFamily="Calibri" />
             <DockPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">
-                <TextBlock x:Name="ProfileLabel" VerticalAlignment="Center" Foreground="White" Margin="0,0,5,0"><Run Text="Profile:"/></TextBlock>
+                <TextBlock x:Name="ProfileLabel" VerticalAlignment="Center" Foreground="White" Margin="0,0,5,0"><Run Text="Profile:" /></TextBlock>
                 <ComboBox x:Name="ProfilesBox" Width="250" ItemsSource="{Binding ConversionProfilesView, Mode=TwoWay}"
                           IsSynchronizedWithCurrentItem="True" DisplayMemberPath="Name" TabIndex="4" />
                 <StackPanel Orientation="Horizontal" x:Name="ProfileManagement" Style="{StaticResource GpoStyle}"
@@ -86,7 +86,7 @@
                 </Style>
             </TabControl.Resources>
             <TabControl.Template>
-                <StaticResource ResourceKey="FancyTabControl"/>
+                <StaticResource ResourceKey="FancyTabControl" />
             </TabControl.Template>
             <TabItem Template="{StaticResource FancyTabItem}" x:Name="DocumentTab">
                 <TabItem.Header>
@@ -152,11 +152,11 @@
             </TabItem>
         </TabControl>
         <DockPanel Grid.Row="2" LastChildFill="False" Margin="10">
-            <Button x:Name="CancelButton" IsCancel="True" DockPanel.Dock="Right" MinWidth="150" TabIndex="0" Content="Cancel"/>
+            <Button x:Name="CancelButton" IsCancel="True" DockPanel.Dock="Right" MinWidth="150" TabIndex="0" Content="Cancel" />
             <Button x:Name="SaveButton" Command="{Binding SaveButtonCommand}" DockPanel.Dock="Right" MinWidth="150"
-                    Margin="0,0,10,0" TabIndex="1" Content="Save"/>
+                    Margin="0,0,10,0" TabIndex="1" Content="Save" />
             <Button x:Name="HelpButton" DockPanel.Dock="Right" MinWidth="150"
-                TabIndex="1" Content="Help" Width="100" Margin="0,0,10,0" Click="HelpButton_Click"/>
+                TabIndex="1" Content="Help" Width="100" Margin="0,0,10,0" Click="HelpButton_Click" />
         </DockPanel>
     </Grid>
 </Window>

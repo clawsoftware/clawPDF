@@ -100,6 +100,22 @@ namespace clawSoft.clawPDF.Shared.ViewModels.UserControls
             }
         }
 
+        public bool VeryHighEncryptionEnabled
+        {
+            get
+            {
+                if (CurrentProfile == null)
+                    return false;
+                return CurrentProfile.PdfSettings.Security.EncryptionLevel == EncryptionLevel.Aes256Bit;
+            }
+            set
+            {
+                if (value) //== true
+                    CurrentProfile.PdfSettings.Security.EncryptionLevel = EncryptionLevel.Aes256Bit;
+                RaisePropertyChangedForEncryptionProperties();
+            }
+        }
+
         public bool ExtendedPermissonsEnabled
         {
             get
