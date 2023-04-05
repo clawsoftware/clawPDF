@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using clawSoft.clawPDF.Core.Jobs;
+using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.Helper;
 using clawSoft.clawPDF.Shared.Helper;
@@ -19,11 +22,16 @@ namespace clawSoft.clawPDF.COM
     {
         void Initialize();
 
+        void SetProfileSetting(string name, string value);
+
         bool WaitForJob(int timeOut);
+
+        PrintJob WaitForFirstJob();
 
         bool WaitForJobs(int jobCount, int timeOut);
 
         int Count { get; }
+
         PrintJob NextJob { get; }
 
         PrintJob GetJobByIndex(int jobIndex);
@@ -51,7 +59,48 @@ namespace clawSoft.clawPDF.COM
         private JobInfoQueue _comJobInfoQueue;
         private bool _isComActive;
 
+        private readonly List<string> _unaccessibleItems = new List<string>
+            {"autosave", "properties", "skipprintdialog", "savedialog"};
+
         private bool IsServerInstanceRunning => PipeServer.SessionServerInstanceRunning(ThreadManager.PipeName);
+
+        /// <summary>
+        ///     Set a conversion profile property using two strings: One for the name (i.e. PdfSettings.Security.Enable) and one
+        ///     for the value
+        /// </summary>
+        /// <param name="name">Name of the setting. This can include subproperties (i.e. PdfSettings.Security.Enable)</param>
+        /// <param name="value">A string that can be parsed to the type</param>
+        public void SetProfileSetting(string name, string value)
+        {
+            var settings = SettingsHelper.Settings;
+            var profile = settings.GetProfileByGuid(ProfileGuids.DEFAULT_PROFILE_GUID);
+            if (profile != null)
+            {
+                if (HasAccess(name) && ValueReflector.HasProperty(profile, name))
+                {
+                    ValueReflector.SetPropertyValue(profile, name, value);
+                    SettingsHelper.ApplySettings(settings);
+                    SettingsHelper.Init();
+                }
+                else
+                    throw new COMException("Invalid property name");
+            }
+            else
+                throw new COMException("Invalid profile");
+        }
+
+        /// <summary>
+        ///     Checks if the property name is accessible through COM
+        /// </summary>
+        /// <param name="propertyName">The property to check for</param>
+        /// <returns>True, if the property can be accessed otherwise false</returns>
+        private bool HasAccess(string propertyName)
+        {
+            if (string.IsNullOrEmpty(propertyName))
+                return false;
+
+            return !_unaccessibleItems.Any(item => propertyName.ToLowerInvariant().StartsWith(item));
+        }
 
         /// <summary>
         ///     Initializes the essential components like JobInfoQueue for the COM object
@@ -72,6 +121,17 @@ namespace clawSoft.clawPDF.COM
 
             ComLogger.Trace("COM: Starting pipe server thread");
             ThreadManager.Instance.StartPipeServerThread();
+        }
+
+        /// <summary>
+        ///     Waits for exactly one job to enter the queue
+        /// </summary>
+        /// <param name="timeOut">Duration which the queue should wait for a job</param>
+        /// <returns>False, if the duration was exceeded. Otherwise it returns true</returns>
+        public PrintJob WaitForFirstJob()
+        {
+            WaitForJobs(1, 9999);
+            return JobById(0);
         }
 
         /// <summary>

@@ -36,6 +36,7 @@ namespace clawSoft.clawPDF.COM
         void SetProfileByGuid(string profileGuid);
 
         OutputFiles GetOutputFiles { get; }
+
         void ConvertTo(string fullFileName);
 
         FileStream ConvertToFileStream(string fileName);
