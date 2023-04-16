@@ -58,17 +58,10 @@ namespace clawSoft.clawPDF.Utilities
 
         public bool IsArm64()
         {
-            try
-            {
-                var handle = System.Diagnostics.Process.GetCurrentProcess().Handle;
-                IsWow64Process2(handle, out var processMachine, out var nativeMachine);
+            var handle = System.Diagnostics.Process.GetCurrentProcess().Handle;
+            IsWow64Process2(handle, out var processMachine, out var nativeMachine);
 
-                return nativeMachine == 0xaa64;
-            }
-            catch
-            {
-                return false;
-            }
+            return nativeMachine == 0xaa64;
         }
 
         [DllImport("kernel32.dll", SetLastError = true)]
