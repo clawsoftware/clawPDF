@@ -26,7 +26,6 @@ namespace clawSoft.clawPDF
         public App()
         {
             InitializeComponent();
-
             Application.EnableVisualStyles();
         }
 
@@ -42,7 +41,7 @@ namespace clawSoft.clawPDF
             try
             {
                 LoggingHelper.InitFileLogger("clawPDF", LoggingLevel.Error);
-
+                ThemeHelper.ChangeTheme(SettingsHelper.Settings.ApplicationSettings.Theme);
                 RunApplication(e.Args);
             }
             catch (Exception ex)
@@ -108,8 +107,6 @@ namespace clawSoft.clawPDF
             }
 
             Logger.Debug("Starting clawPDF");
-
-            ThemeHelper.ChangeTheme(SettingsHelper.Settings.ApplicationSettings.Theme);
 
             if (commandLineArguments.Length > 0)
                 Logger.Info("Command Line parameters: \r\n" + string.Join(" ", commandLineArguments));

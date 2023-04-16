@@ -105,6 +105,7 @@ clawPDF.exe /ManagePrintJobs
 - [feature] Light/Dark Theme
 - [feature] Ask for SMTP recipient if not specified
 - [update] iText 7
+- [misc] Optimizations
 
 ## v0.9.0 (28.03.2023)
 
