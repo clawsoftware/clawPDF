@@ -1,0 +1,150 @@
+﻿<adonisControls:AdonisWindow x:Class="clawSoft.clawPDF.Views.PrintJobWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+        xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+        xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
+        xmlns:converter1="clr-namespace:clawSoft.clawPDF.Converter"
+        Title="clawPDF"
+        MinHeight="550"
+        SizeToContent="Height"
+        Width="465"
+        WindowStartupLocation="CenterScreen"
+        Loaded="OnLoaded"
+        AllowDrop="True"
+        DragEnter="OnDragEnter"
+        Drop="OnDrop"
+        ResizeMode="CanMinimize"
+        Icon="../clawPDF.ico"
+        x:ClassModifier="internal">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="Margin" Value="0 5 0 -3" />
+            </Style>
+            <converter1:ColorWithFactorConverter x:Key="ColorWithFactorConverter" />
+        </Grid.Resources>
+
+        <Viewbox Margin="-30 -20 -30 -20">
+            <ContentControl Content="" IsTabStop="False"
+                            Foreground="{Binding Path=Background, RelativeSource={RelativeSource Mode=FindAncestor,
+                                                         AncestorType=Window}, Converter={StaticResource ColorWithFactorConverter}, ConverterParameter=0.92}" />
+        </Viewbox>
+
+        <StackPanel Margin="20 0">
+            <ContentControl Content="" Width="150" HorizontalAlignment="Right"
+                            Margin="10 15 0 -15" IsTabStop="False" />
+            <Label Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Target="{Binding ElementName=TitleText}" Name="TitleLabel">Title</Label>
+            <TextBox Name="TitleText" Text="{Binding Metadata.Title}" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}" Height="24" />
+            <Label Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Target="{Binding ElementName=ProfileCombo}" Name="ProfileLabel">Profile</Label>
+            <ComboBox Name="ProfileCombo" ItemsSource="{Binding ProfilesView}" SelectionChanged="profileChange"  DisplayMemberPath="Name"
+                      IsSynchronizedWithCurrentItem="True" />
+
+            <TabControl Name="PrinterTabControl" x:FieldModifier="public" Height="240" Margin="0 20 0 10" Background="{DynamicResource {x:Static SystemColors.WindowBrush}}" BorderThickness="0 1 0 0">
+                <TabItem Name="MetadataTab" Header="Metadata" x:FieldModifier="public">
+                    <StackPanel Margin="0 15 0 0">
+                        <Label Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Target="{Binding ElementName=SubjectText}" Name="SubjectLabel">Subject</Label>
+                        <TextBox Name="SubjectText" Text="{Binding Metadata.Subject}" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}" Height="24" />
+                        <Label Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Target="{Binding ElementName=KeywordsText}" Name="KeywordsLabel">Keywords</Label>
+                        <TextBox Name="KeywordsText" Text="{Binding Metadata.Keywords}" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}" Height="24" />
+                        <Label Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Target="{Binding ElementName=AuthorText}" Name="AuthorLabel">Author</Label>
+                        <TextBox Name="AuthorText" Text="{Binding Metadata.Author}" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}" Height="24" />
+                    </StackPanel>
+                </TabItem>
+                <TabItem Name="SettingsTab" Header="Settings" x:FieldModifier="public">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <HeaderedContentControl Name="PageOrientationControl" HorizontalAlignment="Left"
+                                        Template="{StaticResource HeaderPanelTemplate}" Header="Page Orientation">
+                            <StackPanel HorizontalAlignment="Left" Margin="0,5,0,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <ComboBox Name="PageOrientationComboBox" SelectionChanged="PageOrientationComboBoxChanged"  Width="200" />
+                                </StackPanel>
+                            </StackPanel>
+                        </HeaderedContentControl>
+                        <HeaderedContentControl Name="ColorModelControl" Margin="0,10,0,0"
+                                        Template="{StaticResource HeaderPanelTemplate}" Header="Color Model">
+                            <StackPanel Margin="0 5 0 0" HorizontalAlignment="Left">
+                                <ComboBox Name="ColorModelComboBox" SelectionChanged="ColorModelComboBoxChanged" Width="200" />
+                            </StackPanel>
+                        </HeaderedContentControl>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Name="PasswordTab" Header="Password" x:FieldModifier="public">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <CheckBox Name="SecurityCheckBox" Checked="SecurityCheckBoxChecked" Unchecked="SecurityCheckBoxUnchecked">Encrypt PDF files to protect its contents</CheckBox>
+                        <StackPanel IsEnabled="{Binding ElementName=SecurityCheckBox, Path=IsChecked}" Margin="10">
+                            <CheckBox Name="UserPasswordCheckBox"
+                              Checked="UserPasswordCheckBoxChecked" Unchecked="UserPasswordCheckBoxUnchecked"
+                              Margin="0,0,0,10">
+                                Require a password to open the PDF file
+                            </CheckBox>
+                            <Button adonisExtensions:RippleExtension.FadeInDuration="0" Name="SecurityPasswordsButton" Click="SecurityPasswordsButton_OnClick"
+                            HorizontalAlignment="Left" MaxWidth="231" Margin="0,0,0,10" Padding="10,0,10,0" Height="24">
+                                Set Passwords
+                            </Button>
+                            <ComboBox Name="EncryptionLevelComboBox" HorizontalAlignment="Left" MaxWidth="231" Margin="0,0,0,10" Padding="10,0,10,0" Height="24" SelectionChanged="EncryptionLevelComboBoxChanged" Width="96" />
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Name="OCRTab" Header="OCR" x:FieldModifier="public">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Margin="0,5,0,0" Name="OCRLanguageNoteTextBlock" TextWrapping="Wrap">Please provide the language(s) to be recognized in the file to be printed and specify the language files without the ".traineddata" extension. If there are several languages, separate them with a plus sign (e.g. eng+deu+fra).</TextBlock>
+                        <Label Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Margin="0,5,0,0" Name="OCRLanguageLabel" Content="Language(s):" />
+                        <TextBox Name="OCRLanguage" HorizontalAlignment="Stretch" TextChanged="OCRLanguageChanged" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}" Height="24" />
+                        <Button adonisExtensions:RippleExtension.FadeInDuration="0" Margin="0,5,0,0" Content="TESSDATA" Click="openTessdataSource_Click" />
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+
+            <Grid Height="55">
+                <TextBlock TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="5 5"
+                           Text="{Binding PendingJobsText}" TextWrapping="Wrap" />
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Style="{StaticResource GrayRoundButtonStyle}" IsCancel="True">
+                    <Path Data="{StaticResource CloseX}" Width="20" Height="20" Stretch="Fill" Stroke="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"
+                          StrokeThickness="5" Margin="10" />
+                </Button>
+
+                <Button Style="{StaticResource GrayRoundButtonStyle}" Click="SettingsButton_OnClick">
+                    <Path Data="{StaticResource Settings}" Width="24" Height="24" Stretch="Uniform" Stroke="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"
+                          StrokeThickness="4" Margin="10" />
+                </Button>
+
+                <Button Style="{StaticResource GrayRoundButtonStyle}" Click="CommandButtons_OnClick"
+                        Command="{Binding ManagePrintJobsCommand}">
+                    <Viewbox Margin="8">
+                        <ContentControl Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Content="{StaticResource MergeButton}" />
+                    </Viewbox>
+                </Button>
+
+                <Button Style="{StaticResource GrayRoundButtonStyle}" Command="{Binding EmailCommand}"
+                        Click="CommandButtons_OnClick">
+                    <Path Data="{StaticResource Share}" Width="20" Height="20" Stretch="Fill" Fill="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"
+                          StrokeThickness="5" Margin="12 10 8 10" />
+                </Button>
+                <Button Style="{StaticResource GrayRoundButtonStyle}" IsDefault="True" Command="{Binding SaveCommand}"
+                        Click="CommandButtons_OnClick">
+                    <Viewbox Margin="9">
+                        <ContentControl Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Content="{StaticResource ImageSettings}" />
+                    </Viewbox>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Width" Value="86" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    </Style>
+                </StackPanel.Resources>
+                <Label Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Name="CancelLabel">Cancel</Label>
+                <Label Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Name="SettingsLabel">Settings</Label>
+                <Label Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Name="MergeJobsLabel">Merge</Label>
+                <Label Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Name="EmailLabel">E-Mail</Label>
+                <Label Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Name="SaveLabel">Save</Label>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</adonisControls:AdonisWindow>

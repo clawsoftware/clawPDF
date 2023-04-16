@@ -1,0 +1,19 @@
+﻿<Window x:Class="clawSoft.clawPDF.Views.TrayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:clawSoft.clawPDF.Views"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Opacity="0"
+        WindowStartupLocation="Manual"
+        Left="-999"
+        Top="-999"
+        ShowInTaskbar="False"
+        Height="0"
+        Width="0">
+    <Grid>
+    </Grid>
+</Window>

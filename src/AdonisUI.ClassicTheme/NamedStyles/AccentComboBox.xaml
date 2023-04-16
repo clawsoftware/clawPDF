@@ -1,0 +1,121 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+                    xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/ComboBox.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="{x:Static adonisUi:Styles.AccentComboBoxItem}"
+           TargetType="ComboBoxItem"
+           BasedOn="{StaticResource {x:Type ComboBoxItem}}">
+
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentForegroundBrush}}"/>
+        <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentHighlightBrush}}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentHighlightBrush}}"/>
+        <Setter Property="adonisExtensions:RippleExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentInteractionBrush}}"/>
+        <Setter Property="adonisExtensions:RippleExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentInteractionBorderBrush}}"/>
+        <Setter Property="adonisExtensions:RippleExtension.ForegroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentInteractionForegroundBrush}}"/>
+
+        <Style.Triggers>
+
+            <Trigger Property="IsHighlighted" Value="True">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentHighlightBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBorderBrush}}"/>
+                <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBrush}}"/>
+                <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBorderBrush}}"/>
+            </Trigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="2"/>
+                    <Condition Binding="{Binding IsHighlighted, RelativeSource={RelativeSource Self}}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentHighlightBrush}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBorderBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBorderBrush}}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="3"/>
+                    <Condition Binding="{Binding IsHighlighted, RelativeSource={RelativeSource Self}}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentHighlightBrush}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBorderBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBorderBrush}}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="4"/>
+                    <Condition Binding="{Binding IsHighlighted, RelativeSource={RelativeSource Self}}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentHighlightBrush}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBorderBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBorderBrush}}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.DisabledAccentForegroundBrush}}"/>
+            </Trigger>
+
+        </Style.Triggers>
+    </Style>
+
+
+    <Style x:Key="{x:Static adonisUi:Styles.AccentComboBox}"
+           TargetType="ComboBox"
+           BasedOn="{StaticResource {x:Type ComboBox}}">
+
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentForegroundBrush}}"/>
+        <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentBrush}}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentBrush}}"/>
+        <Setter Property="adonisExtensions:RippleExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentInteractionBrush}}"/>
+        <Setter Property="adonisExtensions:RippleExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentInteractionBorderBrush}}"/>
+        <Setter Property="adonisExtensions:RippleExtension.ForegroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentInteractionForegroundBrush}}"/>
+        <Setter Property="ItemContainerStyle" Value="{DynamicResource {x:Static adonisUi:Styles.AccentComboBoxItem}}"/>
+
+        <Style.Triggers>
+
+            <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="2">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentBrush}}"/>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="3">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentBrush}}"/>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="4">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentBrush}}"/>
+            </DataTrigger>
+
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBrush}}"/>
+                <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentIntenseHighlightBrush}}"/>
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentHighlightBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentHighlightBrush}}"/>
+            </Trigger>
+
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.DisabledAccentForegroundBrush}}"/>
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentBrush}}"/>
+            </Trigger>
+
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

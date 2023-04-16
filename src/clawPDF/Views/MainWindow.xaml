@@ -1,0 +1,61 @@
+﻿<adonisControls:AdonisWindow x:Class="clawSoft.clawPDF.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+        xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+        xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
+        Height="344"
+        Width="513"
+        PlaceTitleBarOverContent="True"
+        Loaded="MainWindow_OnLoaded"
+        AllowDrop="True"
+        DragEnter="MainWindow_OnDragEnter"
+        Drop="MainWindow_OnDrop"
+        ResizeMode="CanMinimize"
+        Closed="MainWindow_OnClose"
+        WindowStartupLocation="CenterScreen" x:ClassModifier="internal">
+    <Grid>
+        <Grid.Resources>
+            <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="Height" Value="50" />
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="Padding" Value="20 0" />
+                <Setter Property="MinWidth" Value="150" />
+                <Setter Property="MaxWidth" Value="200" />
+            </Style>
+        </Grid.Resources>
+        <DockPanel Background="{DynamicResource {x:Static adonisUi:Brushes.Layer4BorderBrush}}" Height="64" VerticalAlignment="Top"
+                   LastChildFill="True">
+            <ContentControl Margin="10" Content="" Height="45" IsTabStop="False" />
+            <TextBlock Name="ApplicationNameText" Margin="10 0 0 0" Text="clawPDF" HorizontalAlignment="Left"
+                       VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"
+                       FontFamily="Calibri"
+                       x:FieldModifier="private" />
+        </DockPanel>
+        <StackPanel Height="140" Margin="30 20">
+            <TextBlock Name="IntroductionText" TextWrapping="Wrap" Margin="0 0 0 10">
+                clawPDF allows to create PDF files from any application that is able to print.
+                Creating a PDF file is easy:
+            </TextBlock>
+            <TextBlock Name="IntroductionStep1Text" Margin="20 3">1. Set up your profiles and settings here.</TextBlock>
+            <TextBlock Name="IntroductionStep2Text" Margin="20 3">2. Print any document to the printer "clawPDF".</TextBlock>
+            <TextBlock Name="IntroductionStep3Text" Margin="20 3">3. Save your PDF or send it as mail.</TextBlock>
+        </StackPanel>
+        <DockPanel VerticalAlignment="Bottom">
+            <Button DockPanel.Dock="Left" Name="InfoButton" Background="Transparent" Height="30" Width="30" Margin="10 0 0 10"
+                    Cursor="{x:Static Cursors.Hand}" Template="{StaticResource RoundButtonStyle}"
+                    FontWeight="Bold" FontFamily="Calibri" FontSize="50" Click="InfoButton_Click" Content="{StaticResource Info}" />
+            <Button DockPanel.Dock="Left" Name="HelpButton" Background="Transparent" Height="30" Width="30" Margin="0 0 0 10"
+                    Cursor="{x:Static Cursors.Hand}" Template="{StaticResource RoundButtonStyle}"
+                    FontWeight="Bold" FontFamily="Calibri" FontSize="50" Click="HelpButton_Click" Content="{StaticResource Help}" />
+            <Button DockPanel.Dock="Left" Name="HeartButton" Background="Transparent" Height="30" Width="30" Margin="0 0 0 10"
+                    Cursor="{x:Static Cursors.Hand}" Template="{StaticResource RoundButtonStyle}"
+                    FontWeight="Bold" FontFamily="Calibri" FontSize="50" Click="HeartButton_Click" Content="{StaticResource Heart}" />
+            <Button adonisExtensions:RippleExtension.FadeInDuration="0" DockPanel.Dock="Right" Name="ProfileSettingsButton" BorderThickness="0" Content="Profile Settings"
+                    MinWidth="150" Click="ProfileSettingsButton_OnClick" HorizontalAlignment="Right" />
+            <Button adonisExtensions:RippleExtension.FadeInDuration="0"  DockPanel.Dock="Right" Name="AppSettingsButton" BorderThickness="0" Content="Application Settings"
+                    MinWidth="150" Click="AppSettingsButton_OnClick" HorizontalAlignment="Right" />
+        </DockPanel>
+    </Grid>
+</adonisControls:AdonisWindow>

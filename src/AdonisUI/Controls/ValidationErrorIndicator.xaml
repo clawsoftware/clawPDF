@@ -1,0 +1,232 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:AdonisUI.Controls"
+                    xmlns:extensions="clr-namespace:AdonisUI.Extensions"
+                    xmlns:adonisUi="clr-namespace:AdonisUI"
+                    xmlns:converters="clr-namespace:AdonisUI.Converters">
+
+    <Style TargetType="{x:Type local:ValidationErrorIndicator}">
+        <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ValidationErrorIndicator}">
+                    <Grid>
+
+                        <local:AdornedControl HorizontalAdornerPlacement="Outside"
+                                              VerticalAdornerPlacement="Outside">
+                            <local:AdornedControl.Style>
+                                <Style TargetType="{x:Type local:AdornedControl}">
+                                    <Setter Property="IsAdornerVisible" Value="False"/>
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
+                                                <Condition Binding="{Binding ValidatedElement.(Validation.HasError), RelativeSource={RelativeSource TemplatedParent}}" Value="True"/>
+                                                <Condition Binding="{Binding IsErrorMessageVisibleOnMouseOver, RelativeSource={RelativeSource TemplatedParent}}" Value="True"/>
+                                                <Condition Binding="{Binding IsErrorMessageDisplayOnMouseOverEnabled, RelativeSource={RelativeSource TemplatedParent}}" Value="True"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <MultiDataTrigger.Setters>
+                                                <Setter Property="IsAdornerVisible" Value="True"/>
+                                            </MultiDataTrigger.Setters>
+                                        </MultiDataTrigger>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding IsValidatedElementFocused, RelativeSource={RelativeSource TemplatedParent}}" Value="True"/>
+                                                <Condition Binding="{Binding ValidatedElement.(Validation.HasError), RelativeSource={RelativeSource TemplatedParent}}" Value="True"/>
+                                                <Condition Binding="{Binding IsErrorMessageVisibleOnFocus, RelativeSource={RelativeSource TemplatedParent}}" Value="True"/>
+                                                <Condition Binding="{Binding IsErrorMessageDisplayOnFocusEnabled, RelativeSource={RelativeSource TemplatedParent}}" Value="True"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <MultiDataTrigger.Setters>
+                                                <Setter Property="IsAdornerVisible" Value="True"/>
+                                            </MultiDataTrigger.Setters>
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </local:AdornedControl.Style>
+
+                            <ToggleButton x:Name="AlertToggleButton"
+                                          IsChecked="{Binding IsErrorMessageVisibleOnFocus, RelativeSource={RelativeSource TemplatedParent}}"
+                                          IsEnabled="{Binding IsErrorMessageDisplayOnFocusEnabled, RelativeSource={RelativeSource TemplatedParent}}"
+                                          Focusable="False">
+                                <ToggleButton.Style>
+                                    <Style TargetType="ToggleButton">
+                                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Grid Background="Transparent">
+                                                        <ContentPresenter x:Name="Content"
+                                                                          Content="{TemplateBinding Content}"/>
+                                                    </Grid>
+
+                                                    <ControlTemplate.Triggers>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
+                                                                <Condition Binding="{Binding IsErrorMessageDisplayOnFocusEnabled, RelativeSource={RelativeSource TemplatedParent}}" Value="True"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <MultiDataTrigger.Setters>
+                                                                <Setter Property="Effect" TargetName="Content">
+                                                                    <Setter.Value>
+                                                                        <DropShadowEffect ShadowDepth="1"
+                                                                                          Color="#202020"
+                                                                                          Opacity="0.5"
+                                                                                          BlurRadius="4"/>
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                            </MultiDataTrigger.Setters>
+                                                        </MultiDataTrigger>
+                                                    </ControlTemplate.Triggers>
+
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ToggleButton.Style>
+
+                                <ContentControl ContentTemplate="{DynamicResource {x:Static adonisUi:Icons.Error}}"
+                                                Foreground="{Binding ValidatedElement.Background, RelativeSource={RelativeSource TemplatedParent}}"
+                                                Background="{DynamicResource {x:Static adonisUi:Brushes.AlertBrush}}"
+                                                Focusable="False"
+                                                Width="{Binding IconWidth, RelativeSource={RelativeSource TemplatedParent}}"
+                                                Height="{Binding IconHeight, RelativeSource={RelativeSource TemplatedParent}}"
+                                                Margin="0, -2, 0, -2"/>
+                            </ToggleButton>
+
+                            <local:AdornedControl.AdornerContent>
+                                <Canvas>
+                                    <Grid x:Name="AdornerContent"
+                                          IsSharedSizeScope="True">
+                                        <Grid.Style>
+                                            <Style TargetType="FrameworkElement">
+                                                <Style.Triggers>
+
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Opacity" Value="0.6"/>
+                                                    </Trigger>
+
+                                                    <DataTrigger Binding="{Binding ErrorMessagePlacement, RelativeSource={RelativeSource TemplatedParent}}"
+                                                                 Value="{x:Static local:ValidationErrorIndicatorPlacement.Top}">
+                                                        <Setter Property="Canvas.Left" Value="-1"/>
+                                                        <Setter Property="Canvas.Top" Value="{Binding ActualHeight,
+                                                                                                      RelativeSource={RelativeSource Self},
+                                                                                                      Converter={converters:MathConverter},
+                                                                                                      ConverterParameter=(x*(-1))-4}"/>
+                                                    </DataTrigger>
+
+                                                    <DataTrigger Binding="{Binding ErrorMessagePlacement, RelativeSource={RelativeSource TemplatedParent}}"
+                                                                 Value="{x:Static local:ValidationErrorIndicatorPlacement.Bottom}">
+                                                        <Setter Property="Canvas.Left" Value="-1"/>
+                                                        <Setter Property="Canvas.Top" Value="{Binding ActualHeight,
+                                                                                                      RelativeSource={RelativeSource FindAncestor,
+                                                                                                      AncestorType=Canvas},
+                                                                                                      Converter={converters:MathConverter},
+                                                                                                      ConverterParameter=x+4}"/>
+                                                    </DataTrigger>
+
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>
+
+                                        <Grid>
+                                            <Grid.Style>
+                                                <Style TargetType="FrameworkElement">
+                                                    <Setter Property="Effect">
+                                                        <Setter.Value>
+                                                            <DropShadowEffect ShadowDepth="1"
+                                                                              Color="{DynamicResource {x:Static adonisUi:Colors.Layer1BorderColor}}"
+                                                                              BlurRadius="4"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Effect" Value="{x:Null}"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Grid.Style>
+                                            
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" SharedSizeGroup="TopTip"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="Auto" SharedSizeGroup="BottomTip"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Path Grid.Row="0"
+                                                  Data="M 0 8 L 16 8 L 8 0 Z"
+                                                  Fill="{TemplateBinding Background}"
+                                                  HorizontalAlignment="Left"
+                                                  Margin="3, 0, 0, 0"
+                                                  Visibility="{Binding Path=ErrorMessagePlacement,
+                                                                       RelativeSource={RelativeSource TemplatedParent},
+                                                                       Converter={x:Static converters:EqualitityToVisibilityConverter.Instance},
+                                                                       ConverterParameter={x:Static local:ValidationErrorIndicatorPlacement.Bottom}}"/>
+
+                                            <Border Grid.Row="1"
+                                                    Background="{TemplateBinding Background}"
+                                                    CornerRadius="{DynamicResource {x:Static adonisUi:Dimensions.CornerRadius}}"/>
+
+                                            <Path Grid.Row="2"
+                                                  Data="M 0 0 L 16 0 L 8 8 Z"
+                                                  Fill="{TemplateBinding Background}"
+                                                  HorizontalAlignment="Left"
+                                                  Margin="3, 0, 0, 0"
+                                                  Visibility="{Binding Path=ErrorMessagePlacement,
+                                                                       RelativeSource={RelativeSource TemplatedParent},
+                                                                       Converter={x:Static converters:EqualitityToVisibilityConverter.Instance},
+                                                                       ConverterParameter={x:Static local:ValidationErrorIndicatorPlacement.Top}}"/>
+
+                                        </Grid>
+                                        
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" SharedSizeGroup="TopTip"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="Auto" SharedSizeGroup="BottomTip"/>
+                                            </Grid.RowDefinitions>
+
+                                            <ItemsControl Grid.Row="1"
+                                                          ItemsSource="{Binding ValidatedElement.(Validation.Errors), RelativeSource={RelativeSource TemplatedParent}}"
+                                                          Margin="8"
+                                                          IsHitTestVisible="False">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding ErrorContent}"/>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Grid>
+                                        
+                                    </Grid>
+                                </Canvas>
+                            </local:AdornedControl.AdornerContent>
+
+                        </local:AdornedControl>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+
+            <DataTrigger Binding="{Binding Path=(extensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="2">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2BackgroundBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2BorderBrush}}"/>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Path=(extensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="3">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}"/>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Path=(extensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="4">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4BackgroundBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4BorderBrush}}"/>
+            </DataTrigger>
+
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,22 @@
+﻿<Application
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+    x:Class="clawSoft.clawPDF.App"
+    Startup="App_OnStartup"
+    ShutdownMode="OnExplicitShutdown"
+    DispatcherUnhandledException="Application_DispatcherUnhandledException">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/AdonisUI;component/ColorSchemes/Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/Resources.xaml" />
+                <ResourceDictionary Source="Resources/AllResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="Template" Value="{StaticResource LabelFlush}" />
+            </Style>
+            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource GreyOutReadOnlyTextBox}" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

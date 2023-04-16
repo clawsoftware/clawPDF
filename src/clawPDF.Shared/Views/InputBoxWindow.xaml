@@ -1,0 +1,38 @@
+﻿<adonisControls:AdonisWindow x:Class="clawSoft.clawPDF.Shared.Views.InputBoxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+        xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+        Title="clawPDF"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Loaded="OnLoaded"
+        Width="400"
+        MaxWidth="400"
+        Height="200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <Image Width="32" Height="32" Grid.RowSpan="2" Margin="20,0" />
+
+        <Label Margin="0 10 10 0" Grid.Column="1" Grid.Row="0" Target="{Binding ElementName=TextBox}" Name="Label">Please enter the text:</Label>
+        <TextBox Margin="0 0 10 0" Name="TextBox" TextChanged="TextBox_OnTextChanged" Grid.Column="1" Grid.Row="1" MinWidth="250" Height="24" />
+        <TextBlock Margin="0 0 10 0" Grid.Column="1" Grid.Row="2" Name="ValidationMessageText" Height="45" TextWrapping="Wrap" />
+
+        <Border Grid.Row="3" Grid.ColumnSpan="2" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}"></Border>
+
+        <WrapPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button Margin="10 10 0 10" MinWidth="80" IsCancel="True" Name="CancelButton">Cancel</Button>
+            <Button Margin="10 10 10 10" MinWidth="80" IsDefault="True" Name="OkButton" Click="OkButton_OnClick">OK</Button>
+        </WrapPanel>
+    </Grid>
+</adonisControls:AdonisWindow>

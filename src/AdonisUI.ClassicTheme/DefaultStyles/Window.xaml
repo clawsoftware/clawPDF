@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+                    xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI">
+
+    <Style x:Key="{x:Type Window}" TargetType="Window">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+        <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer0BackgroundBrush}}"/>
+        <Setter Property="adonisExtensions:CursorSpotlightExtension.RelativeSpotlightSize" Value="{DynamicResource {x:Static adonisUi:Dimensions.CursorSpotlightRelativeSize}}"/>
+    </Style>
+
+</ResourceDictionary>

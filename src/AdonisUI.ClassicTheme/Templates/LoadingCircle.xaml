@@ -1,0 +1,112 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:AdonisUI.ClassicTheme.Templates"
+                    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI">
+
+    <DataTemplate x:Key="{x:Static adonisUi:Templates.LoadingCircle}">
+        <Grid>
+            <Viewbox Stretch="Uniform">
+                <Viewbox.Resources>
+                    <Storyboard x:Key="Animation0" BeginTime="00:00:00.0" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="Ellipse0"
+                                         Storyboard.TargetProperty="Opacity"
+                                         From="1"
+                                         To="0"
+                                         Duration="00:00:01.6"/>
+                    </Storyboard>
+
+                    <Storyboard x:Key="Animation1" BeginTime="00:00:00.2" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="Ellipse1"
+                                         Storyboard.TargetProperty="Opacity"
+                                         From="1"
+                                         To="0"
+                                         Duration="00:00:01.6"/>
+                    </Storyboard>
+
+                    <Storyboard x:Key="Animation2" BeginTime="00:00:00.4" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="Ellipse2"
+                                         Storyboard.TargetProperty="Opacity"
+                                         From="1"
+                                         To="0"
+                                         Duration="00:00:01.6"/>
+                    </Storyboard>
+
+                    <Storyboard x:Key="Animation3" BeginTime="00:00:00.6" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="Ellipse3"
+                                         Storyboard.TargetProperty="Opacity"
+                                         From="1"
+                                         To="0"
+                                         Duration="00:00:01.6"/>
+                    </Storyboard>
+
+                    <Storyboard x:Key="Animation4" BeginTime="00:00:00.8" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="Ellipse4"
+                                         Storyboard.TargetProperty="Opacity"
+                                         From="1"
+                                         To="0"
+                                         Duration="00:00:01.6"/>
+                    </Storyboard>
+
+                    <Storyboard x:Key="Animation5" BeginTime="00:00:01.0" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="Ellipse5"
+                                         Storyboard.TargetProperty="Opacity"
+                                         From="1"
+                                         To="0"
+                                         Duration="00:00:01.6"/>
+                    </Storyboard>
+
+                    <Storyboard x:Key="Animation6" BeginTime="00:00:01.2" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="Ellipse6"
+                                         Storyboard.TargetProperty="Opacity"
+                                         From="1"
+                                         To="0"
+                                         Duration="00:00:01.6"/>
+                    </Storyboard>
+
+                    <Storyboard x:Key="Animation7" BeginTime="00:00:01.4" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="Ellipse7"
+                                         Storyboard.TargetProperty="Opacity"
+                                         From="1"
+                                         To="0"
+                                         Duration="00:00:01.6"/>
+                    </Storyboard>
+                </Viewbox.Resources>
+
+                <Viewbox.Triggers>
+                    <EventTrigger RoutedEvent="Viewbox.Loaded">
+                        <BeginStoryboard Storyboard="{StaticResource Animation0}" x:Name="Storyboard0" />
+                        <BeginStoryboard Storyboard="{StaticResource Animation1}" x:Name="Storyboard1"/>
+                        <BeginStoryboard Storyboard="{StaticResource Animation2}" x:Name="Storyboard2"/>
+                        <BeginStoryboard Storyboard="{StaticResource Animation3}" x:Name="Storyboard3"/>
+                        <BeginStoryboard Storyboard="{StaticResource Animation4}" x:Name="Storyboard4"/>
+                        <BeginStoryboard Storyboard="{StaticResource Animation5}" x:Name="Storyboard5"/>
+                        <BeginStoryboard Storyboard="{StaticResource Animation6}" x:Name="Storyboard6"/>
+                        <BeginStoryboard Storyboard="{StaticResource Animation7}" x:Name="Storyboard7"/>
+                    </EventTrigger>
+                </Viewbox.Triggers>
+
+                <Canvas Height="49" Width="48.75">
+                    <Canvas.Resources>
+                        <Style TargetType="Ellipse">
+                            <Setter Property="Width" Value="10"/>
+                            <Setter Property="Height" Value="10" />
+                            <Setter Property="Fill" Value="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=Control}}" />
+                            <Setter Property="Opacity" Value="0" />
+                        </Style>
+                    </Canvas.Resources>
+
+                    <Ellipse x:Name="Ellipse0" Canvas.Left="0" Canvas.Top="20.25"/>
+                    <Ellipse x:Name="Ellipse1" Canvas.Left="4.75" Canvas.Top="6.25"/>
+                    <Ellipse x:Name="Ellipse2" Canvas.Left="18.75" Canvas.Top="0"/>
+                    <Ellipse x:Name="Ellipse3" Canvas.Left="33" Canvas.Top="6"/>
+                    <Ellipse x:Name="Ellipse4" Canvas.Left="38.75" Canvas.Top="20" />
+                    <Ellipse x:Name="Ellipse5" Canvas.Left="33" Canvas.Top="33.75"/>
+                    <Ellipse x:Name="Ellipse6" Canvas.Left="19" Canvas.Top="39"/>
+                    <Ellipse x:Name="Ellipse7" Canvas.Left="5.25" Canvas.Top="33.5" />
+                    <!--<Ellipse Width="39.5" Height="39.5" Canvas.Left="8.75" Canvas.Top="8" Visibility="Hidden"/>-->
+                </Canvas>
+            </Viewbox>
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

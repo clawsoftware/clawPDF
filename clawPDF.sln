@@ -3,39 +3,43 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33513.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF", "clawPDF\clawPDF.csproj", "{28A624EA-10C1-4178-BB3A-6A2BB6AA159D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF", "src\clawPDF\clawPDF.csproj", "{28A624EA-10C1-4178-BB3A-6A2BB6AA159D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF.Core", "clawPDF.Core\clawPDF.Core.csproj", "{18354054-45F6-4F51-8730-D05643A400A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF.Core", "src\clawPDF.Core\clawPDF.Core.csproj", "{18354054-45F6-4F51-8730-D05643A400A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF.Utilities", "clawPDF.Utilities\clawPDF.Utilities.csproj", "{EA29538B-89A5-4FB3-AE0F-5E2370E852F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF.Utilities", "src\clawPDF.Utilities\clawPDF.Utilities.csproj", "{EA29538B-89A5-4FB3-AE0F-5E2370E852F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetupHelper", "SetupHelper\SetupHelper.csproj", "{4BBD6F42-9111-4452-A2C1-9E02F65592D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetupHelper", "src\SetupHelper\SetupHelper.csproj", "{4BBD6F42-9111-4452-A2C1-9E02F65592D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFProcessing", "PDFProcessor\PDFProcessing.csproj", "{35CB4221-E0FF-46AB-B30C-A414095821AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFProcessing", "src\PDFProcessor\PDFProcessing.csproj", "{35CB4221-E0FF-46AB-B30C-A414095821AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF.Settings", "clawPDF.Settings\clawPDF.Settings.csproj", "{94936199-C9C7-4A5F-A58E-6123158E84F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF.Settings", "src\clawPDF.Settings\clawPDF.Settings.csproj", "{94936199-C9C7-4A5F-A58E-6123158E84F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF.Mail", "clawPDF.Mail\clawPDF.Mail.csproj", "{884D14EB-6D78-41D8-B022-968209DD6CE4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF.Mail", "src\clawPDF.Mail\clawPDF.Mail.csproj", "{884D14EB-6D78-41D8-B022-968209DD6CE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF.Shared", "clawPDF.Shared\clawPDF.Shared.csproj", "{6D3F11F7-2163-40FF-BAB7-9970A297ED47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF.Shared", "src\clawPDF.Shared\clawPDF.Shared.csproj", "{6D3F11F7-2163-40FF-BAB7-9970A297ED47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ftplib", "ftplib\ftplib.csproj", "{79B8051D-505D-49B4-82D8-9951F204CEB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ftplib", "src\ftplib\ftplib.csproj", "{79B8051D-505D-49B4-82D8-9951F204CEB6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clawmon", "clawmon\monitor\clawmon.vcxproj", "{BAF9FBEC-17EC-4130-ACF4-DCC99F0A0B75}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clawmon", "src\clawmon\monitor\clawmon.vcxproj", "{BAF9FBEC-17EC-4130-ACF4-DCC99F0A0B75}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clawmonui", "clawmon\monitorUI\clawmonui.vcxproj", "{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clawmonui", "src\clawmon\monitorUI\clawmonui.vcxproj", "{0437D45F-B95F-4A46-BFCA-5BBD77B8FBBC}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "clawPDF_setup", "clawPDF_setup\clawPDF_setup.vdproj", "{51C49DE3-1FA6-4C2E-8409-CB6D9FC79B76}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "clawPDF_setup", "src\clawPDF_setup\clawPDF_setup.vdproj", "{51C49DE3-1FA6-4C2E-8409-CB6D9FC79B76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF.Bridge", "clawPDF.Bridge\clawPDF.Bridge.csproj", "{004B582A-0CDC-4E19-9DB2-AF83506A4460}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clawPDF.Bridge", "src\clawPDF.Bridge\clawPDF.Bridge.csproj", "{004B582A-0CDC-4E19-9DB2-AF83506A4460}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemInterface", "SystemWrapper\SystemInterface\SystemInterface.csproj", "{6634E69D-1B08-4D6B-8C2F-5F88EBDE53B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemInterface", "src\SystemWrapper\SystemInterface\SystemInterface.csproj", "{6634E69D-1B08-4D6B-8C2F-5F88EBDE53B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemWrapper", "SystemWrapper\SystemWrapper\SystemWrapper.csproj", "{B8DEECE0-6074-47C2-9AF4-123EE324D212}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemWrapper", "src\SystemWrapper\SystemWrapper\SystemWrapper.csproj", "{B8DEECE0-6074-47C2-9AF4-123EE324D212}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PrinterMonitor", "PrinterMonitor", "{59DE0A31-E895-49BD-8455-C9117E727177}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PrinterMonitor", "src\PrinterMonitor", "{59DE0A31-E895-49BD-8455-C9117E727177}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Printer", "Printer", "{10E1C86E-25C5-4C22-9FE7-4C505F39B266}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdonisUI", "src\AdonisUI\AdonisUI.csproj", "{84827F38-0467-4349-B115-9C56BB159F62}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdonisUI.ClassicTheme", "src\AdonisUI.ClassicTheme\AdonisUI.ClassicTheme.csproj", "{FED5FC3E-64F2-4DE8-8179-AE63C533E255}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -284,6 +288,38 @@ Global
 		{B8DEECE0-6074-47C2-9AF4-123EE324D212}.Release|Win32.Build.0 = Release|Any CPU
 		{B8DEECE0-6074-47C2-9AF4-123EE324D212}.Release|x64.ActiveCfg = Release|Any CPU
 		{B8DEECE0-6074-47C2-9AF4-123EE324D212}.Release|x64.Build.0 = Release|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Debug|Win32.Build.0 = Debug|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Debug|x64.Build.0 = Debug|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Release|ARM64.Build.0 = Release|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Release|Win32.ActiveCfg = Release|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Release|Win32.Build.0 = Release|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Release|x64.ActiveCfg = Release|Any CPU
+		{84827F38-0467-4349-B115-9C56BB159F62}.Release|x64.Build.0 = Release|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Debug|Win32.Build.0 = Debug|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Debug|x64.Build.0 = Debug|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Release|ARM64.Build.0 = Release|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Release|Win32.ActiveCfg = Release|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Release|Win32.Build.0 = Release|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Release|x64.ActiveCfg = Release|Any CPU
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -303,6 +339,8 @@ Global
 		{004B582A-0CDC-4E19-9DB2-AF83506A4460} = {10E1C86E-25C5-4C22-9FE7-4C505F39B266}
 		{6634E69D-1B08-4D6B-8C2F-5F88EBDE53B4} = {10E1C86E-25C5-4C22-9FE7-4C505F39B266}
 		{B8DEECE0-6074-47C2-9AF4-123EE324D212} = {10E1C86E-25C5-4C22-9FE7-4C505F39B266}
+		{84827F38-0467-4349-B115-9C56BB159F62} = {10E1C86E-25C5-4C22-9FE7-4C505F39B266}
+		{FED5FC3E-64F2-4DE8-8179-AE63C533E255} = {10E1C86E-25C5-4C22-9FE7-4C505F39B266}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E1EDC79-B996-4708-828F-773DA0A7AD09}

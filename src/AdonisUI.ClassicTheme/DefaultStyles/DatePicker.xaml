@@ -1,0 +1,267 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+                    xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
+                    xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+                    xmlns:adonisConverters="clr-namespace:AdonisUI.Converters;assembly=AdonisUI">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/TextBox.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="{x:Type DatePickerTextBox}" TargetType="DatePickerTextBox">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <ContentPresenter x:Name="PlaceholderHost"
+                                          Content="{Binding Path=(adonisExtensions:WatermarkExtension.Watermark), RelativeSource={RelativeSource FindAncestor, AncestorType=DatePicker}}"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Opacity="0.5"
+                                          IsHitTestVisible="False"
+                                          Visibility="Collapsed"/>
+
+                        <ScrollViewer Name="PART_ContentHost"
+                                      Focusable="False"
+                                      HorizontalScrollBarVisibility="Hidden"
+                                      VerticalScrollBarVisibility="Hidden"
+                                      adonisExtensions:ScrollViewerExtension.VerticalScrollBarExpansionMode="{Binding Path=(adonisExtensions:ScrollViewerExtension.VerticalScrollBarExpansionMode), RelativeSource={RelativeSource FindAncestor, AncestorType=DatePicker}}"
+                                      adonisExtensions:ScrollViewerExtension.HorizontalScrollBarExpansionMode="{Binding Path=(adonisExtensions:ScrollViewerExtension.HorizontalScrollBarExpansionMode), RelativeSource={RelativeSource FindAncestor, AncestorType=DatePicker}}"
+                                      adonisExtensions:ScrollViewerExtension.VerticalScrollBarPlacement="{Binding Path=(adonisExtensions:ScrollViewerExtension.VerticalScrollBarPlacement), RelativeSource={RelativeSource FindAncestor, AncestorType=DatePicker}}"
+                                      adonisExtensions:ScrollViewerExtension.HorizontalScrollBarPlacement="{Binding Path=(adonisExtensions:ScrollViewerExtension.HorizontalScrollBarPlacement), RelativeSource={RelativeSource FindAncestor, AncestorType=DatePicker}}"
+                                      adonisExtensions:ScrollViewerExtension.HideScrollBarsUntilMouseOver="{Binding Path=(adonisExtensions:ScrollViewerExtension.HideScrollBarsUntilMouseOver), RelativeSource={RelativeSource FindAncestor, AncestorType=DatePicker}}"
+                                      Margin="{TemplateBinding Padding}"
+                                      Template="{StaticResource TextBoxScrollViewerTemplate}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Path=(adonisExtensions:WatermarkExtension.IsWatermarkVisible), RelativeSource={RelativeSource FindAncestor, AncestorType=DatePicker}}" Value="True">
+                            <Setter Property="Visibility" TargetName="PlaceholderHost" Value="Visible"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{x:Type DatePicker}" TargetType="DatePicker">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+        <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1BorderBrush}}"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static adonisUi:Dimensions.BorderThickness}}"/>
+        <Setter Property="adonisExtensions:CornerRadiusExtension.CornerRadius" Value="{DynamicResource {x:Static adonisUi:Dimensions.CornerRadius}}"/>
+        <Setter Property="Padding" Value="8, 4, 4, 4"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="CalendarStyle" Value="{DynamicResource {x:Type Calendar}}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="adonisExtensions:ScrollViewerExtension.VerticalScrollBarExpansionMode" Value="ExpandOnHover"/>
+        <Setter Property="adonisExtensions:ScrollViewerExtension.HorizontalScrollBarExpansionMode" Value="ExpandOnHover"/>
+        <Setter Property="adonisExtensions:ScrollViewerExtension.VerticalScrollBarPlacement" Value="Docked"/>
+        <Setter Property="adonisExtensions:ScrollViewerExtension.HorizontalScrollBarPlacement" Value="Docked"/>
+        <Setter Property="adonisExtensions:ScrollViewerExtension.HideScrollBarsUntilMouseOver" Value="False"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
+        <Setter Property="adonisExtensions:ValidationExtension.IsErrorMessageVisibleOnFocus" Value="True"/>
+        <Setter Property="adonisExtensions:ValidationExtension.IsErrorMessageVisibleOnMouseOver" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DatePicker}">
+                    <Grid x:Name="PART_Root">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border x:Name="Border"
+                                Grid.ColumnSpan="2"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding adonisExtensions:CornerRadiusExtension.CornerRadius}"/>
+
+                        <Border x:Name="SpotlightLayer"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Background="{TemplateBinding adonisExtensions:CursorSpotlightExtension.BackgroundBrush}"
+                                BorderBrush="{TemplateBinding adonisExtensions:CursorSpotlightExtension.BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding adonisExtensions:CornerRadiusExtension.CornerRadius}"
+                                adonisExtensions:CursorSpotlightExtension.MouseEventSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=DatePicker}}"
+                                SnapsToDevicePixels="False"/>
+
+                        <DockPanel Grid.Column="0"
+                                   Margin="{TemplateBinding Padding}">
+
+                            <adonisControls:ValidationErrorIndicator x:Name="ErrorAlertHost"
+                                                                     ValidatedElement="{Binding ., RelativeSource={RelativeSource TemplatedParent}}"
+                                                                     IsValidatedElementFocused="False"
+                                                                     IsErrorMessageDisplayOnFocusEnabled="{TemplateBinding adonisExtensions:ValidationExtension.IsErrorMessageVisibleOnFocus}"
+                                                                     IsErrorMessageDisplayOnMouseOverEnabled="{TemplateBinding adonisExtensions:ValidationExtension.IsErrorMessageVisibleOnMouseOver}"
+                                                                     ErrorMessagePlacement="{TemplateBinding adonisExtensions:ValidationExtension.ErrorMessagePlacement}"
+                                                                     Visibility="Collapsed"
+                                                                     DockPanel.Dock="Left"
+                                                                     Margin="0, 0, 4, 0"/>
+
+                            <DatePickerTextBox x:Name="PART_TextBox"
+                                               Padding="0"
+                                               Foreground="{TemplateBinding Foreground}"
+                                               Background="{TemplateBinding Background}"
+                                               Focusable="{TemplateBinding Focusable}"
+                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </DockPanel>
+
+                        <Button x:Name="PART_Button"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Foreground="{TemplateBinding Foreground}"
+                                Template="{DynamicResource {x:Static adonisUi:Templates.DatePickerDropDownButton}}"
+                                Focusable="False"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Button.Margin>
+                                <MultiBinding Converter="{x:Static adonisConverters:ValuesToThicknessConverter.Instance}">
+                                    <Binding Source="0"/>
+                                    <Binding Path="Padding.Top" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Path="Padding.Right" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Path="Padding.Bottom" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                </MultiBinding>
+                            </Button.Margin>
+                        </Button>
+
+                        <Popup x:Name="PART_Popup"
+                               AllowsTransparency="True"
+                               Placement="Bottom"
+                               PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                               StaysOpen="False" />
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="Visibility" TargetName="ErrorAlertHost" Value="Visible"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+
+            <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="2">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2BackgroundBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2BorderBrush}}"/>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="3">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}"/>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="4">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4BackgroundBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4BorderBrush}}"/>
+            </DataTrigger>
+
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1HighlightBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1HighlightBorderBrush}}"/>
+                <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1IntenseHighlightBrush}}"/>
+                <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1IntenseHighlightBorderBrush}}"/>
+            </Trigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="2"/>
+                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2HighlightBrush}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2HighlightBorderBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2IntenseHighlightBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2IntenseHighlightBorderBrush}}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="3"/>
+                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3HighlightBrush}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3HighlightBorderBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3IntenseHighlightBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3IntenseHighlightBorderBrush}}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="4"/>
+                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4HighlightBrush}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4HighlightBorderBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4IntenseHighlightBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4IntenseHighlightBorderBrush}}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentBrush}}"/>
+                <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.AccentBrush}}"/>
+            </Trigger>
+
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.DisabledForegroundBrush}}"/>
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer0BackgroundBrush}}"/>
+            </Trigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="2"/>
+                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="False" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="3"/>
+                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="False" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2BackgroundBrush}}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="4"/>
+                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="False" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.ErrorBrush}}"/>
+                <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.ErrorBrush}}"/>
+            </Trigger>
+
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

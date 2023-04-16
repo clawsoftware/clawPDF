@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="clawSoft.clawPDF.Shared.Views.UserControls.OCRTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:enums="clr-namespace:clawSoft.clawPDF.Core.Settings.Enums;assembly=clawPDF.Settings"
+             xmlns:userControls="clr-namespace:clawSoft.clawPDF.Shared.ViewModels.UserControls"
+             xmlns:converter="clr-namespace:clawSoft.clawPDF.Shared.Converter"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <userControls:OCRTabViewModel />
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <system:Boolean x:Key="True">True</system:Boolean>
+        <system:Boolean x:Key="False">False</system:Boolean>
+        <converter:AreEqualConverter Reference="{x:Static enums:ColorModel.Cmyk}" EqualValue="{StaticResource True}"
+                                     NotEqualValue="{StaticResource False}" x:Key="ColorModelIsCmykConverter" />
+        <converter:AreEqualConverter Reference="{x:Static enums:CompressionColorAndGray.JpegManual}"
+                                     EqualValue="{StaticResource True}" NotEqualValue="{StaticResource False}"
+                                     x:Key="CompressionColorAndGrayIsJpegManualConverter" />
+        <converter:AreEqualConverter Reference="{x:Static enums:CompressionColorAndGray.Automatic}"
+                                     EqualValue="{StaticResource False}" NotEqualValue="{StaticResource True}"
+                                     x:Key="CompressionColorAndGrayIsNotAutomaticConverter" />
+        <converter:AreEqualConverter Reference="{x:Static enums:SignaturePage.CustomPage}"
+                                     EqualValue="{StaticResource True}" NotEqualValue="{StaticResource False}"
+                                     x:Key="SignaturePageIsCustomPageConverter" />
+        <converter:StringIsNullOrWhiteSpaceToBoolConverter x:Key="StringIsNullOrWhiteSpaceToBoolConverter" />
+    </UserControl.Resources>
+
+    <TabControl Name="OCRSettingsTabControl" x:FieldModifier="public">
+        <TabItem Name="OCRGeneralTab" Header="General" x:FieldModifier="public">
+            <StackPanel Margin="5">
+                <HeaderedContentControl Name="OCRControl"
+                                        Template="{StaticResource HeaderPanelTemplate}" Header="OCR Settings">
+                </HeaderedContentControl>
+                <TextBlock Margin="0,5,0,0" Name="OCRLanguageNoteTextBlock" TextWrapping="Wrap">Please provide the language(s) to be recognized in the file to be printed and specify the language files without the ".traineddata" extension. If there are several languages, separate them with a plus sign (e.g. eng+deu+fra).</TextBlock>
+                <Label Margin="0,5,0,0" Name="OCRLanguageLabel" Content="Language(s):" />
+                <TextBox HorizontalAlignment="Stretch" Text="{Binding CurrentProfile.OCRSettings.OCRLanguage}" Height="24" />
+                <Button adonisExtensions:RippleExtension.FadeInDuration="0" Margin="0,5,0,0" Content="TESSDATA" Click="openTessdataSource_Click" />
+                <Label Content="" />
+                <TextBlock Margin="0,5,0,0" Name="OCRNoteTextBlock" TextWrapping="Wrap">Kindly verify if the appropriate language file(s) for the language(s) to be detected are present in the source language file folder. To access the language files and add new ones, click on the 'TESSDATA' button. You may also download additional language files from the websites listed below:
+                </TextBlock>
+                <Button adonisExtensions:RippleExtension.FadeInDuration="0" Margin="0,5,0,0" Content="https://github.com/tesseract-ocr/tessdata_best" Click="openTessdataBest_Click" />
+                <Button adonisExtensions:RippleExtension.FadeInDuration="0" Margin="0,5,0,0" Content="https://github.com/tesseract-ocr/tessdata_fast" Click="openTessdataFast_Click" />
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+</UserControl>

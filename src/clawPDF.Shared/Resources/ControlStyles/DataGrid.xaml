@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI">
+    <Style TargetType="{x:Type DataGrid}">
+        <Setter Property="SelectionMode" Value="Single" />
+        <Setter Property="AutoGenerateColumns" Value="False" />
+        <Setter Property="CanUserResizeRows" Value="False" />
+        <Setter Property="CanUserSortColumns" Value="False" />
+        <Setter Property="CanUserReorderColumns" Value="False" />
+    </Style>
+</ResourceDictionary>

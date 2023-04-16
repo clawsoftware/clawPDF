@@ -1,0 +1,61 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/Dimensions.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/Templates/DatePickerDropDownButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/Templates/Expander.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/Templates/Icons.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/Templates/LoadingBars.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/Templates/LoadingCircle.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/Templates/LoadingDots.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/Templates/ValidationErrorTemplate.xaml"/>
+        
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/Button.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/Calendar.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/CheckBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/ComboBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/DataGrid.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/DatePicker.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/Expander.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/GridSplitter.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/GroupBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/Hyperlink.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/Label.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/ListBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/ListView.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/Menu.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/MenuItem.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/MessageBoxWindow.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/ProgressBar.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/RadioButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/ScrollBar.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/ScrollViewer.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/Slider.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/SplitButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/StatusBar.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/TabControl.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/TextBlock.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/TextBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/ToggleButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/ToolBar.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/TreeView.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/Window.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/NamedStyles/AccentButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/NamedStyles/AccentComboBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/NamedStyles/AccentToolbarButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/NamedStyles/DefaultToAccentToggleButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/NamedStyles/RippleListBoxItemStyle.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/NamedStyles/SelectableTextBlockTextBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/NamedStyles/ToggleSwitch.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/NamedStyles/ToolbarButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/NamedStyles/ToolbarToggleButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/NamedStyles/WindowButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/NamedStyles/WindowToggleButton.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

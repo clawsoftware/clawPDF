@@ -100,8 +100,10 @@ clawPDF.exe /ManagePrintJobs
 
 ## v0.9.1 (TBA)
 
-- [feature] Windows ARM64 support (Surface, Windows on Apple M1/M2/M3, ...)
+- [feature] Windows ARM64 support (Surface, Windows on Apple M1/M2/M3)
 - [feature] 256-bit AES encryption
+- [feature] Light/Dark Theme
+- [feature] Ask for SMTP recipient if not specified
 - [update] iText 7
 
 ## v0.9.0 (28.03.2023)

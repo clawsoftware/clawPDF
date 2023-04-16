@@ -1,0 +1,77 @@
+﻿<adonisControls:AdonisWindow x:Class="clawSoft.clawPDF.Views.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+        xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+        Title="About clawPDF" Height="352.614" Width="650"
+        WindowStartupLocation="CenterScreen"
+        Loaded="OnLoaded"
+        Icon="../clawPDF.ico"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        ResizeMode="CanMinimize" x:ClassModifier="internal">
+    <Grid>
+        <Grid.Resources>
+            <Style x:Key="NoChromeButton" TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Cursor" Value="{x:Static Cursors.Hand}" />
+                <Setter Property="Foreground" Value="#06c" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Padding" Value="1" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid x:Name="Chrome" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  Margin="{TemplateBinding Padding}" RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Foreground" Value="#ADADAD" />
+                                    <Setter Property="Opacity" TargetName="Chrome" Value="0.5" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="266*" />
+            <RowDefinition Height="71*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <ContentControl Grid.Row="0" Grid.Column="0" IsTabStop="False" Content="{StaticResource Alpaca}"
+                        Margin="10,10,11,11" />
+
+        <DockPanel Grid.Row="0" Grid.Column="1" Margin="9,10,10,11">
+            <TextBlock Margin="5 0 0 0" DockPanel.Dock="Top" FontSize="22" FontWeight="Bold" Foreground="#555">clawPDF</TextBlock>
+            <TextBlock Margin="5 0 0 0" DockPanel.Dock="Top" FontSize="12" FontWeight="Bold" Foreground="#888" Padding="0 0"
+                       Name="VersionText">
+                v1.0.0
+            </TextBlock>
+            <StackPanel DockPanel.Dock="Top" Name="CustomizationPanel" Visibility="Visible" VerticalAlignment="Center">
+                <Image Name="CustomImage" MaxWidth="400" MaxHeight="90" />
+            </StackPanel>
+            <RichTextBox Width="407" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer0BackgroundBrush}}" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Margin="0,5.4,0,10.2" HorizontalAlignment="Center" Name="rt_license"></RichTextBox>
+        </DockPanel>
+
+        <Button Style="{StaticResource NoChromeButton}" IsTabStop="False"
+                Content="Project Website" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+                Margin="10,0,12,47" Click="CompanyButton_OnClick" Grid.Row="1" Height="23" />
+        <Button Style="{StaticResource NoChromeButton}" Grid.Row="1" IsTabStop="False"
+                Content="Support the Project" Height="23" HorizontalAlignment="Stretch"
+                Margin="10,19,12,0" Click="SponsorsButton_OnClick" VerticalAlignment="Top" />
+        <Button Style="{StaticResource NoChromeButton}" Grid.Row="1" IsTabStop="False"
+                Content="Contact me"
+                Margin="10,40,12,0" Click="ContactButton_OnClick" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="23" />
+        <TextBlock VerticalAlignment="Top" TextWrapping="Wrap" x:Name="LicenseInfo" Margin="15,5,4,0" Grid.Column="1" Grid.Row="1" Height="48"><Run Text="clawPDF is free software consisting of multiple components with individual licenses. Please read the license section in the manual for further information on these licenses." /></TextBlock>
+    </Grid>
+</adonisControls:AdonisWindow>

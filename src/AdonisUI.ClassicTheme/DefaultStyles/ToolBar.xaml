@@ -1,0 +1,282 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+                    xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/Button.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/CheckBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/Menu.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/RadioButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/TextBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/ToggleButton.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="{x:Static ToolBar.ButtonStyleKey}"
+           BasedOn="{StaticResource {x:Type Button}}"
+           TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="4, 2"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.DisabledForegroundBrush}}"/>
+                <Setter Property="Background" Value="Transparent"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="{x:Static ToolBar.ToggleButtonStyleKey}"
+           BasedOn="{StaticResource {x:Type ToggleButton}}"
+           TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="4, 2"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.DisabledForegroundBrush}}"/>
+                <Setter Property="Background" Value="Transparent"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="{x:Static ToolBar.CheckBoxStyleKey}"
+           BasedOn="{StaticResource {x:Type CheckBox}}"
+           TargetType="{x:Type CheckBox}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Margin" Value="4, 2"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.DisabledForegroundBrush}}"/>
+                <Setter Property="Background" Value="Transparent"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="{x:Static ToolBar.RadioButtonStyleKey}"
+           BasedOn="{StaticResource {x:Type RadioButton}}"
+           TargetType="{x:Type RadioButton}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Margin" Value="4, 2"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.DisabledForegroundBrush}}"/>
+                <Setter Property="Background" Value="Transparent"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="{x:Static ToolBar.TextBoxStyleKey}"
+           BasedOn="{StaticResource {x:Type TextBox}}"
+           TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="4, 2"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.DisabledForegroundBrush}}"/>
+                <Setter Property="Background" Value="Transparent"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="{x:Static ToolBar.MenuStyleKey}"
+           BasedOn="{StaticResource {x:Type Menu}}"
+           TargetType="{x:Type Menu}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.DisabledForegroundBrush}}"/>
+                <Setter Property="Background" Value="Transparent"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ToolBarThumbStyle"
+           TargetType="{x:Type Thumb}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Cursor" Value="SizeAll" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Border Background="Transparent"
+                            SnapsToDevicePixels="False">
+                        <Rectangle Margin="{TemplateBinding Padding}">
+                            <Rectangle.Fill>
+                                <DrawingBrush Viewport="0,0,8,4"
+                                              ViewportUnits="Absolute"
+                                              Viewbox="0,0,8,4"
+                                              ViewboxUnits="Absolute"
+                                              TileMode="Tile"
+                                              Opacity="0.5">
+                                    <DrawingBrush.Drawing>
+                                        <DrawingGroup>
+                                            <GeometryDrawing Brush="{DynamicResource {x:Static adonisUi:Brushes.DisabledForegroundBrush}}">
+                                                <GeometryDrawing.Geometry>
+                                                    <GeometryGroup>
+                                                        <RectangleGeometry Rect="0,0,1,1"/>
+                                                        <RectangleGeometry Rect="4,0,1,1"/>
+                                                        <RectangleGeometry Rect="2,2,1,1"/>
+                                                        <RectangleGeometry Rect="6,2,1,1"/>
+                                                    </GeometryGroup>
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                        </DrawingGroup>
+                                    </DrawingBrush.Drawing>
+                                </DrawingBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToolBarOverflowButtonStyle"
+           TargetType="{x:Type ToggleButton}"
+           BasedOn="{StaticResource {x:Type ToggleButton}}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Grid>
+                        <Path x:Name="Arrow"
+                              Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=ToggleButton}}"
+                              HorizontalAlignment="Right"
+                              VerticalAlignment="Bottom"
+                              Margin="2,3"
+                              Data="M -0.5 3 L 5.5 3 L 2.5 6 Z" />
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="Transparent"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="{x:Type ToolBar}"
+           TargetType="{x:Type ToolBar}">
+        <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToolBar}">
+                    <Border x:Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding adonisExtensions:CornerRadiusExtension.CornerRadius}">
+
+                        <StackPanel Orientation="{Binding Path=Orientation,
+                                                          RelativeSource={RelativeSource FindAncestor, AncestorType=ToolBarTray},
+                                                          FallbackValue={x:Static Orientation.Horizontal}}">
+
+                            <Thumb x:Name="ToolBarThumb"
+                                   Style="{StaticResource ToolBarThumbStyle}"
+                                   Width="10"
+                                   Padding="2, 1"/>
+
+                            <ToolBarPanel x:Name="PART_ToolBarPanel"
+                                          IsItemsHost="True"/>
+
+                            <ToggleButton x:Name="OverflowToggleButton"
+                                          IsEnabled="{TemplateBinding HasOverflowItems}"
+                                          Style="{StaticResource ToolBarOverflowButtonStyle}"
+                                          ClickMode="Press"
+                                          IsChecked="{Binding IsOverflowOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+
+                                <Popup x:Name="OverflowPopup"
+                                       PlacementTarget="{Binding ElementName=OverflowToggleButton}"
+                                       Placement="Bottom"
+                                       StaysOpen="False"
+                                       Focusable="False"
+                                       PopupAnimation="Slide"
+                                       IsOpen="{Binding IsOverflowOpen, RelativeSource={RelativeSource TemplatedParent}}">
+
+                                    <Border Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}"
+                                            BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer1BorderBrush}}"
+                                            BorderThickness="{DynamicResource {x:Static adonisUi:Dimensions.BorderThickness}}">
+
+                                        <ToolBarOverflowPanel x:Name="PART_ToolBarOverflowPanel"
+                                                              WrapWidth="200"
+                                                              Focusable="True"
+                                                              FocusVisualStyle="{x:Null}"
+                                                              KeyboardNavigation.TabNavigation="Cycle"
+                                                              KeyboardNavigation.DirectionalNavigation="Cycle" />
+                                    </Border>
+                                </Popup>
+                            </ToggleButton>
+                        </StackPanel>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsOverflowOpen"
+                                 Value="True">
+                            <Setter TargetName="ToolBarThumb"
+                                    Property="IsEnabled"
+                                    Value="False" />
+                        </Trigger>
+
+                        <Trigger Property="ToolBarTray.IsLocked"
+                                 Value="True">
+                            <Setter TargetName="ToolBarThumb"
+                                    Property="Visibility"
+                                    Value="Collapsed" />
+                        </Trigger>
+
+                        <DataTrigger Binding="{Binding Orientation, RelativeSource={RelativeSource FindAncestor, AncestorType=ToolBarTray}}"
+                                     Value="Vertical">
+                            <Setter TargetName="ToolBarThumb"
+                                    Property="Width"
+                                    Value="{x:Static sys:Double.NaN}"/>
+                            <Setter TargetName="ToolBarThumb"
+                                    Property="Height"
+                                    Value="10"/>
+                            <Setter TargetName="ToolBarThumb"
+                                    Property="Padding"
+                                    Value="1, 2"/>
+                            <Setter TargetName="OverflowPopup"
+                                    Property="Placement"
+                                    Value="Right"/>
+                        </DataTrigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{x:Type ToolBarTray}"
+           TargetType="{x:Type ToolBarTray}">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+</ResourceDictionary>

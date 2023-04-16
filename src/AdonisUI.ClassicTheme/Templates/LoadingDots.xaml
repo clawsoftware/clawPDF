@@ -1,0 +1,118 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:AdonisUI.ClassicTheme.Templates"
+                    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI">
+
+    <DataTemplate x:Key="{x:Static adonisUi:Templates.LoadingDots}">
+        <Grid>
+            <Viewbox Stretch="Uniform">
+                <Viewbox.Resources>
+                    <Storyboard x:Key="Animation0" BeginTime="00:00:00" Duration="00:00:00.8" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="Ellipse0Container"
+                                         Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"
+                                         From="0"
+                                         To="1"
+                                         Duration="00:00:0.8"
+                                         BeginTime="00:00:0.0"/>
+                        <DoubleAnimation Storyboard.TargetName="Ellipse0Container"
+                                         Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"
+                                         From="0"
+                                         To="1"
+                                         Duration="00:00:0.8"
+                                         BeginTime="00:00:0.0"/>
+                        <DoubleAnimation Storyboard.TargetName="Ellipse0"
+                                         Storyboard.TargetProperty="(RenderTransform).(TranslateTransform.X)"
+                                         From="0"
+                                         To="24"
+                                         Duration="00:00:0.8"/>
+                    </Storyboard>
+
+                    <Storyboard x:Key="Animation1" BeginTime="00:00:00" Duration="00:00:00.8" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="Ellipse1"
+                                         Storyboard.TargetProperty="(RenderTransform).(TranslateTransform.X)"
+                                         From="0"
+                                         To="24"
+                                         Duration="00:00:0.8"/>
+                    </Storyboard>
+
+                    <Storyboard x:Key="Animation2" BeginTime="00:00:00" Duration="00:00:00.8" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="Ellipse2"
+                                         Storyboard.TargetProperty="(RenderTransform).(TranslateTransform.X)"
+                                         From="0"
+                                         To="24"
+                                         Duration="00:00:0.8"/>
+                    </Storyboard>
+
+                    <Storyboard x:Key="Animation3" BeginTime="00:00:00" Duration="00:00:00.8" RepeatBehavior="Forever">
+                        <DoubleAnimation Storyboard.TargetName="Ellipse3"
+                                         Storyboard.TargetProperty="(RenderTransform).(TranslateTransform.X)"
+                                         From="0"
+                                         To="24"
+                                         Duration="00:00:0.8"/>
+                        <DoubleAnimation Storyboard.TargetName="Ellipse3Container"
+                                         Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"
+                                         From="1"
+                                         To="0"
+                                         Duration="00:00:0.8"
+                                         BeginTime="00:00:0.0"/>
+                        <DoubleAnimation Storyboard.TargetName="Ellipse3Container"
+                                         Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"
+                                         From="1"
+                                         To="0"
+                                         Duration="00:00:0.8"
+                                         BeginTime="00:00:0.0"/>
+                    </Storyboard>
+                </Viewbox.Resources>
+
+                <Viewbox.Triggers>
+                    <EventTrigger RoutedEvent="Viewbox.Loaded">
+                        <BeginStoryboard Storyboard="{StaticResource Animation0}" x:Name="Storyboard0" />
+                        <BeginStoryboard Storyboard="{StaticResource Animation1}" x:Name="Storyboard1"/>
+                        <BeginStoryboard Storyboard="{StaticResource Animation2}" x:Name="Storyboard2"/>
+                        <BeginStoryboard Storyboard="{StaticResource Animation3}" x:Name="Storyboard3"/>
+                    </EventTrigger>
+                </Viewbox.Triggers>
+
+                <StackPanel Orientation="Horizontal"
+                            Height="16"
+                            Width="94"
+                            Margin="-22, 0, 0, 0">
+                    <StackPanel.Resources>
+                        <Style TargetType="Ellipse">
+                            <Setter Property="Width" Value="16"/>
+                            <Setter Property="Height" Value="16" />
+                            <Setter Property="Fill" Value="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=Control}}" />
+                            <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </StackPanel.Resources>
+
+                    <Grid x:Name="Ellipse0Container" RenderTransformOrigin="2, 0.5">
+                        <Grid.RenderTransform>
+                            <ScaleTransform ScaleX="0" ScaleY="0"/>
+                        </Grid.RenderTransform>
+
+                        <Ellipse x:Name="Ellipse0"/>
+                    </Grid>
+
+                    <Ellipse x:Name="Ellipse1" Margin="8, 0, 0, 0"/>
+                    <Ellipse x:Name="Ellipse2" Margin="8, 0, 0, 0"/>
+
+                    <Grid x:Name="Ellipse3Container" Margin="8, 0, 0, 0" RenderTransformOrigin="1, 0.5">
+                        <Grid.RenderTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        </Grid.RenderTransform>
+
+                        <Ellipse x:Name="Ellipse3"/>
+                    </Grid>
+
+                </StackPanel>
+            </Viewbox>
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

@@ -1,0 +1,298 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+                    xmlns:adonisConverters="clr-namespace:AdonisUI.Converters;assembly=AdonisUI"
+                    xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
+                    xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI">
+
+    <Style x:Key="{x:Type TabItem}" TargetType="TabItem">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+        <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1BorderBrush}}"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static adonisUi:Dimensions.BorderThickness}}"/>
+        <Setter Property="adonisExtensions:CornerRadiusExtension.CornerRadius" Value="{DynamicResource {x:Static adonisUi:Dimensions.CornerRadius}}"/>
+        <Setter Property="adonisExtensions:LayerExtension.IncreaseLayer" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TabItem">
+                    <Grid x:Name="OuterGrid">
+                        <Border x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}">
+                            <Border.BorderThickness>
+                                <MultiBinding Converter="{x:Static adonisConverters:ValuesToThicknessConverter.Instance}">
+                                    <Binding Path="BorderThickness.Left" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Path="BorderThickness.Top" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Path="BorderThickness.Right" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Source="0"/>
+                                </MultiBinding>
+                            </Border.BorderThickness>
+                            <Border.CornerRadius>
+                                <MultiBinding Converter="{x:Static adonisConverters:ValuesToCornerRadiusConverter.Instance}">
+                                    <Binding Path="(adonisExtensions:CornerRadiusExtension.CornerRadius).TopLeft" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Path="(adonisExtensions:CornerRadiusExtension.CornerRadius).TopRight" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Source="0"/>
+                                    <Binding Source="0"/>
+                                </MultiBinding>
+                            </Border.CornerRadius>
+                        </Border>
+
+                        <Border x:Name="SpotlightLayer"
+                                Background="{TemplateBinding adonisExtensions:CursorSpotlightExtension.BackgroundBrush}"
+                                BorderBrush="{TemplateBinding adonisExtensions:CursorSpotlightExtension.BorderBrush}"
+                                adonisExtensions:CursorSpotlightExtension.MouseEventSource="{Binding RelativeSource={RelativeSource TemplatedParent}}">
+                            <Border.BorderThickness>
+                                <MultiBinding Converter="{x:Static adonisConverters:ValuesToThicknessConverter.Instance}">
+                                    <Binding Path="BorderThickness.Left" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Path="BorderThickness.Top" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Path="BorderThickness.Right" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Source="0"/>
+                                </MultiBinding>
+                            </Border.BorderThickness>
+                            <Border.CornerRadius>
+                                <MultiBinding Converter="{x:Static adonisConverters:ValuesToCornerRadiusConverter.Instance}">
+                                    <Binding Path="(adonisExtensions:CornerRadiusExtension.CornerRadius).TopLeft" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Path="(adonisExtensions:CornerRadiusExtension.CornerRadius).TopRight" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Source="0"/>
+                                    <Binding Source="0"/>
+                                </MultiBinding>
+                            </Border.CornerRadius>
+                        </Border>
+
+                        <Grid Name="TabPanel"
+                              Background="Transparent">
+                            <ContentPresenter x:Name="ContentSite"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"
+                                              ContentSource="Header"
+                                              Margin="8, 4"
+                                              RecognizesAccessKey="True"/>
+                        </Grid>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Margin" TargetName="OuterGrid" Value="0, 0, 0, -1"/>
+                        </Trigger>
+
+                        <Trigger Property="IsSelected" Value="False">
+                            <Setter Property="Margin" TargetName="OuterGrid" Value="0, 2, 0, 0"/>
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" SourceName="TabPanel" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1HighlightBrush}}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1HighlightBorderBrush}}"/>
+                            <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1IntenseHighlightBrush}}"/>
+                            <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1IntenseHighlightBorderBrush}}"/>
+                        </Trigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="2"/>
+                                <Condition Binding="{Binding IsMouseOver, ElementName=TabPanel}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <MultiDataTrigger.Setters>
+                                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2HighlightBrush}}"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2HighlightBorderBrush}}"/>
+                                <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2IntenseHighlightBrush}}"/>
+                                <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2IntenseHighlightBorderBrush}}"/>
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="3"/>
+                                <Condition Binding="{Binding IsMouseOver, ElementName=TabPanel}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <MultiDataTrigger.Setters>
+                                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3HighlightBrush}}"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3HighlightBorderBrush}}"/>
+                                <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3IntenseHighlightBrush}}"/>
+                                <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3IntenseHighlightBorderBrush}}"/>
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="4"/>
+                                <Condition Binding="{Binding IsMouseOver, ElementName=TabPanel}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <MultiDataTrigger.Setters>
+                                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4HighlightBrush}}"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4HighlightBorderBrush}}"/>
+                                <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4IntenseHighlightBrush}}"/>
+                                <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4IntenseHighlightBorderBrush}}"/>
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="2">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2BackgroundBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2BorderBrush}}"/>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="3">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}"/>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="4">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4BackgroundBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4BorderBrush}}"/>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="True" >
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1HighlightBrush}}"/>
+                <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="Transparent"/>
+                <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="Transparent"/>
+            </DataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="2"/>
+                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2HighlightBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="Transparent"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="Transparent"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="3"/>
+                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3HighlightBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="Transparent"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="Transparent"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="4"/>
+                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="True" />
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4HighlightBrush}}"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BackgroundBrush" Value="Transparent"/>
+                    <Setter Property="adonisExtensions:CursorSpotlightExtension.BorderBrush" Value="Transparent"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.DisabledForegroundBrush}}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="{x:Type TabControl}" TargetType="TabControl">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+        <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer1BorderBrush}}"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource {x:Static adonisUi:Dimensions.BorderThickness}}"/>
+        <Setter Property="adonisExtensions:CornerRadiusExtension.CornerRadius" Value="{DynamicResource {x:Static adonisUi:Dimensions.CornerRadius}}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabControl}">
+                    <Grid KeyboardNavigation.TabNavigation="Local">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <TabPanel x:Name="HeaderPanel"
+                                  Grid.Row="0"
+                                  Panel.ZIndex="1"
+                                  IsItemsHost="True"
+                                  KeyboardNavigation.TabIndex="1"
+                                  Background="Transparent" />
+                        
+                        <Border x:Name="Border"
+                                Grid.Row="1"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                KeyboardNavigation.TabNavigation="Local"
+                                KeyboardNavigation.DirectionalNavigation="Contained"
+                                KeyboardNavigation.TabIndex="2">
+                            <Border.CornerRadius>
+                                <MultiBinding Converter="{x:Static adonisConverters:ValuesToCornerRadiusConverter.Instance}">
+                                    <Binding Source="0"/>
+                                    <Binding Path="(adonisExtensions:CornerRadiusExtension.CornerRadius).TopRight" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Path="(adonisExtensions:CornerRadiusExtension.CornerRadius).BottomRight" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Path="(adonisExtensions:CornerRadiusExtension.CornerRadius).BottomLeft" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                </MultiBinding>
+                            </Border.CornerRadius>
+
+                            <ContentPresenter x:Name="PART_SelectedContentHost"
+                                              Margin="{adonisUi:Space 1, 1+4, 1, 1}"
+                                              ContentSource="SelectedContent" />
+                        </Border>
+
+                        <Border x:Name="SelectedItemHighlight"
+                                Grid.Row="1"
+                                Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1HighlightBrush}}"
+                                Margin="{TemplateBinding BorderThickness}"
+                                VerticalAlignment="Top"
+                                Height="4">
+                            <Border.CornerRadius>
+                                <MultiBinding Converter="{x:Static adonisConverters:ValuesToCornerRadiusConverter.Instance}">
+                                    <Binding Source="0"/>
+                                    <Binding Path="(adonisExtensions:CornerRadiusExtension.CornerRadius).TopRight" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                    <Binding Source="0"/>
+                                    <Binding Source="0"/>
+                                </MultiBinding>
+                            </Border.CornerRadius>
+                        </Border>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="2">
+                            <Setter Property="Background" TargetName="SelectedItemHighlight" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2HighlightBrush}}"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="3">
+                            <Setter Property="Background" TargetName="SelectedItemHighlight" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3HighlightBrush}}"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="4">
+                            <Setter Property="Background" TargetName="SelectedItemHighlight" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4HighlightBrush}}"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="2">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2BackgroundBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer2BorderBrush}}"/>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="3">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}"/>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Path=(adonisExtensions:LayerExtension.ComputedLayer), RelativeSource={RelativeSource Self}}" Value="4">
+                <Setter Property="Background" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4BackgroundBrush}}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static adonisUi:Brushes.Layer4BorderBrush}}"/>
+            </DataTrigger>
+
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.DisabledForegroundBrush}}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

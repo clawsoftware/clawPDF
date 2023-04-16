@@ -1,0 +1,15 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI;component/Controls/AdonisWindow.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI;component/Controls/MessageBoxWindow.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI;component/Controls/RippleHost.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI;component/Controls/SplitButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI;component/Controls/ValidationErrorIndicator.xaml"/>
+
+    </ResourceDictionary.MergedDictionaries>
+    
+</ResourceDictionary>

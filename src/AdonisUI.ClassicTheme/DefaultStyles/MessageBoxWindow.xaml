@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+                    xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+                    xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/Button.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/AdonisUI.ClassicTheme;component/DefaultStyles/CheckBox.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="{x:Type adonisControls:MessageBoxWindow}"
+           BasedOn="{StaticResource {x:Type adonisControls:AdonisWindow}}">
+        <Setter Property="ButtonStyle">
+            <Setter.Value>
+                <Style TargetType="Button"
+                       BasedOn="{StaticResource {x:Type Button}}">
+                    <Setter Property="MinWidth" Value="78"/>
+                    <Setter Property="Margin" Value="0, 0, 12, 0"/>
+                    <Setter Property="Padding" Value="{adonisUi:Space 2, 0.5}"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="CheckBoxStyle">
+            <Setter.Value>
+                <Style TargetType="CheckBox"
+                       BasedOn="{StaticResource {x:Type CheckBox}}">
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

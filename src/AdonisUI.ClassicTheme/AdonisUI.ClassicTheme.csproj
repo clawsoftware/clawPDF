@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <!-- Build Settings -->
+  <PropertyGroup>
+    <TargetFrameworks>net462</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <UseWpf>true</UseWpf>
+  </PropertyGroup>
+
+  <!-- Package metadata -->
+  <PropertyGroup>
+    <Version>1.17.1</Version>
+    <Description>Styles implementing AdonisUI's theme definitions to provide classic look and feel.</Description>
+    <Company>benruehl</Company>
+    <Authors>benruehl</Authors>
+    <PackageId>AdonisUI.ClassicTheme</PackageId>
+    <Copyright>Copyright ©  2020 Benjamin Rühl</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/benruehl/adonis-ui</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/benruehl/adonis-ui.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>UI Styles Themes Templates Controls WPF XAML</PackageTags>
+    <PackageReleaseNotes>See release notes at https://github.com/benruehl/adonis-ui/releases </PackageReleaseNotes>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+  <!-- Package Icon -->
+  <PropertyGroup>
+    <PackageIcon></PackageIcon>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>C:\Users\hessa\source\repos\clawPDF\src\clawPDF\signClawPDF.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <!-- Project References -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdonisUI\AdonisUI.csproj" />
+  </ItemGroup>
+</Project>

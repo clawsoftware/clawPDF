@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI">
+
+    <Thickness x:Key="{x:Static adonisUi:Dimensions.BorderThickness}">1</Thickness>
+
+    <CornerRadius x:Key="{x:Static adonisUi:Dimensions.CornerRadius}">0</CornerRadius>
+
+    <system:Double x:Key="{x:Static adonisUi:Dimensions.HorizontalSpace}">8</system:Double>
+
+    <system:Double x:Key="{x:Static adonisUi:Dimensions.VerticalSpace}">8</system:Double>
+    
+    <system:Double x:Key="{x:Static adonisUi:Dimensions.CursorSpotlightRelativeSize}">0.75</system:Double>
+
+</ResourceDictionary>
