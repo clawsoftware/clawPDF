@@ -49,7 +49,7 @@
                             <ComboBox Name="PageOrientationComboBox" Width="200"
                                       SelectedValue="{Binding CurrentProfile.PdfSettings.PageOrientation}"
                                       SelectedValuePath="Value" DisplayMemberPath="Name"
-                                      ItemsSource="{Binding PageOrientationValues}" />
+                                      ItemsSource="{Binding PageOrientationValues}" Height="24" />
                         </StackPanel>
                     </StackPanel>
                 </HeaderedContentControl>
@@ -59,7 +59,7 @@
                         <ComboBox Width="200" Name="ColorModelComboBox"
                                   SelectedValue="{Binding CurrentProfile.PdfSettings.ColorModel}"
                                   SelectedValuePath="Value" DisplayMemberPath="Name"
-                                  ItemsSource="{Binding ColorModelValues}" />
+                                  ItemsSource="{Binding ColorModelValues}" Height="24" />
                     </StackPanel>
                 </HeaderedContentControl>
 
@@ -77,12 +77,12 @@
                         <ComboBox Name="PageViewComboBox" Grid.Row="1"
                                   SelectedValue="{Binding CurrentProfile.PdfSettings.PageView}"
                                   SelectedValuePath="Value" DisplayMemberPath="Name"
-                                  ItemsSource="{Binding PageViewValues}" />
+                                  ItemsSource="{Binding PageViewValues}" Height="24" />
                         <Label Name="DocumentViewLabel" Grid.Row="2">Document view:</Label>
                         <ComboBox Name="DocumentViewComboBox" Grid.Row="3"
                                   SelectedValue="{Binding CurrentProfile.PdfSettings.DocumentView}"
                                   SelectedValuePath="Value" DisplayMemberPath="Name"
-                                  ItemsSource="{Binding DocumentViewValues}" />
+                                  ItemsSource="{Binding DocumentViewValues}" Height="24" />
                         <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,10,0,0">
                             <Label Name="ViewerStartsOnPageLabel">Viewer opens on page:</Label>
                             <TextBox Text="{Binding CurrentProfile.PdfSettings.ViewerStartsOnPage, Mode=TwoWay}"
@@ -109,7 +109,7 @@
                                           HorizontalAlignment="Stretch"
                                           SelectedValue="{Binding CurrentProfile.PdfSettings.CompressColorAndGray.Compression}"
                                           DisplayMemberPath="Name" SelectedValuePath="Value"
-                                          ItemsSource="{Binding CompressionColorAndGrayValues}" />
+                                          ItemsSource="{Binding CompressionColorAndGrayValues}" Height="24" />
                                 <StackPanel Orientation="Horizontal"
                                             IsEnabled="{Binding SelectedItem.Value, ElementName=CompressionColorAndGrayComboBox, Converter={StaticResource CompressionColorAndGrayIsJpegManualConverter}}"
                                             Margin="0,5,0,0">
@@ -147,7 +147,7 @@
                                 <ComboBox Name="CompressionMonochromeComboBox"
                                           SelectedValue="{Binding CurrentProfile.PdfSettings.CompressMonochrome.Compression}"
                                           DisplayMemberPath="Name" SelectedValuePath="Value"
-                                          ItemsSource="{Binding CompressionMonochromeValues}" />
+                                          ItemsSource="{Binding CompressionMonochromeValues}" Height="24" />
                                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                                     <CheckBox Name="CompressionMonochromeResampleCheckBox" VerticalAlignment="Center"
                                               Margin="0,0,5,0"
@@ -174,7 +174,7 @@
                         Require a password to open the PDF file
                     </CheckBox>
                     <Button Name="SecurityPasswordsButton" Click="SecurityPasswordsButton_OnClick"
-                            HorizontalAlignment="Left" MaxWidth="231" Margin="0,0,0,10" Padding="10,0,10,0">
+                            HorizontalAlignment="Left" MaxWidth="231" Margin="0,0,0,10" Padding="10,0,10,0" Height="24">
                         Set Passwords
                     </Button>
 
@@ -254,28 +254,28 @@
                     <DockPanel>
                         <Button Name="SignaturePasswordButton" DockPanel.Dock="Right" Margin="5 0 0 0"
                                 Padding="10,0,10,0" Click="SignaturePasswordButton_OnClick"
-                                IsEnabled="{Binding Text, ElementName=CertificationFileTextBox, Converter={StaticResource StringIsNullOrWhiteSpaceToBoolConverter}}">
+                                IsEnabled="{Binding Text, ElementName=CertificationFileTextBox, Converter={StaticResource StringIsNullOrWhiteSpaceToBoolConverter}}" Height="24">
                             Set Password
                         </Button>
                         <Button Name="CertificationFileButton" DockPanel.Dock="Right" Width="25" Margin="5 0 0 0"
-                                Padding="0" Click="CertificationFileButton_OnClick">
+                                Padding="0" Click="CertificationFileButton_OnClick" Height="24">
                             ...
                         </Button>
                         <TextBox Name="CertificationFileTextBox" DockPanel.Dock="Left"
-                                 Text="{Binding CurrentProfile.PdfSettings.Signature.CertificateFile, Mode=TwoWay}" />
+                                 Text="{Binding CurrentProfile.PdfSettings.Signature.CertificateFile, Mode=TwoWay}" Height="24" />
                     </DockPanel>
                     <UniformGrid Columns="3" Margin="0 5 0 0">
                         <DockPanel>
                             <Label DockPanel.Dock="Top" Name="SignatureReasonLabel">Reason:</Label>
-                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignReason}" />
+                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignReason}" Height="24" />
                         </DockPanel>
                         <DockPanel Margin="10 0 0 0">
                             <Label DockPanel.Dock="Top" Name="SignatureContactLabel">Contact:</Label>
-                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignContact}" />
+                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignContact}" Height="24" />
                         </DockPanel>
                         <DockPanel Margin="10 0 0 0">
                             <Label DockPanel.Dock="Top" Name="SignatureLocationLabel">Location:</Label>
-                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignLocation}" />
+                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignLocation}" Height="24" />
                         </DockPanel>
                     </UniformGrid>
                     <CheckBox Name="AllowMultiSigningCheckBox" Margin="0,10,0,0"
@@ -286,20 +286,20 @@
                     <Label Name="TimeServerUrlLabel" Margin="0 5 0 0">Time Server URL:</Label>
                     <DockPanel>
                         <Button Name="DefaultTimeServerButton" DockPanel.Dock="Right" Margin="5 0 0 0"
-                                Padding="10,0,10,0" Click="DefaultTimeServerButton_OnClick">
+                                Padding="10,0,10,0" Click="DefaultTimeServerButton_OnClick" Height="24">
                             Default Time Server
                         </Button>
                         <TextBox Name="TimeServerUrlTextBox" DockPanel.Dock="Left"
-                                 Text="{Binding CurrentProfile.PdfSettings.Signature.TimeServerUrl}" />
+                                 Text="{Binding CurrentProfile.PdfSettings.Signature.TimeServerUrl}" Height="24" />
                     </DockPanel>
                     <StackPanel Orientation="Horizontal" Margin="15 8 0 0">
                         <CheckBox Name="SecuredTimeserverCheckBox"
-                                  IsChecked="{Binding CurrentProfile.PdfSettings.Signature.TimeServerIsSecured}">
+                                  IsChecked="{Binding CurrentProfile.PdfSettings.Signature.TimeServerIsSecured}" HorizontalAlignment="Center" VerticalAlignment="Center">
                             Secured Time Server
                         </CheckBox>
                         <Button x:Name="TimeServerLoginButton" Margin="5 0 0 0"
                                 IsEnabled="{Binding IsChecked, ElementName=SecuredTimeserverCheckBox}"
-                                Click="TimeServerLoginButton_OnClick" Padding="10,0,10,0" Content="Set Login" />
+                                Click="TimeServerLoginButton_OnClick" Padding="10,0,10,0" Content="Set Login" Height="24" />
                     </StackPanel>
                     <CheckBox Name="DisplaySignatureCheckBox" Margin="0 10 0 0"
                               IsChecked="{Binding CurrentProfile.PdfSettings.Signature.DisplaySignatureInDocument}">
@@ -312,10 +312,10 @@
                             <ComboBox Name="SignaturePageComboBox" Margin="5 0 0 0" VerticalAlignment="Center"
                                       SelectedValue="{Binding CurrentProfile.PdfSettings.Signature.SignaturePage}"
                                       DisplayMemberPath="Name" SelectedValuePath="Value"
-                                      ItemsSource="{Binding SignaturePageValues}" Width="179" />
+                                      ItemsSource="{Binding SignaturePageValues}" Width="179" Height="24" />
                             <TextBox Margin="5 0 0 0" Width="40" VerticalAlignment="Center"
                                      Text="{Binding CurrentProfile.PdfSettings.Signature.SignatureCustomPage, Mode=TwoWay}"
-                                     IsEnabled="{Binding SelectedItem.Value, ElementName=SignaturePageComboBox, Converter={StaticResource SignaturePageIsCustomPageConverter}}" />
+                                     IsEnabled="{Binding SelectedItem.Value, ElementName=SignaturePageComboBox, Converter={StaticResource SignaturePageIsCustomPageConverter}}" Height="24" />
                         </StackPanel>
                         <Grid Margin="0 5 0 0">
                             <Grid.ColumnDefinitions>
@@ -330,16 +330,16 @@
                             </Grid.RowDefinitions>
                             <Label Name="SignatureLeftXLabel" Grid.Row="0" Grid.Column="0">Left X:</Label>
                             <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"
-                                     Text="{Binding CurrentProfile.PdfSettings.Signature.LeftX}" />
+                                     Text="{Binding CurrentProfile.PdfSettings.Signature.LeftX}" Height="24" />
                             <Label Name="SignatureRightXLabel" Grid.Row="0" Grid.Column="2" Margin="5 0 0 0">Right X:</Label>
                             <TextBox Grid.Row="0" Grid.Column="3" VerticalAlignment="Center"
-                                     Text="{Binding CurrentProfile.PdfSettings.Signature.RightX}" />
+                                     Text="{Binding CurrentProfile.PdfSettings.Signature.RightX}" Height="24" />
                             <Label Grid.Row="1" Grid.Column="0" Name="SignatureLeftYLabel" Margin="0 5 0 0">Left Y:</Label>
                             <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5 0 0" VerticalAlignment="Center"
-                                     Text="{Binding CurrentProfile.PdfSettings.Signature.LeftY}" />
+                                     Text="{Binding CurrentProfile.PdfSettings.Signature.LeftY}" Height="24" />
                             <Label Name="SignatureRightYLabel" Grid.Row="1" Grid.Column="2" Margin="5 5 0 0">Right Y:</Label>
                             <TextBox Grid.Row="1" Grid.Column="3" Margin="0 5 0 0" VerticalAlignment="Center"
-                                     Text="{Binding CurrentProfile.PdfSettings.Signature.RightY}" />
+                                     Text="{Binding CurrentProfile.PdfSettings.Signature.RightY}" Height="24" />
                         </Grid>
                     </StackPanel>
                 </StackPanel>

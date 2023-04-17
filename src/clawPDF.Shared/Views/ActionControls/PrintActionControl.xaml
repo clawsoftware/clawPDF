@@ -21,16 +21,16 @@
         <ComboBox Name="SelectPrinterComboBox" DisplayMemberPath="Name"
                   ItemsSource="{Binding ElementName=This,Path=SelectPrinterValues}"
                   SelectedValue="{Binding CurrentProfile.Printing.SelectPrinter}" SelectedValuePath="Value"
-                  Margin="0 0 0 5" />
+                  Margin="0 0 0 5" Height="24" />
         <ComboBox Margin="50 0 0 10"
                   IsEnabled="{Binding ElementName=SelectPrinterComboBox,Path=SelectedValue,Converter={StaticResource AreEqualConverter}}"
                   SelectedValue="{Binding CurrentProfile.Printing.PrinterName}"
-                  ItemsSource="{Binding ElementName=This,Path=InstalledPrinters}" />
+                  ItemsSource="{Binding ElementName=This,Path=InstalledPrinters}" Height="24" />
         <Label>
             <TextBlock Name="DuplexPrintingTextBlock" TextWrapping="Wrap">Duplex printing (if supported by the printer)</TextBlock>
         </Label>
         <ComboBox DisplayMemberPath="Name" SelectedValuePath="Value"
                   SelectedValue="{Binding CurrentProfile.Printing.Duplex}"
-                  ItemsSource="{Binding ElementName=This,Path=DuplexPrintValues}" />
+                  ItemsSource="{Binding ElementName=This,Path=DuplexPrintValues}" Height="24" />
     </StackPanel>
 </actionControls:ActionControl>

@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Media;
@@ -30,13 +32,16 @@ namespace clawSoft.clawPDF.Views
             DataContext = vm;
             PageOrientationComboBox.ItemsSource = PageOrientationValues;
             ColorModelComboBox.ItemsSource = ColorModelValues;
+            EncryptionLevelComboBox.ItemsSource = EncryptionLevelValues;
         }
 
-        public static IEnumerable<EnumValue<PageOrientation>> PageOrientationValues => 
+        public static IEnumerable<EnumValue<PageOrientation>> PageOrientationValues =>
             TranslationHelper.TranslatorInstance.GetEnumTranslation<PageOrientation>();
 
         public static IEnumerable<EnumValue<ColorModel>> ColorModelValues =>
             TranslationHelper.TranslatorInstance.GetEnumTranslation<ColorModel>();
+
+        public static List<EncryptionLevel> EncryptionLevelValues = Enum.GetValues(typeof(EncryptionLevel)).Cast<EncryptionLevel>().ToList();
 
         private void SettingsButton_OnClick(object sender, RoutedEventArgs e)
         {
@@ -117,13 +122,28 @@ namespace clawSoft.clawPDF.Views
             ColorModelComboBox.SelectedValue = vm.SelectedProfile.PdfSettings.ColorModel;
             ColorModelComboBox.SelectedValuePath = "Value";
             ColorModelComboBox.DisplayMemberPath = "Name";
+            if (vm.SelectedProfile.PdfSettings.Security.EncryptionLevel == EncryptionLevel.Rc40Bit)
+            {
+                EncryptionLevelComboBox.SelectedIndex = 0;
+            }
+            else if (vm.SelectedProfile.PdfSettings.Security.EncryptionLevel == EncryptionLevel.Rc128Bit)
+            {
+                EncryptionLevelComboBox.SelectedIndex = 1;
+            }
+            else if (vm.SelectedProfile.PdfSettings.Security.EncryptionLevel == EncryptionLevel.Aes128Bit)
+            {
+                EncryptionLevelComboBox.SelectedIndex = 2;
+            }
+            else if (vm.SelectedProfile.PdfSettings.Security.EncryptionLevel == EncryptionLevel.Aes256Bit)
+            {
+                EncryptionLevelComboBox.SelectedIndex = 3;
+            }
         }
 
         private void SecurityCheckBoxChecked(object sender, RoutedEventArgs e)
         {
             vm.SelectedProfile.PdfSettings.Security.Enabled = true;
             vm.SelectedProfile.PdfSettings.Security.RestrictPrintingToLowQuality = false;
-            vm.SelectedProfile.PdfSettings.Security.EncryptionLevel = EncryptionLevel.Aes128Bit;
             PasswordTab.Background = new SolidColorBrush(Colors.LightBlue);
         }
 
@@ -150,11 +170,11 @@ namespace clawSoft.clawPDF.Views
 
         private void PageOrientationComboBoxChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if(PageOrientationComboBox.SelectedIndex == 0)
+            if (PageOrientationComboBox.SelectedIndex == 0)
             {
                 vm.SelectedProfile.PdfSettings.PageOrientation = PageOrientation.Automatic;
             }
-            else if(PageOrientationComboBox.SelectedIndex == 1)
+            else if (PageOrientationComboBox.SelectedIndex == 1)
             {
                 vm.SelectedProfile.PdfSettings.PageOrientation = PageOrientation.Portrait;
             }
@@ -166,7 +186,7 @@ namespace clawSoft.clawPDF.Views
 
         private void ColorModelComboBoxChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if(ColorModelComboBox.SelectedIndex == 0)
+            if (ColorModelComboBox.SelectedIndex == 0)
             {
                 vm.SelectedProfile.PdfSettings.ColorModel = ColorModel.Cmyk;
             }
@@ -177,6 +197,26 @@ namespace clawSoft.clawPDF.Views
             else if (ColorModelComboBox.SelectedIndex == 2)
             {
                 vm.SelectedProfile.PdfSettings.ColorModel = ColorModel.Gray;
+            }
+        }
+
+        private void EncryptionLevelComboBoxChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (EncryptionLevelComboBox.SelectedIndex == 0)
+            {
+                vm.SelectedProfile.PdfSettings.Security.EncryptionLevel = EncryptionLevel.Rc40Bit;
+            }
+            else if (EncryptionLevelComboBox.SelectedIndex == 1)
+            {
+                vm.SelectedProfile.PdfSettings.Security.EncryptionLevel = EncryptionLevel.Rc128Bit;
+            }
+            else if (EncryptionLevelComboBox.SelectedIndex == 2)
+            {
+                vm.SelectedProfile.PdfSettings.Security.EncryptionLevel = EncryptionLevel.Aes128Bit;
+            }
+            else if (EncryptionLevelComboBox.SelectedIndex == 3)
+            {
+                vm.SelectedProfile.PdfSettings.Security.EncryptionLevel = EncryptionLevel.Aes256Bit;
             }
         }
 

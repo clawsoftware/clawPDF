@@ -20,11 +20,11 @@
         <Label>
             <TextBlock Name="EmailAddressText">E-Mail Address:</TextBlock>
         </Label>
-        <TextBox Text="{Binding CurrentProfile.EmailSmtp.Address}" />
+        <TextBox Text="{Binding CurrentProfile.EmailSmtp.Address}" Height="24" />
         <Label>
             <TextBlock Name="UsernameText">Username:</TextBlock>
         </Label>
-        <TextBox Text="{Binding CurrentProfile.EmailSmtp.UserName}" />
+        <TextBox Text="{Binding CurrentProfile.EmailSmtp.UserName}" Height="24" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -39,31 +39,31 @@
             <Label>
                 <TextBlock Grid.Row="0" Grid.Column="0" Name="ServerText">SMTP Server:</TextBlock>
             </Label>
-            <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding CurrentProfile.EmailSmtp.Server}" />
+            <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding CurrentProfile.EmailSmtp.Server}" Height="24" />
             <Label Grid.Row="0" Grid.Column="1">
                 <TextBlock Name="PortText">Port:</TextBlock>
             </Label>
             <TextBox Grid.Row="1" Grid.Column="1" Margin="5 0" MinWidth="30"
-                     Text="{Binding CurrentProfile.EmailSmtp.Port}" />
+                     Text="{Binding CurrentProfile.EmailSmtp.Port}" Height="24" />
             <CheckBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"
                       IsChecked="{Binding CurrentProfile.EmailSmtp.Ssl}">
                 <TextBlock Name="SslText">SSL</TextBlock>
             </CheckBox>
         </Grid>
 
-        <Button Padding="5" Margin="0 10 0 0" Click="SetPasswordButton_OnClick">
+        <Button Padding="5" Margin="0 10 0 0" Click="SetPasswordButton_OnClick" Height="28">
             <TextBlock Name="SetPasswordText">Set Password</TextBlock>
         </Button>
         <Label Margin="0 5 0 0">
             <TextBlock Name="RecipientsText">Recipients:</TextBlock>
         </Label>
-        <TextBox Name="RecipientsTextBox" Text="{Binding CurrentProfile.EmailSmtp.Recipients}" />
+        <TextBox Name="RecipientsTextBox" Text="{Binding CurrentProfile.EmailSmtp.Recipients}" Height="24" />
         <Label>
             <TextBlock Name="MultipleRecipientsHintText" Margin="0 -3 0 0" TextWrapping="Wrap">Multiple recipients are separated by commas</TextBlock>
         </Label>
         <Button
             IsEnabled="{Binding ElementName=UseSameMailCheckBox,Path=IsChecked,Converter={StaticResource AreEqualConverter}}"
-            Margin="0 5 0 0" Padding="5" Click="EditMailTextButton_OnClick">
+            Margin="0 5 0 0" Padding="5" Click="EditMailTextButton_OnClick" Height="28">
             <TextBlock Name="EditMailButtonText">Edit E-Mail Text</TextBlock>
         </Button>
 
@@ -73,7 +73,7 @@
             <TextBlock Name="UseSameMailText" TextWrapping="Wrap">Use same text as in mail client action</TextBlock>
         </CheckBox>
 
-        <Button Padding="5" Margin="0 10 0 0" Click="SendTestMailButton_OnClick">
+        <Button Padding="5" Margin="0 10 0 0" Click="SendTestMailButton_OnClick" Height="28">
             <TextBlock Name="SendTestMailButtonText">Send test mail</TextBlock>
         </Button>
     </StackPanel>

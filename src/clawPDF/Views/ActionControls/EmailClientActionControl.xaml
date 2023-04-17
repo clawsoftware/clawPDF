@@ -10,14 +10,14 @@
         <Label>
             <TextBlock Name="RecipientsText">Recipients:</TextBlock>
         </Label>
-        <TextBox Name="RecipientsTextBox" Text="{Binding CurrentProfile.EmailClient.Recipients}" />
+        <TextBox Name="RecipientsTextBox" Text="{Binding CurrentProfile.EmailClient.Recipients}" Height="24" />
         <Label>
             <TextBlock Name="MultipleRecipientsHintText" Margin="0 -3 0 0" TextWrapping="Wrap">Multiple recipients are separated by commas</TextBlock>
         </Label>
-        <Button Margin="0 10 0 0" Padding="5" Click="EditEmailTextButton_OnClick">
+        <Button Margin="0 10 0 0" Padding="5" Click="EditEmailTextButton_OnClick" Height="28">
             <TextBlock Name="EditEmailButtonText">Edit E-Mail Text</TextBlock>
         </Button>
-        <Button Padding="5" Margin="0 20 0 0" Click="EmailClientTestButton_OnClick">
+        <Button Padding="5" Margin="0 20 0 0" Click="EmailClientTestButton_OnClick" Height="28">
             <TextBlock Name="CheckMailClientButtonText"> Check E-Mail Client</TextBlock>
         </Button>
     </StackPanel>

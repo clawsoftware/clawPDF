@@ -7,7 +7,7 @@
              xmlns:validation="clr-namespace:clawSoft.clawPDF.Shared.ViewModels.Validation"
              xmlns:converter="clr-namespace:clawSoft.clawPDF.Shared.Converter"
              mc:Ignorable="d"
-             d:DesignHeight="400"
+             d:DesignHeight="450"
              d:DesignWidth="500"
              x:Name="This">
     <UserControl.DataContext>
@@ -36,7 +36,7 @@
                     Content="+" Click="AddButton_OnClick" />
             <Button Grid.Column="0" Grid.Row="3" Margin="0 0 5 5" Padding="5 1" Command="{Binding TitleDeleteCommand}"
                     Content="-" />
-            <DataGrid Name="DataGrid"
+            <DataGrid Name="DataGrid" Margin="0 0 5 0"
                       Grid.Column="1" Grid.Row="0" Grid.RowSpan="5"
                       ItemsSource="{Binding TitleReplacements}"
                       IsSynchronizedWithCurrentItem="True"
@@ -48,7 +48,7 @@
                       RowEditEnding="DataGrid_OnRowEditEnding">
 
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn x:Name="TypeColoumn" Header="Type">
+                    <DataGridTemplateColumn x:Name="TypeColoumn" Header="Type" MinWidth="80">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock
@@ -85,9 +85,9 @@
                                     Template="{StaticResource HeaderPanelTemplate}" Header="Preview">
                 <StackPanel>
                     <TextBlock Margin="0 5 0 0" Name="SampleTitleText">Sample Title:</TextBlock>
-                    <TextBox TextChanged="TitleSample_OnTextChanged" Name="TitleSample">My Document - Editor</TextBox>
+                    <TextBox TextChanged="TitleSample_OnTextChanged" Name="TitleSample" Height="24">My Document - Editor</TextBox>
                     <TextBlock Margin="0 5 0 0" Name="PreviewTitleText">Replaced Title:</TextBlock>
-                    <TextBox IsReadOnly="True" Name="TitlePreview" />
+                    <TextBox IsReadOnly="True" Name="TitlePreview" Height="24" />
                 </StackPanel>
             </HeaderedContentControl>
         </Grid>

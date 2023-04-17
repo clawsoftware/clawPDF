@@ -11,8 +11,8 @@
         <StackPanel>
             <Label Name="BackgroundFileLabel">Background File (PDF):</Label>
             <DockPanel LastChildFill="True">
-                <Button DockPanel.Dock="Right" Margin="5 0 0 0" Width="25" Click="SelectBackgroundFileButton_OnClick">...</Button>
-                <TextBox Name="BackgroundFileTextBox" Text="{Binding CurrentProfile.BackgroundPage.File}" />
+                <Button DockPanel.Dock="Right" Margin="5 0 0 0" Width="25" Click="SelectBackgroundFileButton_OnClick" Height="24">...</Button>
+                <TextBox Name="BackgroundFileTextBox" Text="{Binding CurrentProfile.BackgroundPage.File}" Height="24" />
             </DockPanel>
             <DockPanel LastChildFill="True" Margin="0,10,0,0" VerticalAlignment="Center">
                 <Label DockPanel.Dock="Left" Name="BackgroundRepetitionLabel">Repetition:</Label>
@@ -20,7 +20,7 @@
                           Name="BackgroundRepetitionComboBox"
                           SelectedValue="{Binding CurrentProfile.BackgroundPage.Repetition}" SelectedValuePath="Value"
                           DisplayMemberPath="Name"
-                          ItemsSource="{Binding ElementName=This, Path=BackgroundRepetitionValues}" />
+                          ItemsSource="{Binding ElementName=This, Path=BackgroundRepetitionValues}" Height="24" />
             </DockPanel>
             <CheckBox IsChecked="{Binding CurrentProfile.BackgroundPage.OnCover}" Margin="0,10,0,0">
                 <TextBlock Name="ShowBackgroundOnCoverText" TextWrapping="Wrap">Add background to cover</TextBlock>

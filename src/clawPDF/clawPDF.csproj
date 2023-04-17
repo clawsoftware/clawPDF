@@ -189,6 +189,7 @@
     <Compile Include="ViewModels\PrintJobViewModel.cs" />
     <Compile Include="ViewModels\ProfileSettingsViewModel.cs" />
     <Compile Include="ViewModels\ApplicationSettingsViewModel.cs" />
+    <Compile Include="ViewModels\UserControls\AskPrinterDialogTopMost.cs" />
     <Compile Include="ViewModels\UserControls\AskSwitchPrinter.cs" />
     <Compile Include="ViewModels\UserControls\DebugTabViewModel.cs" />
     <Compile Include="ViewModels\UserControls\PrinterTabViewModel.cs" />

@@ -78,7 +78,6 @@
     <Compile Include="EmailClient.cs" />
     <Compile Include="EmailSmtp.cs" />
     <Compile Include="Enums\ApiProvider.cs" />
-    <Compile Include="Enums\PrinterDialogTopMost.cs" />
     <Compile Include="Enums\PageOrientation.cs" />
     <Compile Include="Enums\BackgroundRepetition.cs" />
     <Compile Include="Enums\ColorModel.cs" />

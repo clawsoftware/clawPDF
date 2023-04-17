@@ -12,8 +12,8 @@
                 <TextBlock Name="CoverFileText">Cover file (PDF):</TextBlock>
             </Label>
             <DockPanel>
-                <Button DockPanel.Dock="Right" Margin="5 0 0 0" Width="25" Click="SelectCoverFileButton_OnClick">...</Button>
-                <TextBox Name="CoverFileTextBox" Text="{Binding CurrentProfile.CoverPage.File}" />
+                <Button DockPanel.Dock="Right" Margin="5 0 0 0" Width="25" Click="SelectCoverFileButton_OnClick" Height="24">...</Button>
+                <TextBox Name="CoverFileTextBox" Text="{Binding CurrentProfile.CoverPage.File}" Height="24" />
             </DockPanel>
         </StackPanel>
     </Grid>

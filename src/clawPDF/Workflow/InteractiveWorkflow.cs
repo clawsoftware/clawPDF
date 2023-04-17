@@ -56,7 +56,7 @@ namespace clawSoft.clawPDF.Workflow
                 var model = new PrintJobViewModel(Job.JobInfo, Job.Profile);
                 w.DataContext = model;
                 bool revertTopMost = true;
-                if(Settings.ApplicationSettings.PrinterDialogTopMost == PrinterDialogTopMost.True) revertTopMost = false;
+                if (Settings.ApplicationSettings.PrinterDialogTopMost) revertTopMost = false;
 
                 if (TopMostHelper.ShowDialogTopMost(w, revertTopMost) != true || model.PrintJobAction == PrintJobAction.Cancel)
                 {
@@ -91,7 +91,7 @@ namespace clawSoft.clawPDF.Workflow
                 filePath = FileUtil.Instance.EllipsisForTooLongPath(filePath);
                 Job.OutputFilenameTemplate = filePath;
             }
-            else if(Job.Profile.AutoSave.Enabled && !string.IsNullOrEmpty(Job.Profile.AutoSave.TargetDirectory))
+            else if (Job.Profile.AutoSave.Enabled && !string.IsNullOrEmpty(Job.Profile.AutoSave.TargetDirectory))
             {
                 Job.OutputFilenameTemplate = Job.Profile.AutoSave.TargetDirectory + @"\" + Job.ComposeOutputFilename();
             }
@@ -156,7 +156,6 @@ namespace clawSoft.clawPDF.Workflow
                 saveFileDialog.Filter +=
                     @"|" + _translator.GetTranslation("InteractiveWorkflow", "TextFile", "Text file") +
                     @" (*.txt)|*.txt;";
-
 
                 saveFileDialog.FilterIndex = (int)Job.Profile.OutputFormat + 1;
                 saveFileDialog.OverwritePrompt = true;

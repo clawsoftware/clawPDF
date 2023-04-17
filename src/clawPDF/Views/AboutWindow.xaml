@@ -76,6 +76,6 @@
         <Button Style="{StaticResource NoChromeButton}" Grid.Row="1" IsTabStop="False"
                 Content="Contact me"
                 Margin="10,40,12,0" Click="ContactButton_OnClick" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="23" />
-        <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" x:Name="LicenseInfo" Margin="9,0,10,0" Grid.Column="1" Grid.Row="1" Height="48"><Run Text="clawPDF is free software consisting of multiple components with individual licenses. Please read the license section in the manual for further information on these licenses." /></TextBlock>
+        <TextBlock VerticalAlignment="Top" TextWrapping="Wrap" x:Name="LicenseInfo" Margin="13,3,6,0" Grid.Column="1" Grid.Row="1" Height="48"><Run Text="clawPDF is free software consisting of multiple components with individual licenses. Please read the license section in the manual for further information on these licenses." /></TextBlock>
     </Grid>
 </Window>

@@ -35,23 +35,23 @@
                 <Label Name="TitleLabel" Grid.Row="0" Grid.Column="0">Title:</Label>
                 <Label Name="TitleTokenLabel" Grid.Row="0" Grid.Column="1">Add Token:</Label>
                 <TextBox Name="TitleTextBox" Grid.Row="1" Grid.Column="0" Margin="0 0 5 0"
-                         Text="{Binding Path=CurrentProfile.TitleTemplate}" TextChanged="TitleTextBox_OnTextChanged" />
+                         Text="{Binding Path=CurrentProfile.TitleTemplate}" TextChanged="TitleTextBox_OnTextChanged" Height="24" />
                 <ComboBox Name="TitleTokensComboBox" Grid.Row="1" Grid.Column="1"
-                          SelectionChanged="TitleTokensComboBox_OnSelectionChanged" />
+                          SelectionChanged="TitleTokensComboBox_OnSelectionChanged" Height="24" />
                 <Label Name="TitlePreviewLabel" Grid.Row="2" Grid.Column="0">Preview:</Label>
                 <TextBox Name="TitlePreviewText" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
                          Text="{Binding Text, ElementName=AuthorTemplateTextBox, Converter={StaticResource TokenReplacerConverter}, Mode=TwoWay}"
-                         IsReadOnly="True" />
+                         IsReadOnly="True" Height="24" />
                 <Label Name="AuthorLabel" Grid.Row="4" Grid.Column="0" DockPanel.Dock="Top">Author:</Label>
                 <Label Name="AuthorTokenLabel" Grid.Row="4" Grid.Column="1" DockPanel.Dock="Top">Add Token:</Label>
                 <TextBox Name="AuthorTextBox" Grid.Row="5" Grid.Column="0" Margin="0 0 5 0"
-                         Text="{Binding Path=CurrentProfile.AuthorTemplate}" TextChanged="AuthorTextBox_OnTextChanged" />
+                         Text="{Binding Path=CurrentProfile.AuthorTemplate}" TextChanged="AuthorTextBox_OnTextChanged" Height="24" />
                 <ComboBox Name="AuthorTokensComboBox" Grid.Row="5" Grid.Column="1"
-                          SelectionChanged="AuthorTokensComboBox_OnSelectionChanged" />
+                          SelectionChanged="AuthorTokensComboBox_OnSelectionChanged" Height="24" />
                 <Label Name="AuthorPreviewLabel" Grid.Row="6" Grid.Column="0">Preview:</Label>
                 <TextBox Name="AuthorPreviewText" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
                          Text="{Binding Text, ElementName=AuthorTemplateTextBox, Converter={StaticResource TokenReplacerConverter}, Mode=TwoWay}"
-                         IsReadOnly="True" />
+                         IsReadOnly="True" Height="24" />
             </Grid>
         </HeaderedContentControl>
 
@@ -78,12 +78,12 @@
                     <Label Name="StampFontLabel" Grid.Row="1" Grid.Column="1" Margin="0 0 5 0">Font:</Label>
                     <Label Name="StampFontColorLabel" Grid.Row="1" Grid.Column="2" Margin="0 0 5 0">Color:</Label>
                     <TextBox Grid.Row="2" Grid.Column="0" Margin="0 0 5 0"
-                             Text="{Binding CurrentProfile.Stamping.StampText, Mode=TwoWay}" />
+                             Text="{Binding CurrentProfile.Stamping.StampText, Mode=TwoWay}" Height="24" />
                     <Button Name="StampFontButton" Grid.Row="2" Grid.Column="1" Margin="0 0 5 0"
-                            Click="StampChooseFontButton_OnClick" Width="150">
+                            Click="StampChooseFontButton_OnClick" Width="150" Height="24">
                         Select Font
                     </Button>
-                    <Button Grid.Row="2" Grid.Column="2" Click="StampChooseColorButton_OnClick">
+                    <Button Grid.Row="2" Grid.Column="2" Click="StampChooseColorButton_OnClick" Height="24">
                         <Rectangle Height="16" Width="32">
                             <Rectangle.Fill>
                                 <SolidColorBrush

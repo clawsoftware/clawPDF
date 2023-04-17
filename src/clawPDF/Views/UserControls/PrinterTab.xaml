@@ -93,7 +93,7 @@
                 </Grid.ColumnDefinitions>
                 <ComboBox Margin="0 5" Name="PrimaryPrinterBox" SelectedValue="{Binding PrimaryPrinter, Mode=TwoWay}"
                           ItemsSource="{Binding ClawPdfPrinters}"
-                          SelectionChanged="PrimaryPrinterBox_OnSelectionChanged" />
+                          SelectionChanged="PrimaryPrinterBox_OnSelectionChanged" Height="24" />
             </Grid>
         </HeaderedContentControl>
     </StackPanel>

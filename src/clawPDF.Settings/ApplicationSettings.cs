@@ -33,7 +33,7 @@ namespace clawSoft.clawPDF.Core.Settings
 
         public string Language { get; set; }
 
-        public PrinterDialogTopMost PrinterDialogTopMost { get; set; }
+        public bool PrinterDialogTopMost { get; set; }
 
         public string LastUsedProfileGuid { get; set; }
 
@@ -52,7 +52,7 @@ namespace clawSoft.clawPDF.Core.Settings
             Language = "";
             LastUsedProfileGuid = "DefaultGuid";
             LoggingLevel = LoggingLevel.Error;
-            PrinterDialogTopMost = PrinterDialogTopMost.True;
+            PrinterDialogTopMost = true;
             PrimaryPrinter = "clawPDF";
             UpdateInterval = UpdateInterval.Weekly;
         }
@@ -140,12 +140,11 @@ namespace clawSoft.clawPDF.Core.Settings
 
             try
             {
-                PrinterDialogTopMost =
-                    (PrinterDialogTopMost)Enum.Parse(typeof(PrinterDialogTopMost), data.GetValue(@"" + path + @"PrinterDialogTopMost"));
+                PrinterDialogTopMost = bool.Parse(data.GetValue(@"" + path + @"PrinterDialogTopMost"));
             }
             catch
             {
-                PrinterDialogTopMost = PrinterDialogTopMost.True;
+                PrinterDialogTopMost = true;
             }
 
             try

@@ -17,7 +17,7 @@
 
             <StackPanel Margin="0 10 10 10">
                 <Label Target="{Binding ElementName=TextBox}" Name="Label">Please enter the text:</Label>
-                <TextBox Name="TextBox" TextChanged="TextBox_OnTextChanged" />
+                <TextBox Name="TextBox" TextChanged="TextBox_OnTextChanged" Height="24" />
                 <TextBlock Margin="0 3" Name="ValidationMessageText" MinHeight="35" TextWrapping="Wrap" />
             </StackPanel>
         </DockPanel>
@@ -30,8 +30,8 @@
                     <Setter Property="MinWidth" Value="50" />
                 </Style>
             </DockPanel.Resources>
-            <Button DockPanel.Dock="Right" IsCancel="True" Name="CancelButton">Cancel</Button>
-            <Button DockPanel.Dock="Right" IsDefault="True" Name="OkButton" Click="OkButton_OnClick">OK</Button>
+            <Button DockPanel.Dock="Right" MinWidth="70" IsCancel="True" Name="CancelButton">Cancel</Button>
+            <Button DockPanel.Dock="Right" MinWidth="70" IsDefault="True" Name="OkButton" Click="OkButton_OnClick">OK</Button>
         </DockPanel>
     </StackPanel>
 </Window>

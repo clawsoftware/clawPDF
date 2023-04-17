@@ -41,18 +41,18 @@
         </StackPanel>
         <DockPanel VerticalAlignment="Bottom">
             <Button DockPanel.Dock="Left" Name="InfoButton" Background="Transparent" Height="30" Width="30" Margin="10 0 0 10"
-                    Cursor="{x:Static Cursors.Hand}" Template="{StaticResource RoundButtonStyle}" Foreground="Gray"
+                    Cursor="{x:Static Cursors.Hand}" Template="{StaticResource RoundButtonStyle}"
                     FontWeight="Bold" FontFamily="Calibri" FontSize="50" Click="InfoButton_Click" Content="{StaticResource Info}" />
             <Button DockPanel.Dock="Left" Name="HelpButton" Background="Transparent" Height="30" Width="30" Margin="0 0 0 10"
-                    Cursor="{x:Static Cursors.Hand}" Template="{StaticResource RoundButtonStyle}" Foreground="Gray"
+                    Cursor="{x:Static Cursors.Hand}" Template="{StaticResource RoundButtonStyle}"
                     FontWeight="Bold" FontFamily="Calibri" FontSize="50" Click="HelpButton_Click" Content="{StaticResource Help}" />
             <Button DockPanel.Dock="Left" Name="HeartButton" Background="Transparent" Height="30" Width="30" Margin="0 0 0 10"
-                    Cursor="{x:Static Cursors.Hand}" Template="{StaticResource RoundButtonStyle}" Foreground="Gray"
+                    Cursor="{x:Static Cursors.Hand}" Template="{StaticResource RoundButtonStyle}"
                     FontWeight="Bold" FontFamily="Calibri" FontSize="50" Click="HeartButton_Click" Content="{StaticResource Heart}" />
-            <Button DockPanel.Dock="Right" Name="ProfileSettingsButton" Content="Profile Settings"
-                    Style="{StaticResource ButtonStyle}" Click="ProfileSettingsButton_OnClick" />
-            <Button DockPanel.Dock="Right" Name="AppSettingsButton" Content="Application Settings"
-                        Style="{StaticResource ButtonStyle}" Click="AppSettingsButton_OnClick" />
+            <Button DockPanel.Dock="Right" Name="ProfileSettingsButton" BorderThickness="0" Content="Profile Settings"
+                    MinWidth="150" Click="ProfileSettingsButton_OnClick" HorizontalAlignment="Right" />
+            <Button DockPanel.Dock="Right" Name="AppSettingsButton" BorderThickness="0" Content="Application Settings"
+                    MinWidth="150" Click="AppSettingsButton_OnClick" HorizontalAlignment="Right" />
         </DockPanel>
     </Grid>
 </Window>

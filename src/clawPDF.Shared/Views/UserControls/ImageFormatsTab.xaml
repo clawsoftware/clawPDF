@@ -24,16 +24,16 @@
                 <Label Name="JpegColorsLabel" Grid.Row="0" Grid.Column="0" Margin="0 5 5 0">Colors:</Label>
                 <ComboBox Name="JpegColorsComboBox" Grid.Row="0" Grid.Column="1" Margin="0 5 0 0"
                           VerticalAlignment="Center" SelectedValue="{Binding CurrentProfile.JpegSettings.Color}"
-                          SelectedValuePath="Value" DisplayMemberPath="Name" ItemsSource="{Binding JpegColorValues}" />
+                          SelectedValuePath="Value" DisplayMemberPath="Name" ItemsSource="{Binding JpegColorValues}" Height="24" />
                 <Label Name="JpegResolutionLabel" Grid.Row="1" Grid.Column="0" Margin="0 5 5 0">Resolution (DPI):</Label>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5 0 0" HorizontalAlignment="Left" Width="50"
                          TextAlignment="Right"
-                         Text="{Binding CurrentProfile.JpegSettings.Dpi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                         Text="{Binding CurrentProfile.JpegSettings.Dpi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="24" />
                 <Label Name="JpegQualityLabel" Grid.Row="2" Grid.Column="0" Margin="0 5 5 0">Quality (%):</Label>
                 <TextBox Name="JpegQualityTextBox" Grid.Row="2" Grid.Column="1" Margin="0 5 0 0"
                          HorizontalAlignment="Left" Width="50" TextAlignment="Right"
                          Text="{Binding CurrentProfile.JpegSettings.Quality, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         LostFocus="UIElement_OnLostFocus" />
+                         LostFocus="UIElement_OnLostFocus" Height="24" />
             </Grid>
         </HeaderedContentControl>
 
@@ -51,11 +51,11 @@
                 <Label Name="PngColorsLabel" Grid.Row="0" Grid.Column="0" Margin="0 5 5 0">Colors:</Label>
                 <ComboBox Name="PngColorsComboBox" Grid.Row="0" Grid.Column="1" Margin="0 5 0 0"
                           VerticalAlignment="Center" SelectedValue="{Binding CurrentProfile.PngSettings.Color}"
-                          SelectedValuePath="Value" DisplayMemberPath="Name" ItemsSource="{Binding PngColorValues}" />
+                          SelectedValuePath="Value" DisplayMemberPath="Name" ItemsSource="{Binding PngColorValues}" Height="24" />
                 <Label Name="PngResolutionLabel" Grid.Row="1" Grid.Column="0" Margin="0 5 5 0">Resolution (DPI):</Label>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5 0 0" HorizontalAlignment="Left" Width="50"
                          TextAlignment="Right"
-                         Text="{Binding CurrentProfile.PngSettings.Dpi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                         Text="{Binding CurrentProfile.PngSettings.Dpi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="24" />
             </Grid>
         </HeaderedContentControl>
 
@@ -73,11 +73,11 @@
                 <Label Name="TiffColorsLabel" Grid.Row="0" Grid.Column="0" Margin="0 5 5 0">Colors:</Label>
                 <ComboBox Name="TiffColorsComboBox" Grid.Row="0" Grid.Column="1" Margin="0 5 0 0"
                           VerticalAlignment="Center" SelectedValue="{Binding CurrentProfile.TiffSettings.Color}"
-                          SelectedValuePath="Value" DisplayMemberPath="Name" ItemsSource="{Binding TiffColorValues}" />
+                          SelectedValuePath="Value" DisplayMemberPath="Name" ItemsSource="{Binding TiffColorValues}" Height="24" />
                 <Label Name="TiffResolutionLabel" Grid.Row="1" Grid.Column="0" Margin="0 5 5 0">Resolution (DPI):</Label>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5 0 0" Width="50" HorizontalAlignment="Left"
                          TextAlignment="Right"
-                         Text="{Binding CurrentProfile.TiffSettings.Dpi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                         Text="{Binding CurrentProfile.TiffSettings.Dpi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="24" />
             </Grid>
         </HeaderedContentControl>
     </StackPanel>

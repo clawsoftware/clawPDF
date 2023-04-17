@@ -27,21 +27,21 @@
         <StackPanel>
             <DockPanel>
                 <ComboBox Name="SubjectTokenComboBox" DockPanel.Dock="Right" VerticalAlignment="Center"
-                          SelectionChanged="SubjectTokenComboBox_OnSelectionChanged" MinWidth="150" />
+                          SelectionChanged="SubjectTokenComboBox_OnSelectionChanged" MinWidth="150" Height="24" />
                 <TextBlock Name="AddSubjectTokenText" DockPanel.Dock="Right" VerticalAlignment="Center" Margin="5 0">Add Token:</TextBlock>
                 <Label Name="SubjectLabel" Target="{Binding ElementName=SubjectText}">_Subject:</Label>
             </DockPanel>
-            <TextBox Name="SubjectText" Margin="0,5,0,2" />
+            <TextBox Name="SubjectText" Margin="0,5,0,2" Height="24" />
             <DockPanel LastChildFill="False">
                 <Label DockPanel.Dock="Left">
                     <TextBlock Name="SubjectPreviewTextBlock">Preview:</TextBlock>
                 </Label>
             </DockPanel>
             <TextBox IsReadOnly="True"
-                     Text="{Binding ElementName=SubjectText, Path=Text, Converter={StaticResource TokenReplacerConverter}, Mode=OneWay}" />
+                     Text="{Binding ElementName=SubjectText, Path=Text, Converter={StaticResource TokenReplacerConverter}, Mode=OneWay}" Height="24" />
             <DockPanel Margin="0 5 0 5">
                 <ComboBox Name="BodyTokenComboBox" DockPanel.Dock="Right" VerticalAlignment="Center"
-                          SelectionChanged="BodyTokenComboBox_OnSelectionChanged" MinWidth="150" />
+                          SelectionChanged="BodyTokenComboBox_OnSelectionChanged" MinWidth="150" Height="24" />
                 <TextBlock Name="AddBodyTokenText" DockPanel.Dock="Right" VerticalAlignment="Center" Margin="5 0">Add Token:</TextBlock>
                 <Label Name="BodyTextLabel" Target="{Binding ElementName=BodyText}">_Text:</Label>
             </DockPanel>

@@ -35,6 +35,8 @@ namespace clawSoft.clawPDF.Views.UserControls
             //overwrite items of comboboxes with translated items
             ChangeDefaultPrinterComboBox.ItemsSource = ViewModel.AskSwitchPrinterValues;
             ChangeDefaultPrinterComboBox.SelectedValue = ViewModel.ApplicationSettings.AskSwitchDefaultPrinter;
+            ChangePrinterDialogTopMostComboBox.ItemsSource = ViewModel.AskPrinterDialogTopMostValues;
+            ChangePrinterDialogTopMostComboBox.SelectedValue = ViewModel.ApplicationSettings.PrinterDialogTopMost;
             PreviewLanguageAction();
         }
 

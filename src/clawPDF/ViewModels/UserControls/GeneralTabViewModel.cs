@@ -12,9 +12,6 @@ namespace clawSoft.clawPDF.ViewModels.UserControls
         private ApplicationProperties _applicationProperties;
         private IList<Language> _languages;
 
-        public IEnumerable<EnumValue<PrinterDialogTopMost>> PrinterDialogTopMost =>
-    TranslationHelper.Instance.TranslatorInstance.GetEnumTranslation<PrinterDialogTopMost>();
-
         public GeneralTabViewModel()
         {
             Languages = Translator.FindTranslations(TranslationHelper.Instance.TranslationPath);
@@ -41,16 +38,6 @@ namespace clawSoft.clawPDF.ViewModels.UserControls
             }
         }
 
-        public bool DisplayUpdateWarning
-        {
-            get
-            {
-                if (ApplicationSettings == null)
-                    return false;
-                return ApplicationSettings.UpdateInterval == UpdateInterval.Never;
-            }
-        }
-
         public IEnumerable<AskSwitchPrinter> AskSwitchPrinterValues =>
             new List<AskSwitchPrinter>
             {
@@ -60,6 +47,17 @@ namespace clawSoft.clawPDF.ViewModels.UserControls
                 new AskSwitchPrinter(
                     TranslationHelper.Instance.TranslatorInstance.GetTranslation("ApplicationSettingsWindow", "Yes",
                         "Yes"), false)
+            };
+
+        public IEnumerable<AskPrinterDialogTopMost> AskPrinterDialogTopMostValues =>
+            new List<AskPrinterDialogTopMost>
+            {
+                new AskPrinterDialogTopMost(
+                    TranslationHelper.Instance.TranslatorInstance.GetTranslation("ApplicationSettingsWindow", "Yes",
+                        "Yes"), true),
+                new AskPrinterDialogTopMost(
+                    TranslationHelper.Instance.TranslatorInstance.GetTranslation("ApplicationSettingsWindow", "No",
+                         "No"), false)
             };
 
         public IEnumerable<EnumValue<UpdateInterval>> UpdateIntervals =>

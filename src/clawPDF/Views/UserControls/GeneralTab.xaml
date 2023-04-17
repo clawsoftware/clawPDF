@@ -25,9 +25,9 @@
                 <StackPanel Orientation="Horizontal">
                     <ComboBox Name="LanguageBox" Width="200" DisplayMemberPath="CommonName"
                               SelectedValuePath="CommonName" SelectedValue="{Binding CurrentLanguage}"
-                              ItemsSource="{Binding Languages}" />
+                              ItemsSource="{Binding Languages}" Height="24" />
                     <Button Name="LanguagePreviewButton" Margin="10 0 0 0" MinWidth="80" Padding="3 0 3 0"
-                            Click="LanguagePreviewButton_Click">
+                            Click="LanguagePreviewButton_Click" Height="24">
                         Preview
                     </Button>
                 </StackPanel>
@@ -36,13 +36,13 @@
 
         <HeaderedContentControl Name="PrinterDialogControl" Template="{StaticResource HeaderPanelTemplate}"
                                 Header="Print job" Margin="0 10 0 0">
-            <StackPanel HorizontalAlignment="Left" MinWidth="250" Style="{StaticResource GpoStyle}" >
+            <StackPanel HorizontalAlignment="Left" MinWidth="250">
                 <Label>
                     <TextBlock Name="PrinterDialogControlText" TextWrapping="Wrap">The print job window is displayed above all other windows:</TextBlock>
                 </Label>
-                <ComboBox Margin="0 5 0 0" Width="200" HorizontalAlignment="Left"
+                <ComboBox Name="ChangePrinterDialogTopMostComboBox" Margin="0 5 0 0" Width="200" HorizontalAlignment="Left"
                           SelectedValue="{Binding ApplicationSettings.PrinterDialogTopMost}" SelectedValuePath="Value"
-                          DisplayMemberPath="Name" ItemsSource="{Binding PrinterDialogTopMost}" />
+                          DisplayMemberPath="Name" ItemsSource="{Binding AskPrinterDialogTopMostValues}" />
             </StackPanel>
         </HeaderedContentControl>
 
@@ -55,7 +55,7 @@
                 <ComboBox Name="ChangeDefaultPrinterComboBox" Width="200" HorizontalAlignment="Left"
                           SelectedValue="{Binding ApplicationSettings.AskSwitchDefaultPrinter}"
                           SelectedValuePath="Value" DisplayMemberPath="Name"
-                          ItemsSource="{Binding AskSwitchPrinterValues}" />
+                          ItemsSource="{Binding AskSwitchPrinterValues}" Height="24" />
             </StackPanel>
         </HeaderedContentControl>
     </StackPanel>

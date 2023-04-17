@@ -13,27 +13,27 @@
         </Label>
         <DockPanel>
             <Label DockPanel.Dock="Left" FontWeight="Bold" Margin="5 0 5 0">ftp://</Label>
-            <TextBox Text="{Binding CurrentProfile.Ftp.Server}" VerticalAlignment="Center" />
+            <TextBox Text="{Binding CurrentProfile.Ftp.Server}" VerticalAlignment="Center" Height="24" />
         </DockPanel>
         <Label>
             <TextBlock Name="DirectoryText">Directory:</TextBlock>
         </Label>
         <TextBox Name="DirectoryTextBox" Text="{Binding CurrentProfile.Ftp.Directory}"
-                 TextChanged="FtpTextBox_OnTextChanged" />
+                 TextChanged="FtpTextBox_OnTextChanged" Height="24" />
         <DockPanel Margin="15 5 0 0">
             <Label>
                 <TextBlock Name="DirectoryAddTokenText">Add Token:</TextBlock>
             </Label>
             <ComboBox Name="AddTokenComboBox" Margin="5 0 0 0" VerticalAlignment="Center"
                       ItemsSource="{Binding ElementName=This,Path=Tokens}"
-                      SelectionChanged="TokenComboBox_OnSelectionChanged" />
+                      SelectionChanged="TokenComboBox_OnSelectionChanged" Height="24" />
         </DockPanel>
         <DockPanel LastChildFill="False">
             <Label DockPanel.Dock="Left">
                 <TextBlock Name="DirectoryPreviewText">Preview:</TextBlock>
             </Label>
         </DockPanel>
-        <TextBox Name="DirectoryPreviewTextBox" IsEnabled="False" />
+        <TextBox Name="DirectoryPreviewTextBox" IsEnabled="False" Height="24" />
         <CheckBox Margin="0 10" IsChecked="{Binding CurrentProfile.Ftp.EnsureUniqueFilenames}">
             <TextBlock Name="EnsureUniqueFilenamesText" TextWrapping="Wrap"
                        Text="Don't overwrite files (adds an increasing number in case of conflict)" />
@@ -41,8 +41,8 @@
         <Label>
             <TextBlock Name="UsernameText">Username:</TextBlock>
         </Label>
-        <TextBox Text="{Binding CurrentProfile.Ftp.UserName}" />
-        <Button Padding="5" Margin="0 10 0 0" Click="SetPasswordButton_OnClick">
+        <TextBox Text="{Binding CurrentProfile.Ftp.UserName}" Height="24" />
+        <Button Padding="5" Margin="0 10 0 0" Click="SetPasswordButton_OnClick" Height="28">
             <TextBlock Name="SetPasswordText">Set Password</TextBlock>
         </Button>
     </StackPanel>

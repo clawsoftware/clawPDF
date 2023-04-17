@@ -28,7 +28,7 @@
                     <ComboBox HorizontalAlignment="Left" VerticalAlignment="Center" Width="200"
                               SelectedValue="{Binding CurrentProfile.OutputFormat}" SelectedValuePath="Value"
                               DisplayMemberPath="Name"
-                              ItemsSource="{Binding ElementName=This, Path=DefaultFileFormatValues}" Margin="5,0,0,0" />
+                              ItemsSource="{Binding ElementName=This, Path=DefaultFileFormatValues}" Margin="5,0,0,0" Height="24" />
                 </StackPanel>
                 <CheckBox Name="ShowProgressCheckBox" Margin="0,5,0,0"
                           IsChecked="{Binding CurrentProfile.ShowProgress, Mode=TwoWay}">
@@ -62,12 +62,12 @@
                 <Label Name="FilenameTemplateLabel" Grid.Row="0" Grid.Column="0">Filename Template:</Label>
                 <Label Name="FilenameTokenLabel" Grid.Row="0" Grid.Column="1">Add Token:</Label>
                 <TextBox Name="FilenameTemplateTextBox" Grid.Row="1" Grid.Column="0" Margin="0 0 5 0"
-                         Text="{Binding CurrentProfile.FileNameTemplate}" CaretIndex="{x:Static system:Int32.MaxValue}" />
+                         Text="{Binding CurrentProfile.FileNameTemplate}" CaretIndex="{x:Static system:Int32.MaxValue}" Height="24" />
                 <ComboBox Name="FilenameTokensComboBox" Grid.Row="1" Grid.Column="1"
-                          SelectionChanged="FilenameTokensComboBox_OnSelectionChanged" />
+                          SelectionChanged="FilenameTokensComboBox_OnSelectionChanged" Height="24" />
                 <Label Name="FilenamePreviewLabel" Grid.Row="2" Grid.Column="0">Preview:</Label>
                 <TextBox Name="FilenamePreviewText" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsReadOnly="True"
-                         Text="{Binding Text, ElementName=FilenameTemplateTextBox, Converter={StaticResource TokenReplacerConverterForFilenames}}" />
+                         Text="{Binding Text, ElementName=FilenameTemplateTextBox, Converter={StaticResource TokenReplacerConverterForFilenames}}" Height="24" />
             </Grid>
         </HeaderedContentControl>
 
@@ -94,18 +94,18 @@
                     <Label Name="SaveDialogFolderTokenLabel" Grid.Row="1" Grid.Column="1">Add Token:</Label>
                     <DockPanel Grid.Row="2" Grid.Column="0" LastChildFill="True" Margin="0 0 5 0">
                         <Button Width="25" Margin="5,0,0,0" DockPanel.Dock="Right"
-                                Click="SaveDialogDirectoryBrowseFolderButton_OnClick">
+                                Click="SaveDialogDirectoryBrowseFolderButton_OnClick" Height="24">
                             ...
                         </Button>
                         <TextBox Name="SaveDialogFolderTextBox" Text="{Binding CurrentProfile.SaveDialog.Folder}"
-                                 CaretIndex="{x:Static system:Int32.MaxValue}" />
+                                 CaretIndex="{x:Static system:Int32.MaxValue}" Height="24" />
                     </DockPanel>
                     <ComboBox Name="SaveDialogFolderTokensComboBox" Grid.Row="2" Grid.Column="1"
-                              SelectionChanged="SaveDialogFolderTokensComboBox_OnSelectionChanged" />
+                              SelectionChanged="SaveDialogFolderTokensComboBox_OnSelectionChanged" Height="24" />
                     <Label Name="SaveDialogFolderPreviewLabel" Grid.Row="3" Grid.Column="0">Preview:</Label>
                     <TextBox Name="SaveDialogFolderPreviewText" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
                              IsReadOnly="True"
-                             Text="{Binding Text, ElementName=SaveDialogFolderTextBox, Converter={StaticResource TokenReplacerConverterForFolders}}" />
+                             Text="{Binding Text, ElementName=SaveDialogFolderTextBox, Converter={StaticResource TokenReplacerConverterForFolders}}" Height="24" />
                 </Grid>
             </StackPanel>
         </HeaderedContentControl>

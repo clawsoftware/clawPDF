@@ -13,10 +13,10 @@
             </Label>
             <DockPanel>
                 <Button DockPanel.Dock="Right" Margin="5 0 0 0" MinWidth="25"
-                        Click="SelectAttachmentFileButton_OnClick">
+                        Click="SelectAttachmentFileButton_OnClick" Height="24">
                     ...
                 </Button>
-                <TextBox Name="AttachmentFileTextBox" Text="{Binding CurrentProfile.AttachmentPage.File}" />
+                <TextBox Name="AttachmentFileTextBox" Text="{Binding CurrentProfile.AttachmentPage.File}" Height="24" />
             </DockPanel>
         </StackPanel>
     </Grid>
