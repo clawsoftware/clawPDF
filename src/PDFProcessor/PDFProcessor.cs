@@ -25,7 +25,7 @@ namespace clawSoft.clawPDF.PDFProcessing
         {
             var pdfVersion = "1.4";
             if (profile.PdfSettings.Security.Enabled &&
-                profile.PdfSettings.Security.EncryptionLevel == EncryptionLevel.Aes128Bit)
+                (profile.PdfSettings.Security.EncryptionLevel == EncryptionLevel.Aes128Bit || profile.PdfSettings.Security.EncryptionLevel == EncryptionLevel.Aes256Bit))
                 pdfVersion = "1.6";
             return pdfVersion;
         }

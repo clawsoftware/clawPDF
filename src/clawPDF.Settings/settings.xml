@@ -298,7 +298,7 @@
 						</value>
 						<value name="EncryptionLevel" type="value" datatype="Enum" enumname="EncryptionLevel"
 							   defaultvalue="EncryptionLevel.Rc128Bit">
-							<comment>Defines the encryption level. Valid values are: Rc40Bit, Rc128Bit, Aes128Bit</comment>
+							<comment>Defines the encryption level. Valid values are: Rc40Bit, Rc128Bit, Aes128Bit, Aes256Bit</comment>
 						</value>
 						<value name="OwnerPassword" type="password" defaultvalue="">
 							<comment>Password that can be used to modify the document</comment>

@@ -154,6 +154,9 @@ namespace clawSoft.clawPDF.Helper
 
                 case "High128BitAes":
                     return "Aes128Bit";
+
+                case "High256BitAes":
+                    return "Aes256Bit";
             }
 
             return "Rc128Bit";

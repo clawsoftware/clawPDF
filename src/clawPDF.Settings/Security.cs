@@ -76,7 +76,7 @@ namespace clawSoft.clawPDF.Core.Settings
         public bool Enabled { get; set; }
 
         /// <summary>
-        ///     Defines the encryption level. Valid values are: Rc40Bit, Rc128Bit, Aes128Bit
+        ///     Defines the encryption level. Valid values are: Rc40Bit, Rc128Bit, Aes128Bit, Aes256Bit
         /// </summary>
         public EncryptionLevel EncryptionLevel { get; set; }
 
