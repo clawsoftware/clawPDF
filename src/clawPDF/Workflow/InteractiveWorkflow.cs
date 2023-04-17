@@ -307,14 +307,36 @@ namespace clawSoft.clawPDF.Workflow
 
         protected override bool QueryEmailSmtpPassword()
         {
+            string recipient = "";
+
+            if (string.IsNullOrEmpty(Job.Profile.EmailSmtp.Recipients))
+            {
+                var f = new InputBoxWindow();
+                f.QuestionText = "Recipient(s) e-mail address:";
+                if (f.ShowDialog() != true)
+                    return false;
+
+                recipient = f.InputText;
+                Job.Profile.EmailSmtp.Recipients = recipient;
+            }
+            else
+            {
+                recipient = Job.Profile.EmailSmtp.Recipients;
+            }
+
             if (!string.IsNullOrEmpty(Job.Profile.EmailSmtp.Password))
             {
                 Job.Passwords.SmtpPassword = Job.Profile.EmailSmtp.Password;
                 return true;
             }
 
-            var pwWindow = new SmtpPasswordWindow(SmtpPasswordMiddleButton.Skip, Job.Profile.EmailSmtp.Address,
-                Job.Profile.EmailSmtp.Recipients);
+            if (!string.IsNullOrEmpty(Job.Profile.EmailSmtp.Password))
+            {
+                Job.Passwords.SmtpPassword = Job.Profile.EmailSmtp.Password;
+                return true;
+            }
+
+            var pwWindow = new SmtpPasswordWindow(SmtpPasswordMiddleButton.Skip, Job.Profile.EmailSmtp.Address, recipient);
 
             pwWindow.ShowDialogTopMost();
 
@@ -408,8 +430,25 @@ namespace clawSoft.clawPDF.Workflow
         protected override void RetypeSmtpPassword(object sender, QueryPasswordEventArgs e)
         {
             Logger.Debug("Launched E-mail password Form");
-            var pwWindow = new SmtpPasswordWindow(SmtpPasswordMiddleButton.None, Job.Profile.EmailSmtp.Address,
-                Job.Profile.EmailSmtp.Recipients);
+
+            string recipient = "";
+
+            if (string.IsNullOrEmpty(Job.Profile.EmailSmtp.Recipients))
+            {
+                var f = new InputBoxWindow();
+                f.QuestionText = "Recipient(s) e-mail address:";
+                if (f.ShowDialog() != true)
+                    e.Cancel = false;
+
+                recipient = f.InputText;
+                Job.Profile.EmailSmtp.Recipients = recipient;
+            }
+            else
+            {
+                recipient = Job.Profile.EmailSmtp.Recipients;
+            }
+
+            var pwWindow = new SmtpPasswordWindow(SmtpPasswordMiddleButton.None, Job.Profile.EmailSmtp.Address, recipient);
             pwWindow.SmtpPassword = Job.Passwords.SmtpPassword;
             pwWindow.Message = _translator.GetTranslation("InteractiveWorkflow", "RetypeSmtpPwMessage",
                 "Could not authenticate at server.\r\nPlease check your password and verify that you have a working internet connection.");

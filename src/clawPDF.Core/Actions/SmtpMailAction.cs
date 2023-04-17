@@ -62,11 +62,11 @@ namespace clawSoft.clawPDF.Core.Actions
                     actionResult.Add(ActionId, 100);
                 }
 
-                if (string.IsNullOrEmpty(profile.EmailSmtp.Recipients))
-                {
-                    Logger.Error("No SMTP email recipients are specified.");
-                    actionResult.Add(ActionId, 101);
-                }
+                //if (string.IsNullOrEmpty(profile.EmailSmtp.Recipients))
+                //{
+                //    Logger.Error("No SMTP email recipients are specified.");
+                //    actionResult.Add(ActionId, 101);
+                //}
 
                 if (string.IsNullOrEmpty(profile.EmailSmtp.Server))
                 {
