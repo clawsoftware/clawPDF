@@ -8,7 +8,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Themes/ColourfulDarkTheme.xaml" />
+                <ResourceDictionary Source="Themes/ColourfulLightTheme.xaml" />
                 <ResourceDictionary Source="Resources/AllResources.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="{x:Type Label}">

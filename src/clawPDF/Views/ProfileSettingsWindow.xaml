@@ -17,10 +17,10 @@
         <Style x:Key="DisabledGrey" TargetType="{x:Type Shape}">
             <Style.Triggers>
                 <Trigger Property="IsEnabled" Value="false">
-                    <Setter Property="Stroke" Value="LightGray" />
+                    <Setter Property="Stroke" Value="{StaticResource ControlDisabledBackground}" />
                 </Trigger>
                 <Trigger Property="IsEnabled" Value="True">
-                    <Setter Property="Stroke" Value="Black" />
+                    <Setter Property="Stroke" Value="{StaticResource ControlDefaultForeground}" />
                 </Trigger>
             </Style.Triggers>
         </Style>

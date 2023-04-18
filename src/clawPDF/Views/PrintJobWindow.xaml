@@ -101,12 +101,12 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Style="{StaticResource GrayRoundButtonStyle}" IsCancel="True">
-                    <Path Data="{StaticResource CloseX}" Width="20" Height="20" Stretch="Fill" Stroke="White"
+                    <Path Data="{StaticResource CloseX}" Width="20" Height="20" Stretch="Fill" Stroke="{StaticResource ControlDefaultForeground}"
                           StrokeThickness="5" Margin="10" />
                 </Button>
 
                 <Button Style="{StaticResource GrayRoundButtonStyle}" Click="SettingsButton_OnClick">
-                    <Path Data="{StaticResource Settings}" Width="24" Height="24" Stretch="Uniform" Stroke="White"
+                    <Path Data="{StaticResource Settings}" Width="24" Height="24" Stretch="Uniform" Stroke="{StaticResource ControlDefaultForeground}"
                           StrokeThickness="4" Margin="10" />
                 </Button>
 
@@ -119,7 +119,7 @@
 
                 <Button Style="{StaticResource GrayRoundButtonStyle}" Command="{Binding EmailCommand}"
                         Click="CommandButtons_OnClick">
-                    <Path Data="{StaticResource Share}" Width="20" Height="20" Stretch="Fill" Fill="White"
+                    <Path Data="{StaticResource Share}" Width="20" Height="20" Stretch="Fill" Fill="{StaticResource ControlDefaultForeground}"
                           StrokeThickness="5" Margin="12 10 8 10" />
                 </Button>
                 <Button Style="{StaticResource GrayRoundButtonStyle}" IsDefault="True" Command="{Binding SaveCommand}"
