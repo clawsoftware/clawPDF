@@ -1,14 +1,14 @@
 # clawPDF - Virtual PDF/OCR/Image (Network) Printer
 
-ClawPDF may seem like yet another Virtual PDF/OCR/Image Printer, but it actually comes packed with features that are typically found in enterprise solutions. With clawPDF, you can create documents in various formats, including PDF/A-1b, PDF/A-2b, PDF/A-3b, PDF/X, PDF/Image, OCR, SVG, PNG, JPEG, TIF, and TXT. You also have easy access to metadata and can remove it before sharing a document. In addition, you can protect your documents with a password and encrypt them with up to 128-bit AES.
+ClawPDF may seem like yet another Virtual PDF/OCR/Image Printer, but it actually comes packed with features that are typically found in enterprise solutions. With clawPDF, you can create documents in various formats, including PDF/A-1b, PDF/A-2b, PDF/A-3b, PDF/X, PDF/Image, OCR, SVG, PNG, JPEG, TIF, and TXT. You also have easy access to metadata and can remove it before sharing a document. In addition, you can protect your documents with a password and encrypt them with up to 256-bit AES.
 
 ClawPDF offers a scripting interface that lets you automate processes and integrate it into your application. Moreover, you can install clawPDF on a print server and print documents over the network, not just locally.
 
-ClawPDF is open-source and compatible with all major Windows client and server operating systems, and it even supports multi-user environments!
+ClawPDF is open-source and compatible with all major Windows client and server operating systems (x86/x64/ARM64), and it even supports multi-user environments!
 
 # Download
 
-https://github.com/clawsoftware/clawPDF/releases/download/0.9.0/clawPDF_0.9.0_setup.msi
+https://github.com/clawsoftware/clawPDF/releases/download/0.9.1/clawPDF_0.9.1_setup.msi
 
 
 # Features
@@ -17,13 +17,16 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.9.0/clawPDF_0.9.0_se
 - Print 100% valid [PDF/A-1b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-1b.pdf), [PDF/A-2b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-2b.pdf) and [PDF/A-3b](https://github.com/clawsoftware/clawPDF/raw/master/docs/pdfa_valid/PDFA-3b.pdf)
 - [Optical Character Recognition (OCR)](https://github.com/clawsoftware/clawPDF/wiki/Optical-Character-Recognition-(OCR))
 - [Scripting Interface (Python, Powershell, VBScript...)](https://github.com/clawsoftware/clawPDF/wiki/Scripting-Interface)
-- [Network Printing](https://github.com/clawsoftware/clawPDF/wiki/Install-as-Network-Printer)
+- [Shared Network Printing](https://github.com/clawsoftware/clawPDF/wiki/Install-as-Network-Printer)
 - [SVG Export](https://github.com/clawsoftware/clawPDF/wiki/SVG-Export)
 - [Drag and Drop Support](https://github.com/clawsoftware/clawPDF/wiki/Drag-and-Drop)
 - [Merge Files](https://github.com/clawsoftware/clawPDF/wiki/Merge-Files)
 - [Command Line Support](https://github.com/clawsoftware/clawPDF/wiki/Command-Line-Commands)
 - [Silent Printing](https://github.com/clawsoftware/clawPDF/wiki/Silent-Printing)
 - [Custom Paper Sizes / Standard Paper Sizes](https://github.com/clawsoftware/clawPDF/wiki/(Custom)-Paper-Sizes)
+- 256-bit AES encryption
+- Light/Dark Theme
+- ARM64 Support
 - Full Unicode Support
 - Multiple Profiles
 - [Post Actions](https://github.com/clawsoftware/clawPDF/wiki/Post-Actions)
@@ -57,8 +60,8 @@ https://github.com/clawsoftware/clawPDF/releases/download/0.9.0/clawPDF_0.9.0_se
 - Windows Server 2022 RDS
 - Windows Server 2019 RDS
 - Windows Server 2016 RDS
-- Windows 11 x64
-- Windows 10 x86/x64
+- Windows 11 x64/ARM64
+- Windows 10 x86/x64/ARM64
 - Windows 8 x86/x64
 - Windows 7 x86/x64
 
@@ -98,20 +101,13 @@ clawPDF.exe /ManagePrintJobs
 
 # Changelog
 
-## v0.9.1 (TBA)
+## v0.9.1 (2023.04.18)
 
-- [feature] Windows ARM64 support (Surface, Windows on Apple M1/M2/M3, ...)
+- [feature] Windows ARM64 support (Surface, Windows on Apple M1/M2/M3)
 - [feature] 256-bit AES encryption
-- [update] iText 7
-
-## v0.9.0 (28.03.2023)
-
-- [feature] Network printing support
-- [feature] SVG file support
-- [update] Ghostscript 10.01.1
-- [update] Changed default time server
-- [bugfix] PDF/X code regression
-- [setup] Visual C++ Redistributable 14 dependency check
+- [feature] Ask for SMTP e-mail recipient if not specified
+- [feature] Light/Dark Theme
+- [update] iText7
 
 [more](https://github.com/clawsoftware/clawPDF/wiki/Changelog)
 
