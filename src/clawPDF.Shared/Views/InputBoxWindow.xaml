@@ -6,6 +6,7 @@
         WindowStartupLocation="CenterScreen"
         Loaded="OnLoaded"
         SizeToContent="WidthAndHeight"
+        Background="{StaticResource ContainerBackground}"
         Width="400"
         MinWidth="400"
         MaxWidth="400">
@@ -17,21 +18,14 @@
 
             <StackPanel Margin="0 10 10 10">
                 <Label Target="{Binding ElementName=TextBox}" Name="Label">Please enter the text:</Label>
-                <TextBox Name="TextBox" TextChanged="TextBox_OnTextChanged" Height="24" />
-                <TextBlock Margin="0 3" Name="ValidationMessageText" MinHeight="35" TextWrapping="Wrap" />
+                <TextBox Name="TextBox" TextChanged="TextBox_OnTextChanged" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
+                <TextBlock Margin="0 3" Name="ValidationMessageText" MinHeight="35" TextWrapping="Wrap"  Foreground="{StaticResource ControlDisabledGlythColour}" />
             </StackPanel>
         </DockPanel>
 
-        <DockPanel Background="{x:Static SystemColors.ControlBrush}" LastChildFill="False" Margin="0 20 0 0">
-            <DockPanel.Resources>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Padding" Value="10 5" />
-                    <Setter Property="Margin" Value="10 10" />
-                    <Setter Property="MinWidth" Value="50" />
-                </Style>
-            </DockPanel.Resources>
-            <Button DockPanel.Dock="Right" MinWidth="70" IsCancel="True" Name="CancelButton">Cancel</Button>
-            <Button DockPanel.Dock="Right" MinWidth="70" IsDefault="True" Name="OkButton" Click="OkButton_OnClick">OK</Button>
+        <DockPanel Background="{StaticResource WindowBorderColour}" LastChildFill="False" Margin="0 20 0 0">
+            <Button Padding="10" Margin="10 10 10 10" DockPanel.Dock="Right" MinWidth="70" IsCancel="True" Name="CancelButton">Cancel</Button>
+            <Button Padding="10" Margin="10 10 5 10" DockPanel.Dock="Right" MinWidth="70" IsDefault="True" Name="OkButton" Click="OkButton_OnClick">OK</Button>
         </DockPanel>
     </StackPanel>
 </Window>

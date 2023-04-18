@@ -61,12 +61,13 @@
                 </Grid.RowDefinitions>
                 <Label Name="FilenameTemplateLabel" Grid.Row="0" Grid.Column="0">Filename Template:</Label>
                 <Label Name="FilenameTokenLabel" Grid.Row="0" Grid.Column="1">Add Token:</Label>
-                <TextBox Name="FilenameTemplateTextBox" Grid.Row="1" Grid.Column="0" Margin="0 0 5 0"
+                <TextBox Name="FilenameTemplateTextBox" Grid.Row="1" Grid.Column="0" Margin="0 0 5 0" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                          Text="{Binding CurrentProfile.FileNameTemplate}" CaretIndex="{x:Static system:Int32.MaxValue}" Height="24" />
                 <ComboBox Name="FilenameTokensComboBox" Grid.Row="1" Grid.Column="1"
                           SelectionChanged="FilenameTokensComboBox_OnSelectionChanged" Height="24" />
                 <Label Name="FilenamePreviewLabel" Grid.Row="2" Grid.Column="0">Preview:</Label>
                 <TextBox Name="FilenamePreviewText" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsReadOnly="True"
+                         Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                          Text="{Binding Text, ElementName=FilenameTemplateTextBox, Converter={StaticResource TokenReplacerConverterForFilenames}}" Height="24" />
             </Grid>
         </HeaderedContentControl>
@@ -98,13 +99,14 @@
                             ...
                         </Button>
                         <TextBox Name="SaveDialogFolderTextBox" Text="{Binding CurrentProfile.SaveDialog.Folder}"
+                                 Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                                  CaretIndex="{x:Static system:Int32.MaxValue}" Height="24" />
                     </DockPanel>
                     <ComboBox Name="SaveDialogFolderTokensComboBox" Grid.Row="2" Grid.Column="1"
                               SelectionChanged="SaveDialogFolderTokensComboBox_OnSelectionChanged" Height="24" />
                     <Label Name="SaveDialogFolderPreviewLabel" Grid.Row="3" Grid.Column="0">Preview:</Label>
                     <TextBox Name="SaveDialogFolderPreviewText" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
-                             IsReadOnly="True"
+                             IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                              Text="{Binding Text, ElementName=SaveDialogFolderTextBox, Converter={StaticResource TokenReplacerConverterForFolders}}" Height="24" />
                 </Grid>
             </StackPanel>

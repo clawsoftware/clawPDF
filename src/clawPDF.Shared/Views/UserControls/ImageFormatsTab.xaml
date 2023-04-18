@@ -27,11 +27,11 @@
                           SelectedValuePath="Value" DisplayMemberPath="Name" ItemsSource="{Binding JpegColorValues}" Height="24" />
                 <Label Name="JpegResolutionLabel" Grid.Row="1" Grid.Column="0" Margin="0 5 5 0">Resolution (DPI):</Label>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5 0 0" HorizontalAlignment="Left" Width="50"
-                         TextAlignment="Right"
+                         TextAlignment="Right" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                          Text="{Binding CurrentProfile.JpegSettings.Dpi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="24" />
                 <Label Name="JpegQualityLabel" Grid.Row="2" Grid.Column="0" Margin="0 5 5 0">Quality (%):</Label>
                 <TextBox Name="JpegQualityTextBox" Grid.Row="2" Grid.Column="1" Margin="0 5 0 0"
-                         HorizontalAlignment="Left" Width="50" TextAlignment="Right"
+                         HorizontalAlignment="Left" Width="50" TextAlignment="Right" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                          Text="{Binding CurrentProfile.JpegSettings.Quality, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          LostFocus="UIElement_OnLostFocus" Height="24" />
             </Grid>
@@ -54,7 +54,7 @@
                           SelectedValuePath="Value" DisplayMemberPath="Name" ItemsSource="{Binding PngColorValues}" Height="24" />
                 <Label Name="PngResolutionLabel" Grid.Row="1" Grid.Column="0" Margin="0 5 5 0">Resolution (DPI):</Label>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5 0 0" HorizontalAlignment="Left" Width="50"
-                         TextAlignment="Right"
+                         TextAlignment="Right" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                          Text="{Binding CurrentProfile.PngSettings.Dpi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="24" />
             </Grid>
         </HeaderedContentControl>
@@ -76,7 +76,7 @@
                           SelectedValuePath="Value" DisplayMemberPath="Name" ItemsSource="{Binding TiffColorValues}" Height="24" />
                 <Label Name="TiffResolutionLabel" Grid.Row="1" Grid.Column="0" Margin="0 5 5 0">Resolution (DPI):</Label>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5 0 0" Width="50" HorizontalAlignment="Left"
-                         TextAlignment="Right"
+                         TextAlignment="Right" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                          Text="{Binding CurrentProfile.TiffSettings.Dpi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="24" />
             </Grid>
         </HeaderedContentControl>

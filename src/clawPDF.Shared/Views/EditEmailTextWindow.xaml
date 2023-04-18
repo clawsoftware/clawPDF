@@ -8,7 +8,7 @@
         Height="481"
         MinWidth="400"
         Width="446"
-        Background="{x:Static SystemColors.ControlBrush}"
+        Background="{StaticResource ContainerBackground}"
         Name="This">
 
     <Window.Resources>
@@ -29,48 +29,35 @@
                 <ComboBox Name="SubjectTokenComboBox" DockPanel.Dock="Right" VerticalAlignment="Center"
                           SelectionChanged="SubjectTokenComboBox_OnSelectionChanged" MinWidth="150" Height="24" />
                 <TextBlock Name="AddSubjectTokenText" DockPanel.Dock="Right" VerticalAlignment="Center" Margin="5 0">Add Token:</TextBlock>
-                <Label Name="SubjectLabel" Target="{Binding ElementName=SubjectText}">_Subject:</Label>
+                <Label Name="SubjectLabel" Target="{Binding ElementName=SubjectText}" Foreground="{StaticResource ControlDefaultForeground}">_Subject:</Label>
             </DockPanel>
-            <TextBox Name="SubjectText" Margin="0,5,0,2" Height="24" />
+            <TextBox Name="SubjectText" Margin="0,5,0,2" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
             <DockPanel LastChildFill="False">
                 <Label DockPanel.Dock="Left">
                     <TextBlock Name="SubjectPreviewTextBlock">Preview:</TextBlock>
                 </Label>
             </DockPanel>
-            <TextBox IsReadOnly="True"
+            <TextBox IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                      Text="{Binding ElementName=SubjectText, Path=Text, Converter={StaticResource TokenReplacerConverter}, Mode=OneWay}" Height="24" />
             <DockPanel Margin="0 5 0 5">
                 <ComboBox Name="BodyTokenComboBox" DockPanel.Dock="Right" VerticalAlignment="Center"
                           SelectionChanged="BodyTokenComboBox_OnSelectionChanged" MinWidth="150" Height="24" />
                 <TextBlock Name="AddBodyTokenText" DockPanel.Dock="Right" VerticalAlignment="Center" Margin="5 0">Add Token:</TextBlock>
-                <Label Name="BodyTextLabel" Target="{Binding ElementName=BodyText}">_Text:</Label>
+                <Label Name="BodyTextLabel" Target="{Binding ElementName=BodyText}" Foreground="{StaticResource ControlDefaultForeground}">_Text:</Label>
             </DockPanel>
         </StackPanel>
-        <TextBox Name="BodyText" Grid.Row="1" AcceptsReturn="True" Margin="0,0,0,2" />
+        <TextBox Name="BodyText" Grid.Row="1" AcceptsReturn="True" Margin="0,0,0,2" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
         <DockPanel Grid.Row="2" LastChildFill="False">
             <Label DockPanel.Dock="Left">
                 <TextBlock Name="BodyPreviewTextBlock">Preview:</TextBlock>
             </Label>
         </DockPanel>
-        <TextBox Name="FinalBodyText" Grid.Row="3" IsReadOnly="True"
+        <TextBox Name="FinalBodyText" Grid.Row="3" IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                  Text="{Binding ElementName=BodyText, Path=Text, Converter={StaticResource TokenReplacerConverterWithFooter}, Mode=OneWay}" />
 
-        <DockPanel Grid.Row="4">
-            <DockPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Padding" Value="10" />
-                    <Setter Property="MinWidth" Value="100" />
-                    <Setter Property="Margin" Value="10 10 0 0" />
-                </Style>
-            </DockPanel.Resources>
-
-            <Button Name="CancelButton" DockPanel.Dock="Right" IsCancel="True">_Cancel</Button>
-            <Button Name="OkButton" DockPanel.Dock="Right" Click="OkButton_OnClick">_OK</Button>
-            <CheckBox Name="AttachSignature" DockPanel.Dock="Left" Margin="0 10"
-                      IsChecked="{Binding ElementName=This,Path=AddSignature}" Checked="AttachSignature_OnChecked"
-                      Unchecked="AttachSignature_OnChecked">
-                <TextBlock Name="AttachSignatureText" TextWrapping="Wrap">Attach clawSoft Signature</TextBlock>
-            </CheckBox>
+        <DockPanel Grid.Row="4" LastChildFill="False">
+            <Button Margin="10 10 0 10" MinWidth="70" Padding="5" Name="CancelButton" DockPanel.Dock="Right" IsCancel="True">_Cancel</Button>
+            <Button Margin="10 10 5 10" MinWidth="70" Padding="5" Name="OkButton" DockPanel.Dock="Right" Click="OkButton_OnClick">_OK</Button>
         </DockPanel>
     </Grid>
 </Window>

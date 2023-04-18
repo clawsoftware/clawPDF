@@ -7,7 +7,7 @@
         Icon="../clawPDF.ico"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         ResizeMode="CanMinimize" x:ClassModifier="internal">
-    <Grid Background="{x:Static SystemColors.ControlBrush}">
+    <Grid Background="{StaticResource BackgroundColour}">
         <Grid.Resources>
             <Style x:Key="NoChromeButton" TargetType="{x:Type Button}">
                 <Setter Property="Background" Value="Transparent" />
@@ -58,7 +58,7 @@
             <StackPanel DockPanel.Dock="Top" Name="CustomizationPanel" Visibility="Visible" VerticalAlignment="Center">
                 <Image Name="CustomImage" MaxWidth="400" MaxHeight="90" />
             </StackPanel>
-            <RichTextBox Width="407" Margin="0,5.4,0,10.2" HorizontalAlignment="Center" Name="rt_license">
+            <RichTextBox Width="407" Margin="0,5.4,0,10.2" HorizontalAlignment="Center" Name="rt_license" Background="{StaticResource ContainerBackground}" Foreground="{StaticResource ControlDefaultForeground}">
                 <FlowDocument>
                     <Paragraph>
                         <Run Text="" />

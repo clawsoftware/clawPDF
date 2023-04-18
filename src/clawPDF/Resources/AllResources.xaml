@@ -6,10 +6,7 @@
         <ResourceDictionary Source="/clawPDF.Shared;component/Resources/Buttons.xaml" />
         <ResourceDictionary Source="/clawPDF.Shared;component/Resources/Icons.xaml" />
         <ResourceDictionary Source="/clawPDF.Shared;component/Resources/Controls.xaml" />
-        <ResourceDictionary Source="/clawPDF.Shared;component/Resources/ControlStyles/DataGrid.xaml" />
         <ResourceDictionary Source="/clawPDF.Shared;component/Resources/ControlStyles/FancyTabs.xaml" />
         <ResourceDictionary Source="/clawPDF.Shared;component/Resources/ControlStyles/HeaderPanel.xaml" />
-        <ResourceDictionary Source="/clawPDF.Shared;component/Resources/ControlStyles/ListView.xaml" />
-        <ResourceDictionary Source="/clawPDF.Shared;component/Resources/ControlStyles/GpoStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

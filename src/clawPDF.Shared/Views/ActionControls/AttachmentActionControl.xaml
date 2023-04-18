@@ -16,7 +16,7 @@
                         Click="SelectAttachmentFileButton_OnClick" Height="24">
                     ...
                 </Button>
-                <TextBox Name="AttachmentFileTextBox" Text="{Binding CurrentProfile.AttachmentPage.File}" Height="24" />
+                <TextBox Name="AttachmentFileTextBox" Text="{Binding CurrentProfile.AttachmentPage.File}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
             </DockPanel>
         </StackPanel>
     </Grid>

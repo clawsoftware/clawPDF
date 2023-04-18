@@ -127,7 +127,6 @@
     <Compile Include="ViewModels\UserControls\TitleTabViewModel.cs" />
     <Compile Include="ViewModels\Validation\NonEmptyStringValidationRule.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
-    <Compile Include="ViewModels\Wrapper\DataGridComboBoxColumnWithBindingHack.cs" />
     <Compile Include="ViewModels\Wrapper\SynchronizedCollection.cs" />
     <Compile Include="Views\ActionControls\ActionBundle.cs" />
     <Compile Include="Views\ActionControls\ActionControl.cs" />
@@ -242,10 +241,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\ControlStyles\FancyTabs.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Resources\ControlStyles\GpoStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -2,7 +2,9 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Interop;
 using clawSoft.clawPDF.Helper;
 using clawSoft.clawPDF.Shared.Helper;
 using clawSoft.clawPDF.Shared.Helper.Logging;

@@ -13,7 +13,7 @@
             </Label>
             <DockPanel>
                 <Button DockPanel.Dock="Right" Margin="5 0 0 0" Width="25" Click="SelectCoverFileButton_OnClick" Height="24">...</Button>
-                <TextBox Name="CoverFileTextBox" Text="{Binding CurrentProfile.CoverPage.File}" Height="24" />
+                <TextBox Name="CoverFileTextBox" Text="{Binding CurrentProfile.CoverPage.File}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
             </DockPanel>
         </StackPanel>
     </Grid>

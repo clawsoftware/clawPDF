@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Defective Profiles"
-        Background="{x:Static SystemColors.ControlBrush}"
+        Background="{StaticResource ContainerBackground}"
         Width="400"
         MinHeight="250"
         MinWidth="400"

@@ -37,7 +37,7 @@
                 </HeaderedContentControl>
                 <TextBlock Margin="0,5,0,0" Name="OCRLanguageNoteTextBlock" TextWrapping="Wrap">Please provide the language(s) to be recognized in the file to be printed and specify the language files without the ".traineddata" extension. If there are several languages, separate them with a plus sign (e.g. eng+deu+fra).</TextBlock>
                 <Label Margin="0,5,0,0" Name="OCRLanguageLabel" Content="Language(s):" />
-                <TextBox HorizontalAlignment="Stretch" Text="{Binding CurrentProfile.OCRSettings.OCRLanguage}" Height="24" />
+                <TextBox HorizontalAlignment="Stretch" Text="{Binding CurrentProfile.OCRSettings.OCRLanguage}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
                 <Button Margin="0,5,0,0" Content="TESSDATA" Click="openTessdataSource_Click" Height="24" />
                 <Label Content="" />
                 <TextBlock Margin="0,5,0,0" Name="OCRNoteTextBlock" TextWrapping="Wrap">Kindly verify if the appropriate language file(s) for the language(s) to be detected are present in the source language file folder. To access the language files and add new ones, click on the 'TESSDATA' button. You may also download additional language files from the websites listed below:

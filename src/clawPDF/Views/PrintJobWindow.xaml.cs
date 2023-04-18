@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
-using System.Windows.Media;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.Helper;
@@ -24,10 +21,12 @@ namespace clawSoft.clawPDF.Views
         private clawPDFSettings _settings = SettingsHelper.Settings;
         private PrintJobViewModel vm;
         private static readonly TranslationHelper TranslationHelper = TranslationHelper.Instance;
+        private static System.Windows.Media.Brush TabColor;
 
         public PrintJobWindow()
         {
             InitializeComponent();
+            TabColor = PasswordTab.Background;
             vm = new PrintJobViewModel();
             DataContext = vm;
             PageOrientationComboBox.ItemsSource = PageOrientationValues;
@@ -107,11 +106,11 @@ namespace clawSoft.clawPDF.Views
         {
             if (vm.SelectedProfile.PdfSettings.Security.Enabled)
             {
-                PasswordTab.Background = new SolidColorBrush(Colors.LightBlue);
+                PasswordTab.Background = (System.Windows.Media.Brush)FindResource("ControlPrimaryColourBackground");
             }
             else
             {
-                PasswordTab.Background = null;
+                PasswordTab.Background = TabColor;
             }
             SecurityCheckBox.IsChecked = vm.SelectedProfile.PdfSettings.Security.Enabled;
             UserPasswordCheckBox.IsChecked = vm.SelectedProfile.PdfSettings.Security.RequireUserPassword;
@@ -144,13 +143,13 @@ namespace clawSoft.clawPDF.Views
         {
             vm.SelectedProfile.PdfSettings.Security.Enabled = true;
             vm.SelectedProfile.PdfSettings.Security.RestrictPrintingToLowQuality = false;
-            PasswordTab.Background = new SolidColorBrush(Colors.LightBlue);
+            PasswordTab.Background = (System.Windows.Media.Brush)FindResource("ControlPrimaryColourBackground");
         }
 
         private void SecurityCheckBoxUnchecked(object sender, RoutedEventArgs e)
         {
             vm.SelectedProfile.PdfSettings.Security.Enabled = false;
-            PasswordTab.Background = null;
+            PasswordTab.Background = TabColor;
         }
 
         private void UserPasswordCheckBoxChecked(object sender, RoutedEventArgs e)

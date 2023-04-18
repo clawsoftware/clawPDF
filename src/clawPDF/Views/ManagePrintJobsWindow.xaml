@@ -9,7 +9,7 @@
         AllowDrop="True"
         DragEnter="OnDragEnter"
         Drop="OnDrop"
-        Background="{x:Static SystemColors.ControlBrush}"
+        Background="{StaticResource WindowBorderColour}"
         Activated="OnActivated"
         Icon="../clawPDF.ico"
         KeyDown="ManagePrintJobsWindow_OnKeyDown" x:ClassModifier="internal">

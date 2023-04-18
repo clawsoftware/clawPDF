@@ -8,6 +8,7 @@
         MaxWidth="600"
         Loaded="OnLoaded"
         ResizeMode="NoResize"
+        Background="{StaticResource ContainerBackground}"
         WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModels:MessageWindowViewModel />
@@ -24,7 +25,7 @@
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" FlowDirection="LeftToRight" Orientation="Horizontal" HorizontalAlignment="Left"
-                    VerticalAlignment="Top" Background="White" MinHeight="120">
+                    VerticalAlignment="Top" MinHeight="120">
             <ContentControl Name="IconBox" VerticalAlignment="Center" Margin="20,20,0,20" Width="48" Height="48" />
             <TextBlock Name="MessageText" Margin="10,20,20,20" VerticalAlignment="Center" TextWrapping="Wrap"
                        MinWidth="100" MaxWidth="450">
@@ -32,7 +33,7 @@
             </TextBlock>
         </StackPanel>
         <StackPanel Grid.Row="1" FlowDirection="RightToLeft" Orientation="Horizontal"
-                    Background="{x:Static SystemColors.ControlBrush}">
+                    Background="{StaticResource WindowBorderColour}">
             <Button
                 Name="RightButton"
                 Command="{Binding Path=ButtonRightCommand}"

@@ -86,6 +86,7 @@
                         <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,10,0,0">
                             <Label Name="ViewerStartsOnPageLabel">Viewer opens on page:</Label>
                             <TextBox Text="{Binding CurrentProfile.PdfSettings.ViewerStartsOnPage, Mode=TwoWay}"
+                                     Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                                      Margin="5,0,0,0" Width="35" VerticalAlignment="Center" />
                         </StackPanel>
                     </Grid>
@@ -114,7 +115,7 @@
                                             IsEnabled="{Binding SelectedItem.Value, ElementName=CompressionColorAndGrayComboBox, Converter={StaticResource CompressionColorAndGrayIsJpegManualConverter}}"
                                             Margin="0,5,0,0">
                                     <Label Name="CompressionColorAndGrayJpegFactorLabel">Factor:</Label>
-                                    <TextBox Name="JpegFactorTextBox"
+                                    <TextBox Name="JpegFactorTextBox" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                                              Text="{Binding CurrentProfile.PdfSettings.CompressColorAndGray.JpegCompressionFactor}"
                                              Width="40" Margin="5 0 0 0" VerticalAlignment="Center"
                                              TextChanged="JpegFactorTextBox_OnTextChanged" />
@@ -127,6 +128,7 @@
                                         Resample Images to:
                                     </CheckBox>
                                     <TextBox Text="{Binding CurrentProfile.PdfSettings.CompressColorAndGray.Dpi}"
+                                             Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                                              Width="40" Margin="0,0,5,0" VerticalAlignment="Center" />
                                     <Label Name="CompressionColorAndGrayDpiLabel">DPI</Label>
                                 </StackPanel>
@@ -154,7 +156,7 @@
                                               IsChecked="{Binding CurrentProfile.PdfSettings.CompressMonochrome.Resampling}">
                                         Resample Images to:
                                     </CheckBox>
-                                    <TextBox Width="40" VerticalAlignment="Center"
+                                    <TextBox Width="40" VerticalAlignment="Center" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                                              Text="{Binding CurrentProfile.PdfSettings.CompressMonochrome.Dpi}" />
                                     <Label Name="CompressionMonochromeDpiLabel" Margin="5,0,0,0">DPI</Label>
                                 </StackPanel>
@@ -243,7 +245,7 @@
                 </StackPanel>
             </StackPanel>
         </TabItem>
-        <TabItem Name="PdfSignatureTab" Header="Signature" Height="23" VerticalAlignment="Top" x:FieldModifier="public">
+        <TabItem Name="PdfSignatureTab" Header="Signature" x:FieldModifier="public">
             <StackPanel Margin="5">
                 <CheckBox Name="SignatureCheckBox"
                           IsChecked="{Binding CurrentProfile.PdfSettings.Signature.Enabled, Mode=TwoWay}">
@@ -261,21 +263,21 @@
                                 Padding="0" Click="CertificationFileButton_OnClick" Height="24">
                             ...
                         </Button>
-                        <TextBox Name="CertificationFileTextBox" DockPanel.Dock="Left"
+                        <TextBox Name="CertificationFileTextBox" DockPanel.Dock="Left" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                                  Text="{Binding CurrentProfile.PdfSettings.Signature.CertificateFile, Mode=TwoWay}" Height="24" />
                     </DockPanel>
                     <UniformGrid Columns="3" Margin="0 5 0 0">
                         <DockPanel>
                             <Label DockPanel.Dock="Top" Name="SignatureReasonLabel">Reason:</Label>
-                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignReason}" Height="24" />
+                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignReason}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
                         </DockPanel>
                         <DockPanel Margin="10 0 0 0">
                             <Label DockPanel.Dock="Top" Name="SignatureContactLabel">Contact:</Label>
-                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignContact}" Height="24" />
+                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignContact}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
                         </DockPanel>
                         <DockPanel Margin="10 0 0 0">
                             <Label DockPanel.Dock="Top" Name="SignatureLocationLabel">Location:</Label>
-                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignLocation}" Height="24" />
+                            <TextBox Text="{Binding CurrentProfile.PdfSettings.Signature.SignLocation}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
                         </DockPanel>
                     </UniformGrid>
                     <CheckBox Name="AllowMultiSigningCheckBox" Margin="0,10,0,0"
@@ -289,7 +291,7 @@
                                 Padding="10,0,10,0" Click="DefaultTimeServerButton_OnClick" Height="24">
                             Default Time Server
                         </Button>
-                        <TextBox Name="TimeServerUrlTextBox" DockPanel.Dock="Left"
+                        <TextBox Name="TimeServerUrlTextBox" DockPanel.Dock="Left" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                                  Text="{Binding CurrentProfile.PdfSettings.Signature.TimeServerUrl}" Height="24" />
                     </DockPanel>
                     <StackPanel Orientation="Horizontal" Margin="15 8 0 0">
@@ -313,7 +315,7 @@
                                       SelectedValue="{Binding CurrentProfile.PdfSettings.Signature.SignaturePage}"
                                       DisplayMemberPath="Name" SelectedValuePath="Value"
                                       ItemsSource="{Binding SignaturePageValues}" Width="179" Height="24" />
-                            <TextBox Margin="5 0 0 0" Width="40" VerticalAlignment="Center"
+                            <TextBox Margin="5 0 0 0" Width="40" VerticalAlignment="Center" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                                      Text="{Binding CurrentProfile.PdfSettings.Signature.SignatureCustomPage, Mode=TwoWay}"
                                      IsEnabled="{Binding SelectedItem.Value, ElementName=SignaturePageComboBox, Converter={StaticResource SignaturePageIsCustomPageConverter}}" Height="24" />
                         </StackPanel>
@@ -329,16 +331,16 @@
                                 <RowDefinition />
                             </Grid.RowDefinitions>
                             <Label Name="SignatureLeftXLabel" Grid.Row="0" Grid.Column="0">Left X:</Label>
-                            <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"
+                            <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                                      Text="{Binding CurrentProfile.PdfSettings.Signature.LeftX}" Height="24" />
                             <Label Name="SignatureRightXLabel" Grid.Row="0" Grid.Column="2" Margin="5 0 0 0">Right X:</Label>
-                            <TextBox Grid.Row="0" Grid.Column="3" VerticalAlignment="Center"
+                            <TextBox Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                                      Text="{Binding CurrentProfile.PdfSettings.Signature.RightX}" Height="24" />
                             <Label Grid.Row="1" Grid.Column="0" Name="SignatureLeftYLabel" Margin="0 5 0 0">Left Y:</Label>
-                            <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5 0 0" VerticalAlignment="Center"
+                            <TextBox Grid.Row="1" Grid.Column="1" Margin="0 5 0 0" VerticalAlignment="Center" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                                      Text="{Binding CurrentProfile.PdfSettings.Signature.LeftY}" Height="24" />
                             <Label Name="SignatureRightYLabel" Grid.Row="1" Grid.Column="2" Margin="5 5 0 0">Right Y:</Label>
-                            <TextBox Grid.Row="1" Grid.Column="3" Margin="0 5 0 0" VerticalAlignment="Center"
+                            <TextBox Grid.Row="1" Grid.Column="3" Margin="0 5 0 0" VerticalAlignment="Center" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                                      Text="{Binding CurrentProfile.PdfSettings.Signature.RightY}" Height="24" />
                         </Grid>
                     </StackPanel>

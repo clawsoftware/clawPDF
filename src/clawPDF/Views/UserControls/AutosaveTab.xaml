@@ -48,13 +48,13 @@
                             Click="AutoSaveBrowseFolderButton_OnClick" Height="24">
                         ...
                     </Button>
-                    <TextBox Name="TargetFolderTextBox" Text="{Binding CurrentProfile.AutoSave.TargetDirectory}" Height="24" />
+                    <TextBox Name="TargetFolderTextBox" Text="{Binding CurrentProfile.AutoSave.TargetDirectory}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
                 </DockPanel>
                 <ComboBox Grid.Row="4" Grid.Column="1" Name="TargetFolderTokensComboBox"
                           SelectionChanged="TargetFolderTokensComboBox_OnSelectionChanged" Height="24" />
                 <Label Name="TargetFolderPreviewLabel" Grid.Row="5" Grid.Column="0">Preview:</Label>
                 <TextBox Name="TargetFolderPreviewText" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
-                         IsReadOnly="True"
+                         IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                          Text="{Binding Text, ElementName=TargetFolderTextBox, Converter={StaticResource TokenReplacerConverterForFolders}}" Height="24" />
                 <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
                     <TextBlock TextWrapping="Wrap" Margin="0 10 0 0" Name="AutomaticSavingHintText">Edit profiles without print dialog by opening clawPDF in Windows Explorer</TextBlock>

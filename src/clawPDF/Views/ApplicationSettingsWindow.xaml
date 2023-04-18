@@ -12,6 +12,7 @@
         Loaded="ApplicationSettingsWindow_OnLoaded"
         Closed="ApplicationSettingsWindow_OnClosed" x:ClassModifier="internal"
         Icon="../clawPDF.ico"
+        Background="{StaticResource WindowBorderColour}"
         xmlns:viewModels="clr-namespace:clawSoft.clawPDF.ViewModels">
     <Window.DataContext>
         <viewModels:ApplicationSettingsViewModel />
@@ -31,11 +32,11 @@
             <RowDefinition Height="70" />
         </Grid.RowDefinitions>
 
-        <DockPanel Background="{StaticResource TitleBarGrayBrush}" Height="64" VerticalAlignment="Top"
+        <DockPanel Background="{StaticResource WindowBorderColour}" Height="64" VerticalAlignment="Top"
                    LastChildFill="True">
             <ContentControl Margin="10" Content="" Height="45" />
             <TextBlock Name="TitleText" Text="Application Settings" HorizontalAlignment="Left"
-                       VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Foreground="#FFFAFAFA"
+                       VerticalAlignment="Center" FontWeight="Bold" FontSize="24"  Foreground="{StaticResource ControlDefaultForeground}"
                        FontFamily="Calibri" />
         </DockPanel>
 
@@ -56,7 +57,7 @@
             </TabItem>
 
             <TabItem Template="{StaticResource FancyTabItem}" Name="PrinterTab"
-                     IsEnabled="{Binding PrinterTabIsEnabled}" Style="{StaticResource GpoStyle}">
+                     IsEnabled="{Binding PrinterTabIsEnabled}">
                 <TabItem.Header>
                     <userControls1:TabHeaderControl x:Name="PrintersTabText" Text="Printers">
                         <ContentControl Content="{StaticResource PrinterSettings}" />
@@ -64,8 +65,7 @@
                 </TabItem.Header>
                 <userControls:PrinterTab x:Name="PrinterTabUserControl" />
             </TabItem>
-            <TabItem Template="{StaticResource FancyTabItem}" Name="TitleTab" IsEnabled="{Binding TitleTabIsEnabled}"
-                     Style="{StaticResource GpoStyle}">
+            <TabItem Template="{StaticResource FancyTabItem}" Name="TitleTab" IsEnabled="{Binding TitleTabIsEnabled}">
                 <TabItem.Header>
                     <userControls1:TabHeaderControl x:Name="TitleTabText" Text="Title">
                         <ContentControl Margin="2" Content="{StaticResource TitleSettings}" />
@@ -73,8 +73,7 @@
                 </TabItem.Header>
                 <userControls1:TitleTab x:Name="TitleTabUserControl" />
             </TabItem>
-            <TabItem Template="{StaticResource FancyTabItem}" Name="DebugTab" IsEnabled="{Binding DebugTabIsEnabled}"
-                     Style="{StaticResource GpoStyle}">
+            <TabItem Template="{StaticResource FancyTabItem}" Name="DebugTab" IsEnabled="{Binding DebugTabIsEnabled}">
                 <TabItem.Header>
                     <userControls1:TabHeaderControl x:Name="DebugTabText" Text="Debug">
                         <ContentControl Content="{StaticResource DebugSettings}" />

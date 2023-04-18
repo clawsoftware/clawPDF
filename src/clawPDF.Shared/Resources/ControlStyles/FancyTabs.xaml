@@ -57,45 +57,16 @@
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="UIElement.IsMouseOver" Value="True">
-                <Setter Property="BorderBrush" TargetName="RedBorder">
-                    <Setter.Value>
-                        <SolidColorBrush Color="#6B6B6B" Opacity="0.8" />
-                    </Setter.Value>
-                </Setter>
+                <Setter Property="BorderBrush" TargetName="RedBorder" Value="{StaticResource ControlDefaultForeground}"></Setter>
             </Trigger>
             <Trigger Property="Selector.IsSelected" Value="True">
-                <Setter Property="BorderBrush" TargetName="RedBorder">
-                    <Setter.Value>
-                        <SolidColorBrush Color="#404040" Opacity="0.8" />
-                    </Setter.Value>
-                </Setter>
+                <Setter Property="BorderBrush" TargetName="RedBorder" Value="{StaticResource ContainerBorder}"></Setter>
                 <Setter Property="Panel.ZIndex">
                     <Setter.Value>
                         <s:Int32>1</s:Int32>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="Panel.Background" TargetName="Bd">
-                    <Setter.Value>
-                        <SolidColorBrush>#FFF9F9F9</SolidColorBrush>
-                    </Setter.Value>
-                </Setter>
-            </Trigger>
-            <Trigger Property="UIElement.IsEnabled" Value="False">
-                <Setter Property="Panel.Background" TargetName="Bd">
-                    <Setter.Value>
-                        <SolidColorBrush>#FFF4F4F4</SolidColorBrush>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="Border.BorderBrush" TargetName="Bd">
-                    <Setter.Value>
-                        <SolidColorBrush>#FFC9C7BA</SolidColorBrush>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="TextElement.Foreground">
-                    <Setter.Value>
-                        <DynamicResource ResourceKey="{x:Static SystemColors.GrayTextBrushKey}" />
-                    </Setter.Value>
-                </Setter>
+                <Setter Property="Panel.Background" TargetName="Bd" Value="{StaticResource BackgroundColour}"></Setter>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

@@ -17,7 +17,7 @@
     <StackPanel>
         <HeaderedContentControl Name="LanguageControl" Template="{StaticResource HeaderPanelTemplate}"
                                 Header="Language">
-            <StackPanel HorizontalAlignment="Left" MinWidth="250" Style="{StaticResource GpoStyle}"
+            <StackPanel HorizontalAlignment="Left" MinWidth="250"
                         IsEnabled="{Binding LanguageIsEnabled}">
                 <Label>
                     <TextBlock Name="SelectLanguageLabel" TextWrapping="Wrap">Please select the application language:</TextBlock>

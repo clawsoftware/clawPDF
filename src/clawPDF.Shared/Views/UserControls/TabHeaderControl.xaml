@@ -14,13 +14,13 @@
                     <Ellipse
                         Height="48"
                         Width="48"
-                        Stroke="{StaticResource ButtonGrayBrush}"
+                        Stroke="{StaticResource ContainerBackground}"
                         Fill="Transparent" />
                     <Ellipse
                         Height="34"
                         Width="34"
                         Margin="7"
-                        Fill="{StaticResource ButtonGrayBrush}" />
+                        Fill="{StaticResource ContainerBackground}" />
 
                     <ContentPresenter Margin="12" Width="24" Content="{TemplateBinding Content}" />
                 </Canvas>

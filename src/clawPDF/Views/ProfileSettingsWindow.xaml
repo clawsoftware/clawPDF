@@ -11,6 +11,7 @@
         MinHeight="700"
         MinWidth="800"
         Icon="../clawPDF.ico"
+        Background="{StaticResource WindowBorderColour}"
         x:Name="This" Width="800" Height="700" x:ClassModifier="internal">
     <Window.Resources>
         <Style x:Key="DisabledGrey" TargetType="{x:Type Shape}">
@@ -38,16 +39,16 @@
             <RowDefinition Height="70" />
         </Grid.RowDefinitions>
 
-        <DockPanel Background="{StaticResource TitleBarGrayBrush}" Height="64" VerticalAlignment="Top"
+        <DockPanel Background="{StaticResource WindowBorderColour}" Height="64" VerticalAlignment="Top"
                    LastChildFill="True">
             <ContentControl Margin="10" Content="" Height="45" />
             <TextBlock x:Name="TitleText" Text="Profile Settings" HorizontalAlignment="Left" VerticalAlignment="Center"
-                       FontWeight="Bold" FontSize="24" Foreground="#FFFAFAFA" FontFamily="Calibri" />
+                       FontWeight="Bold" FontSize="24"  Foreground="{StaticResource ControlDefaultForeground}" FontFamily="Calibri" />
             <DockPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">
                 <TextBlock x:Name="ProfileLabel" VerticalAlignment="Center" Foreground="White" Margin="0,0,5,0"><Run Text="Profile:" /></TextBlock>
                 <ComboBox x:Name="ProfilesBox" Width="250" ItemsSource="{Binding ConversionProfilesView, Mode=TwoWay}"
                           IsSynchronizedWithCurrentItem="True" DisplayMemberPath="Name" TabIndex="4" />
-                <StackPanel Orientation="Horizontal" x:Name="ProfileManagement" Style="{StaticResource GpoStyle}"
+                <StackPanel Orientation="Horizontal" x:Name="ProfileManagement"
                             IsEnabled="{Binding ProfileManagementIsEnabled}">
                     <Button x:Name="RenameProfileButton" Command="{Binding RenameProfileCommand}" Margin="5,0,0,0"
                             Padding="0" Height="25" Width="25" FontWeight="ExtraBold" FontFamily="ArialBlack"

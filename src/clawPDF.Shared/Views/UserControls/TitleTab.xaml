@@ -85,9 +85,9 @@
                                     Template="{StaticResource HeaderPanelTemplate}" Header="Preview">
                 <StackPanel>
                     <TextBlock Margin="0 5 0 0" Name="SampleTitleText">Sample Title:</TextBlock>
-                    <TextBox TextChanged="TitleSample_OnTextChanged" Name="TitleSample" Height="24">My Document - Editor</TextBox>
+                    <TextBox TextChanged="TitleSample_OnTextChanged" Name="TitleSample" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}">My Document - Editor</TextBox>
                     <TextBlock Margin="0 5 0 0" Name="PreviewTitleText">Replaced Title:</TextBlock>
-                    <TextBox IsReadOnly="True" Name="TitlePreview" Height="24" />
+                    <TextBox IsReadOnly="True" Name="TitlePreview" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
                 </StackPanel>
             </HeaderedContentControl>
         </Grid>

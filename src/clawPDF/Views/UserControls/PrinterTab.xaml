@@ -13,16 +13,20 @@
     <UserControl.DataContext>
         <userControls:PrinterTabViewModel />
     </UserControl.DataContext>
+
     <StackPanel>
         <HeaderedContentControl Name="ManagePrintersControl" Template="{StaticResource HeaderPanelTemplate}"
                                 Header="Manage Printers">
             <StackPanel Margin="0 5 0 0">
+
                 <DataGrid
                     Name="PrinterList"
                     ItemsSource="{Binding PrinterMappings}"
                     IsSynchronizedWithCurrentItem="True"
                     Height="150"
                     CanUserAddRows="False"
+                    Foreground="{StaticResource ControlDefaultForeground}"
+                    Background="{StaticResource BackgroundColour}"
                     CanUserDeleteRows="False"
                     AutoGenerateColumns="False"
                     AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn">
@@ -31,11 +35,20 @@
                                             Binding="{Binding PrinterName}" />
                         <DataGridCheckBoxColumn x:Name="PrimaryColumn" Header="Primary"
                                                 Binding="{Binding IsPrimaryPrinter, Mode=OneWay}" />
-                        <wrapper:DataGridComboBoxColumnWithBindingHack x:Name="ProfileColumn" Header="Profile"
-                                                                       Width="*"
-                                                                       ItemsSource="{Binding RelativeSource={RelativeSource Findancestor, AncestorType={x:Type UserControl}}, Path=DataContext.PrinterMappingProfiles}"
-                                                                       DisplayMemberPath="Name"
-                                                                       SelectedItemBinding="{Binding Profile}" />
+                        <DataGridTemplateColumn Header="Profile" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Profile.Name}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.PrinterMappingProfiles}"
+                                              DisplayMemberPath="Name"
+                                              SelectedItem="{Binding Profile}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+                        </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
                 <UniformGrid Columns="3" MinHeight="40" Margin="0 5 0 0">

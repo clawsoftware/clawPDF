@@ -13,7 +13,8 @@
         Drop="OnDrop"
         ResizeMode="CanMinimize"
         Icon="../clawPDF.ico"
-        Background="{x:Static SystemColors.ControlBrush}" x:ClassModifier="internal">
+        Background="{StaticResource WindowBorderColour}"
+        x:ClassModifier="internal">
     <Grid>
         <Grid.Resources>
             <Style TargetType="{x:Type Label}">
@@ -31,21 +32,21 @@
         <StackPanel Margin="20 0">
             <ContentControl Content="" Width="150" HorizontalAlignment="Right"
                             Margin="10 15 0 -15" IsTabStop="False" />
-            <Label Target="{Binding ElementName=TitleText}" Name="TitleLabel">_Title</Label>
-            <TextBox Name="TitleText" Text="{Binding Metadata.Title}" Height="24" />
-            <Label Target="{Binding ElementName=ProfileCombo}" Name="ProfileLabel">_Profile</Label>
+            <Label Target="{Binding ElementName=TitleText}" Name="TitleLabel" Foreground="{StaticResource ControlDefaultForeground}">_Title</Label>
+            <TextBox Name="TitleText" Text="{Binding Metadata.Title}" Height="24" Background="{StaticResource ContainerBackground}" Foreground="{StaticResource ControlDefaultForeground}" />
+            <Label Target="{Binding ElementName=ProfileCombo}" Name="ProfileLabel" Foreground="{StaticResource ControlDefaultForeground}">_Profile</Label>
             <ComboBox Name="ProfileCombo" ItemsSource="{Binding ProfilesView}" SelectionChanged="profileChange"  DisplayMemberPath="Name"
                       IsSynchronizedWithCurrentItem="True" Height="24" />
 
             <TabControl Name="PrinterTabControl" x:FieldModifier="public" Height="230" Margin="0 20 0 10" Background="{DynamicResource {x:Static SystemColors.WindowBrush}}" BorderThickness="0 1 0 0">
                 <TabItem Name="MetadataTab" Header="Metadata" x:FieldModifier="public">
                     <StackPanel Margin="0 15 0 0">
-                        <Label Target="{Binding ElementName=SubjectText}" Name="SubjectLabel">_Subject</Label>
-                        <TextBox Name="SubjectText" Text="{Binding Metadata.Subject}" Height="24" />
-                        <Label Target="{Binding ElementName=KeywordsText}" Name="KeywordsLabel">_Keywords</Label>
-                        <TextBox Name="KeywordsText" Text="{Binding Metadata.Keywords}" Height="24" />
-                        <Label Target="{Binding ElementName=AuthorText}" Name="AuthorLabel">_Author</Label>
-                        <TextBox Name="AuthorText" Text="{Binding Metadata.Author}" Height="24" />
+                        <Label Target="{Binding ElementName=SubjectText}" Name="SubjectLabel" Foreground="{StaticResource ControlDefaultForeground}" >_Subject</Label>
+                        <TextBox Name="SubjectText" Text="{Binding Metadata.Subject}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
+                        <Label Target="{Binding ElementName=KeywordsText}" Name="KeywordsLabel" Foreground="{StaticResource ControlDefaultForeground}">_Keywords</Label>
+                        <TextBox Name="KeywordsText" Text="{Binding Metadata.Keywords}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
+                        <Label Target="{Binding ElementName=AuthorText}" Name="AuthorLabel" Foreground="{StaticResource ControlDefaultForeground}">_Author</Label>
+                        <TextBox Name="AuthorText" Text="{Binding Metadata.Author}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
                     </StackPanel>
                 </TabItem>
                 <TabItem Name="SettingsTab" Header="Settings" x:FieldModifier="public">
@@ -87,7 +88,7 @@
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock Margin="0,5,0,0" Name="OCRLanguageNoteTextBlock" TextWrapping="Wrap">Please provide the language(s) to be recognized in the file to be printed and specify the language files without the ".traineddata" extension. If there are several languages, separate them with a plus sign (e.g. eng+deu+fra).</TextBlock>
                         <Label Margin="0,5,0,0" Name="OCRLanguageLabel" Content="Language(s):" />
-                        <TextBox Name="OCRLanguage" HorizontalAlignment="Stretch" TextChanged="OCRLanguageChanged" Height="24" />
+                        <TextBox Name="OCRLanguage" HorizontalAlignment="Stretch" TextChanged="OCRLanguageChanged" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
                         <Button Margin="0,5,0,0" Content="TESSDATA" Click="openTessdataSource_Click" Height="24" />
                     </StackPanel>
                 </TabItem>

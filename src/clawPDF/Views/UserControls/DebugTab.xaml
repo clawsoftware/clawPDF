@@ -60,7 +60,7 @@
                                 Template="{StaticResource HeaderPanelTemplate}" Header="Export Settings">
             <UniformGrid Columns="2" Margin="0 5 0 0" Width="400" HorizontalAlignment="Left">
                 <Button Name="SaveSettingsButton" Margin="0 0 5 0" Padding="5" Click="SaveIniButton_OnClick" Height="28">Save settings to ini file</Button>
-                <StackPanel Style="{StaticResource GpoStyle}" IsEnabled="{Binding ProfileManagementIsEnabled}">
+                <StackPanel IsEnabled="{Binding ProfileManagementIsEnabled}">
                     <Button Name="LoadSettingsButton" Margin="5 0 0 0" Padding="5" Click="LoadIniButton_OnClick" Height="28">Load settings from ini file</Button>
                 </StackPanel>
             </UniformGrid>

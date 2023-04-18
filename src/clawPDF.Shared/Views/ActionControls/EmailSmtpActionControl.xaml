@@ -20,11 +20,11 @@
         <Label>
             <TextBlock Name="EmailAddressText">E-Mail Address:</TextBlock>
         </Label>
-        <TextBox Text="{Binding CurrentProfile.EmailSmtp.Address}" Height="24" />
+        <TextBox Text="{Binding CurrentProfile.EmailSmtp.Address}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
         <Label>
             <TextBlock Name="UsernameText">Username:</TextBlock>
         </Label>
-        <TextBox Text="{Binding CurrentProfile.EmailSmtp.UserName}" Height="24" />
+        <TextBox Text="{Binding CurrentProfile.EmailSmtp.UserName}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -39,11 +39,12 @@
             <Label>
                 <TextBlock Grid.Row="0" Grid.Column="0" Name="ServerText">SMTP Server:</TextBlock>
             </Label>
-            <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding CurrentProfile.EmailSmtp.Server}" Height="24" />
+            <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding CurrentProfile.EmailSmtp.Server}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
             <Label Grid.Row="0" Grid.Column="1">
                 <TextBlock Name="PortText">Port:</TextBlock>
             </Label>
             <TextBox Grid.Row="1" Grid.Column="1" Margin="5 0" MinWidth="30"
+                     Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
                      Text="{Binding CurrentProfile.EmailSmtp.Port}" Height="24" />
             <CheckBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"
                       IsChecked="{Binding CurrentProfile.EmailSmtp.Ssl}">
@@ -57,7 +58,7 @@
         <Label Margin="0 5 0 0">
             <TextBlock Name="RecipientsText">Recipients:</TextBlock>
         </Label>
-        <TextBox Name="RecipientsTextBox" Text="{Binding CurrentProfile.EmailSmtp.Recipients}" Height="24" />
+        <TextBox Name="RecipientsTextBox" Text="{Binding CurrentProfile.EmailSmtp.Recipients}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
         <Label>
             <TextBlock Name="MultipleRecipientsHintText" Margin="0 -3 0 0" TextWrapping="Wrap">Multiple recipients are separated by commas</TextBlock>
         </Label>
