@@ -130,17 +130,16 @@ clawPDF.exe /ManagePrintJobs
 
 - PDFCreator (https://github.com/pdfforge/PDFCreator), licensed under AGPL v3 license.
 - Pdftosvg.net (https://github.com/dmester/pdftosvg.net), licensed under MIT license.
-- iTextSharp (https://github.com/itext/itextsharp), licensed under AGPL v3 license.
+- iText7 (https://github.com/itext/itext7-dotnet), licensed under AGPL v3 license.
 - Nlog (https://github.com/NLog/NLog), licensed under BSD 3-Clause.
 - PdfScribe (https://github.com/stchan/PdfScribe), licensed under AGPL v3 license.
-- clawmon (https://github.com/clawsoftware/clawPDF/tree/master/clawmon), licensed under GPL v2 license.
+- clawmon (https://github.com/clawsoftware/clawPDF/tree/master/src/clawmon), licensed under GPL v2 license.
 - Microsoft Postscript Printer Driver (https://docs.microsoft.com/en-us/windows-hardware/drivers/print/microsoft-postscript-printer-driver), copyright (c) Microsoft Corporation. All rights reserved.
 - Ghostscript (https://www.ghostscript.com/download/gsdnld.html), licensed under AGPL v3 license.
 - SystemWrapper (https://github.com/jozefizso/SystemWrapper), licensed under Microsoft Public license.
 - Ftplib (https://archive.codeplex.com/?p=ftplib), licensed under MIT license.
 - DataStorage.dll, licensed under pdfforge Freeware License.
 - DynamicTranslator.dll, licensed under pdfforge Freeware License.
-- TrueTypeFontInfo.dll, licensed under pdfforge Freeware License.
 - Appbar_save (http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported.
 - Appbar_cogs (http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported.
 - Appbar_page_file_pdf (http://modernuiicons.com/), licensed under Attribution-NoDerivs 3.0 Unported.
