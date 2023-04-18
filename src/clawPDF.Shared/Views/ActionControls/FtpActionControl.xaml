@@ -33,7 +33,7 @@
                 <TextBlock Name="DirectoryPreviewText">Preview:</TextBlock>
             </Label>
         </DockPanel>
-        <TextBox Name="DirectoryPreviewTextBox" IsEnabled="False" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
+        <TextBox Name="DirectoryPreviewTextBox" IsEnabled="False" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ControlDisabledGlythColour}" />
         <CheckBox Margin="0 10" IsChecked="{Binding CurrentProfile.Ftp.EnsureUniqueFilenames}">
             <TextBlock Name="EnsureUniqueFilenamesText" TextWrapping="Wrap"
                        Text="Don't overwrite files (adds an increasing number in case of conflict)" />

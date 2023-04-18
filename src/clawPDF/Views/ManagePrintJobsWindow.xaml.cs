@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Interop;
 using clawSoft.clawPDF.Helper;
 using clawSoft.clawPDF.Shared.Helper;
 using clawSoft.clawPDF.ViewModels;
@@ -17,6 +18,9 @@ namespace clawSoft.clawPDF.Views
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
+            IntPtr hWnd = new WindowInteropHelper(GetWindow(this)).EnsureHandle();
+            ThemeHelper.ChangeTitleBar(hWnd);
+
             TranslationHelper.Instance.TranslatorInstance.Translate(this);
             var view = (GridView)JobList.View;
             view.Columns[0].Header =

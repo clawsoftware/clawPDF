@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Interop;
 using clawSoft.clawPDF.Shared.Converter;
 using clawSoft.clawPDF.Shared.Helper;
 
@@ -78,6 +80,12 @@ namespace clawSoft.clawPDF.Shared.Views
             var newSelectionStart = txt.SelectionStart + text.Length;
             txt.Text = txt.Text.Insert(txt.SelectionStart, text);
             txt.SelectionStart = newSelectionStart;
+        }
+
+        private void This_Loaded(object sender, RoutedEventArgs e)
+        {
+            IntPtr hWnd = new WindowInteropHelper(GetWindow(this)).EnsureHandle();
+            ThemeHelper.ChangeTitleBar(hWnd);
         }
     }
 }

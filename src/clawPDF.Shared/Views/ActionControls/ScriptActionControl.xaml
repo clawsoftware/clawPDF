@@ -50,7 +50,7 @@
                 <TextBlock DockPanel.Dock="Left" Name="ScriptCallPreviewText" TextWrapping="Wrap">Sample script call:</TextBlock>
             </Label>
         </DockPanel>
-        <TextBox Name="ScriptCallPreviewTextBox" IsReadOnly="True" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
+        <TextBox Name="ScriptCallPreviewTextBox" IsReadOnly="True" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ControlDisabledGlythColour}" />
         <CheckBox IsChecked="{Binding CurrentProfile.Scripting.WaitForScript}" Margin="0 10 0 0">
             <TextBlock Name="WaitForScript" TextWrapping="Wrap">Wait until the script execution has ended</TextBlock>
         </CheckBox>

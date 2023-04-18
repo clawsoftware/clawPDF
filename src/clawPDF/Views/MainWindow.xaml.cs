@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
 using clawSoft.clawPDF.Helper;
@@ -57,6 +56,9 @@ namespace clawSoft.clawPDF.Views
 
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
+            IntPtr hWnd = new WindowInteropHelper(GetWindow(this)).EnsureHandle();
+            ThemeHelper.ChangeTitleBar(hWnd);
+
             TranslationHelper.Instance.TranslatorInstance.Translate(this);
 
             ApplicationNameText.Text = "clawPDF " + VersionHelper.Instance.FormatWithThreeDigits();

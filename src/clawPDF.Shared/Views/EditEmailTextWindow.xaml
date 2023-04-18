@@ -8,8 +8,9 @@
         Height="481"
         MinWidth="400"
         Width="446"
+        WindowStartupLocation="CenterScreen"
         Background="{StaticResource ContainerBackground}"
-        Name="This">
+        Name="This" Loaded="This_Loaded">
 
     <Window.Resources>
         <converter:TokenReplacerConverter x:Key="TokenReplacerConverter" />
@@ -37,7 +38,7 @@
                     <TextBlock Name="SubjectPreviewTextBlock">Preview:</TextBlock>
                 </Label>
             </DockPanel>
-            <TextBox IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
+            <TextBox IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ControlDisabledGlythColour}"
                      Text="{Binding ElementName=SubjectText, Path=Text, Converter={StaticResource TokenReplacerConverter}, Mode=OneWay}" Height="24" />
             <DockPanel Margin="0 5 0 5">
                 <ComboBox Name="BodyTokenComboBox" DockPanel.Dock="Right" VerticalAlignment="Center"
@@ -52,7 +53,7 @@
                 <TextBlock Name="BodyPreviewTextBlock">Preview:</TextBlock>
             </Label>
         </DockPanel>
-        <TextBox Name="FinalBodyText" Grid.Row="3" IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
+        <TextBox Name="FinalBodyText" Grid.Row="3" IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ControlDisabledGlythColour}"
                  Text="{Binding ElementName=BodyText, Path=Text, Converter={StaticResource TokenReplacerConverterWithFooter}, Mode=OneWay}" />
 
         <DockPanel Grid.Row="4" LastChildFill="False">

@@ -6,7 +6,7 @@
         Width="400"
         MinHeight="250"
         MinWidth="400"
-        SizeToContent="Height" x:ClassModifier="internal">
+        SizeToContent="Height" x:ClassModifier="internal" Loaded="Window_Loaded">
     <Window.CommandBindings>
         <CommandBinding Command="Copy" Executed="CommandBinding_CopyExecuted" />
     </Window.CommandBindings>

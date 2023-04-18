@@ -94,6 +94,7 @@
     <Compile Include="Enums\ReplacementType.cs" />
     <Compile Include="Enums\SelectPrinter.cs" />
     <Compile Include="Enums\SignaturePage.cs" />
+    <Compile Include="Enums\Theme.cs" />
     <Compile Include="Enums\TiffColor.cs" />
     <Compile Include="Enums\UpdateInterval.cs" />
     <Compile Include="Ftp.cs" />

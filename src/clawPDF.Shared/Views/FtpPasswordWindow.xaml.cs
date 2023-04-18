@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Interop;
 using clawSoft.clawPDF.Shared.Helper;
 using clawSoft.clawPDF.Shared.ViewModels;
 
@@ -50,6 +52,9 @@ namespace clawSoft.clawPDF.Shared.Views
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
+            IntPtr hWnd = new WindowInteropHelper(GetWindow(this)).EnsureHandle();
+            ThemeHelper.ChangeTitleBar(hWnd);
+
             TranslationHelper.Instance.TranslatorInstance.Translate(this);
         }
 

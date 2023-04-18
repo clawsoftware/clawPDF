@@ -25,7 +25,6 @@ namespace clawSoft.clawPDF
         public App()
         {
             InitializeComponent();
-
             Application.EnableVisualStyles();
         }
 
@@ -41,7 +40,8 @@ namespace clawSoft.clawPDF
             try
             {
                 LoggingHelper.InitFileLogger("clawPDF", LoggingLevel.Error);
-
+                ThemeHelper.CurrentTheme = SettingsHelper.Settings.ApplicationSettings.Theme;
+                ThemeHelper.ChangeTheme();
                 RunApplication(e.Args);
             }
             catch (Exception ex)
@@ -81,7 +81,6 @@ namespace clawSoft.clawPDF
                 }
 
                 Environment.Exit(0);
-                //Shutdown();
             }
         }
 

@@ -1,11 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Interop;
 using clawSoft.clawPDF.Core.Actions;
+using clawSoft.clawPDF.Helper;
 using clawSoft.clawPDF.Shared.Helper;
 
 namespace clawSoft.clawPDF.Views
@@ -79,6 +82,12 @@ namespace clawSoft.clawPDF.Views
             }
 
             Clipboard.SetText(text.ToString());
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            IntPtr hWnd = new WindowInteropHelper(GetWindow(this)).EnsureHandle();
+            ThemeHelper.ChangeTitleBar(hWnd);
         }
     }
 

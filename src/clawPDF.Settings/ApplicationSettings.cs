@@ -35,6 +35,8 @@ namespace clawSoft.clawPDF.Core.Settings
 
         public bool PrinterDialogTopMost { get; set; }
 
+        public Theme Theme { get; set; }
+
         public string LastUsedProfileGuid { get; set; }
 
         public LoggingLevel LoggingLevel { get; set; }
@@ -53,6 +55,7 @@ namespace clawSoft.clawPDF.Core.Settings
             LastUsedProfileGuid = "DefaultGuid";
             LoggingLevel = LoggingLevel.Error;
             PrinterDialogTopMost = true;
+            Theme = Theme.System;
             PrimaryPrinter = "clawPDF";
             UpdateInterval = UpdateInterval.Weekly;
         }
@@ -149,6 +152,16 @@ namespace clawSoft.clawPDF.Core.Settings
 
             try
             {
+                Theme =
+                    (Theme)Enum.Parse(typeof(Theme), data.GetValue(@"" + path + @"Theme"));
+            }
+            catch
+            {
+                Theme = Theme.System;
+            }
+
+            try
+            {
                 PrimaryPrinter = Data.UnescapeString(data.GetValue(@"" + path + @"PrimaryPrinter"));
             }
             catch
@@ -198,6 +211,7 @@ namespace clawSoft.clawPDF.Core.Settings
             data.SetValue(@"" + path + @"LastUsedProfileGuid", Data.EscapeString(LastUsedProfileGuid));
             data.SetValue(@"" + path + @"LoggingLevel", LoggingLevel.ToString());
             data.SetValue(@"" + path + @"PrinterDialogTopMost", PrinterDialogTopMost.ToString());
+            data.SetValue(@"" + path + @"Theme", Theme.ToString());
             data.SetValue(@"" + path + @"PrimaryPrinter", Data.EscapeString(PrimaryPrinter));
             data.SetValue(@"" + path + @"UpdateInterval", UpdateInterval.ToString());
         }
@@ -220,6 +234,7 @@ namespace clawSoft.clawPDF.Core.Settings
             copy.LastUsedProfileGuid = LastUsedProfileGuid;
             copy.LoggingLevel = LoggingLevel;
             copy.PrinterDialogTopMost = PrinterDialogTopMost;
+            copy.Theme = Theme;
             copy.PrimaryPrinter = PrimaryPrinter;
             copy.UpdateInterval = UpdateInterval;
 
@@ -250,6 +265,7 @@ namespace clawSoft.clawPDF.Core.Settings
             if (!Language.Equals(v.Language)) return false;
             if (!LastUsedProfileGuid.Equals(v.LastUsedProfileGuid)) return false;
             if (!PrinterDialogTopMost.Equals(v.PrinterDialogTopMost)) return false;
+            if (!Theme.Equals(v.Theme)) return false;
             if (!LoggingLevel.Equals(v.LoggingLevel)) return false;
             if (!PrimaryPrinter.Equals(v.PrimaryPrinter)) return false;
             if (!UpdateInterval.Equals(v.UpdateInterval)) return false;
@@ -272,6 +288,7 @@ namespace clawSoft.clawPDF.Core.Settings
             sb.AppendLine("LastUsedProfileGuid=" + LastUsedProfileGuid);
             sb.AppendLine("LoggingLevel=" + LoggingLevel);
             sb.AppendLine("PrinterDialogTopMost=" + PrinterDialogTopMost);
+            sb.AppendLine("Theme=" + Theme);
             sb.AppendLine("PrimaryPrinter=" + PrimaryPrinter);
             sb.AppendLine("UpdateInterval=" + UpdateInterval);
 

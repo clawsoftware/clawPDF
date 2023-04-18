@@ -12,7 +12,7 @@
         Loaded="ApplicationSettingsWindow_OnLoaded"
         Closed="ApplicationSettingsWindow_OnClosed" x:ClassModifier="internal"
         Icon="../clawPDF.ico"
-        Background="{StaticResource WindowBorderColour}"
+        Background="{StaticResource ContainerBackground}"
         xmlns:viewModels="clr-namespace:clawSoft.clawPDF.ViewModels">
     <Window.DataContext>
         <viewModels:ApplicationSettingsViewModel />

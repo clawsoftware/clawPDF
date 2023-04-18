@@ -11,7 +11,7 @@
         MinHeight="700"
         MinWidth="800"
         Icon="../clawPDF.ico"
-        Background="{StaticResource WindowBorderColour}"
+        Background="{StaticResource ContainerBackground}"
         x:Name="This" Width="800" Height="700" x:ClassModifier="internal">
     <Window.Resources>
         <Style x:Key="DisabledGrey" TargetType="{x:Type Shape}">

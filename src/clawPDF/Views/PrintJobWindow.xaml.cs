@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Interop;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Core.Settings.Enums;
 using clawSoft.clawPDF.Helper;
@@ -60,6 +61,9 @@ namespace clawSoft.clawPDF.Views
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
+            IntPtr hWnd = new WindowInteropHelper(GetWindow(this)).EnsureHandle();
+            ThemeHelper.ChangeTitleBar(hWnd);
+
             TranslationHelper.Instance.TranslatorInstance.Translate(this);
             FlashWindow.Flash(this, 3);
         }

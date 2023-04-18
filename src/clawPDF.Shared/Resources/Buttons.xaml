@@ -32,8 +32,8 @@
 
                         <Viewbox Stretch="Uniform">
                             <Canvas Width="60" Height="60">
-                                <Ellipse Stroke="{StaticResource ContainerBackground}" Fill="Transparent" Width="60" Height="60" />
-                                <Ellipse Fill="{StaticResource ContainerBackground}" Width="44" Height="44" Margin="8" />
+                                <Ellipse Stroke="{StaticResource WindowBorderColour}" Fill="Transparent" Width="60" Height="60" />
+                                <Ellipse Fill="{StaticResource WindowBorderColour}" Width="44" Height="44" Margin="8" />
                             </Canvas>
                         </Viewbox>
 

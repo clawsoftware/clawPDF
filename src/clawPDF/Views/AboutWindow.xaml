@@ -4,10 +4,11 @@
         Title="About clawPDF" Height="352.614" Width="650"
         WindowStartupLocation="CenterScreen"
         Loaded="OnLoaded"
+        Background="{StaticResource ContainerBackground}"
         Icon="../clawPDF.ico"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         ResizeMode="CanMinimize" x:ClassModifier="internal">
-    <Grid Background="{StaticResource BackgroundColour}">
+    <Grid>
         <Grid.Resources>
             <Style x:Key="NoChromeButton" TargetType="{x:Type Button}">
                 <Setter Property="Background" Value="Transparent" />

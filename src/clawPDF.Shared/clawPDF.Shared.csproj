@@ -101,6 +101,7 @@
     <Compile Include="Helper\MailSignatureHelper.cs" />
     <Compile Include="Helper\PsFileHelper.cs" />
     <Compile Include="Helper\TextBoxHelper.cs" />
+    <Compile Include="Helper\ThemesHelper.cs" />
     <Compile Include="Helper\TokenHelper.cs" />
     <Compile Include="Helper\URLs.cs" />
     <Compile Include="Assistants\PrinterActionsAssistant.cs" />

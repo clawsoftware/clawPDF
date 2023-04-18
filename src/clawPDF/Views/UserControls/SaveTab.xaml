@@ -67,7 +67,7 @@
                           SelectionChanged="FilenameTokensComboBox_OnSelectionChanged" Height="24" />
                 <Label Name="FilenamePreviewLabel" Grid.Row="2" Grid.Column="0">Preview:</Label>
                 <TextBox Name="FilenamePreviewText" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsReadOnly="True"
-                         Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
+                         Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ControlDisabledGlythColour}"
                          Text="{Binding Text, ElementName=FilenameTemplateTextBox, Converter={StaticResource TokenReplacerConverterForFilenames}}" Height="24" />
             </Grid>
         </HeaderedContentControl>
@@ -106,7 +106,7 @@
                               SelectionChanged="SaveDialogFolderTokensComboBox_OnSelectionChanged" Height="24" />
                     <Label Name="SaveDialogFolderPreviewLabel" Grid.Row="3" Grid.Column="0">Preview:</Label>
                     <TextBox Name="SaveDialogFolderPreviewText" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
-                             IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}"
+                             IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ControlDisabledGlythColour}"
                              Text="{Binding Text, ElementName=SaveDialogFolderTextBox, Converter={StaticResource TokenReplacerConverterForFolders}}" Height="24" />
                 </Grid>
             </StackPanel>

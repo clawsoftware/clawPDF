@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
+using System.Windows.Interop;
 using clawSoft.clawPDF.Core.Actions;
 using clawSoft.clawPDF.Core.Settings;
 using clawSoft.clawPDF.Helper;
@@ -155,6 +156,9 @@ namespace clawSoft.clawPDF.Views
 
         private void ProfileSettingsWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
+            IntPtr hWnd = new WindowInteropHelper(GetWindow(this)).EnsureHandle();
+            ThemeHelper.ChangeTitleBar(hWnd);
+
             TranslationHelper.TranslatorInstance.Translate(this);
 
             ViewModel.CurrentProfilePropertyChanged();

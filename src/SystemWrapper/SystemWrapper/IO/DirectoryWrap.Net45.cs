@@ -6,7 +6,6 @@ namespace SystemWrapper.IO
 {
     public partial class DirectoryWrap
     {
-#if NET45
         public IEnumerable<string> EnumerateFiles(string path)
         {
             return Directory.EnumerateFiles(path);
@@ -21,6 +20,5 @@ namespace SystemWrapper.IO
         {
             return Directory.EnumerateFiles(path, searchPattern, searchOption);
         }
-#endif
     }
 }

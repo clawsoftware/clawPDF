@@ -63,6 +63,9 @@ namespace clawSoft.clawPDF.ViewModels.UserControls
         public IEnumerable<EnumValue<UpdateInterval>> UpdateIntervals =>
             TranslationHelper.Instance.TranslatorInstance.GetEnumTranslation<UpdateInterval>();
 
+        public IEnumerable<EnumValue<Theme>> ThemeValues =>
+            TranslationHelper.Instance.TranslatorInstance.GetEnumTranslation<Theme>();
+
         public bool LanguageIsEnabled => true;
 
         public string CurrentLanguage

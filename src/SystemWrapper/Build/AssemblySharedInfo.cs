@@ -12,5 +12,5 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // NOTE: Assembly name is set in respective project files.
-[assembly: AssemblyVersion("0.28.0.0")]
-[assembly: AssemblyFileVersion("2.0.0.0")]
+[assembly: AssemblyVersion("0.30.0.0")]
+[assembly: AssemblyFileVersion("3.0.0.0")]
