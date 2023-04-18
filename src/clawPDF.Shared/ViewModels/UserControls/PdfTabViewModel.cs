@@ -192,6 +192,7 @@ namespace clawSoft.clawPDF.Shared.ViewModels.UserControls
             RaisePropertyChanged("LowEncryptionEnabled");
             RaisePropertyChanged("MediumEncryptionEnabled");
             RaisePropertyChanged("HighEncryptionEnabled");
+            RaisePropertyChanged("VeryHighEncryptionEnabled");
             RaisePropertyChanged("ExtendedPermissonsEnabled");
             RaisePropertyChanged("RestrictLowQualityPrintingEnabled");
             RaisePropertyChanged("AllowFillFormsEnabled");
