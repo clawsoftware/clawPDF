@@ -38,7 +38,7 @@
                     <TextBlock Name="SubjectPreviewTextBlock">Preview:</TextBlock>
                 </Label>
             </DockPanel>
-            <TextBox IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ControlDisabledGlythColour}"
+            <TextBox IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource WindowBorderColour}"
                      Text="{Binding ElementName=SubjectText, Path=Text, Converter={StaticResource TokenReplacerConverter}, Mode=OneWay}" Height="24" />
             <DockPanel Margin="0 5 0 5">
                 <ComboBox Name="BodyTokenComboBox" DockPanel.Dock="Right" VerticalAlignment="Center"
@@ -53,7 +53,7 @@
                 <TextBlock Name="BodyPreviewTextBlock">Preview:</TextBlock>
             </Label>
         </DockPanel>
-        <TextBox Name="FinalBodyText" Grid.Row="3" IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ControlDisabledGlythColour}"
+        <TextBox Name="FinalBodyText" Grid.Row="3" IsReadOnly="True" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource WindowBorderColour}"
                  Text="{Binding ElementName=BodyText, Path=Text, Converter={StaticResource TokenReplacerConverterWithFooter}, Mode=OneWay}" />
 
         <DockPanel Grid.Row="4" LastChildFill="False">

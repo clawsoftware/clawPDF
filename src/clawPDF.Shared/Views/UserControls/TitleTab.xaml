@@ -40,6 +40,7 @@
                       Grid.Column="1" Grid.Row="0" Grid.RowSpan="5"
                       ItemsSource="{Binding TitleReplacements}"
                       IsSynchronizedWithCurrentItem="True"
+                      HeadersVisibility="Column"
                       AutoGenerateColumns="False"
                       AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn"
                       Height="250"
@@ -87,7 +88,7 @@
                     <TextBlock Margin="0 5 0 0" Name="SampleTitleText">Sample Title:</TextBlock>
                     <TextBox TextChanged="TitleSample_OnTextChanged" Name="TitleSample" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}">My Document - Editor</TextBox>
                     <TextBlock Margin="0 5 0 0" Name="PreviewTitleText">Replaced Title:</TextBlock>
-                    <TextBox IsReadOnly="True" Name="TitlePreview" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ControlDisabledGlythColour}" />
+                    <TextBox IsReadOnly="True" Name="TitlePreview" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource WindowBorderColour}" />
                 </StackPanel>
             </HeaderedContentControl>
         </Grid>

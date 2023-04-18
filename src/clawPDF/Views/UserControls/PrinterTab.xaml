@@ -19,11 +19,12 @@
                                 Header="Manage Printers">
             <StackPanel Margin="0 5 0 0">
 
-                <DataGrid
+                <DataGrid Margin="0 0 5 0"
                     Name="PrinterList"
                     ItemsSource="{Binding PrinterMappings}"
                     IsSynchronizedWithCurrentItem="True"
                     Height="150"
+                    HeadersVisibility="Column"
                     CanUserAddRows="False"
                     Foreground="{StaticResource ControlDefaultForeground}"
                     Background="{StaticResource BackgroundColour}"

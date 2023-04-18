@@ -11,13 +11,6 @@
         <CommandBinding Command="Copy" Executed="CommandBinding_CopyExecuted" />
     </Window.CommandBindings>
     <Grid Margin="10">
-        <Grid.Resources>
-            <Style TargetType="Button">
-                <Setter Property="MinWidth" Value="80" />
-                <Setter Property="Margin" Value="5 0" />
-                <Setter Property="Height" Value="30" />
-            </Style>
-        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -46,8 +39,8 @@
                    Text="Do you want to return and edit the settings or ignore the errors and save anyway?" />
 
         <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right">
-            <Button Name="IgnoreButton" Click="IgnoreButton_OnClick">_Ignore</Button>
-            <Button Name="EditButton" IsDefault="True" IsCancel="True">_Edit</Button>
+            <Button Margin="0 0 0 0" MinWidth="60" Padding="5" Name="IgnoreButton" Click="IgnoreButton_OnClick">_Ignore</Button>
+            <Button Margin="10 0 0 0" MinWidth="60" Padding="5" Name="EditButton" IsDefault="True" IsCancel="True">_Edit</Button>
         </StackPanel>
     </Grid>
 </Window>

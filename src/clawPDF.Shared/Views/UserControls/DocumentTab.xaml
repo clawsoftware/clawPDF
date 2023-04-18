@@ -39,7 +39,7 @@
                 <ComboBox Name="TitleTokensComboBox" Grid.Row="1" Grid.Column="1"
                           SelectionChanged="TitleTokensComboBox_OnSelectionChanged" Height="24" />
                 <Label Name="TitlePreviewLabel" Grid.Row="2" Grid.Column="0">Preview:</Label>
-                <TextBox Name="TitlePreviewText" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ControlDisabledGlythColour}"
+                <TextBox Name="TitlePreviewText" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource WindowBorderColour}"
                          Text="{Binding Text, ElementName=AuthorTemplateTextBox, Converter={StaticResource TokenReplacerConverter}, Mode=TwoWay}"
                          IsReadOnly="True" Height="24" />
                 <Label Name="AuthorLabel" Grid.Row="4" Grid.Column="0" DockPanel.Dock="Top">Author:</Label>
@@ -49,7 +49,7 @@
                 <ComboBox Name="AuthorTokensComboBox" Grid.Row="5" Grid.Column="1"
                           SelectionChanged="AuthorTokensComboBox_OnSelectionChanged" Height="24" />
                 <Label Name="AuthorPreviewLabel" Grid.Row="6" Grid.Column="0">Preview:</Label>
-                <TextBox Name="AuthorPreviewText" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ControlDisabledGlythColour}"
+                <TextBox Name="AuthorPreviewText" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource WindowBorderColour}"
                          Text="{Binding Text, ElementName=AuthorTemplateTextBox, Converter={StaticResource TokenReplacerConverter}, Mode=TwoWay}"
                          IsReadOnly="True" Height="24" />
             </Grid>
