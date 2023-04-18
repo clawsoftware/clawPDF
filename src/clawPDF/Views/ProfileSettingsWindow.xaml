@@ -45,7 +45,7 @@
             <TextBlock x:Name="TitleText" Text="Profile Settings" HorizontalAlignment="Left" VerticalAlignment="Center"
                        FontWeight="Bold" FontSize="24"  Foreground="{StaticResource ControlDefaultForeground}" FontFamily="Calibri" />
             <DockPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">
-                <TextBlock x:Name="ProfileLabel" VerticalAlignment="Center" Foreground="White" Margin="0,0,5,0"><Run Text="Profile:" /></TextBlock>
+                <TextBlock x:Name="ProfileLabel" VerticalAlignment="Center" Foreground="{StaticResource ControlDefaultForeground}" Margin="0,0,5,0"><Run Text="Profile:" /></TextBlock>
                 <ComboBox x:Name="ProfilesBox" Width="250" ItemsSource="{Binding ConversionProfilesView, Mode=TwoWay}"
                           IsSynchronizedWithCurrentItem="True" DisplayMemberPath="Name" TabIndex="4" />
                 <StackPanel Orientation="Horizontal" x:Name="ProfileManagement"
