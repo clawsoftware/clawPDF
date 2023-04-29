@@ -211,21 +211,38 @@ namespace clawSoft.clawPDF.PDFProcessing
             var writerProperties = new WriterProperties();
 
             if (profile.PdfSettings.Security.Enabled)
-                ApplyEncryptionToWriterProperties(writerProperties, profile, jobPasswords);
-
-            try
             {
-                byte[] passwordBytes = System.Text.Encoding.UTF8.GetBytes(jobPasswords.PdfOwnerPassword);
-                PdfReader pdfReader = new PdfReader(documentContext.OriginalFileName, new ReaderProperties().SetPassword(passwordBytes));
-                PdfWriter pdfWriter = new PdfWriter(documentContext.TempFileName, writerProperties);
-                documentContext.Document = new PdfDocument(pdfReader, pdfWriter);
+                try
+                {
+                    ApplyEncryptionToWriterProperties(writerProperties, profile, jobPasswords);
+                    byte[] passwordBytes = Encoding.UTF8.GetBytes(jobPasswords.PdfOwnerPassword);
+                    PdfReader pdfReader = new PdfReader(documentContext.OriginalFileName, new ReaderProperties().SetPassword(passwordBytes));
+                    PdfWriter pdfWriter = new PdfWriter(documentContext.TempFileName, writerProperties);
+                    documentContext.Document = new PdfDocument(pdfReader, pdfWriter);
 
-                return documentContext;
+                    return documentContext;
+                }
+                catch (Exception e)
+                {
+                    Logger.Trace(e.Message);
+                    throw;
+                }
             }
-            catch (Exception e)
+            else
             {
-                Logger.Trace(e.Message);
-                throw;
+                try
+                {
+                    PdfReader pdfReader = new PdfReader(documentContext.OriginalFileName);
+                    PdfWriter pdfWriter = new PdfWriter(documentContext.TempFileName, writerProperties);
+                    documentContext.Document = new PdfDocument(pdfReader, pdfWriter);
+
+                    return documentContext;
+                }
+                catch (Exception e)
+                {
+                    Logger.Trace(e.Message);
+                    throw;
+                }
             }
         }
 

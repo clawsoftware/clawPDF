@@ -96,7 +96,7 @@
       <Version>7.2.5</Version>
     </PackageReference>
     <PackageReference Include="NLog">
-      <Version>5.1.3</Version>
+      <Version>5.1.4</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

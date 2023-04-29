@@ -178,7 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NLog">
-      <Version>5.1.3</Version>
+      <Version>5.1.4</Version>
     </PackageReference>
     <PackageReference Include="PdfToSvg.NET">
       <Version>0.8.2</Version>

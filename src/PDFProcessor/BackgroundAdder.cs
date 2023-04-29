@@ -52,6 +52,8 @@ namespace clawSoft.clawPDF.PDFProcessing
             var nFile = pdfDocument.GetNumberOfPages();
 
             var backgroundPdfDoc = new PdfDocument(new PdfReader(profile.BackgroundPage.File));
+
+            // Get the first page of the background PDF document as a template
             var backgroundPage = backgroundPdfDoc.GetFirstPage().CopyAsFormXObject(pdfDocument);
 
             Logger.Debug("BackgroundFile: " + System.IO.Path.GetFullPath(profile.BackgroundPage.File));
@@ -82,7 +84,8 @@ namespace clawSoft.clawPDF.PDFProcessing
                     "\r\n" + ex, 17201);
             }
 
-            for (var i = 1; i <= nFile; i++)
+            // Iterate through all pages of the main PDF
+            for (int i = 1; i <= nFile; i++)
             {
                 var backgroundPageNumber = GetBackgroundPageNumber(i, nBackground, profile.BackgroundPage.Repetition,
                     numberOfFrontPagesWithoutBackground, lastPageWithBackground);
@@ -90,64 +93,22 @@ namespace clawSoft.clawPDF.PDFProcessing
                     continue;
 
                 var documentPage = pdfDocument.GetPage(i);
-                var documentPageSize = documentPage.GetPageSize();
 
-                if (documentPage.GetRotation() == 90 || documentPage.GetRotation() == 270)
-                {
-                    //Swap width and height for landscape pages
-                    documentPageSize = new Rectangle(documentPageSize.GetHeight(), documentPageSize.GetWidth());
-                }
+                // Create a canvas for the current page
+                var canvas = new PdfCanvas(documentPage.NewContentStreamBefore(), documentPage.GetResources(), pdfDocument);
 
-                AddPageWithRotationAndScaling(new PdfCanvas(documentPage), documentPageSize, backgroundPage,
-                    new Rectangle(0, 0, backgroundPage.GetWidth(), backgroundPage.GetHeight()), documentPage.GetRotation());
+                // Add the background to the canvas as a template
+                canvas.AddXObjectAt(backgroundPage, 0, 0);
+
+                // Add the content of the current page to the canvas
+                canvas.AddXObjectAt(documentPage.CopyAsFormXObject(pdfDocument), 0, 0);
+
+                // Release the canvas
+                canvas.Release();
             }
 
             backgroundPdfDoc.Close();
         }
-
-        private static void AddPageWithRotationAndScaling(PdfCanvas canvas, Rectangle canvasSize, PdfFormXObject sourcePage,
-           Rectangle sourcePageSize, int sourceRotation)
-        {
-            float sourceWidth = sourcePageSize.GetWidth();
-            float sourceHeight = sourcePageSize.GetHeight();
-            float scaleX = canvasSize.GetWidth() / sourceWidth;
-            float scaleY = canvasSize.GetHeight() / sourceHeight;
-            float scale = Math.Max(scaleX, scaleY);
-
-            float translationX = (canvasSize.GetWidth() - sourceWidth * scale) / 2;
-            float translationY = (canvasSize.GetHeight() - sourceHeight * scale) / 2;
-
-            canvas.SaveState();
-            canvas.ConcatMatrix(scale, 0, 0, scale, translationX, translationY);
-
-            switch (sourceRotation)
-            {
-                case 90:
-                    canvas.ConcatMatrix(0, 1, -1, 0, sourceHeight, 0);
-                    break;
-
-                case 180:
-                    canvas.ConcatMatrix(-1, 0, 0, -1, sourceWidth, sourceHeight);
-                    break;
-
-                case 270:
-                    canvas.ConcatMatrix(0, -1, 1, 0, 0, sourceWidth);
-                    break;
-
-                case 0:
-                default:
-                    break;
-            }
-
-            canvas.AddXObjectAt(sourcePage, 0, 0);
-            canvas.RestoreState();
-        }
-
-        // -- clockwise --              cos  sin  -sin  cos  dx  dy
-        //background.AddTemplate(page,  1f,   0,    0,  1f,  0,  0 ); //0°
-        //background.AddTemplate(page,  0,  -1f,   1f,   0,  0,  0 ); //90°
-        //background.AddTemplate(page, -1f,   0,    0, -1f,  0,  0 ); //180°
-        //background.AddTemplate(page,  0,   1f,  -1f,   0,  0,  0 ); //270°
 
         /// <summary>
         ///     Determine the number of pages at the beginning of the document, that do not get a background,
