@@ -8,7 +8,7 @@ ClawPDF is open-source and compatible with all major Windows client and server o
 
 # Download
 
-https://github.com/clawsoftware/clawPDF/releases/download/0.9.1/clawPDF_0.9.1_setup.msi
+https://github.com/clawsoftware/clawPDF/releases/download/0.9.2/clawPDF_0.9.2_setup.msi
 
 
 # Features
@@ -101,13 +101,10 @@ clawPDF.exe /ManagePrintJobs
 
 # Changelog
 
-## v0.9.1 (2023.04.18)
+## v0.9.2 (2023.05.01)
 
-- [feature] Windows ARM64 support (Surface, Windows on Apple M1/M2/M3)
-- [feature] 256-bit AES encryption
-- [feature] Ask for SMTP e-mail recipient if not specified
-- [feature] Light/Dark Theme
-- [update] iText7
+- [bugfix] PDF background action
+- [feature] Automatic recipient(s) recognition for email client action
 
 [more](https://github.com/clawsoftware/clawPDF/wiki/Changelog)
 

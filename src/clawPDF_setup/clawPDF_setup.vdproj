@@ -46,6 +46,12 @@
         "Entry"
         {
         "MsmKey" = "8:_0F08A82E744B06027143347766E2E4AC"
+        "OwnerKey" = "8:_077D86EFCA200ED740A022D2ED44DAD5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0F08A82E744B06027143347766E2E4AC"
         "OwnerKey" = "8:_5E17343EE965A4222678D9C82EBE1D7F"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -268,12 +274,6 @@
         "Entry"
         {
         "MsmKey" = "8:_371F7D0FFBC646BAB1F2A584EBBB0DBF"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3A1346FF745D4382AD39937696C3855A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -563,6 +563,12 @@
         {
         "MsmKey" = "8:_70B06888A012A2F2FD2CBFAD6F3F515D"
         "OwnerKey" = "8:_2ADCA95456CE47B9A8F7651A167A03F4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_73B5CB7D2B3044E3AE4DFC81CDB4A980"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2174,26 +2180,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3A1346FF745D4382AD39937696C3855A"
-            {
-            "SourcePath" = "8:..\\_Build\\Release\\clawPDF.tlb"
-            "TargetName" = "8:clawPDF.tlb"
-            "Tag" = "8:"
-            "Folder" = "8:_6D653F6EE3324579B145A191268F8DEA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:2"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3BEFCB7C58FA30855211ACED246C886A"
             {
             "AssemblyRegister" = "3:1"
@@ -2525,7 +2511,7 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:2"
-            "Exclude" = "11:FALSE"
+            "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -2804,6 +2790,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_73B5CB7D2B3044E3AE4DFC81CDB4A980"
+            {
+            "SourcePath" = "8:..\\_Build\\Release\\clawPDF.tlb"
+            "TargetName" = "8:clawPDF.tlb"
+            "Tag" = "8:"
+            "Folder" = "8:_6D653F6EE3324579B145A191268F8DEA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:2"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_73C6FD96600C9908A8FD779404864A2D"
@@ -4395,7 +4401,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:clawPDF 0.9.2"
         "ProductCode" = "8:{F3493872-0C22-4C4B-B3E7-468D392F04B8}"
-        "PackageCode" = "8:{561ED73C-E2AC-4F42-B8BE-F46CFDD40A3C}"
+        "PackageCode" = "8:{DA6630C8-95C8-4AE6-8481-A8E12E554F95}"
         "UpgradeCode" = "8:{7D6DE248-9C3E-416C-8141-8178A480E45A}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
