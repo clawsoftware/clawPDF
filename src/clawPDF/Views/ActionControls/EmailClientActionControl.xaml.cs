@@ -25,6 +25,8 @@ namespace clawSoft.clawPDF.Views.ActionControls
                 "Description",
                 "Opens a new e-mail in the default client. There you can add receipients, text and other information and then send the mail to your contacts.");
             TranslationHelper.Instance.TranslatorInstance.Translate(this);
+
+            // if (CurrentProfile.EmailClient.Autodetect) RecipientsTextBox.IsEnabled = false;
         }
 
         public override bool IsActionEnabled
@@ -98,6 +100,16 @@ namespace clawSoft.clawPDF.Views.ActionControls
                 EmailClientSettings.Content = setEmailTextForm.Body;
                 EmailClientSettings.AddSignature = setEmailTextForm.AddSignature;
             }
+        }
+
+        private void EmailAutoDetect_Checked(object sender, RoutedEventArgs e)
+        {
+            RecipientsTextBox.IsEnabled = false;
+        }
+
+        private void EmailAutoDetect_Unchecked(object sender, RoutedEventArgs e)
+        {
+            RecipientsTextBox.IsEnabled = true;
         }
     }
 }

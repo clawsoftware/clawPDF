@@ -10,6 +10,10 @@
         <Label>
             <TextBlock Name="RecipientsText">Recipients:</TextBlock>
         </Label>
+        <CheckBox Name="EmailAutoDetect"
+                                  IsChecked="{Binding CurrentProfile.EmailClient.Autodetect}" Checked="EmailAutoDetect_Checked" Unchecked="EmailAutoDetect_Unchecked">
+            Automatic recognition
+        </CheckBox>
         <TextBox Name="RecipientsTextBox" Text="{Binding CurrentProfile.EmailClient.Recipients}" Height="24" Foreground="{StaticResource ControlDefaultForeground}" Background="{StaticResource ContainerBackground}" />
         <Label>
             <TextBlock Name="MultipleRecipientsHintText" Margin="0 -3 0 0" TextWrapping="Wrap">Multiple recipients are separated by commas</TextBlock>

@@ -43,6 +43,11 @@ namespace clawSoft.clawPDF.Core.Settings
         public string Recipients { get; set; }
 
         /// <summary>
+        ///     Automatic detection of email(s) in the PDF document
+        /// </summary>
+        public bool Autodetect { get; set; }
+
+        /// <summary>
         ///     Subject line of the E-mail
         /// </summary>
         public string Subject { get; set; }
@@ -96,6 +101,15 @@ namespace clawSoft.clawPDF.Core.Settings
 
             try
             {
+                Autodetect = bool.Parse(data.GetValue(@"" + path + @"Autodetect"));
+            }
+            catch
+            {
+                Autodetect = true;
+            }
+
+            try
+            {
                 Subject = Data.UnescapeString(data.GetValue(@"" + path + @"Subject"));
             }
             catch
@@ -110,6 +124,7 @@ namespace clawSoft.clawPDF.Core.Settings
             data.SetValue(@"" + path + @"Content", Data.EscapeString(Content));
             data.SetValue(@"" + path + @"Enabled", Enabled.ToString());
             data.SetValue(@"" + path + @"Recipients", Data.EscapeString(Recipients));
+            data.SetValue(@"" + path + @"Autodetect", Autodetect.ToString());
             data.SetValue(@"" + path + @"Subject", Data.EscapeString(Subject));
         }
 
@@ -121,6 +136,7 @@ namespace clawSoft.clawPDF.Core.Settings
             copy.Content = Content;
             copy.Enabled = Enabled;
             copy.Recipients = Recipients;
+            copy.Autodetect = Autodetect;
             copy.Subject = Subject;
 
             return copy;
@@ -135,6 +151,7 @@ namespace clawSoft.clawPDF.Core.Settings
             if (!Content.Equals(v.Content)) return false;
             if (!Enabled.Equals(v.Enabled)) return false;
             if (!Recipients.Equals(v.Recipients)) return false;
+            if (!Autodetect.Equals(v.Autodetect)) return false;
             if (!Subject.Equals(v.Subject)) return false;
 
             return true;
@@ -148,6 +165,7 @@ namespace clawSoft.clawPDF.Core.Settings
             sb.AppendLine("Content=" + Content);
             sb.AppendLine("Enabled=" + Enabled);
             sb.AppendLine("Recipients=" + Recipients);
+            sb.AppendLine("Autodetect=" + Autodetect);
             sb.AppendLine("Subject=" + Subject);
 
             return sb.ToString();
