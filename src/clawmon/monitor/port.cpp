@@ -77,8 +77,7 @@ static BOOL GetPrimaryToken(LPWSTR lpszUsername, LPWSTR lpszDomain, LPWSTR lpszP
 	*bRestrictedToken = FALSE;
 
 	return LogonUserW(lpszUsername, lpszDomain, lpszPassword, LOGON32_LOGON_INTERACTIVE,
-			LOGON32_PROVIDER_DEFAULT, phToken);
-
+		LOGON32_PROVIDER_DEFAULT, phToken);
 }
 
 //-------------------------------------------------------------------------------------
@@ -1134,7 +1133,6 @@ void CPort::GenerateGuid()
 	wcscpy_s(m_uniqFileName, 260, uuid_str);
 }
 
-
 void CPort::SetFileName()
 {
 	wcsncpy_s(m_nszFileName, 260, m_uniqFileName, _TRUNCATE);
@@ -1250,8 +1248,9 @@ void CPort::SetHomeDirectory(HANDLE hToken)
 			WCHAR temp[MAX_PATH] = { 0 };
 			GetEnvironmentVariableW(L"TEMP", temp, MAX_PATH);
 			wcsncpy_s(szTempDir, MAX_PATH, temp, _TRUNCATE);
-			wcsncat_s(szTempDir, MAX_PATH, L"\\clawPDF\\Spool\\", _TRUNCATE);
+			wcsncat_s(szTempDir, MAX_PATH, L"\\clawPDF_", _TRUNCATE);
 			wcsncat_s(szTempDir, MAX_PATH, UserName(), _TRUNCATE);
+			wcsncat_s(szTempDir, MAX_PATH, L"\\Spool\\", _TRUNCATE);
 			wcsncpy_s(m_szOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
 			wcsncpy_s(m_nszOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
 			g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szTempDir);
@@ -1264,8 +1263,9 @@ void CPort::SetHomeDirectory(HANDLE hToken)
 		WCHAR temp[MAX_PATH] = { 0 };
 		GetEnvironmentVariableW(L"TEMP", temp, MAX_PATH);
 		wcsncpy_s(szTempDir, MAX_PATH, temp, _TRUNCATE);
-		wcsncat_s(szTempDir, MAX_PATH, L"\\clawPDF\\Spool\\", _TRUNCATE);
+		wcsncat_s(szTempDir, MAX_PATH, L"\\clawPDF_", _TRUNCATE);
 		wcsncat_s(szTempDir, MAX_PATH, UserName(), _TRUNCATE);
+		wcsncat_s(szTempDir, MAX_PATH, L"\\Spool\\", _TRUNCATE);
 		wcsncpy_s(m_szOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
 		wcsncpy_s(m_nszOutputPath, MAX_PATH, szTempDir, _TRUNCATE);
 		g_pLog->Log(LOGLEVEL_ALL, L" TempDirectory:         %s", szTempDir);

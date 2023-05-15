@@ -14,39 +14,38 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 //
 
 1 VERSIONINFO
- FILEVERSION 1,0,0,9
- PRODUCTVERSION 1,0,0,9
- FILEFLAGSMASK 0x3fL
+FILEVERSION 1, 2, 0, 0
+PRODUCTVERSION 1, 2, 0, 0
+FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
- FILEFLAGS 0x1L
+FILEFLAGS 0x1L
 #else
- FILEFLAGS 0x0L
+FILEFLAGS 0x0L
 #endif
- FILEOS 0x4L
- FILETYPE 0x2L
- FILESUBTYPE 0x0L
+FILEOS 0x4L
+FILETYPE 0x2L
+FILESUBTYPE 0x0L
 BEGIN
-    BLOCK "StringFileInfo"
-    BEGIN
-        BLOCK "04090000"
-        BEGIN
-            VALUE "Comments", "Released under the terms of the GNU General Public License"
-            VALUE "CompanyName", "Andrew Hess // clawSoft"
-            VALUE "FileDescription", "Printer port monitor"
-            VALUE "FileVersion", "1.0.0.9"
-            VALUE "InternalName", "clawmon"
-            VALUE "LegalCopyright", "Copyright © 2023 // Andrew Hess // clawSoft"
-            VALUE "OriginalFilename", "clawmon.dll"
-            VALUE "ProductName", "clawmon"
-            VALUE "ProductVersion", "1.0.0.9"
-        END
-    END
-    BLOCK "VarFileInfo"
-    BEGIN
-        VALUE "Translation", 0x409, 0
-    END
+BLOCK "StringFileInfo"
+BEGIN
+BLOCK "04090000"
+BEGIN
+VALUE "Comments", "Released under the terms of the GNU General Public License"
+VALUE "CompanyName", "Andrew Hess // clawSoft"
+VALUE "FileDescription", "Printer port monitor"
+VALUE "FileVersion", "1.2.0.0"
+VALUE "InternalName", "clawmon"
+VALUE "LegalCopyright", "Copyright © 2023 // Andrew Hess // clawSoft"
+VALUE "OriginalFilename", "clawmon.dll"
+VALUE "ProductName", "clawmon"
+VALUE "ProductVersion", "1.2.0.0"
 END
-
+END
+BLOCK "VarFileInfo"
+BEGIN
+VALUE "Translation", 0x409, 0
+END
+END
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -54,20 +53,20 @@ END
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE 
+1 TEXTINCLUDE
 BEGIN
-    "resource.h\0"
+"resource.h\0"
 END
 
-2 TEXTINCLUDE 
+2 TEXTINCLUDE
 BEGIN
-    "\0"
+"\0"
 END
 
-3 TEXTINCLUDE 
+3 TEXTINCLUDE
 BEGIN
-    "\r\n"
-    "\0"
+"\r\n"
+"\0"
 END
 
 #endif    // APSTUDIO_INVOKED
@@ -75,15 +74,11 @@ END
 #endif    // Deutsch (Deutschland) resources
 /////////////////////////////////////////////////////////////////////////////
 
-
-
 #ifndef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
 
-
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
-

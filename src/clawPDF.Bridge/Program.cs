@@ -1,5 +1,4 @@
 ﻿using clawSoft.clawPDF.Utilities;
-using clawSoft.clawPDF.Utilities.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,7 +20,7 @@ namespace clawPDF.Bridge
         private static void Main(string[] args)
         {
             var clp = new CommandLineParser(args);
-            
+
             var showUsage = true;
 
             if (clp.HasArgument("Networkprinter"))
@@ -162,7 +161,6 @@ namespace clawPDF.Bridge
             byte[] encryptedData = ProtectedData.Protect(data, null, DataProtectionScope.LocalMachine);
             File.WriteAllBytes(filePath, encryptedData);
 
-
             FileSecurity fileSecurity = new FileSecurity(filePath, AccessControlSections.None);
             fileSecurity.SetAccessRuleProtection(true, false);
 
@@ -265,11 +263,37 @@ namespace clawPDF.Bridge
                 psFileSecurity.AddAccessRule(psRule);
                 psFileInfo.SetAccessControl(psFileSecurity);
 
-                IntPtr token = IntPtr.Zero;
-                LogonUserW(username, domain, password, (int)LOGON_TYPE.LOGON32_LOGON_NETWORK, (int)LOGON_PROVIDER.LOGON32_PROVIDER_DEFAULT, out token);
-                StartProcessAsUser(username, Path.GetDirectoryName(Application.ExecutablePath) + @"\" + "clawPDF.exe", Path.GetDirectoryName(Application.ExecutablePath) + @"\" + "clawPDF.exe" + " /INFODATAFILE=" + "\"" + infFile + "\"", Path.GetDirectoryName(Application.ExecutablePath), true);
+                if (String.IsNullOrEmpty(domain)) domain = Environment.MachineName;
+
+                GrantAccessToWindowStationAndDesktop(username);
+                GrantAccessToWindowStationAndDesktop(domain + "\\" + username);
+
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.LoadUserProfile = true;
+                startInfo.FileName = Path.GetDirectoryName(Application.ExecutablePath) + @"\" + "clawPDF.exe";
+                startInfo.Arguments = "/INFODATAFILE=" + "\"" + infFile + "\"";
+                startInfo.UseShellExecute = false;
+                startInfo.WorkingDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+                startInfo.UserName = username;
+                startInfo.Password = SecureStringHelper.ConvertToSecureString(password);
+                startInfo.Domain = domain;
+
+                Process.Start(startInfo);
             }
             catch { }
+        }
+    }
+
+    public static class SecureStringHelper
+    {
+        public static System.Security.SecureString ConvertToSecureString(string password)
+        {
+            System.Security.SecureString securePassword = new System.Security.SecureString();
+            foreach (char c in password)
+            {
+                securePassword.AppendChar(c);
+            }
+            return securePassword;
         }
     }
 }
