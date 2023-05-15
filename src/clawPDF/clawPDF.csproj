@@ -116,6 +116,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DataStorage">
       <HintPath>..\lib\DataStorage.dll</HintPath>
@@ -125,10 +128,11 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="PresentationFramework.Aero2">
-      <Private>True</Private>
+      <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -590,6 +594,7 @@ xcopy "$(SolutionDir)src\lib\clawmon\Win32\" "$(TargetDir)clawmon\Win32\" /Y
 xcopy "$(SolutionDir)src\lib\clawmon\Win64\" "$(TargetDir)clawmon\x64\" /Y
 xcopy "$(SolutionDir)src\lib\clawmon\ARM64\" "$(TargetDir)clawmon\ARM64\" /Y
 xcopy "$(SolutionDir)src\lib\tessdata\" "$(TargetDir)tessdata\" /Y
+xcopy "$(SolutionDir)src\lib\PresentationFramework.Aero2.dll" "$(TargetDir)" /Y
 echo dummy &gt; "$(TargetDir)clawPDF.tlb"</PostBuildEvent>
   </PropertyGroup>
 </Project>
