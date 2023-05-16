@@ -103,7 +103,7 @@ clawPDF.exe /ManagePrintJobs
 
 ## v0.9.3 (2023.05.16)
 
-- [bugfix] Fixed a bug where in some cases only administrators could use the shared network printer function.
+- [bugfix] Fixed a bug where in some cases only administrators could use the shared network printer function
 - [bugfix] Fixed Windows 7 issues caused since version 0.9.1 
 
 [more](https://github.com/clawsoftware/clawPDF/wiki/Changelog)
