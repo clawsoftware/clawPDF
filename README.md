@@ -8,7 +8,7 @@ ClawPDF is open-source and compatible with all major Windows client and server o
 
 # Download
 
-https://github.com/clawsoftware/clawPDF/releases/download/0.9.2/clawPDF_0.9.2_setup.msi
+https://github.com/clawsoftware/clawPDF/releases/download/0.9.3/clawPDF_0.9.3_setup.msi
 
 
 # Features
@@ -101,10 +101,10 @@ clawPDF.exe /ManagePrintJobs
 
 # Changelog
 
-## v0.9.2 (2023.05.01)
+## v0.9.3 (2023.05.16)
 
-- [bugfix] PDF background action
-- [feature] Automatic recipient(s) recognition for email client action
+- [bugfix] Fixed a bug where in some cases only administrators could use the shared network printer function.
+- [bugfix] Fixed Windows 7 issues caused since version 0.9.1 
 
 [more](https://github.com/clawsoftware/clawPDF/wiki/Changelog)
 
